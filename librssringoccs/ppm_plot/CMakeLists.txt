@@ -1,0 +1,7 @@
+target_sources(RSSRINGOCCS PUBLIC
+rss_ringoccs_color.c
+rss_ringoccs_easy_complex_plots.c
+rss_ringoccs_easy_real_plots.c
+rss_ringoccs_linear_gradient.c
+rss_ringoccs_scaled_gradient.c
+)

@@ -1,0 +1,26 @@
+target_sources(RSSRINGOCCS PUBLIC
+rss_ringoccs_bessel_I0.c
+rss_ringoccs_bessel_J0.c
+rss_ringoccs_coss.c
+rss_ringoccs_frequency_to_wavelength.c
+rss_ringoccs_fresnel_cos.c
+rss_ringoccs_fresnel_integral.c
+rss_ringoccs_fresnel_sin.c
+rss_ringoccs_kaiser_bessel.c
+rss_ringoccs_kaiser_bessel_2_0.c
+rss_ringoccs_kaiser_bessel_2_5.c
+rss_ringoccs_kaiser_bessel_3_5.c
+rss_ringoccs_kaiser_bessel_modified.c
+rss_ringoccs_kaiser_bessel_modified_2_0.c
+rss_ringoccs_kaiser_bessel_modified_2_5.c
+rss_ringoccs_kaiser_bessel_modified_3_5.c
+rss_ringoccs_lambertw.c
+rss_ringoccs_legendre.c
+rss_ringoccs_minmax.c
+rss_ringoccs_norm_eq_width.c
+rss_ringoccs_rect.c
+rss_ringoccs_resolution_inverse.c
+rss_ringoccs_wavelength_to_wavenumber.c
+rss_ringoccs_where.c
+rss_ringoccs_window_function_normalization.c
+)
