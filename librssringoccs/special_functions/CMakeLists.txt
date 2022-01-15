@@ -1,4 +1,4 @@
-target_sources(RSSRINGOCCS PUBLIC
+target_sources(librssringoccs PUBLIC
 rss_ringoccs_bessel_I0.c
 rss_ringoccs_bessel_J0.c
 rss_ringoccs_coss.c

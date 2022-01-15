@@ -1,4 +1,4 @@
-target_sources(RSSRINGOCCS PUBLIC
+target_sources(librssringoccs PUBLIC
 rss_ringoccs_cross_product.c
 rss_ringoccs_inverse_orthographic_projection.c
 rss_ringoccs_inverse_orthographic_projection_torus.c

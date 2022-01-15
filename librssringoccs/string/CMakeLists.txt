@@ -1,4 +1,4 @@
-target_sources(RSSRINGOCCS PUBLIC
+target_sources(librssringoccs PUBLIC
 rss_ringoccs_make_lower.c
 rss_ringoccs_remove_spaces.c
 rss_ringoccs_strdup.c

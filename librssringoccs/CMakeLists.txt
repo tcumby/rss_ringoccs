@@ -1,11 +1,16 @@
-cmake_minimum_required(3.18)
+cmake_minimum_required(3.20)
+include(GNUInstallDirs)
+project(rss_ringoccs)
 
-project(librssringoccs)
+if (NOT WIN32 and CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
+    set(CMAKE_INSTALL_PREFIX /usr/local)
+endif()
 
-add_library(RSSRINGOCCS SHARED)
+enable_language(C)
 
-target_include_directories(RSSRINGOCCS ../include)
+add_library(librssringoccs SHARED)
 
+target_include_directories(librssringoccs ../include)
 add_subdirectory("complex")
 add_subdirectory("csv_tools")
 add_subdirectory("diffraction")
@@ -20,12 +25,39 @@ add_subdirectory("ppm_plot")
 add_subdirectory("reconstruction")
 add_subdirectory("special_functions")
 add_subdirectory("string")
+target_compile_definitions(librssringoccs PUBLIC -DNDEBUG)
+target_compile_options(librssringoccs PUBLIC
+    -ansi
+    -pedantic
+    -pedantic-errors
+    -Wall
+    -Wextra
+    -Wpedantic
+    -Wmisleading-indentation
+    -Wmissing-field-initializers
+    -Wmissing-prototypes
+    -Wold-style-definition
+    -Winit-self
+    -Wmissing-declarations
+    -Wnull-dereference
+    -Wwrite-strings
+    -Wstrict-prototypes
+    -g -fPIC -O3 -flto -c
+)
 
-include(GNUInstallDirs)
+file(GLOB LIBRSSRINGOCCS_HEADERS ../include/*.h )
+set_property(TARGET librssringoccs
+    PROPERTY
+        C_STANDARD 90 # C89/90
+        PUBLIC_HEADER ${LIBRSSRINGOCCS_HEADERS}
+        OUTPUT_NAME rssringoccs
+)
+
 install(TARGETS RSSRINGOCCS
-    RUNTIME ${CMAKE_INSTALL_BINDIR}
-    LIBRARY ${CMAKE_INSTALL_LIBDIR}
-    ARCHIVE ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION  ${CMAKE_INSTALL_LIBDIR}
+    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}}
 )
 
 

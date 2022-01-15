@@ -1,3 +1,3 @@
-target_sources(RSSRINGOCCS PUBLIC
+target_sources(librssringoccs PUBLIC
 rss_ringoccs_sorted_linear_interpolation.c
 )

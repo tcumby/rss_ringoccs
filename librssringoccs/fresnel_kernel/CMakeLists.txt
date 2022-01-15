@@ -1,4 +1,4 @@
-target_sources(RSSRINGOCCS PUBLIC
+target_sources(librssringoccs PUBLIC
 rss_ringoccs_fresnel_d2psi_dphi2.c
 rss_ringoccs_fresnel_dpsi_dphi.c
 rss_ringoccs_fresnel_dpsi_dphi_D.c

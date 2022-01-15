@@ -1,4 +1,4 @@
-target_sources(RSSRINGOCCS PUBLIC rss_ringoccs_gap_fresnel_diffraction.c
+target_sources(librssringoccs PUBLIC rss_ringoccs_gap_fresnel_diffraction.c
 rss_ringoccs_left_straightedge_fresnel_diffraction.c
 rss_ringoccs_one_slit_fraunhofer_diffraction.c
 rss_ringoccs_right_straightedge_fresnel_diffraction.c
