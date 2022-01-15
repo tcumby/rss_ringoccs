@@ -2,9 +2,6 @@ cmake_minimum_required(VERSION 3.20)
 
 project(rss_ringoccs)
 
-if (NOT WIN32 and CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
-    set(CMAKE_INSTALL_PREFIX /usr/local)
-endif()
 
 enable_language(C)
 
@@ -52,6 +49,12 @@ set_property(TARGET librssringoccs
         PUBLIC_HEADER ${LIBRSSRINGOCCS_HEADERS}
         OUTPUT_NAME rssringoccs
 )
+
+if(NOT WIN32 AND CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
+    set(CMAKE_INSTALL_PREFIX "/usr/local")
+endif()
+
+
 include(GNUInstallDirs)
 install(TARGETS RSSRINGOCCS
     RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
