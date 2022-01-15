@@ -7,7 +7,7 @@ enable_language(C)
 
 add_library(librssringoccs SHARED)
 
-target_include_directories(librssringoccs ../include)
+target_include_directories(librssringoccs PUBLIC ../include)
 add_subdirectory("complex")
 add_subdirectory("csv_tools")
 add_subdirectory("diffraction")
