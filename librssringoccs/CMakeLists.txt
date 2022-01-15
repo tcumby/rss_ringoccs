@@ -1,5 +1,5 @@
 cmake_minimum_required(3.20)
-include(GNUInstallDirs)
+
 project(rss_ringoccs)
 
 if (NOT WIN32 and CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
@@ -52,7 +52,7 @@ set_property(TARGET librssringoccs
         PUBLIC_HEADER ${LIBRSSRINGOCCS_HEADERS}
         OUTPUT_NAME rssringoccs
 )
-
+include(GNUInstallDirs)
 install(TARGETS RSSRINGOCCS
     RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
