@@ -11,13 +11,15 @@ elseif (UNIX)
 endif()
 endif()
 
-project(rss_ringoccs)
+include(GenerateExportHeader)
+
+project(rssringoccs_library)
 
 enable_language(C)
 
 add_library(librssringoccs SHARED)
 
-target_include_directories(librssringoccs PUBLIC ../include ../..)
+target_include_directories(librssringoccs PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include ${CMAKE_CURRENT_SOURCE_DIR}/../..)
 add_subdirectory("complex")
 add_subdirectory("csv_tools")
 add_subdirectory("diffraction")
@@ -33,12 +35,18 @@ add_subdirectory("reconstruction")
 add_subdirectory("special_functions")
 add_subdirectory("string")
 target_compile_definitions(librssringoccs PUBLIC -DNDEBUG)
+GENERATE_EXPORT_HEADER(librssringoccs           # generates the export header shared_EXPORTS.h automatically
+    BASE_NAME librssringoccs
+    EXPORT_MACRO_NAME librssringoccs_EXPORTS
+    EXPORT_FILE_NAME librssringoccs_EXPORTS.h
+    STATIC_DEFINE SHARED_EXPORTS_BUILT_AS_STATIC)
 
 
 file(GLOB LIBRSSRINGOCCS_HEADERS ../include/*.h )
 set_property(TARGET librssringoccs
     PROPERTY
         C_STANDARD 90 # C89/90
+        INTERPROCEDURAL_OPTIMIZATION TRUE
         PUBLIC_HEADER ${LIBRSSRINGOCCS_HEADERS}
         OUTPUT_NAME rssringoccs
 )
