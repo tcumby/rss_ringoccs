@@ -37,8 +37,8 @@ add_subdirectory("string")
 target_compile_definitions(librssringoccs PUBLIC -DNDEBUG)
 GENERATE_EXPORT_HEADER(librssringoccs           # generates the export header shared_EXPORTS.h automatically
     BASE_NAME librssringoccs
-    EXPORT_MACRO_NAME librssringoccs_EXPORTS
-    EXPORT_FILE_NAME librssringoccs_EXPORTS.h
+    EXPORT_MACRO_NAME RSS_RINGOCCS_EXPORT
+    EXPORT_FILE_NAME librssringoccs_exports.h
     STATIC_DEFINE SHARED_EXPORTS_BUILT_AS_STATIC)
 
 
