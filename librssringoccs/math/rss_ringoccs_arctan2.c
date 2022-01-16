@@ -98,7 +98,7 @@
  *  only need to alias this function.                                         */
 
 /*  Double precision 2-dimensional arctan function (atan2 equivalent).        */
-double rssringoccs_Double_Arctan2(double y, double x)
+double RSS_RINGOCCS_EXPORT rssringoccs_Double_Arctan2(double y, double x)
 {
     return atan2(y, x);
 }
@@ -111,7 +111,7 @@ double rssringoccs_Double_Arctan2(double y, double x)
  *  to make the code forward compatible.                                      */
 
 /*  Single precision 2-dimensional arctan function (atan2f equivalent).       */
-float rssringoccs_Float_Arctan2(float y, float x)
+float RSS_RINGOCCS_EXPORT rssringoccs_Float_Arctan2(float y, float x)
 {
     /*  Cast "x" and "y" as doubles to atan2, and cast the output as a float. */
     return (float)atan2((double)y, (double)x);
@@ -134,7 +134,7 @@ long double rssringoccs_LDouble_Arctan2(long double y, long double x)
  *  simply use to these.                                                      */
 
 /*  Single precision 2-dimensional arctan function (atan2f equivalent).       */
-float rssringoccs_Float_Arctan2(float y, float x)
+float RSS_RINGOCCS_EXPORT rssringoccs_Float_Arctan2(float y, float x)
 {
     return atan2f(y, x);
 }

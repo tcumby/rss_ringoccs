@@ -27,7 +27,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
 /*  Function for computing the cross product of two vectors.                  */
-rssringoccs_ThreeVector
+rssringoccs_ThreeVector RSS_RINGOCCS_EXPORT
 rssringoccs_Cross_Product(rssringoccs_ThreeVector P, rssringoccs_ThreeVector Q)
 {
     /*  Declare necessary variables.                                          */

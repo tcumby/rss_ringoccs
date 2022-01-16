@@ -204,7 +204,7 @@ static const double expa2n2[] = {
 };
 
 /*  Double precsision complex Faddeeva function.                              */
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Faddeeva(rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. We'll declare all variables used in any  *

@@ -27,7 +27,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
 /*  Function for computing an orthogonal vector to the given input.           */
-rssringoccs_ThreeVector
+rssringoccs_ThreeVector RSS_RINGOCCS_EXPORT
 rssringoccs_Orthogonal_ThreeVector(rssringoccs_ThreeVector P)
 {
     /*  Declare necessary variables. C89 requires this at the top.            */

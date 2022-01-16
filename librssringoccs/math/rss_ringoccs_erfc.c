@@ -2,7 +2,7 @@
  *  library math.h. This allows compatibility of C89 and C99 math.h headers.  */
 #include <rss_ringoccs/include/rss_ringoccs_math.h>
 
-float rssringoccs_Float_Erfc(float x)
+float RSS_RINGOCCS_EXPORT rssringoccs_Float_Erfc(float x)
 {
     float erfc;
     erfc = rssringoccs_Float_Exp(x*x)*rssringoccs_Float_Erfcx(x);
@@ -10,7 +10,7 @@ float rssringoccs_Float_Erfc(float x)
     return erfc;
 }
 
-double rssringoccs_Double_Erfc(double x)
+double RSS_RINGOCCS_EXPORT rssringoccs_Double_Erfc(double x)
 {
     double erfc;
     erfc = rssringoccs_Double_Exp(x*x)*rssringoccs_Double_Erfcx(x);

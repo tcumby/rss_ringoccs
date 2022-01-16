@@ -1238,7 +1238,7 @@ static double erfcx_chebyshev_table(double y100)
     return out;
 }
 
-double rssringoccs_Double_Erfcx(double x)
+double RSS_RINGOCCS_EXPORT rssringoccs_Double_Erfcx(double x)
 {
     double out, x2, x4, numer, denom;
     if (x >= 0)
@@ -1290,7 +1290,7 @@ double rssringoccs_Double_Erfcx(double x)
     return out;
 }
 
-float rssringoccs_Float_Erfcx(float x)
+float RSS_RINGOCCS_EXPORT rssringoccs_Float_Erfcx(float x)
 {
     float out;
     out = (float)rssringoccs_Double_Erfcx((double)x);

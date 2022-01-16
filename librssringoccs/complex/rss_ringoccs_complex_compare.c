@@ -85,7 +85,7 @@
  *  members of the two complex structs.                                       */
 
 /*  Single precision complex comparison.                                      */
-rssringoccs_Bool
+rssringoccs_Bool RSS_RINGOCCS_EXPORT
 rssringoccs_CFloat_Compare(rssringoccs_ComplexFloat z,
                            rssringoccs_ComplexFloat w)
 {
@@ -108,7 +108,7 @@ rssringoccs_CFloat_Compare(rssringoccs_ComplexFloat z,
 /*  End of rssringoccs_CFloat_Compare.                                        */
 
 /*  Double precision complex comparison.                                      */
-rssringoccs_Bool
+rssringoccs_Bool RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Compare(rssringoccs_ComplexDouble z,
                             rssringoccs_ComplexDouble w)
 {
@@ -131,7 +131,7 @@ rssringoccs_CDouble_Compare(rssringoccs_ComplexDouble z,
 /*  End of rssringoccs_CDouble_Compare.                                       */
 
 /*  Long double precision complex comparison.                                 */
-rssringoccs_Bool
+rssringoccs_Bool RSS_RINGOCCS_EXPORT
 rssringoccs_CLDouble_Compare(rssringoccs_ComplexLongDouble z,
                              rssringoccs_ComplexLongDouble w)
 {
@@ -159,7 +159,7 @@ rssringoccs_CLDouble_Compare(rssringoccs_ComplexLongDouble z,
 /*  C99 allows complex values to be compared just like real numbers.          */
 
 /*  Single precision complex comparison.                                      */
-rssringoccs_Bool
+rssringoccs_Bool RSS_RINGOCCS_EXPORT
 rssringoccs_CFloat_Compare(rssringoccs_ComplexFloat z,
                            rssringoccs_ComplexFloat w)
 {
@@ -171,7 +171,7 @@ rssringoccs_CFloat_Compare(rssringoccs_ComplexFloat z,
 /*  End of rssringoccs_CFloat_Compare.                                        */
 
 /*  Double precision complex comparison.                                      */
-rssringoccs_Bool
+rssringoccs_Bool RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Compare(rssringoccs_ComplexDouble z,
                             rssringoccs_ComplexDouble w)
 {
@@ -183,7 +183,7 @@ rssringoccs_CDouble_Compare(rssringoccs_ComplexDouble z,
 /*  End of rssringoccs_CDouble_Compare.                                       */
 
 /*  Long double precision complex comparison.                                 */
-rssringoccs_Bool
+rssringoccs_Bool RSS_RINGOCCS_EXPORT
 rssringoccs_CLDouble_Compare(rssringoccs_ComplexLongDouble z,
                              rssringoccs_ComplexLongDouble w)
 {

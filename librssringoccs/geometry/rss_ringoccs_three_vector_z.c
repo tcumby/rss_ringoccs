@@ -28,7 +28,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
 /*  Function for returning the z component of a three dimensional vector.     */
-double rssringoccs_ThreeVector_Z(rssringoccs_ThreeVector P)
+double RSS_RINGOCCS_EXPORT rssringoccs_ThreeVector_Z(rssringoccs_ThreeVector P)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     double z;

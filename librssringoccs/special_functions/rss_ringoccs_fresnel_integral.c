@@ -37,7 +37,7 @@
 #define FRESNEL_HEALD_RATIONAL_EPS_8_D05 0.4205217
 #define FRESNEL_HEALD_RATIONAL_EPS_8_D06 0.13634704
 
-rssringoccs_ComplexDouble rssringoccs_Complex_Fresnel_Integral(double x)
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT rssringoccs_Complex_Fresnel_Integral(double x)
 {
     double A, R, a, b, c, d, sgn_x, cx, sx;
     rssringoccs_ComplexDouble out;

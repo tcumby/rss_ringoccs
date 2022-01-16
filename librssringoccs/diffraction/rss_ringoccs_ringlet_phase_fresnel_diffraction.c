@@ -68,7 +68,7 @@
  *  Notes:                                                                    *
  *      1.) This function relies on the C99 standard, or higher.              *
  ******************************************************************************/
-float
+float RSS_RINGOCCS_EXPORT
 rssringoccs_Float_Ringlet_Diffraction_Phase(float x, float a, float b, float F)
 {
     float re, im, arg1, arg2, fs1, fs2, fc1, fc2, out;
@@ -105,7 +105,7 @@ rssringoccs_Float_Ringlet_Diffraction_Phase(float x, float a, float b, float F)
  *  Notes:                                                                    *
  *      1.) This function relies on the C99 standard, or higher.              *
  ******************************************************************************/
-double
+double RSS_RINGOCCS_EXPORT
 rssringoccs_Double_Ringlet_Diffraction_Phase(double x, double a,
                                              double b, double F)
 {

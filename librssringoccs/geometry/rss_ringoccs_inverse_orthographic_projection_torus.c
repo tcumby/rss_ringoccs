@@ -1,7 +1,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_math.h>
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
-rssringoccs_ThreeVector
+rssringoccs_ThreeVector RSS_RINGOCCS_EXPORT
 rssringoccs_Inverse_Orthographic_Projection_Torus(rssringoccs_TwoVector P,
                                                   double r, double R)
 {

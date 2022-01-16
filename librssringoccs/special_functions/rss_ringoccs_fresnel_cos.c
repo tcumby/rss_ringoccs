@@ -119,7 +119,7 @@
 #define FRESNEL_COSINE_ASYM_13    -482535008.583068847656250
 #define FRESNEL_COSINE_ASYM_14    -6514222615.8714294433593750
 
-float rssringoccs_Float_Fresnel_Cos(float x)
+float RSS_RINGOCCS_EXPORT rssringoccs_Float_Fresnel_Cos(float x)
 {
     /* Variables for C(x) and powers of x, respectively.                      */
     float cx, arg;
@@ -187,7 +187,7 @@ float rssringoccs_Float_Fresnel_Cos(float x)
     return cx;
 }
 
-double rssringoccs_Double_Fresnel_Cos(double x)
+double RSS_RINGOCCS_EXPORT rssringoccs_Double_Fresnel_Cos(double x)
 {
     /* Variables for C(x) and powers of x, respectively.                      */
     double cx, arg;

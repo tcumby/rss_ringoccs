@@ -42,7 +42,7 @@
  *  so we need a function for computing the sum of two complex values.        */
 
 /*  Single precision complex addition.                                        */
-rssringoccs_ComplexFloat
+rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
 rssringoccs_CFloat_Subtract(rssringoccs_ComplexFloat z0,
                                   rssringoccs_ComplexFloat z1)
 {
@@ -68,7 +68,7 @@ rssringoccs_CFloat_Subtract(rssringoccs_ComplexFloat z0,
 }
 
 /*  Double precision complex addition.                                        */
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Subtract(rssringoccs_ComplexDouble z0,
                                    rssringoccs_ComplexDouble z1)
 {
@@ -94,7 +94,7 @@ rssringoccs_CDouble_Subtract(rssringoccs_ComplexDouble z0,
 }
 
 /*  Long double precision complex addition.                                   */
-rssringoccs_ComplexLongDouble
+rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CLDouble_Subtract(rssringoccs_ComplexLongDouble z0,
                                        rssringoccs_ComplexLongDouble z1)
 {
@@ -120,7 +120,7 @@ rssringoccs_CLDouble_Subtract(rssringoccs_ComplexLongDouble z0,
 }
 
 /*  Single precision complex addition where one variable is real.             */
-rssringoccs_ComplexFloat
+rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
 rssringoccs_CFloat_Subtract_Real(float x, rssringoccs_ComplexFloat z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -140,7 +140,7 @@ rssringoccs_CFloat_Subtract_Real(float x, rssringoccs_ComplexFloat z)
 }
 
 /*  Double precision complex addition where one variable is real.             */
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Subtract_Real(double x, rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -160,7 +160,7 @@ rssringoccs_CDouble_Subtract_Real(double x, rssringoccs_ComplexDouble z)
 }
 
 /*  Long double precision complex addition where one variable is real.        */
-rssringoccs_ComplexLongDouble
+rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CLDouble_Subtract_Real(long double x,
                                             rssringoccs_ComplexLongDouble z)
 {
@@ -181,7 +181,7 @@ rssringoccs_CLDouble_Subtract_Real(long double x,
 }
 
 /*  Single precision complex addition where one variable is imaginary.        */
-rssringoccs_ComplexFloat
+rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
 rssringoccs_CFloat_Subtract_Imag(float y, rssringoccs_ComplexFloat z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -201,7 +201,7 @@ rssringoccs_CFloat_Subtract_Imag(float y, rssringoccs_ComplexFloat z)
 }
 
 /*  Double precision complex addition where one variable is imaginary.        */
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Subtract_Imag(double y, rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -221,7 +221,7 @@ rssringoccs_CDouble_Subtract_Imag(double y, rssringoccs_ComplexDouble z)
 }
 
 /*  Long double precision complex addition where one variable is real.        */
-rssringoccs_ComplexLongDouble
+rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CLDouble_Subtract_Imag(long double y,
                                             rssringoccs_ComplexLongDouble z)
 {
@@ -246,54 +246,54 @@ rssringoccs_CLDouble_Subtract_Imag(long double y,
  *  arithmetic made available with the C99 standard.                          */
 
 /*  Single precision complex addition.                                        */
-rssringoccs_ComplexFloat
+rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
 rssringoccs_CFloat_Subtract(rssringoccs_ComplexFloat z0,
                                   rssringoccs_ComplexFloat z1)
 {
     return z0 - z1;
 }
 
-rssringoccs_ComplexFloat
+rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
 rssringoccs_CFloat_Subtract_Real(float x, rssringoccs_ComplexFloat z)
 {
     return x - z;
 }
 
-rssringoccs_ComplexFloat
+rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
 rssringoccs_CFloat_Subtract_Imag(float y, rssringoccs_ComplexFloat z)
 {
     return _Complex_I*y - z;
 }
 
 /*  Double precision complex addition.                                        */
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Subtract(rssringoccs_ComplexDouble z0,
                                    rssringoccs_ComplexDouble z1)
 {
     return z0 - z1;
 }
 
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Subtract_Real(double x, rssringoccs_ComplexDouble z)
 {
     return x - z;
 }
 
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Subtract_Imag(double y, rssringoccs_ComplexDouble z)
 {
     return _Complex_I*y - z;
 }
 
 /*  Long double precision complex addition.                                   */
-rssringoccs_ComplexLongDouble
+rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CLDouble_Subtract(rssringoccs_ComplexLongDouble z0,
                                        rssringoccs_ComplexLongDouble z1)
 {
     return z0 - z1;
 }
 
-rssringoccs_ComplexLongDouble
+rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CLDouble_Subtract_Real(long double x,
                                             rssringoccs_ComplexLongDouble z)
 {
@@ -301,7 +301,7 @@ rssringoccs_CLDouble_Subtract_Real(long double x,
 }
 
 
-rssringoccs_ComplexLongDouble
+rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CLDouble_Subtract_Imag(long double y,
                                             rssringoccs_ComplexLongDouble z)
 {

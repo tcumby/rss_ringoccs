@@ -50,7 +50,7 @@
 
 /*  Compute the stereographic projection of a point on a sphere. The radius   *
  *  of the sphere is given by the length of the input vector P.               */
-rssringoccs_TwoVector
+rssringoccs_TwoVector RSS_RINGOCCS_EXPORT
 rssringoccs_Stereographic_Projection(rssringoccs_ThreeVector P)
 {
     /*  Declare all necessary variables. C89 requires this at the top.        */

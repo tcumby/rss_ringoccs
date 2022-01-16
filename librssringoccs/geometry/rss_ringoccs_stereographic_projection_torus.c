@@ -1,7 +1,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_math.h>
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
-rssringoccs_TwoVector
+rssringoccs_TwoVector RSS_RINGOCCS_EXPORT
 rssringoccs_Stereographic_Projection_Torus(double u, double v,
                                            double r, double R)
 {

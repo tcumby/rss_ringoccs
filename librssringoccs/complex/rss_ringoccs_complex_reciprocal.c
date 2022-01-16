@@ -42,7 +42,7 @@
  *  multiplied so we need a function for computing this.                      */
 
 /*  Function for computing the reciprocal (or inverse) of a complex number.   */
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Reciprocal(rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -61,7 +61,7 @@ rssringoccs_CDouble_Reciprocal(rssringoccs_ComplexDouble z)
 #else
 
 /*  Function for computing 1/z for non-zero z.                                */
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Reciprocal(rssringoccs_ComplexDouble z)
 {
     return 1.0/z;

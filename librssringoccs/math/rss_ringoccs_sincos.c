@@ -224,12 +224,12 @@ static const long double rssringoccs_cosl_lookup_table[80] = {
     0.710913538012277357216265L, 0.703845315652236096912781L
 };
 
-float rssringoccs_sinf_table(unsigned int n)
+float RSS_RINGOCCS_EXPORT rssringoccs_sinf_table(unsigned int n)
 {
     return rssringoccs_sinf_lookup_table[n];
 }
 
-double rssringoccs_sin_table(unsigned int n)
+double RSS_RINGOCCS_EXPORT rssringoccs_sin_table(unsigned int n)
 {
     return rssringoccs_sin_lookup_table[n];
 }
@@ -239,12 +239,12 @@ long double rssringoccs_sinl_table(unsigned int n)
     return rssringoccs_sinl_lookup_table[n];
 }
 
-float rssringoccs_cosf_table(unsigned int n)
+float RSS_RINGOCCS_EXPORT rssringoccs_cosf_table(unsigned int n)
 {
     return rssringoccs_cosf_lookup_table[n];
 }
 
-double rssringoccs_cos_table(unsigned int n)
+double RSS_RINGOCCS_EXPORT rssringoccs_cos_table(unsigned int n)
 {
     return rssringoccs_cos_lookup_table[n];
 }
@@ -254,7 +254,7 @@ long double rssringoccs_cosl_table(unsigned int n)
     return rssringoccs_cosl_lookup_table[n];
 }
 
-float rssringoccs_do_sinf(float x)
+float RSS_RINGOCCS_EXPORT rssringoccs_do_sinf(float x)
 {
     float x2, sin_x;
     x2 = x*x;
@@ -264,7 +264,7 @@ float rssringoccs_do_sinf(float x)
     return sin_x;
 }
 
-double rssringoccs_do_sin(double x)
+double RSS_RINGOCCS_EXPORT rssringoccs_do_sin(double x)
 {
     double x2, sin_x;
 
@@ -293,7 +293,7 @@ long double rssringoccs_do_sinl(long double x)
     return sin_x;
 }
 
-float rssringoccs_do_cosf(float x)
+float RSS_RINGOCCS_EXPORT rssringoccs_do_cosf(float x)
 {
     float x2, cos_x;
     x2 = x*x;
@@ -302,7 +302,7 @@ float rssringoccs_do_cosf(float x)
     return cos_x;
 }
 
-double rssringoccs_do_cos(double x)
+double RSS_RINGOCCS_EXPORT rssringoccs_do_cos(double x)
 {
     double x2, cos_x;
 

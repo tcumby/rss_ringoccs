@@ -32,7 +32,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
 /*  Function for computing the length of the vector (x, y) in the plane.      */
-double rssringoccs_TwoVector_Euclidean_Norm(rssringoccs_TwoVector P)
+double RSS_RINGOCCS_EXPORT rssringoccs_TwoVector_Euclidean_Norm(rssringoccs_TwoVector P)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     double x, y, norm;

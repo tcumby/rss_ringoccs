@@ -96,7 +96,7 @@
  *  divided so we need a function for computing this.                         */
 
 /*  Single precision complex division.                                        */
-rssringoccs_ComplexFloat
+rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
 rssringoccs_CFloat_Divide(rssringoccs_ComplexFloat z0,
                           rssringoccs_ComplexFloat z1)
 {
@@ -126,7 +126,7 @@ rssringoccs_CFloat_Divide(rssringoccs_ComplexFloat z0,
 /*  End of rssringoccs_CFloat_Divide.                                         */
 
 /*  Double precision complex division.                                        */
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Divide(rssringoccs_ComplexDouble z0,
                            rssringoccs_ComplexDouble z1)
 {
@@ -156,7 +156,7 @@ rssringoccs_CDouble_Divide(rssringoccs_ComplexDouble z0,
 /*  End of rssringoccs_CDouble_Divide.                                        */
 
 /*  Long double precision complex division.                                   */
-rssringoccs_ComplexLongDouble
+rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CLDouble_Divide(rssringoccs_ComplexLongDouble z0,
                             rssringoccs_ComplexLongDouble z1)
 {
@@ -191,7 +191,7 @@ rssringoccs_CLDouble_Divide(rssringoccs_ComplexLongDouble z0,
 /*  If we get here we have complex.h support so we'll use the / symbol.       */
 
 /*  Single precision complex division.                                        */
-rssringoccs_ComplexFloat
+rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
 rssringoccs_CFloat_Divide(rssringoccs_ComplexFloat z0,
                           rssringoccs_ComplexFloat z1)
 {
@@ -200,7 +200,7 @@ rssringoccs_CFloat_Divide(rssringoccs_ComplexFloat z0,
 /*  End of rssringoccs_CFloat_Divide.                                         */
 
 /*  Double precision complex division.                                        */
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Divide(rssringoccs_ComplexDouble z0,
                            rssringoccs_ComplexDouble z1)
 {
@@ -209,7 +209,7 @@ rssringoccs_CDouble_Divide(rssringoccs_ComplexDouble z0,
 /*  End of rssringoccs_CDouble_Divide.                                        */
 
 /*  Long double precision complex division.                                   */
-rssringoccs_ComplexLongDouble
+rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CLDouble_Divide(rssringoccs_ComplexLongDouble z0,
                             rssringoccs_ComplexLongDouble z1)
 {

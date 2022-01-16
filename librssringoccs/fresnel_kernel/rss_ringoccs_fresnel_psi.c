@@ -1,7 +1,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_math.h>
 #include <rss_ringoccs/include/rss_ringoccs_fresnel_kernel.h>
 
-float
+float RSS_RINGOCCS_EXPORT
 rssringoccs_Float_Fresnel_Psi(float k, float r, float r0, float phi,
                               float phi0, float B, float D)
 {
@@ -29,7 +29,7 @@ rssringoccs_Float_Fresnel_Psi(float k, float r, float r0, float phi,
     return psi;
 }
 
-double
+double RSS_RINGOCCS_EXPORT
 rssringoccs_Double_Fresnel_Psi(double k, double r, double r0, double phi,
                                double phi0, double B, double D)
 {

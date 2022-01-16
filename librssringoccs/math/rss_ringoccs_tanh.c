@@ -2,7 +2,7 @@
  *  library math.h. This allows compatibility of C89 and C99 math.h headers.  */
 #include <rss_ringoccs/include/rss_ringoccs_math.h>
 
-float rssringoccs_Float_Tanh(float x)
+float RSS_RINGOCCS_EXPORT rssringoccs_Float_Tanh(float x)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     float tanh_x;
@@ -12,7 +12,7 @@ float rssringoccs_Float_Tanh(float x)
     return tanh_x;
 }
 
-double rssringoccs_Double_Tanh(double x)
+double RSS_RINGOCCS_EXPORT rssringoccs_Double_Tanh(double x)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     double tanh_x;

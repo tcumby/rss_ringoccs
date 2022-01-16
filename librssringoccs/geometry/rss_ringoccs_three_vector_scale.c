@@ -27,7 +27,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
 /*  Multiply a three vector by a real number.                                 */
-rssringoccs_ThreeVector
+rssringoccs_ThreeVector RSS_RINGOCCS_EXPORT
 rssringoccs_ThreeVector_Scale(double a, rssringoccs_ThreeVector P)
 {
     /*  Declare necessary variables. C89 requires this at the top.            */

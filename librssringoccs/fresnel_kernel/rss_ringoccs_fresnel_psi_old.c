@@ -1,7 +1,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_math.h>
 #include <rss_ringoccs/include/rss_ringoccs_fresnel_kernel.h>
 
-double rssringoccs_Double_Fresnel_Psi_Old(double kD, double r, double r0,
+double RSS_RINGOCCS_EXPORT rssringoccs_Double_Fresnel_Psi_Old(double kD, double r, double r0,
                                           double phi, double phi0,
                                           double B, double D)
 {

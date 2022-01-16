@@ -30,7 +30,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
 /*  Function for normalizing a non-zero vector to length 1.                   */
-rssringoccs_TwoVector
+rssringoccs_TwoVector RSS_RINGOCCS_EXPORT
 rssringoccs_TwoVector_Normalize(rssringoccs_TwoVector P)
 {
     double norm, rcpr_norm, x, y, x_hat, y_hat;

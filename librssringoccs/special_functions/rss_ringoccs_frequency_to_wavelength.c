@@ -5,13 +5,13 @@
 #include <rss_ringoccs/include/rss_ringoccs_special_functions.h>
 
 /*  Convert a frequency (in hertz) to a wavelength (in kilometers).           */
-float rssringoccs_Float_Frequency_To_Wavelength(float frequency)
+float RSS_RINGOCCS_EXPORT rssringoccs_Float_Frequency_To_Wavelength(float frequency)
 {
     /*  The conversion is the speed of light divided by the input frequency.  */
     return rssringoccs_Speed_Of_Light_KMS_F / frequency;
 }
 
-double rssringoccs_Double_Frequency_To_Wavelength(double frequency)
+double RSS_RINGOCCS_EXPORT rssringoccs_Double_Frequency_To_Wavelength(double frequency)
 {
     /*  The conversion is the speed of light divided by the input frequency.  */
     return rssringoccs_Speed_Of_Light_KMS / frequency;

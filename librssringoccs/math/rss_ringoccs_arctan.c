@@ -83,7 +83,7 @@
  *  only need to alias this function.                                         */
 
 /*  Double precision arctan function (atan equivalent).                       */
-double rssringoccs_Double_Arctan(double x)
+double RSS_RINGOCCS_EXPORT rssringoccs_Double_Arctan(double x)
 {
     return atan(x);
 }
@@ -96,7 +96,7 @@ double rssringoccs_Double_Arctan(double x)
  *  to make the code forward compatible.                                      */
 
 /*  Single precision arctan function (atanf equivalent).                      */
-float rssringoccs_Float_Arctan(float x)
+float RSS_RINGOCCS_EXPORT rssringoccs_Float_Arctan(float x)
 {
     /*  Cast "x" as a double to atan, and cast the output as a float.         */
     return (float)atan((double)x);
@@ -118,7 +118,7 @@ long double rssringoccs_LDouble_Arctan(long double x)
  *  simply use to these.                                                      */
 
 /*  Single precision arctan function (atanf equivalent).                      */
-float rssringoccs_Float_Arctan(float x)
+float RSS_RINGOCCS_EXPORT rssringoccs_Float_Arctan(float x)
 {
     return atanf(x);
 }

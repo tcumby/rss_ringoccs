@@ -51,7 +51,7 @@
 /*  Header file containing the prototypes for the functions.                  */
 #include <rss_ringoccs/include/rss_ringoccs_diffraction.h>
 
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_Complex_Square_Wave_Diffraction(double x, double W,
                                             double F, unsigned int N)
 {

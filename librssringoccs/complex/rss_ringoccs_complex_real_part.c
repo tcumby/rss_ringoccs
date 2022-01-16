@@ -38,7 +38,7 @@
 #if _RSS_RINGOCCS_USING_COMPLEX_H_ == 0
 
 /*  This function is equivalent to the creal function in complex.h (C99).     */
-float rssringoccs_CFloat_Real_Part(rssringoccs_ComplexFloat z)
+float RSS_RINGOCCS_EXPORT rssringoccs_CFloat_Real_Part(rssringoccs_ComplexFloat z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     float real;
@@ -49,7 +49,7 @@ float rssringoccs_CFloat_Real_Part(rssringoccs_ComplexFloat z)
     return real;
 }
 
-double rssringoccs_CDouble_Real_Part(rssringoccs_ComplexDouble z)
+double RSS_RINGOCCS_EXPORT rssringoccs_CDouble_Real_Part(rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     double real;
@@ -74,12 +74,12 @@ rssringoccs_CLDouble_Real_Part(rssringoccs_ComplexLongDouble z)
 
 #else
 
-double rssringoccs_CFloat_Real_Part(rssringoccs_ComplexFloat z)
+double RSS_RINGOCCS_EXPORT rssringoccs_CFloat_Real_Part(rssringoccs_ComplexFloat z)
 {
     return crealf(z);
 }
 
-double rssringoccs_CDouble_Real_Part(rssringoccs_ComplexDouble z)
+double RSS_RINGOCCS_EXPORT rssringoccs_CDouble_Real_Part(rssringoccs_ComplexDouble z)
 {
     return creal(z);
 }

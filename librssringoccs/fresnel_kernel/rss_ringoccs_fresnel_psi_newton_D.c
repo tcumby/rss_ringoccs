@@ -1,7 +1,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_math.h>
 #include <rss_ringoccs/include/rss_ringoccs_fresnel_kernel.h>
 
-double Newton_Raphson_Fresnel_Psi_D(double k, double r, double r0,
+double RSS_RINGOCCS_EXPORT Newton_Raphson_Fresnel_Psi_D(double k, double r, double r0,
                                     double phi, double phi0, double B,
                                     double EPS, long toler, double rx,
                                     double ry, double rz)

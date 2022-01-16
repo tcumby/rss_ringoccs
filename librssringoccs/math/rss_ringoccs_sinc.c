@@ -1,7 +1,7 @@
 /*  The C Standard Library header for math functions and more found here.     */
 #include <rss_ringoccs/include/rss_ringoccs_math.h>
 
-float rssringoccs_Float_Sinc(float x)
+float RSS_RINGOCCS_EXPORT rssringoccs_Float_Sinc(float x)
 {
     float y;
 
@@ -13,7 +13,7 @@ float rssringoccs_Float_Sinc(float x)
     return y;
 }
 
-double rssringoccs_Double_Sinc(double x)
+double RSS_RINGOCCS_EXPORT rssringoccs_Double_Sinc(double x)
 {
     double y;
 

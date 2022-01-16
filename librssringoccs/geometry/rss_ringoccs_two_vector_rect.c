@@ -27,7 +27,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
 /*  Function for returning the point (x, y) given two doubles x and y.        */
-rssringoccs_TwoVector rssringoccs_TwoVector_Rect(double x, double y)
+rssringoccs_TwoVector RSS_RINGOCCS_EXPORT rssringoccs_TwoVector_Rect(double x, double y)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     rssringoccs_TwoVector P;

@@ -10,7 +10,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_special_functions.h>
 
 
-float rssringoccs_Float_Coss_Window(float x, float W)
+float RSS_RINGOCCS_EXPORT rssringoccs_Float_Coss_Window(float x, float W)
 {
     /*  Declare necessary variables. C89 requires declaring these at the top. */
     float abs_x, coss_x, arg;
@@ -31,7 +31,7 @@ float rssringoccs_Float_Coss_Window(float x, float W)
     return coss_x;
 }
 
-double rssringoccs_Double_Coss_Window(double x, double W)
+double RSS_RINGOCCS_EXPORT rssringoccs_Double_Coss_Window(double x, double W)
 {
     /*  Declare necessary variables. C89 requires declaring these at the top. */
     double abs_x, coss_x, arg;

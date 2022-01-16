@@ -133,7 +133,7 @@
 #define FRESNEL_SINE_ASYM_13    -482535008.583068847656250
 #define FRESNEL_SINE_ASYM_14     6514222615.8714294433593750
 
-float rssringoccs_Float_Fresnel_Sin(float x)
+float RSS_RINGOCCS_EXPORT rssringoccs_Float_Fresnel_Sin(float x)
 {
     /* Variables for S(x) and powers of x, respectively. */
     float sx;
@@ -204,7 +204,7 @@ float rssringoccs_Float_Fresnel_Sin(float x)
     return sx;
 }
 
-double rssringoccs_Double_Fresnel_Sin(double x)
+double RSS_RINGOCCS_EXPORT rssringoccs_Double_Fresnel_Sin(double x)
 {
     /* Variables for S(x) and powers of x, respectively. */
     double sx;

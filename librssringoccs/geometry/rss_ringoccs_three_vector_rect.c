@@ -27,7 +27,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
 /*  Function for returning the point (x, y, z) given three doubles x, y, z.   */
-rssringoccs_ThreeVector
+rssringoccs_ThreeVector RSS_RINGOCCS_EXPORT
 rssringoccs_ThreeVector_Rect(double x, double y, double z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */

@@ -45,7 +45,7 @@
  *  double, float, and long double inputs.                                    */
 
 /*  Single precision hyperbolic cosine (coshf equivalent).                    */
-float rssringoccs_Float_Cosh(float x)
+float RSS_RINGOCCS_EXPORT rssringoccs_Float_Cosh(float x)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     float cosh_x, exp_x, exp_minus_x;
@@ -64,7 +64,7 @@ float rssringoccs_Float_Cosh(float x)
 /*  End of rssringoccs_Float_Cosh.                                            */
 
 /*  Double precision hyperbolic cosine (cosh equivalent).                     */
-double rssringoccs_Double_Cosh(double x)
+double RSS_RINGOCCS_EXPORT rssringoccs_Double_Cosh(double x)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     double cosh_x, exp_x, exp_minus_x;

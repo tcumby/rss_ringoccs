@@ -1,7 +1,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_math.h>
 #include <rss_ringoccs/include/rss_ringoccs_fresnel_kernel.h>
 
-float
+float RSS_RINGOCCS_EXPORT
 rssringoccs_Float_Fresnel_Scale(float lambda, float d, float phi, float b)
 {
     float cb_2_sp_2, sb_2, f_scale;

@@ -42,7 +42,7 @@
  *  multiplied so we need a function for computing this.                      */
 
 /*  Single precision complex multiplication.                                  */
-rssringoccs_ComplexFloat
+rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
 rssringoccs_CFloat_Multiply(rssringoccs_ComplexFloat z0,
                                   rssringoccs_ComplexFloat z1)
 {
@@ -69,7 +69,7 @@ rssringoccs_CFloat_Multiply(rssringoccs_ComplexFloat z0,
 }
 
 /*  Double precision complex multiplication.                                  */
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Multiply(rssringoccs_ComplexDouble z0,
                                    rssringoccs_ComplexDouble z1)
 {
@@ -96,7 +96,7 @@ rssringoccs_CDouble_Multiply(rssringoccs_ComplexDouble z0,
 }
 
 /*  Long double precision complex multiplication.                             */
-rssringoccs_ComplexLongDouble
+rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CLDouble_Multiply(rssringoccs_ComplexLongDouble z0,
                                        rssringoccs_ComplexLongDouble z1)
 {
@@ -123,7 +123,7 @@ rssringoccs_CLDouble_Multiply(rssringoccs_ComplexLongDouble z0,
 }
 
 /*  Double precision complex multiplication.                                  */
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Multiply_Real(double x, rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -145,54 +145,54 @@ rssringoccs_CDouble_Multiply_Real(double x, rssringoccs_ComplexDouble z)
 /*  If we get here we have complex.h support so we'll use the * symbol.       */
 
 /*  Single precision complex addition.                                        */
-rssringoccs_ComplexFloat
+rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
 rssringoccs_CFloat_Multiply(rssringoccs_ComplexFloat z0,
                                   rssringoccs_ComplexFloat z1)
 {
     return z0 * z1;
 }
 
-rssringoccs_ComplexFloat
+rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
 rssringoccs_CFloat_Multiply_Real(float x, rssringoccs_ComplexFloat z)
 {
     return x * z;
 }
 
-rssringoccs_ComplexFloat
+rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
 rssringoccs_CFloat_Multiply_Imag(float y, rssringoccs_ComplexFloat z)
 {
     return _Complex_I*y * z;
 }
 
 /*  Double precision complex addition.                                        */
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Multiply(rssringoccs_ComplexDouble z0,
                                    rssringoccs_ComplexDouble z1)
 {
     return z0 * z1;
 }
 
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Multiply_Real(double x, rssringoccs_ComplexDouble z)
 {
     return x * z;
 }
 
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Multiply_Imag(double y, rssringoccs_ComplexDouble z)
 {
     return _Complex_I*y * z;
 }
 
 /*  Long double precision complex addition.                                   */
-rssringoccs_ComplexLongDouble
+rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CLDouble_Multiply(rssringoccs_ComplexLongDouble z0,
                                        rssringoccs_ComplexLongDouble z1)
 {
     return z0 * z1;
 }
 
-rssringoccs_ComplexLongDouble
+rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CLDouble_Subtract_Real(long double x,
                                             rssringoccs_ComplexLongDouble z)
 {
@@ -200,7 +200,7 @@ rssringoccs_CLDouble_Subtract_Real(long double x,
 }
 
 
-rssringoccs_ComplexLongDouble
+rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CLDouble_Subtract_Imag(long double y,
                                             rssringoccs_ComplexLongDouble z)
 {

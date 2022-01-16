@@ -95,7 +95,7 @@
 #if _RSS_RINGOCCS_USING_COMPLEX_H_ == 0
 
 /*  Single precision complex argument function (cargf equivalent).            */
-float rssringoccs_CFloat_Argument(rssringoccs_ComplexFloat z)
+float RSS_RINGOCCS_EXPORT rssringoccs_CFloat_Argument(rssringoccs_ComplexFloat z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     float real, imag, theta;
@@ -111,7 +111,7 @@ float rssringoccs_CFloat_Argument(rssringoccs_ComplexFloat z)
 /*  End of rssringoccs_CFloat_Argument.                                 */
 
 /*  Double precision complex argument function (carg equivalent).             */
-double rssringoccs_CDouble_Argument(rssringoccs_ComplexDouble z)
+double RSS_RINGOCCS_EXPORT rssringoccs_CDouble_Argument(rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     double real, imag, theta;
@@ -150,14 +150,14 @@ rssringoccs_CLDouble_Argument(rssringoccs_ComplexLongDouble z)
  *  functions found in the library.                                           */
 
 /*  Single precision complex argument function.                               */
-float rssringoccs_CFloat_Argument(rssringoccs_ComplexFloat z)
+float RSS_RINGOCCS_EXPORT rssringoccs_CFloat_Argument(rssringoccs_ComplexFloat z)
 {
     return cargf(z);
 }
 /*  End of rssringoccs_CFloat_Argument.                                 */
 
 /*  Double precision complex argument function.                               */
-double rssringoccs_CDouble_Argument(rssringoccs_ComplexDouble z)
+double RSS_RINGOCCS_EXPORT rssringoccs_CDouble_Argument(rssringoccs_ComplexDouble z)
 {
     return carg(z);
 }

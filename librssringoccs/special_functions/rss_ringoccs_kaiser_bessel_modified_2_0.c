@@ -37,7 +37,7 @@
 #define MODIFIED_KAISER_BESSEL_2_0_A29 1.01524041551592668958612323193e-35
 #define MODIFIED_KAISER_BESSEL_2_0_A30 1.11333569701553102471644674153e-37
 
-float rssringoccs_Float_Modified_Kaiser_Bessel_2_0(float x, float W)
+float RSS_RINGOCCS_EXPORT rssringoccs_Float_Modified_Kaiser_Bessel_2_0(float x, float W)
 {
     float bessel_x, arg;
     arg = 2.0*x/W;
@@ -69,7 +69,7 @@ float rssringoccs_Float_Modified_Kaiser_Bessel_2_0(float x, float W)
     return bessel_x;
 }
 
-double rssringoccs_Double_Modified_Kaiser_Bessel_2_0(double x, double W)
+double RSS_RINGOCCS_EXPORT rssringoccs_Double_Modified_Kaiser_Bessel_2_0(double x, double W)
 {
     double bessel_x, arg;
     arg = 2.0*x/W;

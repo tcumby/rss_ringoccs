@@ -39,7 +39,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_complex.h>
 
 /*  Create a double precision complex number from its polar coordinates.      */
-rssringoccs_ComplexDouble
+rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
 rssringoccs_CDouble_Polar(double r, double theta)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
