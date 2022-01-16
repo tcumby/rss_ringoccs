@@ -1,0 +1,618 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_abs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_abs_squared.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_add.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_add_imag.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_add_real.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_argument.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_compare.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_conjugate.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_constants.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_cos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_dist.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_divide.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_erf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_erfc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_exp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_fadeeva.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_imag_part.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_log.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_multiply.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_polar.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_poly_deriv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_polynomial.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_pow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_real_part.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_reciprocal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_rect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_sin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_sqrt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_subtract.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\complex\rss_ringoccs_complex_tan.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\csv_tools\rss_ringoccs_destroy_cal_csv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\csv_tools\rss_ringoccs_destroy_cal_csv_members.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\csv_tools\rss_ringoccs_destroy_csv_data_members.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\csv_tools\rss_ringoccs_destroy_dlp_csv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\csv_tools\rss_ringoccs_destroy_dlp_csv_members.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\csv_tools\rss_ringoccs_destroy_geo_csv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\csv_tools\rss_ringoccs_destroy_geo_csv_members.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\csv_tools\rss_ringoccs_destroy_tau_csv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\csv_tools\rss_ringoccs_destroy_tau_csv_members.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\csv_tools\rss_ringoccs_extract_csv_data.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\csv_tools\rss_ringoccs_get_cal.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\csv_tools\rss_ringoccs_get_dlp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\csv_tools\rss_ringoccs_get_geo.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\csv_tools\rss_ringoccs_get_tau.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\diffraction\rss_ringoccs_gap_fresnel_diffraction.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\diffraction\rss_ringoccs_left_straightedge_fresnel_diffraction.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\diffraction\rss_ringoccs_one_slit_fraunhofer_diffraction.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\diffraction\rss_ringoccs_right_straightedge_fresnel_diffraction.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\diffraction\rss_ringoccs_ringlet_fresnel_diffraction.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\diffraction\rss_ringoccs_ringlet_phase_fresnel_diffraction.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\diffraction\rss_ringoccs_square_wave_fresnel_diffraction.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\diffraction\rss_ringoccs_two_slit_fraunhofer_diffraction.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fft\rss_ringoccs_complex_bluestein_chirp_z.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fft\rss_ringoccs_complex_cooley_tukey_fft.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fft\rss_ringoccs_complex_fft.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_kernel\rss_ringoccs_fresnel_d2psi_dphi2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_kernel\rss_ringoccs_fresnel_dpsi_dphi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_kernel\rss_ringoccs_fresnel_dpsi_dphi_D.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_kernel\rss_ringoccs_fresnel_dpsi_dphi_elliptic.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_kernel\rss_ringoccs_fresnel_psi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_kernel\rss_ringoccs_fresnel_psi_newton.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_kernel\rss_ringoccs_fresnel_psi_newton_D.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_kernel\rss_ringoccs_fresnel_psi_newton_D_old.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_kernel\rss_ringoccs_fresnel_psi_newton_dD_dphi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_kernel\rss_ringoccs_fresnel_psi_newton_elliptic.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_kernel\rss_ringoccs_fresnel_psi_old.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_kernel\rss_ringoccs_fresnel_scale.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_cubic_interpolation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_cubic_interpolation_norm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_ellipse.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_ellipse_norm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_legendre_even.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_legendre_even_norm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_legendre_odd.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_legendre_odd_norm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_newton.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_newton_D.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_newton_D_norm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_newton_D_old.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_newton_D_old_norm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_newton_dD_dphi.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_newton_dD_dphi_norm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_newton_norm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_norm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_perturbed_newton.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_perturbed_newton_norm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_quadratic_interpolation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_quadratic_interpolation_norm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_quartic_D_interpolation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_quartic_D_interpolation_norm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_quartic_interpolation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\fresnel_transform\rss_ringoccs_fresnel_transform_quartic_interpolation_norm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_cross_product.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_inverse_orthographic_projection.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_inverse_orthographic_projection_torus.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_orthogonal_three_vector.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_stereographic_projection.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_stereographic_projection_torus.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_three_vector_add.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_three_vector_dot_product.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_three_vector_euclidean_norm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_three_vector_normalize.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_three_vector_rect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_three_vector_scale.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_three_vector_x.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_three_vector_y.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_three_vector_z.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_two_vector_add.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_two_vector_dot_product.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_two_vector_euclidean_norm.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_two_vector_euclidean_norm_squared.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_two_vector_normalize.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_two_vector_polar.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_two_vector_rect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_two_vector_scale.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_two_vector_x.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\geometry\rss_ringoccs_two_vector_y.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\interpolate\rss_ringoccs_sorted_linear_interpolation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_abs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_arctan.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_arctan2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_copysign.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_cos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_cosh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_erf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_erfc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_erfcx.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_exp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_factorial.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_faddeeva_im.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_log.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_poly_deriv.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_polynomial.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_reverse_array.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_sin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_sinc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_sincos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_sinh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_sqrt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_tan.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_tanh.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\numerical\rss_ringoccs_five_point_derivative.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\numerical\rss_ringoccs_halleys_method.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\numerical\rss_ringoccs_newton_raphson.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\numerical\rss_ringoccs_newton_raphson_poly.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\ppm_plot\rss_ringoccs_color.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\ppm_plot\rss_ringoccs_easy_complex_plots.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\ppm_plot\rss_ringoccs_easy_real_plots.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\ppm_plot\rss_ringoccs_linear_gradient.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\ppm_plot\rss_ringoccs_scaled_gradient.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_copy_dlp_data_to_tau.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_create_tau_obj.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_destroy_tau.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_destroy_tau_members.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_diffraction_correction_fresnel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_diffraction_correction_legendre.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_diffraction_correction_newton.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_diffraction_correction_simple_fft.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_reconstruction.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_tau_check_data.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_tau_check_data_range.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_tau_check_keywords.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_tau_check_occ_type.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_tau_compute_vars.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_tau_finish.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_tau_get_window_width.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_tau_reset_window.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_tau_set_psitype.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_tau_set_range_from_string.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\reconstruction\rss_ringoccs_tau_set_wtype.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_bessel_I0.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_bessel_J0.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_coss.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_frequency_to_wavelength.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_fresnel_cos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_fresnel_integral.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_fresnel_sin.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_kaiser_bessel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_kaiser_bessel_2_0.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_kaiser_bessel_2_5.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_kaiser_bessel_3_5.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_kaiser_bessel_modified.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_kaiser_bessel_modified_2_0.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_kaiser_bessel_modified_2_5.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_kaiser_bessel_modified_3_5.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_lambertw.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_legendre.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_minmax.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_norm_eq_width.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_rect.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_resolution_inverse.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_wavelength_to_wavenumber.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_where.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\special_functions\rss_ringoccs_window_function_normalization.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\string\rss_ringoccs_make_lower.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\string\rss_ringoccs_remove_spaces.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\string\rss_ringoccs_strdup.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\math\rss_ringoccs_math_private.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Ty\Documents\working_copies\rss_ringoccs\librssringoccs\numerical\savitzky_golay.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{CBADB35E-9BC4-306E-BD8B-54B467C2C7F5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{07534B17-E2A9-3393-B9DF-AB475A889CE7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
