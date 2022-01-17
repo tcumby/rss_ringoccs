@@ -86,7 +86,7 @@
 #if _RSS_RINGOCCS_USING_COMPLEX_H_ == 0
 
 /*  Single precision distance function for complex variables.                 */
-float RSS_RINGOCCS_EXPORT rssringoccs_CFloat_Dist(rssringoccs_ComplexFloat z0,
+RSS_RINGOCCS_EXPORT float rssringoccs_CFloat_Dist(rssringoccs_ComplexFloat z0,
                               rssringoccs_ComplexFloat z1)
 {
     /*  Declare necessary variables C89 requires this at the top.             */
@@ -111,7 +111,7 @@ float RSS_RINGOCCS_EXPORT rssringoccs_CFloat_Dist(rssringoccs_ComplexFloat z0,
 /*  End of rssringoccs_CFloat_Dist.                                           */
 
 /*  Double precision distance function for complex variables.                 */
-double RSS_RINGOCCS_EXPORT rssringoccs_CDouble_Dist(rssringoccs_ComplexDouble z0,
+RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Dist(rssringoccs_ComplexDouble z0,
                                 rssringoccs_ComplexDouble z1)
 {
     /*  Declare necessary variables C89 requires this at the top.             */
@@ -167,7 +167,7 @@ long double rssringoccs_CLDouble_Dist(rssringoccs_ComplexLongDouble z0,
  *  arithmetic combined with the cabs function.                               */
 
 /*  Single precision distance function for complex variables.                 */
-float RSS_RINGOCCS_EXPORT rssringoccs_CFloat_Dist(rssringoccs_ComplexFloat z0,
+RSS_RINGOCCS_EXPORT float rssringoccs_CFloat_Dist(rssringoccs_ComplexFloat z0,
                                rssringoccs_ComplexFloat z1)
 {
     return cabsf(z0 - z1);
@@ -175,7 +175,7 @@ float RSS_RINGOCCS_EXPORT rssringoccs_CFloat_Dist(rssringoccs_ComplexFloat z0,
 /*  End of rssringoccs_CFloat_Dist.                                           */
 
 /*  Double precision distance function for complex variables.                 */
-double RSS_RINGOCCS_EXPORT rssringoccs_CDouble_Dist(rssringoccs_ComplexDouble z0,
+RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Dist(rssringoccs_ComplexDouble z0,
                                 rssringoccs_ComplexDouble z1)
 {
     return cabs(z0 - z1);

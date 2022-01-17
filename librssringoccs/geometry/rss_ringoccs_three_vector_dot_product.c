@@ -27,7 +27,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
 /*  Function for computing the dot product of 2 three-vectors.                */
-double RSS_RINGOCCS_EXPORT rssringoccs_ThreeVector_Dot_Product(rssringoccs_ThreeVector P,
+RSS_RINGOCCS_EXPORT double rssringoccs_ThreeVector_Dot_Product(rssringoccs_ThreeVector P,
                                            rssringoccs_ThreeVector Q)
 {
     /*  Declare necessary variables. C89 requires this at the top.            */

@@ -49,7 +49,7 @@
 /*  Header file containing the prototypes for the functions.                  */
 #include <rss_ringoccs/include/rss_ringoccs_diffraction.h>
 
-float RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT float
 rssringoccs_Float_One_Slit_Fraunhofer_Diffraction(float x, float z, float a)
 {
     /*  Declare necessary variables.                                          */
@@ -69,7 +69,7 @@ rssringoccs_Float_One_Slit_Fraunhofer_Diffraction(float x, float z, float a)
     return result;
 }
 
-double RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT double
 rssringoccs_Double_One_Slit_Fraunhofer_Diffraction(double x, double z, double a)
 {
     /*  Declare necessary variables.                                          */

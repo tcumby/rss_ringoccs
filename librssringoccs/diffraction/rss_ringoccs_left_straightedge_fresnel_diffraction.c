@@ -55,7 +55,7 @@
 /*  Header file containing the prototypes for the functions.                  */
 #include <rss_ringoccs/include/rss_ringoccs_diffraction.h>
 
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_Complex_Left_Straightedge_Diffraction(double x, double edge,
                                                   double F)
 {

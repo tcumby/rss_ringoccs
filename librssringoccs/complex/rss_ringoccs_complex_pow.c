@@ -56,7 +56,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_complex.h>
 
 /*  Compute the complex power z0^z1.                                          */
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Pow(rssringoccs_ComplexDouble z0,
                         rssringoccs_ComplexDouble z1)
 {
@@ -76,7 +76,7 @@ rssringoccs_CDouble_Pow(rssringoccs_ComplexDouble z0,
 }
 
 /*  Compute the complex power z^x for x real.                                 */
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Real_Pow(rssringoccs_ComplexDouble z, double x)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */

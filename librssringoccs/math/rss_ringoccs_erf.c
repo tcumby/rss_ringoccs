@@ -45,7 +45,7 @@
  *  double, float, and long double inputs.                                    */
 
 /*  Single precision error function (erff equivalent).                        */
-float RSS_RINGOCCS_EXPORT rssringoccs_Float_Erf(float x)
+RSS_RINGOCCS_EXPORT float rssringoccs_Float_Erf(float x)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     float erf, erfc;
@@ -59,7 +59,7 @@ float RSS_RINGOCCS_EXPORT rssringoccs_Float_Erf(float x)
 /*  End of rssringoccs_Float_Erf.                                             */
 
 /*  Double precision error function (erf equivalent).                         */
-double RSS_RINGOCCS_EXPORT rssringoccs_Double_Erf(double x)
+RSS_RINGOCCS_EXPORT double rssringoccs_Double_Erf(double x)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     double erf, erfc;

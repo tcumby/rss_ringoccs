@@ -43,7 +43,7 @@ static double __d2psi(double kD, double r, double r0, double phi,
     return kD*psi_d2;
 }
 
-double RSS_RINGOCCS_EXPORT Newton_Raphson_Fresnel_Psi_D_Old(double kD, double r, double r0,
+RSS_RINGOCCS_EXPORT double Newton_Raphson_Fresnel_Psi_D_Old(double kD, double r, double r0,
                                         double phi, double phi0, double B,
                                         double EPS, long toler, double rx,
                                         double ry, double rz)

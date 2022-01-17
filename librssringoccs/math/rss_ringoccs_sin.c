@@ -5,7 +5,7 @@
 
 #if __RSS_RINGOCCS_USE_TRIG_ALGORITHMS__ != 0
 
-float RSS_RINGOCCS_EXPORT rssringoccs_Float_Sin(float x)
+RSS_RINGOCCS_EXPORT float rssringoccs_Float_Sin(float x)
 {
     float arg, abs_x, sgn_x, cx, cdx, sx, sdx, dx;
     unsigned int arg_100_int;
@@ -86,7 +86,7 @@ float RSS_RINGOCCS_EXPORT rssringoccs_Float_Sin(float x)
     }
 }
 
-double RSS_RINGOCCS_EXPORT rssringoccs_Double_Sin(double x)
+RSS_RINGOCCS_EXPORT double rssringoccs_Double_Sin(double x)
 {
     double arg, abs_x, sgn_x, cx, cdx, sx, sdx, dx;
     unsigned int arg_100_int;
@@ -257,7 +257,7 @@ long double rssringoccs_LDouble_Sin(long double x)
  *  only need to alias this function.                                         */
 
 /*  Double precision sine function (sin equivalent).                          */
-double RSS_RINGOCCS_EXPORT rssringoccs_Double_Sin(double x)
+RSS_RINGOCCS_EXPORT double rssringoccs_Double_Sin(double x)
 {
     return sin(x);
 }
@@ -267,7 +267,7 @@ double RSS_RINGOCCS_EXPORT rssringoccs_Double_Sin(double x)
 #if __HAS_C99_MATH_H__ == 0
 
 /*  Single precision sine function (sinf equivalent).                         */
-float RSS_RINGOCCS_EXPORT rssringoccs_Float_Sin(float x)
+RSS_RINGOCCS_EXPORT float rssringoccs_Float_Sin(float x)
 {
     return (float)sin((double)x);
 }
@@ -284,7 +284,7 @@ long double rssringoccs_LDouble_Sin(long double x)
 
 /*  C99 provides float and long double support for their math functions, so   *
  *  simply use to these.                                                      */
-float RSS_RINGOCCS_EXPORT rssringoccs_Float_Sin(float x)
+RSS_RINGOCCS_EXPORT float rssringoccs_Float_Sin(float x)
 {
     return sinf(x);
 }

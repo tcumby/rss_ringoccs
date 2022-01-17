@@ -217,7 +217,7 @@ static long double __asym_longdouble[9] = {
 
 /*  Compute the Bessel I_0 function for a floating point number x. This       *
  *  returns floating point precision, maximum relative error ~1.e-6.          */
-float RSS_RINGOCCS_EXPORT rssringoccs_Float_Bessel_I0(float x)
+RSS_RINGOCCS_EXPORT float rssringoccs_Float_Bessel_I0(float x)
 {
     /*  Declare necessary variables. C89 requires declaring these at the top. */
     float bessel_I0, arg, abs_x;
@@ -272,7 +272,7 @@ float RSS_RINGOCCS_EXPORT rssringoccs_Float_Bessel_I0(float x)
 
 /*  Compute the Bessel I_0 function for a double precision value x. This      *
  *  returns double precision, maximum relative error ~1.e-9.                  */
-double RSS_RINGOCCS_EXPORT rssringoccs_Double_Bessel_I0(double x)
+RSS_RINGOCCS_EXPORT double rssringoccs_Double_Bessel_I0(double x)
 {
     /*  Declare necessary variables. C89 requires this at the top.            */
     double bessel_I0, arg, abs_x;
@@ -374,7 +374,7 @@ long double rssringoccs_LDouble_Bessel_I0(long double x)
 
 /*  Compute the Bessel I_0 function for a complex value z. This               *
  *  returns double precision, maximum error ~1.e-9.                           */
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Bessel_I0(rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. C89 requires this at the top.            */

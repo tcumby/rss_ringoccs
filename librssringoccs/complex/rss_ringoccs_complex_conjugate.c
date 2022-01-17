@@ -76,7 +76,7 @@
 #if _RSS_RINGOCCS_USING_COMPLEX_H_ == 0
 
 /*  Single precision complex conjugate function (conjf equivalent).           */
-rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Conjugate(rssringoccs_ComplexFloat z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -94,7 +94,7 @@ rssringoccs_CFloat_Conjugate(rssringoccs_ComplexFloat z)
 /*  End of rssringoccs_CFloat_Conjugate.                                      */
 
 /*  Double precision complex conjugate function (conj equivalent).            */
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Conjugate(rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -112,7 +112,7 @@ rssringoccs_CDouble_Conjugate(rssringoccs_ComplexDouble z)
 /*  End of rssringoccs_CDouble_Conjugate.                                     */
 
 /*  Long double precision complex conjugate function (conjl equivalent).      */
-rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Conjugate(rssringoccs_ComplexLongDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -136,7 +136,7 @@ rssringoccs_CLDouble_Conjugate(rssringoccs_ComplexLongDouble z)
  *  functions found in the library.                                           */
 
 /*  Single precision complex conjugate.                                       */
-rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Conjugate(rssringoccs_ComplexFloat z)
 {
     return conjf(z);
@@ -144,7 +144,7 @@ rssringoccs_CFloat_Conjugate(rssringoccs_ComplexFloat z)
 /*  End of rssringoccs_CFloat_Conjugate.                                      */
 
 /*  Double precision complex conjugate.                                       */
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Conjugate(rssringoccs_ComplexDouble z)
 {
     return conj(z);
@@ -152,7 +152,7 @@ rssringoccs_CDouble_Conjugate(rssringoccs_ComplexDouble z)
 /*  End of rssringoccs_CDouble_Conjugate.                                     */
 
 /*  Long double precision complex conjugate.                                  */
-rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Conjugate(rssringoccs_ComplexLongDouble z)
 {
     return conjl(z);

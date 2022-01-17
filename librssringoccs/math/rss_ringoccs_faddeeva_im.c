@@ -1407,7 +1407,7 @@ static double chebyshev_lookup_table(double y100, double x)
     return out;
 }
 
-double RSS_RINGOCCS_EXPORT rssringoccs_Double_Faddeeva_Im(double x)
+RSS_RINGOCCS_EXPORT double rssringoccs_Double_Faddeeva_Im(double x)
 {
     double out, x2, x4, numer, denom;
 
@@ -1461,7 +1461,7 @@ double RSS_RINGOCCS_EXPORT rssringoccs_Double_Faddeeva_Im(double x)
     return out;
 }
 
-float RSS_RINGOCCS_EXPORT rssringoccs_Float_Faddeeva_Im(float x)
+RSS_RINGOCCS_EXPORT float rssringoccs_Float_Faddeeva_Im(float x)
 {
     float out;
     out = (float)rssringoccs_Double_Faddeeva_Im((double)x);

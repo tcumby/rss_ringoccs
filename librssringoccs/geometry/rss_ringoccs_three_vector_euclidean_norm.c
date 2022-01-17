@@ -32,7 +32,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
 /*  Function for computing the length of three dimensional vectors.           */
-double RSS_RINGOCCS_EXPORT rssringoccs_ThreeVector_Euclidean_Norm(rssringoccs_ThreeVector P)
+RSS_RINGOCCS_EXPORT double rssringoccs_ThreeVector_Euclidean_Norm(rssringoccs_ThreeVector P)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     double x, y, z, norm;

@@ -32,7 +32,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
 /*  Function for returning the the polar representation of (r, theta).        */
-rssringoccs_TwoVector RSS_RINGOCCS_EXPORT rssringoccs_TwoVector_Polar(double r, double theta)
+RSS_RINGOCCS_EXPORT rssringoccs_TwoVector rssringoccs_TwoVector_Polar(double r, double theta)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     rssringoccs_TwoVector P;

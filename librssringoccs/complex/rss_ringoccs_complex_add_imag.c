@@ -85,7 +85,7 @@
  *  the sum of complex numbers with imaginary ones.                           */
 
 /*  Single precision complex addition where one variable is imaginary.        */
-rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Add_Imag(float y, rssringoccs_ComplexFloat z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -106,7 +106,7 @@ rssringoccs_CFloat_Add_Imag(float y, rssringoccs_ComplexFloat z)
 /*  End of rssringoccs_CFloat_Add_Imag.                                       */
 
 /*  Double precision complex addition where one variable is imaginary.        */
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Add_Imag(double y, rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -127,7 +127,7 @@ rssringoccs_CDouble_Add_Imag(double y, rssringoccs_ComplexDouble z)
 /*  End of rssringoccs_CDouble_Add_Imag.                                      */
 
 /*  Long double precision complex addition where one variable is imaginary.   */
-rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Add_Imag(long double y, rssringoccs_ComplexLongDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -154,7 +154,7 @@ rssringoccs_CLDouble_Add_Imag(long double y, rssringoccs_ComplexLongDouble z)
  *  arithmetic made available in the C99 standard.                            */
 
 /*  Single precision complex addition.                                        */
-rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Add_Imag(float y, rssringoccs_ComplexFloat z)
 {
     return (float _Complex)_Complex_I*y + z;
@@ -162,7 +162,7 @@ rssringoccs_CFloat_Add_Imag(float y, rssringoccs_ComplexFloat z)
 /*  End of rssringoccs_CFloat_Add_Imag.                                       */
 
 /*  Double precision complex addition.                                        */
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Add_Imag(double y, rssringoccs_ComplexDouble z)
 {
     return (double _Complex)_Complex_I*y + z;
@@ -170,7 +170,7 @@ rssringoccs_CDouble_Add_Imag(double y, rssringoccs_ComplexDouble z)
 /*  End of rssringoccs_CDouble_Add_Imag.                                      */
 
 /*  Long double precision complex addition.                                   */
-rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Add_Imag(long double y, rssringoccs_ComplexLongDouble z)
 {
     return (long double _Complex)_Complex_I*y + z;

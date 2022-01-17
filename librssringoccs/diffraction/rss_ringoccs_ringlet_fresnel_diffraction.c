@@ -70,7 +70,7 @@
  *      1.) This function relies on the C99 standard, or higher.              *
  ******************************************************************************/
 
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_Complex_Ringlet_Diffraction(double x, double a, double b, double F)
 {
     rssringoccs_ComplexDouble gap, out;

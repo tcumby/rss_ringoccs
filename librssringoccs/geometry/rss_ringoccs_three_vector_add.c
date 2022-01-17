@@ -27,7 +27,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
 /*  Function for adding 2 three-dimensional vectors.                          */
-rssringoccs_ThreeVector RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ThreeVector
 rssringoccs_ThreeVector_Add(rssringoccs_ThreeVector P,
                             rssringoccs_ThreeVector Q)
 {

@@ -1,7 +1,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_math.h>
 #include <rss_ringoccs/include/rss_ringoccs_fresnel_kernel.h>
 
-double RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT double
 rssringoccs_Double_Newton_Raphson_Fresnel_Ellipse(double k, double r,
                                                   double r0, double phi,
                                                   double phi0, double B,

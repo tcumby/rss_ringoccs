@@ -96,7 +96,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_math.h>
 
 /*  Single precision absolute value function (fabsf equivalent).              */
-float RSS_RINGOCCS_EXPORT rssringoccs_Float_Abs(float x)
+RSS_RINGOCCS_EXPORT float rssringoccs_Float_Abs(float x)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     float abs_x;
@@ -112,7 +112,7 @@ float RSS_RINGOCCS_EXPORT rssringoccs_Float_Abs(float x)
 /*  End of rssringoccs_Float_Abs.                                             */
 
 /*  Double precision absolute value function (fabs equivalent).               */
-double RSS_RINGOCCS_EXPORT rssringoccs_Double_Abs(double x)
+RSS_RINGOCCS_EXPORT double rssringoccs_Double_Abs(double x)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     double abs_x;

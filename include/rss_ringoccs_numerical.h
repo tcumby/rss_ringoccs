@@ -20,6 +20,7 @@
 /*  Include guard for this file to prevent including this twice.              */
 #ifndef _RSS_RINGOCCS_NUMERICAL_H_
 #define _RSS_RINGOCCS_NUMERICAL_H_
+#include "librssringoccs_exports.h"
 
 #include <rss_ringoccs/include/rss_ringoccs_complex.h>
 
@@ -87,7 +88,7 @@ rssringoccs_LDouble_Five_Point_Derivative(long double (*f)(long double),
                                              long double x, long double h);
 
 
-extern rssringoccs_ComplexDouble
+RSS_RINGOCCS_EXPORT extern rssringoccs_ComplexDouble
 rssringoccs_Newton_Raphson_CDouble_Poly_Real(
     rssringoccs_ComplexDouble z, double *coeffs, unsigned int degree,
     unsigned int max_iters

@@ -83,7 +83,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_complex.h>
 
 /*  Single precision complex error function.                                  */
-rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Erf(rssringoccs_ComplexFloat z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -99,7 +99,7 @@ rssringoccs_CFloat_Erf(rssringoccs_ComplexFloat z)
 /*  End of rssringoccs_CFloat_Erf.                                            */
 
 /*  Double precision complex error function.                                  */
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Erf(rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -115,7 +115,7 @@ rssringoccs_CDouble_Erf(rssringoccs_ComplexDouble z)
 /*  End of rssringoccs_CDouble_Erf.                                           */
 
 /*  Double precision complex error function.                                  */
-rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Erf(rssringoccs_ComplexLongDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */

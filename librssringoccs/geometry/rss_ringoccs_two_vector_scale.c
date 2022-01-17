@@ -27,7 +27,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
 /*  Function for multipyling a two-vector by a real number.                   */
-rssringoccs_TwoVector RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_TwoVector
 rssringoccs_TwoVector_Scale(double a, rssringoccs_TwoVector P)
 {
     /*  Declare necessary variables. C89 requires this at the top.            */

@@ -97,6 +97,7 @@
 /*  Include guard for this file to prevent including it twice.                */
 #ifndef __RSS_RINGOCCS_MATH_H__
 #define __RSS_RINGOCCS_MATH_H__
+#include "librssringoccs_exports.h"
 
 /*  The __RSS_RINGOCCS_USING_C99_MATH_H__ macro is found here.                */
 #include <rss_ringoccs/include/rss_ringoccs_config.h>
@@ -246,9 +247,9 @@
  *      double abs_x:                                                         *
  *          The absolute value of x, |x|.                                     *
  ******************************************************************************/
-extern float rssringoccs_Float_Abs(float x);
-extern double rssringoccs_Double_Abs(double x);
-extern long double rssringoccs_LDouble_Abs(long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Abs(float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Abs(double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Abs(long double x);
 
 /******************************************************************************
  *  Function:                                                                 *
@@ -262,9 +263,9 @@ extern long double rssringoccs_LDouble_Abs(long double x);
  *      double atan_x:                                                        *
  *          The inverse tangent of x, tan^-1(x).                              *
  ******************************************************************************/
-extern float rssringoccs_Float_Arctan(float x);
-extern double rssringoccs_Double_Arctan(double x);
-extern long double rssringoccs_LDouble_Arctan(long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Arctan(float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Arctan(double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Arctan(long double x);
 
 /******************************************************************************
  *  Function:                                                                 *
@@ -294,9 +295,9 @@ extern long double rssringoccs_LDouble_Arctan(long double x);
  *      along the negative x axis. Because of this, use of this function      *
  *      in complex routines results in actual branch cuts.                    *
  ******************************************************************************/
-extern float rssringoccs_Float_Arctan2(float y, float x);
-extern double rssringoccs_Double_Arctan2(double y, double x);
-extern long double rssringoccs_LDouble_Arctan2(long double y, long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Arctan2(float y, float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Arctan2(double y, double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Arctan2(long double y, long double x);
 
 /******************************************************************************
  *  Function:                                                                 *
@@ -313,9 +314,9 @@ extern long double rssringoccs_LDouble_Arctan2(long double y, long double x);
  *      double z:                                                             *
  *          The value sgn(y) * |x|.                                           *
  ******************************************************************************/
-extern float rssringoccs_Float_Copysign(float x, float y);
-extern double rssringoccs_Double_Copysign(double x, double y);
-extern long double rssringoccs_LDouble_Copysign(long double x, long double y);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Copysign(float x, float y);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Copysign(double x, double y);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Copysign(long double x, long double y);
 
 /******************************************************************************
  *  Function:                                                                 *
@@ -329,9 +330,9 @@ extern long double rssringoccs_LDouble_Copysign(long double x, long double y);
  *      double cos_x:                                                         *
  *          The cosine of x, cos(x).                                          *
  ******************************************************************************/
-extern float rssringoccs_Float_Cos(float x);
-extern double rssringoccs_Double_Cos(double x);
-extern long double rssringoccs_LDouble_Cos(long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Cos(float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Cos(double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Cos(long double x);
 
 /******************************************************************************
  *  Function:                                                                 *
@@ -345,34 +346,34 @@ extern long double rssringoccs_LDouble_Cos(long double x);
  *      double cos_x:                                                         *
  *          The hyperbolic cosine of x, cosh(x).                              *
  ******************************************************************************/
-extern float rssringoccs_Float_Cosh(float x);
-extern double rssringoccs_Double_Cosh(double x);
-extern long double rssringoccs_LDouble_Cosh(long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Cosh(float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Cosh(double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Cosh(long double x);
 
 /*  Aliases for the sine trig function found in math.h.                       */
-extern float rssringoccs_Float_Sin(float x);
-extern double rssringoccs_Double_Sin(double x);
-extern long double rssringoccs_LDouble_Sin(long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Sin(float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Sin(double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Sin(long double x);
 
 /*  Aliases for the cosine tan function found in math.h.                      */
-extern float rssringoccs_Float_Tan(float x);
-extern double rssringoccs_Double_Tan(double x);
-extern long double rssringoccs_LDouble_Tan(long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Tan(float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Tan(double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Tan(long double x);
 
 /*  Aliases for the square root function found in math.h.                     */
-extern float rssringoccs_Float_Sqrt(float x);
-extern double rssringoccs_Double_Sqrt(double x);
-extern long double rssringoccs_LDouble_Sqrt(long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Sqrt(float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Sqrt(double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Sqrt(long double x);
 
 /*  Aliases for the exponential function found in math.h.                     */
-extern float rssringoccs_Float_Exp(float x);
-extern double rssringoccs_Double_Exp(double x);
-extern long double rssringoccs_LDouble_Exp(long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Exp(float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Exp(double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Exp(long double x);
 
 /*  Aliases for the exponential function found in math.h.                     */
-extern float rssringoccs_Float_Log(float x);
-extern double rssringoccs_Double_Log(double x);
-extern long double rssringoccs_LDouble_Log(long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Log(float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Log(double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Log(long double x);
 
 /*  Set INFINITY to the HUGE_VAL macro that is specified in math.h. Most      *
  *  implementations already have an INFINITY macro, but it is not required.   */
@@ -394,73 +395,73 @@ extern long double rssringoccs_LDouble_Log(long double x);
  *  reducing the definitions to computations using sin, cos, exp, etc. We     *
  *  provide them here for portability.                                        */
 
-extern float rssringoccs_Float_Sinc(float x);
-extern double rssringoccs_Double_Sinc(double x);
-extern long double rssringoccs_LDouble_Sinc(long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Sinc(float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Sinc(double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Sinc(long double x);
 
-extern float rssringoccs_Float_Sinh(float x);
-extern double rssringoccs_Double_Sinh(double x);
-extern long double rssringoccs_LDouble_Sinh(long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Sinh(float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Sinh(double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Sinh(long double x);
 
-extern float rssringoccs_Float_Tanh(float x);
-extern double rssringoccs_Double_Tanh(double x);
-extern long double rssringoccs_LDouble_Tanh(long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Tanh(float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Tanh(double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Tanh(long double x);
 
-extern float rssringoccs_Float_Erf(float x);
-extern double rssringoccs_Double_Erf(double x);
-extern long double rssringoccs_LDouble_Erf(long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Erf(float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Erf(double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Erf(long double x);
 
-extern float rssringoccs_Float_Erfc(float x);
-extern double rssringoccs_Double_Erfc(double x);
-extern long double rssringoccs_LDouble_Erfc(long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Erfc(float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Erfc(double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Erfc(long double x);
 
-extern float rssringoccs_Float_Erfcx(float x);
-extern double rssringoccs_Double_Erfcx(double x);
-extern long double rssringoccs_LDouble_Erfcx(long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Erfcx(float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Erfcx(double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Erfcx(long double x);
 
-extern float rssringoccs_Float_Faddeeva_Im(float x);
-extern double rssringoccs_Double_Faddeeva_Im(double x);
-extern long double rssringoccs_LDouble_Faddeeva_Im(long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Faddeeva_Im(float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Faddeeva_Im(double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Faddeeva_Im(long double x);
 
 extern unsigned long rssringoccs_Factorial(unsigned int n);
 
 extern unsigned long
 rssringoccs_Falling_Factorial(unsigned int x, unsigned int N);
 
-extern float
+RSS_RINGOCCS_EXPORT extern float
 rssringoccs_Real_Poly_Float_Coeffs(float *coeffs, unsigned int degree, float x);
 
-extern double
+RSS_RINGOCCS_EXPORT extern double
 rssringoccs_Real_Poly_Double_Coeffs(double *coeffs,
                                     unsigned int degree,
                                     double x);
 
-extern long double
+RSS_RINGOCCS_EXPORT extern long double
 rssringoccs_Real_Poly_LDouble_Coeffs(long double *coeffs,
                                      unsigned int degree,
                                      long double x);
 
-extern float
+RSS_RINGOCCS_EXPORT extern float
 rssringoccs_Real_Poly_Deriv_Float_Coeffs(float *coeffs, unsigned int degree,
                                          unsigned int deriv, float x);
 
-extern double
+RSS_RINGOCCS_EXPORT extern double
 rssringoccs_Real_Poly_Deriv_Double_Coeffs(double *coeffs, unsigned int degree,
                                           unsigned int deriv, double x);
 
-extern long double
+RSS_RINGOCCS_EXPORT extern long double
 rssringoccs_Real_Poly_Deriv_LDouble_Coeffs(long double *coeffs,
                                            unsigned int degree,
                                            unsigned int deriv,
                                            long double x);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Reverse_Float_Array(float *arr, unsigned long arrsize);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Reverse_Double_Array(double *arr, unsigned long arrsize);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Reverse_LDouble_Array(long double *arr, unsigned long arrsize);
 
 #endif

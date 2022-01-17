@@ -5,7 +5,7 @@
 /*  Where the prototypes are declared and where complex types are defined.    */
 #include <rss_ringoccs/include/rss_ringoccs_complex.h>
 
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Sqrt(rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */

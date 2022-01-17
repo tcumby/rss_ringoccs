@@ -94,7 +94,7 @@
 #if _RSS_RINGOCCS_USING_COMPLEX_H_ == 0
 
 /*  Single precision complex cosine.                                          */
-rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Cos(rssringoccs_ComplexFloat z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -118,7 +118,7 @@ rssringoccs_CFloat_Cos(rssringoccs_ComplexFloat z)
 /*  End of rssringoccs_CFloat_Cos.                                            */
 
 /*  Double precision complex cosine.                                          */
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Cos(rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -142,7 +142,7 @@ rssringoccs_CDouble_Cos(rssringoccs_ComplexDouble z)
 /*  End of rssringoccs_CDouble_Cos.                                           */
 
 /*  Long double precision complex cosine.                                     */
-rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Cos(rssringoccs_ComplexLongDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -172,7 +172,7 @@ rssringoccs_CLDouble_Cos(rssringoccs_ComplexLongDouble z)
  *  functions found in the library.                                           */
 
 /*  Single precision complex cosine.                                          */
-rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Cos(rssringoccs_ComplexFloat z)
 {
     return ccosf(z);
@@ -180,7 +180,7 @@ rssringoccs_CFloat_Cos(rssringoccs_ComplexFloat z)
 /*  End of rssringoccs_CLDouble_Cos.                                          */
 
 /*  Double precision complex cosine.                                          */
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Cos(rssringoccs_ComplexDouble z)
 {
     return ccos(z);
@@ -188,7 +188,7 @@ rssringoccs_CDouble_Cos(rssringoccs_ComplexDouble z)
 /*  End of rssringoccs_CDouble_Cos.                                           */
 
 /*  Long double precision complex cosine.                                     */
-rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Cos(rssringoccs_ComplexLongDouble z)
 {
     return ccosl(z);

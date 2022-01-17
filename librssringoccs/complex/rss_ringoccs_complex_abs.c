@@ -90,7 +90,7 @@
 #if _RSS_RINGOCCS_USING_COMPLEX_H_ == 0
 
 /*  Single precision complex abs function (cabsf equivalent).                 */
-float RSS_RINGOCCS_EXPORT rssringoccs_CFloat_Abs(rssringoccs_ComplexFloat z)
+RSS_RINGOCCS_EXPORT float rssringoccs_CFloat_Abs(rssringoccs_ComplexFloat z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     float real, imag, abs_value;
@@ -106,7 +106,7 @@ float RSS_RINGOCCS_EXPORT rssringoccs_CFloat_Abs(rssringoccs_ComplexFloat z)
 /*  End of rssringoccs_CFloat_Abs.                                            */
 
 /*  Double precision complex abs function (cabs equivalent).                  */
-double RSS_RINGOCCS_EXPORT rssringoccs_CDouble_Abs(rssringoccs_ComplexDouble z)
+RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Abs(rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     double real, imag, abs_value;
@@ -144,14 +144,14 @@ long double rssringoccs_CLDouble_Abs(rssringoccs_ComplexLongDouble z)
  *  functions found in the library.                                           */
 
 /*  Single precision absolute value function, alias for cabsf.                */
-float RSS_RINGOCCS_EXPORT rssringoccs_CFloat_Abs(rssringoccs_ComplexFloat z)
+RSS_RINGOCCS_EXPORT float rssringoccs_CFloat_Abs(rssringoccs_ComplexFloat z)
 {
     return cabsf(z);
 }
 /*  End of rssringoccs_CFloat_Abs.                                            */
 
 /*  Double precision absolute value function, alias for cabs.                 */
-double RSS_RINGOCCS_EXPORT rssringoccs_CDouble_Abs(rssringoccs_ComplexDouble z)
+RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Abs(rssringoccs_ComplexDouble z)
 {
     return cabs(z);
 }

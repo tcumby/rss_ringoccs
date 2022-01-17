@@ -1,6 +1,7 @@
 /*  Include guard to avoid importing this file twice.                         */
 #ifndef __RSS_RINGOCCS_RECONSTRUCTION_H__
 #define __RSS_RINGOCCS_RECONSTRUCTION_H__
+#include "librssringoccs_exports.h"
 
 /*  Various functions, complex variables, and more found here.                */
 #include <rss_ringoccs/include/rss_ringoccs_bool.h>
@@ -88,68 +89,67 @@ typedef struct rssringoccs_TAUObj {
 typedef void (*rssringoccs_FresT)(rssringoccs_TAUObj *, double *,
                                   unsigned long, unsigned long);
 
-extern void rssringoccs_Reconstruction(rssringoccs_TAUObj *tau);
+RSS_RINGOCCS_EXPORT extern void rssringoccs_Reconstruction(rssringoccs_TAUObj *tau);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Tau_Set_WType(const char *wtype, rssringoccs_TAUObj *tau);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Tau_Set_Psitype(const char *psitype, rssringoccs_TAUObj* tau);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Tau_Set_Range_From_String(const char *range,
                                       rssringoccs_TAUObj* tau);
 
-extern rssringoccs_TAUObj *
-rssringoccs_Create_TAUObj(rssringoccs_DLPObj *dlp, double res);
+RSS_RINGOCCS_EXPORT extern rssringoccs_TAUObj* rssringoccs_Create_TAUObj(rssringoccs_DLPObj *dlp, double res);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Copy_DLP_Data_To_Tau(rssringoccs_DLPObj *dlp,
                                  rssringoccs_TAUObj *tau);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Tau_Check_Data_Range(rssringoccs_TAUObj *dlp);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Tau_Check_Data(rssringoccs_TAUObj *tau);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Tau_Check_Keywords(rssringoccs_TAUObj *tau);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Tau_Check_Occ_Type(rssringoccs_TAUObj *tau);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Tau_Compute_Vars(rssringoccs_TAUObj *tau);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Tau_Get_Window_Width(rssringoccs_TAUObj* tau);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Tau_Finish(rssringoccs_TAUObj* tau);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Destroy_Tau_Members(rssringoccs_TAUObj *tau);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Destroy_Tau(rssringoccs_TAUObj **tau);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Tau_Reset_Window(double *x_arr, double *w_func, double dx,
                              double width, long nw_pts,
                              rssringoccs_window_func fw);
 
 /*  Functions that compute the Fresnel Transform on a TAUObj instance.        */
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Diffraction_Correction_Fresnel(rssringoccs_TAUObj *tau);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Diffraction_Correction_Legendre(rssringoccs_TAUObj *tau);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Diffraction_Correction_Newton(rssringoccs_TAUObj *tau);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Diffraction_Correction_SimpleFFT(rssringoccs_TAUObj *tau);
 
 #endif

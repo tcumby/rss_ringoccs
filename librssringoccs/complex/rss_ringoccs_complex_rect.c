@@ -38,7 +38,7 @@
 #if _RSS_RINGOCCS_USING_COMPLEX_H_ == 0
 
 /*  Create single precision complex numbers in Cartesian coordinates.         */
-rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT rssringoccs_CFloat_Rect(float x, float y)
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat rssringoccs_CFloat_Rect(float x, float y)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     rssringoccs_ComplexFloat z;
@@ -51,7 +51,7 @@ rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT rssringoccs_CFloat_Rect(float x, fl
 /*  End of rssringoccs_CFloat_Rect.                                     */
 
 /*  Create double precision complex numbers in Cartesian coordinates.         */
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT rssringoccs_CDouble_Rect(double x, double y)
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble rssringoccs_CDouble_Rect(double x, double y)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     rssringoccs_ComplexDouble z;
@@ -64,7 +64,7 @@ rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT rssringoccs_CDouble_Rect(double x,
 /*  End of rssringoccs_CDouble_Rect.                                    */
 
 /*  Create long double precision complex numbers in Cartesian coordinates.    */
-rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Rect(long double x, long double y)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -81,21 +81,21 @@ rssringoccs_CLDouble_Rect(long double x, long double y)
 /*  Else statement for #if _RSS_RINGOCCS_USING_COMPLEX_H_ == 0.               */
 
 /*  Create single precision complex numbers in Cartesian coordinates.         */
-rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT rssringoccs_CFloat_Rect(float x, float y)
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat rssringoccs_CFloat_Rect(float x, float y)
 {
     return x + _Complex_I*y;
 }
 /*  End of rssringoccs_CFloat_Rect.                                     */
 
 /*  Create double precision complex numbers in Cartesian coordinates.         */
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT rssringoccs_CDouble_Rect(double x, double y)
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble rssringoccs_CDouble_Rect(double x, double y)
 {
     return x + _Complex_I*y;
 }
 /*  End of rssringoccs_CDouble_Rect.                                    */
 
 /*  Create long double precision complex numbers in Cartesian coordinates.    */
-rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Rect(long double x, long double y)
 {
     return x + _Complex_I*y;

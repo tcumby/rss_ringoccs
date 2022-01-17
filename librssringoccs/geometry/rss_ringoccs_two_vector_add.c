@@ -27,7 +27,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
 /*  Function for adding 2 two-dimensional vectors.                            */
-rssringoccs_TwoVector RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_TwoVector
 rssringoccs_TwoVector_Add(rssringoccs_TwoVector P, rssringoccs_TwoVector Q)
 {
     /*  Declare necessary variables. C89 requires this at the top.            */

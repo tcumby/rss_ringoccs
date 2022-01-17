@@ -4,7 +4,7 @@
 /*  Prototypes for these functions declared here.                             */
 #include <rss_ringoccs/include/rss_ringoccs_special_functions.h>
 
-float RSS_RINGOCCS_EXPORT rssringoccs_Float_LambertW(float x)
+RSS_RINGOCCS_EXPORT float rssringoccs_Float_LambertW(float x)
 {
     float EPS = 1.0e-4F;
     float x0, dx, exp_x0;
@@ -41,7 +41,7 @@ float RSS_RINGOCCS_EXPORT rssringoccs_Float_LambertW(float x)
         return rssringoccs_Infinity;
 }
 
-double RSS_RINGOCCS_EXPORT rssringoccs_Double_LambertW(double x)
+RSS_RINGOCCS_EXPORT double rssringoccs_Double_LambertW(double x)
 {
     double EPS = 1.0e-8;
     double x0, dx, exp_x0;

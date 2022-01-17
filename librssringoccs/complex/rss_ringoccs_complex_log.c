@@ -55,7 +55,7 @@
 
 /*  Compute the complex log of a complex number z = r exp(i theta) where      *
  *  theta is a real number between -pi and pi.                                */
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Log(rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */

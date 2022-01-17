@@ -35,6 +35,7 @@
 /*  Include guard to prevent including this file twice.                       */
 #ifndef __RSS_RINGOCCS_CSV_TOOLS_H__
 #define __RSS_RINGOCCS_CSV_TOOLS_H__
+#include "librssringoccs_exports.h"
 
 /*  Boolean data types defined here.                                          */
 #include <rss_ringoccs/include/rss_ringoccs_bool.h>
@@ -148,36 +149,32 @@ typedef struct rssringoccs_CSVData {
     char *error_message;
 } rssringoccs_CSVData;
 
-extern rssringoccs_GeoCSV *
-rssringoccs_Get_Geo(const char *filename, rssringoccs_Bool use_deprecated);
+RSS_RINGOCCS_EXPORT extern rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename, rssringoccs_Bool use_deprecated);
 
-extern void rssringoccs_Destroy_GeoCSV_Members(rssringoccs_GeoCSV *geo);
-extern void rssringoccs_Destroy_GeoCSV(rssringoccs_GeoCSV **geo);
+RSS_RINGOCCS_EXPORT extern void rssringoccs_Destroy_GeoCSV_Members(rssringoccs_GeoCSV *geo);
+RSS_RINGOCCS_EXPORT extern void rssringoccs_Destroy_GeoCSV(rssringoccs_GeoCSV **geo);
 
-extern rssringoccs_DLPCSV *
-rssringoccs_Get_DLP(const char *filename, rssringoccs_Bool use_deprecated);
+RSS_RINGOCCS_EXPORT extern rssringoccs_DLPCSV* rssringoccs_Get_DLP(const char *filename, rssringoccs_Bool use_deprecated);
 
-extern void rssringoccs_Destroy_DLPCSV_Members(rssringoccs_DLPCSV *dlp);
-extern void rssringoccs_Destroy_DLPCSV(rssringoccs_DLPCSV **dlp);
+RSS_RINGOCCS_EXPORT extern void rssringoccs_Destroy_DLPCSV_Members(rssringoccs_DLPCSV *dlp);
+RSS_RINGOCCS_EXPORT extern void rssringoccs_Destroy_DLPCSV(rssringoccs_DLPCSV **dlp);
 
-extern rssringoccs_CalCSV *rssringoccs_Get_Cal(const char *filename);
-extern void rssringoccs_Destroy_CalCSV_Members(rssringoccs_CalCSV *cal);
-extern void rssringoccs_Destroy_CalCSV(rssringoccs_CalCSV **cal);
+RSS_RINGOCCS_EXPORT extern rssringoccs_CalCSV* rssringoccs_Get_Cal(const char *filename);
+RSS_RINGOCCS_EXPORT extern void rssringoccs_Destroy_CalCSV_Members(rssringoccs_CalCSV *cal);
+RSS_RINGOCCS_EXPORT extern void rssringoccs_Destroy_CalCSV(rssringoccs_CalCSV **cal);
 
-extern rssringoccs_TauCSV *
-rssringoccs_Get_Tau(const char *filename, rssringoccs_Bool use_deprecated);
+RSS_RINGOCCS_EXPORT extern rssringoccs_TauCSV* rssringoccs_Get_Tau(const char *filename, rssringoccs_Bool use_deprecated);
 
-extern void rssringoccs_Destroy_TauCSV_Members(rssringoccs_TauCSV *dlp);
-extern void rssringoccs_Destroy_TauCSV(rssringoccs_TauCSV **dlp);
+RSS_RINGOCCS_EXPORT extern void rssringoccs_Destroy_TauCSV_Members(rssringoccs_TauCSV *dlp);
+RSS_RINGOCCS_EXPORT extern void rssringoccs_Destroy_TauCSV(rssringoccs_TauCSV **dlp);
 
-extern rssringoccs_CSVData *
-rssringoccs_Extract_CSV_Data(const char *geo,
+RSS_RINGOCCS_EXPORT extern rssringoccs_CSVData* rssringoccs_Extract_CSV_Data(const char *geo,
                              const char *cal,
                              const char *dlp,
                              const char *tau,
                              rssringoccs_Bool use_deprecated);
 
-extern void rssringoccs_Destroy_CSV_Members(rssringoccs_CSVData *csv);
+RSS_RINGOCCS_EXPORT extern void rssringoccs_Destroy_CSV_Members(rssringoccs_CSVData *csv);
 
 #endif
 /*  End of include guard.                                                     */

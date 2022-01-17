@@ -223,7 +223,7 @@ static long double taylorl[31] = {
 
 
 /*  Compute the Bessel J_0 function for a floating point number x.            */
-float RSS_RINGOCCS_EXPORT rssringoccs_Float_Bessel_J0(float x)
+RSS_RINGOCCS_EXPORT float rssringoccs_Float_Bessel_J0(float x)
 {
     /*  Declare necessary variables. C89 requires declaring these at the top. */
     float bessel_J0, arg;
@@ -282,7 +282,7 @@ float RSS_RINGOCCS_EXPORT rssringoccs_Float_Bessel_J0(float x)
 }
 
 /*  Compute the Bessel J_0 function for a double precision number x.          */
-double RSS_RINGOCCS_EXPORT rssringoccs_Double_Bessel_J0(double x)
+RSS_RINGOCCS_EXPORT double rssringoccs_Double_Bessel_J0(double x)
 {
     /*  Declare necessary variables. C89 requires declaring these at the top. */
     double bessel_J0, arg;

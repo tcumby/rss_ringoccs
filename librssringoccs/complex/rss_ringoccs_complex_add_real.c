@@ -84,7 +84,7 @@
  *  for computing the sum of complex numbers with real ones.                  */
 
 /*  Single precision complex addition where one variable is real.             */
-rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Add_Real(float x, rssringoccs_ComplexFloat z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -105,7 +105,7 @@ rssringoccs_CFloat_Add_Real(float x, rssringoccs_ComplexFloat z)
 /*  End of rssringoccs_CFloat_Add_Real.                                       */
 
 /*  Double precision complex addition where one variable is real.             */
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Add_Real(double x, rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -126,7 +126,7 @@ rssringoccs_CDouble_Add_Real(double x, rssringoccs_ComplexDouble z)
 /*  End of rssringoccs_CDouble_Add_Real.                                      */
 
 /*  Long double precision complex addition where one variable is real.        */
-rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Add_Real(long double x, rssringoccs_ComplexLongDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -153,7 +153,7 @@ rssringoccs_CLDouble_Add_Real(long double x, rssringoccs_ComplexLongDouble z)
  *  arithmetic made available in the C99 standard.                            */
 
 /*  Single precision complex addition.                                        */
-rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Add_Real(float x, rssringoccs_ComplexFloat z)
 {
     return x + z;
@@ -161,7 +161,7 @@ rssringoccs_CFloat_Add_Real(float x, rssringoccs_ComplexFloat z)
 /*  End of rssringoccs_CFloat_Add_Real.                                       */
 
 /*  Double precision complex addition.                                        */
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Add_Real(double x, rssringoccs_ComplexDouble z)
 {
     return x + z;
@@ -169,7 +169,7 @@ rssringoccs_CDouble_Add_Real(double x, rssringoccs_ComplexDouble z)
 /*  End of rssringoccs_CDouble_Add_Real.                                      */
 
 /*  Long double precision complex addition.                                   */
-rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Add_Real(long double x, rssringoccs_ComplexLongDouble z)
 {
     return x + z;

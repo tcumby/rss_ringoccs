@@ -86,7 +86,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_complex.h>
 
 /*  Single precision complex exponential function.                            */
-rssringoccs_ComplexFloat RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Exp(rssringoccs_ComplexFloat z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -127,7 +127,7 @@ rssringoccs_CFloat_Exp(rssringoccs_ComplexFloat z)
 /*  End of rssringoccs_CFloat_Exp.                                           */
 
 /*  Compute the complex exponential of a complex number z = x + iy.           */
-rssringoccs_ComplexDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Exp(rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -168,7 +168,7 @@ rssringoccs_CDouble_Exp(rssringoccs_ComplexDouble z)
 /*  End of rssringoccs_CDouble_Exp.                                           */
 
 /*  Long double precision complex exponential.                                */
-rssringoccs_ComplexLongDouble RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Exp(rssringoccs_ComplexLongDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */

@@ -35,6 +35,7 @@
 /*  Include guard to prevent including this file twice.                       */
 #ifndef __RSS_RINGOCCS_INTERPOLATE_H__
 #define __RSS_RINGOCCS_INTERPOLATE_H__
+#include "librssringoccs_exports.h"
 
 /******************************************************************************
  *  Function:                                                                 *
@@ -61,7 +62,7 @@
  *      It is assumed the pointer x has it's data sorted and strictly         *
  *      monotonically increasing. That is, x[n] < x[n+1] for all valid n.     *
  ******************************************************************************/
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Float_Sorted_Interp1d(float *x,
                                   float *y,
                                   unsigned long N,
@@ -69,7 +70,7 @@ rssringoccs_Float_Sorted_Interp1d(float *x,
                                   float *y_new,
                                   unsigned long N_new);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Double_Sorted_Interp1d(double *x,
                                    double *y,
                                    unsigned long N,
@@ -77,7 +78,7 @@ rssringoccs_Double_Sorted_Interp1d(double *x,
                                    double *y_new,
                                    unsigned long N_new);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_LDouble_Sorted_Interp1d(long double *x,
                                     long double *y,
                                     unsigned long N,

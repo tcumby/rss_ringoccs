@@ -27,7 +27,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
 /*  Function for returning the x component of a two dimensional vector.       */
-double RSS_RINGOCCS_EXPORT rssringoccs_TwoVector_Dot_Product(rssringoccs_TwoVector P,
+RSS_RINGOCCS_EXPORT double rssringoccs_TwoVector_Dot_Product(rssringoccs_TwoVector P,
                                          rssringoccs_TwoVector Q)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */

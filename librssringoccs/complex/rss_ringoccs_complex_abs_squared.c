@@ -78,7 +78,7 @@
  *  for both the C89 and C99 renditions of rss_ringoccs.                      */
 
 /*  Single precision abs squared function.                                    */
-float RSS_RINGOCCS_EXPORT rssringoccs_CFloat_Abs_Squared(rssringoccs_ComplexFloat z)
+RSS_RINGOCCS_EXPORT float rssringoccs_CFloat_Abs_Squared(rssringoccs_ComplexFloat z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     float real, imag, abs_sq;
@@ -94,7 +94,7 @@ float RSS_RINGOCCS_EXPORT rssringoccs_CFloat_Abs_Squared(rssringoccs_ComplexFloa
 /*  End of rssringoccs_CFloat_Abs_Squared.                                    */
 
 /*  Double precision abs squared function.                                    */
-double RSS_RINGOCCS_EXPORT rssringoccs_CDouble_Abs_Squared(rssringoccs_ComplexDouble z)
+RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Abs_Squared(rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     double real, imag, abs_sq;

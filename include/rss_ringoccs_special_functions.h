@@ -1,5 +1,6 @@
 #ifndef RSS_RINGOCCS_SPECIAL_FUNCTIONS_H
 #define RSS_RINGOCCS_SPECIAL_FUNCTIONS_H
+#include "librssringoccs_exports.h"
 
 /*  complex data types, as well as _Complex_I, are defined here.              */
 #include <rss_ringoccs/include/rss_ringoccs_complex.h>
@@ -24,7 +25,7 @@
  *  The function pointer works as follows:                                    *
  *      return_type  (*type_name)(type_var1, type_var2, ...)                  *
  *  So, let's typedef this for the window function.                           */
-typedef double (*rssringoccs_window_func)(double, double);
+typedef RSS_RINGOCCS_EXPORT double (*rssringoccs_window_func)(double, double);
 
 /*  As a side comment, the FresT function pointer takes a different number of *
  *  variables depending on which method of diffraction correction is being    *
@@ -47,22 +48,22 @@ typedef double (*rssringoccs_window_func)(double, double);
 #endif
 
 #define RSSRINGOCCSGenerateExternFunctions(FuncName)                           \
-extern float rssringoccs_Float_##FuncName(float x);                            \
-extern double rssringoccs_Double_##FuncName(double x);                         \
-extern long double  rssringoccs_LDouble_##FuncName(long double x);             \
-extern rssringoccs_ComplexDouble                                               \
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_##FuncName(float x);                            \
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_##FuncName(double x);                         \
+RSS_RINGOCCS_EXPORT extern long double  rssringoccs_LDouble_##FuncName(long double x);             \
+RSS_RINGOCCS_EXPORT extern rssringoccs_ComplexDouble                                               \
 rssringoccs_CDouble_##FuncName(rssringoccs_ComplexDouble x);
 
 #define RSSRINGOCCSTwoVarWindowFuncExtern(FuncName)                            \
-extern float rssringoccs_Float_##FuncName(float x, float W);                   \
-extern double rssringoccs_Double_##FuncName(double x, double W);               \
-extern long double                                                             \
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_##FuncName(float x, float W);                   \
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_##FuncName(double x, double W);               \
+RSS_RINGOCCS_EXPORT extern long double                                                             \
 rssringoccs_LDouble_##FuncName(long double x, long double W);
 
 #define RSSRINGOCCSThreeVarWindowFuncExtern(FuncName)                          \
-extern float  rssringoccs_Float_##FuncName(float x, float W, float alpha);     \
-extern double rssringoccs_Double_##FuncName(double x, double W, double alpha); \
-extern long double                                                             \
+RSS_RINGOCCS_EXPORT extern float  rssringoccs_Float_##FuncName(float x, float W, float alpha);     \
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_##FuncName(double x, double W, double alpha); \
+RSS_RINGOCCS_EXPORT extern long double                                                             \
 rssringoccs_LDouble_##FuncName(long double x, long double W,                \
                                   long double alpha);
 
@@ -75,11 +76,11 @@ RSSRINGOCCSGenerateExternFunctions(Frequency_To_Wavelength)
 RSSRINGOCCSGenerateExternFunctions(Fresnel_Cos)
 RSSRINGOCCSGenerateExternFunctions(Fresnel_Sin)
 
-extern float rssringoccs_Float_Resolution_Inverse(float x);
-extern double rssringoccs_Double_Resolution_Inverse(double x);
-extern long double rssringoccs_LDouble_Resolution_Inverse(long double x);
+RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Resolution_Inverse(float x);
+RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Resolution_Inverse(double x);
+RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Resolution_Inverse(long double x);
 
-extern rssringoccs_ComplexDouble rssringoccs_Complex_Fresnel_Integral(double x);
+RSS_RINGOCCS_EXPORT extern rssringoccs_ComplexDouble rssringoccs_Complex_Fresnel_Integral(double x);
 
 /*  Kaiser-Bessel function with alpha = 2pi, 2.5pi, and 3.5pi                 */
 RSSRINGOCCSTwoVarWindowFuncExtern(Kaiser_Bessel_2_0)
@@ -103,14 +104,14 @@ RSSRINGOCCSThreeVarWindowFuncExtern(Modified_Kaiser_Bessel)
 #undef RSSRINGOCCSThreeVarWindowFuncExtern
 #undef RSSRINGOCCSGenerateExternFunctions
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Legendre_Polynomials(double *legendre_p, double x, int order);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Alt_Legendre_Polynomials(double *poly,
                                      double *legendre_p, int order);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Fresnel_Kernel_Coefficients(double *fresnel_ker_coeffs,
                                         double *legendre_p,
                                         double *alt_legendre_p,
@@ -120,118 +121,118 @@ rssringoccs_Fresnel_Kernel_Coefficients(double *fresnel_ker_coeffs,
  *------------------------------Fresnel Scale---------------------------------*
  ******************************************************************************/
 
-extern float
+RSS_RINGOCCS_EXPORT extern float
 Fresnel_Scale_Float(float lambda, float d, float phi, float b);
 
-extern double
+RSS_RINGOCCS_EXPORT extern double
 Fresnel_Scale_Double(double lambda, double d, double phi, double b);
 
-extern long double
+RSS_RINGOCCS_EXPORT extern long double
 Fresnel_Scale_LDouble(long double lambda, long double d,
                          long double phi, long double b);
 
-extern float
+RSS_RINGOCCS_EXPORT extern float
 rssringoccs_Max_Float(float *arr, long n_elements);
 
-extern double
+RSS_RINGOCCS_EXPORT extern double
 rssringoccs_Max_Double(double *arr, long n_elements);
 
-extern long double
+RSS_RINGOCCS_EXPORT extern long double
 rssringoccs_Max_LDouble(long double *arr, long n_elements);
 
-extern char
+RSS_RINGOCCS_EXPORT extern char
 rssringoccs_Max_Char(char *arr, long n_elements);
 
 extern unsigned char
 rssringoccs_Max_UChar(unsigned char *arr, long n_elements);
 
-extern short
+RSS_RINGOCCS_EXPORT extern short
 rssringoccs_Max_Short(short *arr, long n_elements);
 
 extern unsigned short
 rssringoccs_Max_UShort(unsigned short *arr, long n_elements);
 
-extern int
+RSS_RINGOCCS_EXPORT extern int
 rssringoccs_Max_Int(int *arr, long n_elements);
 
 extern unsigned int
 rssringoccs_Max_UInt(unsigned int *arr, long n_elements);
 
-extern long
+RSS_RINGOCCS_EXPORT extern long
 rssringoccs_Max_Long(long *arr, long n_elements);
 
 extern unsigned long
 rssringoccs_Max_ULong(unsigned long *arr, long n_elements);
 
 
-extern float
+RSS_RINGOCCS_EXPORT extern float
 rssringoccs_Min_Float(float *arr, long n_elements);
 
-extern double
+RSS_RINGOCCS_EXPORT extern double
 rssringoccs_Min_Double(double *arr, long n_elements);
 
-extern long double
+RSS_RINGOCCS_EXPORT extern long double
 rssringoccs_Min_LDouble(long double *arr, long n_elements);
 
-extern char
+RSS_RINGOCCS_EXPORT extern char
 rssringoccs_Min_Char(char *arr, long n_elements);
 
 extern unsigned char
 rssringoccs_Min_UChar(unsigned char *arr, long n_elements);
 
-extern short
+RSS_RINGOCCS_EXPORT extern short
 rssringoccs_Min_Short(short *arr, long n_elements);
 
 extern unsigned short
 rssringoccs_Min_UShort(unsigned short *arr, long n_elements);
 
-extern int
+RSS_RINGOCCS_EXPORT extern int
 rssringoccs_Min_Int(int *arr, long n_elements);
 
 extern unsigned int
 rssringoccs_Min_UInt(unsigned int *arr, long n_elements);
 
-extern long
+RSS_RINGOCCS_EXPORT extern long
 rssringoccs_Min_Long(long *arr, long n_elements);
 
 extern unsigned long
 rssringoccs_Min_ULong(unsigned long *arr, long n_elements);
 
 
-extern float
+RSS_RINGOCCS_EXPORT extern float
 rssringoccs_Normeq_Float(float *w_func, long n_elements);
 
-extern double
+RSS_RINGOCCS_EXPORT extern double
 rssringoccs_Normeq_Double(double *w_func, long n_elements);
 
-extern long double
+RSS_RINGOCCS_EXPORT extern long double
 rssringoccs_Normeq_LDouble(long double *w_func, long n_elements);
 
-extern double
+RSS_RINGOCCS_EXPORT extern double
 rssringoccs_Normeq_Short(short *w_func, long n_elements);
 
-extern double
+RSS_RINGOCCS_EXPORT extern double
 rssringoccs_Normeq_Int(int *w_func, long n_elements);
 
-extern double
+RSS_RINGOCCS_EXPORT extern double
 rssringoccs_Normeq_Long(long *w_func, long n_elements);
 
 
 /*  Window Normalization Functions                                            */
-extern float
+RSS_RINGOCCS_EXPORT extern float
 rssringoccs_Float_Window_Normalization(float *ker, long dim,
                                        float dx, float f_scale);
 
-extern double
+RSS_RINGOCCS_EXPORT extern double
 rssringoccs_Double_Window_Normalization(double *ker, long dim,
                                         double dx, double f_scale);
 
-extern long double
+RSS_RINGOCCS_EXPORT extern long double
 rssringoccs_LDouble_Window_Normalization(long double *ker,
                                             long dim, long double dx,
                                             long double f_scale);
 
-extern double
+RSS_RINGOCCS_EXPORT extern double
 rssringoccs_Complex_Window_Normalization(rssringoccs_ComplexDouble *ker,
                                          long dim, double dx, double f_scale);
 

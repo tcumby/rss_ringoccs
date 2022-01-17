@@ -30,7 +30,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_geometry.h>
 
 /*  Function that normalizes non-zero three dimensional vectors.              */
-rssringoccs_ThreeVector RSS_RINGOCCS_EXPORT
+RSS_RINGOCCS_EXPORT rssringoccs_ThreeVector
 rssringoccs_ThreeVector_Normalize(rssringoccs_ThreeVector P)
 {
     /*  Declare necessary variables. C89 requires this at the top.            */

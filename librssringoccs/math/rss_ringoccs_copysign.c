@@ -81,7 +81,7 @@
  *  double, float, and long double inputs.                                    */
 
 /*  Float precision copysign function.                                        */
-float RSS_RINGOCCS_EXPORT rssringoccs_Float_Copysign(float x, float y)
+RSS_RINGOCCS_EXPORT float rssringoccs_Float_Copysign(float x, float y)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     float out;
@@ -103,7 +103,7 @@ float RSS_RINGOCCS_EXPORT rssringoccs_Float_Copysign(float x, float y)
 /*  End of rssringoccs_Float_Copysign.                                        */
 
 /*  Double precision copysign function.                                       */
-double RSS_RINGOCCS_EXPORT rssringoccs_Double_Copysign(double x, double y)
+RSS_RINGOCCS_EXPORT double rssringoccs_Double_Copysign(double x, double y)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     double out;
