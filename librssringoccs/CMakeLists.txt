@@ -40,7 +40,7 @@ GENERATE_EXPORT_HEADER(librssringoccs           # generates the export header sh
     EXPORT_MACRO_NAME RSS_RINGOCCS_EXPORT
     EXPORT_FILE_NAME librssringoccs_exports.h
     STATIC_DEFINE SHARED_EXPORTS_BUILT_AS_STATIC)
-
+target_include_directories(librssringoccs PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
 
 file(GLOB LIBRSSRINGOCCS_HEADERS ../include/*.h )
 set_property(TARGET librssringoccs
