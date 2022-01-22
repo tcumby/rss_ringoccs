@@ -1,4 +1,4 @@
-target_sources(librssringoccs PUBLIC
+target_sources(librssringoccs PRIVATE
 rss_ringoccs_abs.c
 rss_ringoccs_arctan.c
 rss_ringoccs_arctan2.c

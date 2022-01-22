@@ -1,4 +1,4 @@
-target_sources(librssringoccs PUBLIC
+target_sources(librssringoccs PRIVATE
 rss_ringoccs_fresnel_transform.c
 rss_ringoccs_fresnel_transform_cubic_interpolation.c
 rss_ringoccs_fresnel_transform_cubic_interpolation_norm.c

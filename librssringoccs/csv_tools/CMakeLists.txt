@@ -1,4 +1,5 @@
-target_sources(librssringoccs PUBLIC rss_ringoccs_destroy_cal_csv.c
+target_sources(librssringoccs PRIVATE
+rss_ringoccs_destroy_cal_csv.c
 rss_ringoccs_destroy_cal_csv_members.c
 rss_ringoccs_destroy_csv_data_members.c
 rss_ringoccs_destroy_dlp_csv.c

@@ -1,4 +1,4 @@
-target_sources(librssringoccs PUBLIC
+target_sources(librssringoccs PRIVATE
 rss_ringoccs_copy_dlp_data_to_tau.c
 rss_ringoccs_create_tau_obj.c
 rss_ringoccs_destroy_tau.c

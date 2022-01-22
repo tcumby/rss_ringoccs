@@ -1,4 +1,4 @@
-target_sources(librssringoccs PUBLIC
+target_sources(librssringoccs PRIVATE
 rss_ringoccs_color.c
 rss_ringoccs_easy_complex_plots.c
 rss_ringoccs_easy_real_plots.c
