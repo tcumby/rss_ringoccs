@@ -31,3 +31,15 @@ target_link_libraries(merge_sort_recursive PRIVATE librssringoccs)
 
 add_executable(sin_plot sin_plot.c)
 target_link_libraries(sin_plot PRIVATE librssringoccs)
+
+include(GNUInstallDirs)
+install(TARGETS
+    abs_plot
+    erfcx_plot
+    max_func_average_number_of_attributes
+    merge_sort_iterative
+    merge_sort_recursive
+    sin_plot
+    RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
+)

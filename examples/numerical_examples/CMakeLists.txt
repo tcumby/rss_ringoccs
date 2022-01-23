@@ -19,3 +19,11 @@ target_link_libraries(five_point_derivative_example PRIVATE librssringoccs)
 
 add_executable(newton_rapshon_bessel_function newton_rapshon_bessel_function.c)
 target_link_libraries(newton_rapshon_bessel_function PRIVATE librssringoccs)
+
+include(GNUInstallDirs)
+install(TARGETS
+    five_point_derivative_example
+    newton_rapshon_bessel_function
+    RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
+)

@@ -4,10 +4,8 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../../../cmake")
 if (CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
 if (APPLE)
     include(gcc-macos)
-    set(CMAKE_INSTALL_PREFIX "/usr/local")
 elseif (UNIX)
     include(gcc)
-    set(CMAKE_INSTALL_PREFIX "/usr/local")
 endif()
 endif()
 
@@ -22,3 +20,12 @@ target_link_libraries(halley_fractal_on_sphere_polynomial PRIVATE librssringoccs
 
 add_executable(halley_fractal_polynomial halley_fractal_polynomial.c)
 target_link_libraries(halley_fractal_polynomial PRIVATE librssringoccs)
+
+include(GNUInstallDirs)
+install(TARGETS
+    halley_fractal_on_sphere
+    halley_fractal_on_sphere_polynomial
+    halley_fractal_polynomial
+    RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
+)

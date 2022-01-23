@@ -16,3 +16,10 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
 add_executable(stationary_phase_plot stationary_phase_plot.c)
 target_link_libraries(stationary_phase_plot PRIVATE librssringoccs)
+
+include(GNUInstallDirs)
+install(TARGETS
+    stationary_phase_plot
+    RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
+)

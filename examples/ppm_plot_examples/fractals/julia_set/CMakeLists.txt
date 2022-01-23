@@ -22,3 +22,12 @@ target_link_libraries(julia_set_animation PRIVATE librssringoccs)
 
 add_executable(julia_set_on_sphere julia_set_on_sphere.c)
 target_link_libraries(julia_set_on_sphere PRIVATE librssringoccs)
+
+include(GNUInstallDirs)
+install(TARGETS
+    julia_set
+    julia_set_animation
+    julia_set_on_sphere
+    RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
+)

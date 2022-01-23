@@ -16,3 +16,10 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
 add_executable(euclidean_norm_3d_example euclidean_norm_3d_example.c)
 target_link_libraries(euclidean_norm_3d_example PRIVATE librssringoccs)
+
+include(GNUInstallDirs)
+install(TARGETS
+    euclidean_norm_3d_example
+    RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
+)

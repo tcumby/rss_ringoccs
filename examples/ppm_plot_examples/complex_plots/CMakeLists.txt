@@ -4,10 +4,8 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../../../cmake")
 if (CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
 if (APPLE)
     include(gcc-macos)
-    set(CMAKE_INSTALL_PREFIX "/usr/local")
 elseif (UNIX)
     include(gcc)
-    set(CMAKE_INSTALL_PREFIX "/usr/local")
 endif()
 endif()
 
@@ -37,3 +35,17 @@ target_link_libraries(complex_sin_plots PRIVATE librssringoccs)
 
 add_executable(complex_sqrt_plots complex_sqrt_plots.c)
 target_link_libraries(complex_sqrt_plots PRIVATE librssringoccs)
+
+include(GNUInstallDirs)
+install(TARGETS
+    complex_cos_plots
+    complex_erf_plots
+    complex_erfc_plots
+    complex_exp_plots
+    complex_faddeeva_plots
+    complex_log_plots
+    complex_sin_plots
+    complex_sqrt_plots
+    RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
+)

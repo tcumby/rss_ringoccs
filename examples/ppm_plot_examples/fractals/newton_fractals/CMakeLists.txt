@@ -22,3 +22,12 @@ target_link_libraries(newton_fractal_on_sphere PRIVATE librssringoccs)
 
 add_executable(newton_fractal_on_torus newton_fractal_on_torus.c)
 target_link_libraries(newton_fractal_on_torus PRIVATE librssringoccs)
+
+include(GNUInstallDirs)
+install(TARGETS
+    newton_fractal
+    newton_fractal_on_sphere
+    newton_fractal_on_torus
+    RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
+)

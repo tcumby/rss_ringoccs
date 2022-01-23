@@ -16,3 +16,10 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
 add_executable(initials_graphic initials_graphic.c)
 target_link_libraries(initials_graphic PRIVATE librssringoccs)
+
+include(GNUInstallDirs)
+install(TARGETS
+    initials_graphic
+    RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
+)

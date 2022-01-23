@@ -22,3 +22,12 @@ target_link_libraries(mandelbrot_quartic PRIVATE librssringoccs)
 
 add_executable(mandelbrot_set mandelbrot_set.c)
 target_link_libraries(mandelbrot_set PRIVATE librssringoccs)
+
+include(GNUInstallDirs)
+install(TARGETS
+    mandelbrot_general
+    mandelbrot_quartic
+    mandelbrot_set
+    RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
+)
