@@ -143,25 +143,25 @@ rssringoccs_Max_LDouble(long double *arr, long n_elements);
 RSS_RINGOCCS_EXPORT extern char
 rssringoccs_Max_Char(char *arr, long n_elements);
 
-extern unsigned char
+RSS_RINGOCCS_EXPORT extern unsigned char
 rssringoccs_Max_UChar(unsigned char *arr, long n_elements);
 
 RSS_RINGOCCS_EXPORT extern short
 rssringoccs_Max_Short(short *arr, long n_elements);
 
-extern unsigned short
+RSS_RINGOCCS_EXPORT extern unsigned short
 rssringoccs_Max_UShort(unsigned short *arr, long n_elements);
 
 RSS_RINGOCCS_EXPORT extern int
 rssringoccs_Max_Int(int *arr, long n_elements);
 
-extern unsigned int
+RSS_RINGOCCS_EXPORT extern unsigned int
 rssringoccs_Max_UInt(unsigned int *arr, long n_elements);
 
 RSS_RINGOCCS_EXPORT extern long
 rssringoccs_Max_Long(long *arr, long n_elements);
 
-extern unsigned long
+RSS_RINGOCCS_EXPORT extern unsigned long
 rssringoccs_Max_ULong(unsigned long *arr, long n_elements);
 
 
@@ -177,25 +177,25 @@ rssringoccs_Min_LDouble(long double *arr, long n_elements);
 RSS_RINGOCCS_EXPORT extern char
 rssringoccs_Min_Char(char *arr, long n_elements);
 
-extern unsigned char
+RSS_RINGOCCS_EXPORT extern unsigned char
 rssringoccs_Min_UChar(unsigned char *arr, long n_elements);
 
 RSS_RINGOCCS_EXPORT extern short
 rssringoccs_Min_Short(short *arr, long n_elements);
 
-extern unsigned short
+RSS_RINGOCCS_EXPORT extern unsigned short
 rssringoccs_Min_UShort(unsigned short *arr, long n_elements);
 
 RSS_RINGOCCS_EXPORT extern int
 rssringoccs_Min_Int(int *arr, long n_elements);
 
-extern unsigned int
+RSS_RINGOCCS_EXPORT extern unsigned int
 rssringoccs_Min_UInt(unsigned int *arr, long n_elements);
 
 RSS_RINGOCCS_EXPORT extern long
 rssringoccs_Min_Long(long *arr, long n_elements);
 
-extern unsigned long
+RSS_RINGOCCS_EXPORT extern unsigned long
 rssringoccs_Min_ULong(unsigned long *arr, long n_elements);
 
 

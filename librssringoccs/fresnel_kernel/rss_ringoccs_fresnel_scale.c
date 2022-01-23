@@ -16,7 +16,7 @@ rssringoccs_Float_Fresnel_Scale(float lambda, float d, float phi, float b)
     return f_scale;
 }
 
-extern double
+RSS_RINGOCCS_EXPORT extern double
 rssringoccs_Double_Fresnel_Scale(double lambda, double d, double phi, double b)
 {
     double cb_2_sp_2, sb_2, f_scale;
@@ -32,7 +32,7 @@ rssringoccs_Double_Fresnel_Scale(double lambda, double d, double phi, double b)
 }
 
 
-extern long double
+RSS_RINGOCCS_EXPORT extern long double
 rssringoccs_LDouble_Fresnel_Scale(long double lambda, long double d,
                                   long double phi, long double b)
 {

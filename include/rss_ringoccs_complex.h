@@ -158,30 +158,30 @@ typedef struct rssringoccs_ComplexLongDouble {
 /*  Useful constants used throughout computations.                            */
 
 /*  The imaginary unit, z = 0 + i 1.                                          */
-extern const rssringoccs_ComplexFloat rssringoccs_CFloat_I;
-extern const rssringoccs_ComplexDouble rssringoccs_CDouble_I;
-extern const rssringoccs_ComplexLongDouble rssringoccs_CLDouble_I;
+RSS_RINGOCCS_EXPORT extern const rssringoccs_ComplexFloat rssringoccs_CFloat_I;
+RSS_RINGOCCS_EXPORT extern const rssringoccs_ComplexDouble rssringoccs_CDouble_I;
+RSS_RINGOCCS_EXPORT extern const rssringoccs_ComplexLongDouble rssringoccs_CLDouble_I;
 
 /*  Complex zero, z = 0 + i0.                                                 */
-extern const rssringoccs_ComplexFloat rssringoccs_CFloat_Zero;
-extern const rssringoccs_ComplexDouble rssringoccs_CDouble_Zero;
-extern const rssringoccs_ComplexLongDouble rssringoccs_CLDouble_Zero;
+RSS_RINGOCCS_EXPORT extern const rssringoccs_ComplexFloat rssringoccs_CFloat_Zero;
+RSS_RINGOCCS_EXPORT extern const rssringoccs_ComplexDouble rssringoccs_CDouble_Zero;
+RSS_RINGOCCS_EXPORT extern const rssringoccs_ComplexLongDouble rssringoccs_CLDouble_Zero;
 
 /*  Complex one, z = 1 + i0.                                                  */
-extern const rssringoccs_ComplexFloat rssringoccs_CFloat_One;
-extern const rssringoccs_ComplexDouble rssringoccs_CDouble_One;
-extern const rssringoccs_ComplexLongDouble rssringoccs_CLDouble_One;
+RSS_RINGOCCS_EXPORT extern const rssringoccs_ComplexFloat rssringoccs_CFloat_One;
+RSS_RINGOCCS_EXPORT extern const rssringoccs_ComplexDouble rssringoccs_CDouble_One;
+RSS_RINGOCCS_EXPORT extern const rssringoccs_ComplexLongDouble rssringoccs_CLDouble_One;
 
 /*  Complex Not-a-Number, set to NaN + i NaN.                                 */
-extern const rssringoccs_ComplexFloat rssringoccs_CFloat_NaN;
-extern const rssringoccs_ComplexDouble rssringoccs_CDouble_NaN;
-extern const rssringoccs_ComplexLongDouble rssringoccs_CLDouble_NaN;
+RSS_RINGOCCS_EXPORT extern const rssringoccs_ComplexFloat rssringoccs_CFloat_NaN;
+RSS_RINGOCCS_EXPORT extern const rssringoccs_ComplexDouble rssringoccs_CDouble_NaN;
+RSS_RINGOCCS_EXPORT extern const rssringoccs_ComplexLongDouble rssringoccs_CLDouble_NaN;
 
 /*  Complex infinity, set to inf + i inf. This is the "north pole" on the     *
  *  Riemann sphere.                                                           */
-extern const rssringoccs_ComplexFloat rssringoccs_CFloat_Infinity;
-extern const rssringoccs_ComplexDouble rssringoccs_CDouble_Infinity;
-extern const rssringoccs_ComplexLongDouble rssringoccs_CLDouble_Infinity;
+RSS_RINGOCCS_EXPORT extern const rssringoccs_ComplexFloat rssringoccs_CFloat_Infinity;
+RSS_RINGOCCS_EXPORT extern const rssringoccs_ComplexDouble rssringoccs_CDouble_Infinity;
+RSS_RINGOCCS_EXPORT extern const rssringoccs_ComplexLongDouble rssringoccs_CLDouble_Infinity;
 
 /******************************************************************************
  *  Function:                                                                 *

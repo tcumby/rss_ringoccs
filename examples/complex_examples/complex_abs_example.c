@@ -26,6 +26,8 @@
 /*  Let's compute |z| for 0, 1, 1+i, nan, infinity, complex nan, and          *
  *  complex infinity.                                                         */
 
+#include "librssringoccs_exports.h"
+
 /*  Complex functions defined here.                                           */
 #include <rss_ringoccs/include/rss_ringoccs_complex.h>
 

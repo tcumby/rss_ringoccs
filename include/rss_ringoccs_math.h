@@ -423,9 +423,9 @@ RSS_RINGOCCS_EXPORT extern float rssringoccs_Float_Faddeeva_Im(float x);
 RSS_RINGOCCS_EXPORT extern double rssringoccs_Double_Faddeeva_Im(double x);
 RSS_RINGOCCS_EXPORT extern long double rssringoccs_LDouble_Faddeeva_Im(long double x);
 
-extern unsigned long rssringoccs_Factorial(unsigned int n);
+RSS_RINGOCCS_EXPORT extern unsigned long rssringoccs_Factorial(unsigned int n);
 
-extern unsigned long
+RSS_RINGOCCS_EXPORT extern unsigned long
 rssringoccs_Falling_Factorial(unsigned int x, unsigned int N);
 
 RSS_RINGOCCS_EXPORT extern float
