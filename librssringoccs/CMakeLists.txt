@@ -18,6 +18,11 @@ project(rssringoccs_library)
 enable_language(C)
 
 add_library(librssringoccs SHARED)
+set_target_properties(librssringoccs PROPERTIES
+    IMPORTED_LOCATION $<TARGET_FILE:tgt>
+    IMPORTED_IMPLIB $<TARGET_LINKER_FILE:librssringoccs>
+    INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_CURRENT_BINARY_DIR}
+)
 
 target_include_directories(librssringoccs PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/../include ${CMAKE_CURRENT_SOURCE_DIR}/../..)
 add_subdirectory("complex")
