@@ -1,0 +1,5 @@
+add_subdirectory("complex_plots")
+add_subdirectory("fractals")
+add_subdirectory("fresnel_kernel")
+add_subdirectory("math_plots")
+add_subdirectory("raytracing")
