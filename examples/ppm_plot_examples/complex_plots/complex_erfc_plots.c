@@ -35,7 +35,7 @@ int main(void)
     const double y_max =  4.0;
 
     /*  Use rssringoccs_Easy_Complex_Plots to produce the plots.              */
-    rssringoccs_Easy_Complex_Plots("complex_erfc", rssringoccs_Complex_Erfc,
+    rssringoccs_Easy_Complex_Plots("complex_erfc", rssringoccs_CDouble_Erfc,
                                    size, size, x_min, x_max, y_min, y_max);
     return 0;
 }
