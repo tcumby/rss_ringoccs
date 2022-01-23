@@ -31,6 +31,8 @@
 #ifndef __RSS_RINGOCCS_CONFIG_H__
 #define __RSS_RINGOCCS_CONFIG_H__
 
+#include "librssringoccs_exports.h"
+
 /*  Set this value to either 0 or 1. Setting it to zero means we'll use the   *
  *  complex data types defined in rss_ringoccs_complex.h instead of the       *
  *  ones provided by C99, setting it to 1 uses C99 complex.h. By default      *
