@@ -1,1 +1,5 @@
 add_subdirectory("complex_examples")
+add_subdirectory("geometry_examples")
+add_subdirectory("math_examples")
+add_subdirectory("numerical_examples")
+add_subdirectory("special_functions_examples")
