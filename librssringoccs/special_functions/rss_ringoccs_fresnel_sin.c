@@ -278,7 +278,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_Double_Fresnel_Sin(double x)
     return sx;
 }
 
-long double rssringoccs_LDouble_Fresnel_Sin(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Fresnel_Sin(long double x)
 {
     /* Variables for S(x) and powers of x, respectively. */
     long double sx;

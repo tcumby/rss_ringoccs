@@ -127,7 +127,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Argument(rssringoccs_ComplexDoubl
 /*  End of rssringoccs_CDouble_Argument.                                */
 
 /*  Long double precision complex argument function (cargl equivalent).       */
-long double
+RSS_RINGOCCS_EXPORT long double
 rssringoccs_CLDouble_Argument(rssringoccs_ComplexLongDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -164,7 +164,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Argument(rssringoccs_ComplexDoubl
 /*  End of rssringoccs_CDouble_Argument.                                */
 
 /*  Long double precision complex argument function.                          */
-long double
+RSS_RINGOCCS_EXPORT long double
 rssringoccs_CLDouble_Argument(rssringoccs_ComplexLongDouble z)
 {
     return cargl(z);

@@ -122,7 +122,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Abs(rssringoccs_ComplexDouble z)
 /*  End of rssringoccs_CDouble_Abs.                                           */
 
 /*  Long double precision complex abs function (cabsl equivalent).            */
-long double rssringoccs_CLDouble_Abs(rssringoccs_ComplexLongDouble z)
+RSS_RINGOCCS_EXPORT long double rssringoccs_CLDouble_Abs(rssringoccs_ComplexLongDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     long double real, imag, abs_value;
@@ -158,7 +158,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Abs(rssringoccs_ComplexDouble z)
 /*  End of rssringoccs_CDouble_Abs.                                           */
 
 /*  Long double precision absolute value function, alias for cabsl.           */
-long double rssringoccs_CLDouble_Abs(rssringoccs_ComplexLongDouble z)
+RSS_RINGOCCS_EXPORT long double rssringoccs_CLDouble_Abs(rssringoccs_ComplexLongDouble z)
 {
     return cabsl(z);
 }

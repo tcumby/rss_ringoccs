@@ -143,7 +143,7 @@ rssringoccs_Double_Ringlet_Diffraction_Phase(double x, double a,
  *  Notes:                                                                    *
  *      1.) This function relies on the C99 standard, or higher.              *
  ******************************************************************************/
-long double
+RSS_RINGOCCS_EXPORT long double
 rssringoccs_LDouble_Ringlet_Diffraction_Phase(long double x, long double a,
                                                  long double b, long double F)
 {

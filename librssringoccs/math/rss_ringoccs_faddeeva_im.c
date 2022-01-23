@@ -1469,7 +1469,7 @@ RSS_RINGOCCS_EXPORT float rssringoccs_Float_Faddeeva_Im(float x)
     return out;
 }
 
-long double rssringoccs_LDouble_Faddeeva_Im(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Faddeeva_Im(long double x)
 {
     long double out;
     out = (long double)rssringoccs_Double_Faddeeva_Im((double)x);

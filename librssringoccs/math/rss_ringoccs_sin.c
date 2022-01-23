@@ -167,7 +167,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_Double_Sin(double x)
     }
 }
 
-long double rssringoccs_LDouble_Sin(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Sin(long double x)
 {
     long double arg, abs_x, sgn_x, cx, cdx, sx, sdx, dx;
     unsigned int arg_100_int;
@@ -274,7 +274,7 @@ RSS_RINGOCCS_EXPORT float rssringoccs_Float_Sin(float x)
 /*  End of rssringoccs_Float_Sin.                                             */
 
 /*  Long double precision sine function (sinl equivalent).                    */
-long double rssringoccs_LDouble_Sin(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Sin(long double x)
 {
     return (long double)sin((double)x);
 }
@@ -289,7 +289,7 @@ RSS_RINGOCCS_EXPORT float rssringoccs_Float_Sin(float x)
     return sinf(x);
 }
 
-long double rssringoccs_LDouble_Sin(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Sin(long double x)
 {
     return sinl(x);
 }

@@ -104,7 +104,7 @@ RSS_RINGOCCS_EXPORT float rssringoccs_Float_Arctan(float x)
 /*  End of rssringoccs_Float_Arctan.                                          */
 
 /*  Long double precision arctan function (atanl equivalent).                 */
-long double rssringoccs_LDouble_Arctan(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Arctan(long double x)
 {
     /*  Cast "x" as a double to atan, and cast the output as a long double.   */
     return (long double)atan((double)x);
@@ -125,7 +125,7 @@ RSS_RINGOCCS_EXPORT float rssringoccs_Float_Arctan(float x)
 /*  End of rssringoccs_Float_Arctan.                                          */
 
 /*  Long double precision arctan function (atanl equivalent).                 */
-long double rssringoccs_LDouble_Arctan(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Arctan(long double x)
 {
     return atanl(x);
 }

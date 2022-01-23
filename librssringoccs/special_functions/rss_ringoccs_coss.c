@@ -52,7 +52,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_Double_Coss_Window(double x, double W)
     return coss_x;
 }
 
-long double rssringoccs_LDouble_Coss_Window(long double x, long double W)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Coss_Window(long double x, long double W)
 {
     /*  Declare necessary variables. C89 requires declaring these at the top. */
     long double abs_x, coss_x, arg;

@@ -82,7 +82,7 @@ double rssringoccs_Real_Poly_Double_Coeffs(double *coeffs,
     return poly;
 }
 
-long double
+RSS_RINGOCCS_EXPORT long double
 rssringoccs_Real_Poly_LDouble_Coeffs(long double *coeffs,
                                      unsigned int degree, long double x)
 {

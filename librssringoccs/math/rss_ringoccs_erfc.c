@@ -18,7 +18,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_Double_Erfc(double x)
     return erfc;
 }
 
-long double rssringoccs_LDouble_Erfc(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Erfc(long double x)
 {
     long double erfc;
     erfc = rssringoccs_LDouble_Exp(x*x)*rssringoccs_LDouble_Erfcx(x);

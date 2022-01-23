@@ -18,7 +18,7 @@ RSS_RINGOCCS_EXPORT float rssringoccs_Float_Exp(float x)
     return (float)exp((double)x);
 }
 
-long double rssringoccs_LDouble_Exp(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Exp(long double x)
 {
     return (long double)exp((double)x);
 }
@@ -33,7 +33,7 @@ RSS_RINGOCCS_EXPORT float rssringoccs_Float_Exp(float x)
     return expf(x);
 }
 
-long double rssringoccs_LDouble_Exp(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Exp(long double x)
 {
     return expl(x);
 }

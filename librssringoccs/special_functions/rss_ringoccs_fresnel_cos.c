@@ -264,7 +264,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_Double_Fresnel_Cos(double x)
     return cx;
 }
 
-long double rssringoccs_LDouble_Fresnel_Cos(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Fresnel_Cos(long double x)
 {
     /* Variables for C(x) and powers of x, respectively.                      */
     long double cx, arg;

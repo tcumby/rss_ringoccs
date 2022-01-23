@@ -128,7 +128,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_Double_Abs(double x)
 /*  End of rssringoccs_Double_Abs.                                            */
 
 /*  Long double precision absolute value function (fabsl equivalent).         */
-long double rssringoccs_LDouble_Abs(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Abs(long double x)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     long double abs_x;

@@ -2,7 +2,7 @@
  *  library math.h. This allows compatibility of C89 and C99 math.h headers.  */
 #include <rss_ringoccs/include/rss_ringoccs_math.h>
 
-unsigned long rssringoccs_Factorial(unsigned int N)
+RSS_RINGOCCS_EXPORT unsigned long rssringoccs_Factorial(unsigned int N)
 {
     unsigned int n;
     unsigned long factorial = 1;
@@ -13,7 +13,7 @@ unsigned long rssringoccs_Factorial(unsigned int N)
     return factorial;
 }
 
-unsigned long rssringoccs_Falling_Factorial(unsigned int x, unsigned int N)
+RSS_RINGOCCS_EXPORT unsigned long rssringoccs_Falling_Factorial(unsigned int x, unsigned int N)
 {
     unsigned int n;
     unsigned long falling_factorial;

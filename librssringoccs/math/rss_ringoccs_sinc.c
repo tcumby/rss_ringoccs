@@ -25,7 +25,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_Double_Sinc(double x)
     return y;
 }
 
-long double rssringoccs_LDouble_Sinc(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Sinc(long double x)
 {
     long double y;
 

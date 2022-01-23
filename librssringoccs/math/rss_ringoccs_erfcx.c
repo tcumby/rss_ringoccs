@@ -1298,7 +1298,7 @@ RSS_RINGOCCS_EXPORT float rssringoccs_Float_Erfcx(float x)
     return out;
 }
 
-long double rssringoccs_LDouble_Erfcx(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Erfcx(long double x)
 {
     long double out;
     out = (long double)rssringoccs_Double_Erfcx((double)x);

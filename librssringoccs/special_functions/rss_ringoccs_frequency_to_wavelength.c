@@ -17,7 +17,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_Double_Frequency_To_Wavelength(double fre
     return rssringoccs_Speed_Of_Light_KMS / frequency;
 }
 
-long double rssringoccs_LDouble_Frequency_To_Wavelength(long double frequency)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Frequency_To_Wavelength(long double frequency)
 {
     /*  The conversion is the speed of light divided by the input frequency.  */
     return rssringoccs_Speed_Of_Light_KMS_L / frequency;

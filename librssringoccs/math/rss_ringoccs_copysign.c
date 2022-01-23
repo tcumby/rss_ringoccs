@@ -125,7 +125,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_Double_Copysign(double x, double y)
 /*  End of rssringoccs_Double_Copysign.                                       */
 
 /*  Long double precision copysign function.                                  */
-long double rssringoccs_LDouble_Copysign(long double x, long double y)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Copysign(long double x, long double y)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     long double out;

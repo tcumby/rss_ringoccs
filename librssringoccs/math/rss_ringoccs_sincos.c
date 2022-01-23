@@ -234,7 +234,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_sin_table(unsigned int n)
     return rssringoccs_sin_lookup_table[n];
 }
 
-long double rssringoccs_sinl_table(unsigned int n)
+RSS_RINGOCCS_EXPORT long double rssringoccs_sinl_table(unsigned int n)
 {
     return rssringoccs_sinl_lookup_table[n];
 }
@@ -249,7 +249,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_cos_table(unsigned int n)
     return rssringoccs_cos_lookup_table[n];
 }
 
-long double rssringoccs_cosl_table(unsigned int n)
+RSS_RINGOCCS_EXPORT long double rssringoccs_cosl_table(unsigned int n)
 {
     return rssringoccs_cosl_lookup_table[n];
 }
@@ -278,7 +278,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_do_sin(double x)
     return sin_x;
 }
 
-long double rssringoccs_do_sinl(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_do_sinl(long double x)
 {
     long double x2, sin_x;
 
@@ -315,7 +315,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_do_cos(double x)
     return cos_x;
 }
 
-long double rssringoccs_do_cosl(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_do_cosl(long double x)
 {
     long double x2, cos_x;
 

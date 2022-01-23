@@ -80,7 +80,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_Double_LambertW(double x)
         return rssringoccs_Infinity;
 }
 
-long double rssringoccs_LDouble_LambertW(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_LambertW(long double x)
 {
     long double EPS = 1.0e-16;
     long double x0, dx, exp_x0;

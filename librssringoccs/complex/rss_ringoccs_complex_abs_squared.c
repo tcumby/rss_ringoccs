@@ -110,7 +110,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Abs_Squared(rssringoccs_ComplexDo
 /*  End of rssringoccs_CDouble_Abs_Squared.                                   */
 
 /*  Long double precision abs squared function.                               */
-long double
+RSS_RINGOCCS_EXPORT long double
 rssringoccs_CLDouble_Abs_Squared(rssringoccs_ComplexLongDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */

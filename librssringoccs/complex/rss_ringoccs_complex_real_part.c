@@ -60,7 +60,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Real_Part(rssringoccs_ComplexDoub
     return real;
 }
 
-long double
+RSS_RINGOCCS_EXPORT long double
 rssringoccs_CLDouble_Real_Part(rssringoccs_ComplexLongDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -84,7 +84,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Real_Part(rssringoccs_ComplexDoub
     return creal(z);
 }
 
-long double
+RSS_RINGOCCS_EXPORT long double
 rssringoccs_CLDouble_Real_Part(rssringoccs_ComplexLongDouble z)
 {
     return creall(z);

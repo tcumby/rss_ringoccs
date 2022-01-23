@@ -74,7 +74,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_Double_Erf(double x)
 
 
 /*  Long double precision error function (erfl equivalent).                   */
-long double rssringoccs_LDouble_Erf(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Erf(long double x)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     long double erf, erfc;

@@ -22,7 +22,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_Double_Tanh(double x)
     return tanh_x;
 }
 
-long double rssringoccs_LDouble_Tanh(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Tanh(long double x)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     long double tanh_x;

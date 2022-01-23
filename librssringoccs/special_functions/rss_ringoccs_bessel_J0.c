@@ -353,7 +353,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_Double_Bessel_J0(double x)
 }
 
 /*  Compute the Bessel I_0 function for a long double precision number x.     */
-long double rssringoccs_LDouble_Bessel_J0(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Bessel_J0(long double x)
 {
     /*  Declare necessary variables. C89 requires declaring these at the top. */
     long double bessel_J0, arg;

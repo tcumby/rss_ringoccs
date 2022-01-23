@@ -136,7 +136,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Dist(rssringoccs_ComplexDouble z0
 /*  End of rssringoccs_CDouble_Dist.                                          */
 
 /*  Long double precision distance function for complex variables.            */
-long double rssringoccs_CLDouble_Dist(rssringoccs_ComplexLongDouble z0,
+RSS_RINGOCCS_EXPORT long double rssringoccs_CLDouble_Dist(rssringoccs_ComplexLongDouble z0,
                                       rssringoccs_ComplexLongDouble z1)
 {
     /*  Declare necessary variables C89 requires this at the top.             */
@@ -183,7 +183,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Dist(rssringoccs_ComplexDouble z0
 /*  End of rssringoccs_CDouble_Dist.                                          */
 
 /*  Long double precision distance function for complex variables.            */
-long double rssringoccs_CLDouble_Dist(rssringoccs_ComplexLongDouble z0,
+RSS_RINGOCCS_EXPORT long double rssringoccs_CLDouble_Dist(rssringoccs_ComplexLongDouble z0,
                                       rssringoccs_ComplexLongDouble z1)
 {
     return cabsl(z0 - z1);

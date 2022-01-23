@@ -89,7 +89,7 @@ rssringoccs_Double_Fresnel_dPsi_dPhi(double k, double r, double r0, double phi,
     return dpsi;
 }
 
-long double
+RSS_RINGOCCS_EXPORT long double
 rssringoccs_LDouble_Fresnel_dPsi_dPhi(long double k, long double r,
                                      long double r0, long double phi,
                                      long double phi0, long double B,

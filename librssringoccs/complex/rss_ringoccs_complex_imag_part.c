@@ -60,7 +60,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Imag_Part(rssringoccs_ComplexDoub
     return imag;
 }
 
-long double
+RSS_RINGOCCS_EXPORT long double
 rssringoccs_CLDouble_Imag_Part(rssringoccs_ComplexLongDouble z)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
@@ -84,7 +84,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Imag_Part(rssringoccs_ComplexDoub
     return cimag(z);
 }
 
-long double
+RSS_RINGOCCS_EXPORT long double
 rssringoccs_CLDouble_Imag_Part(rssringoccs_ComplexLongDouble z)
 {
     return cimagl(z);

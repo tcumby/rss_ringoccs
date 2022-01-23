@@ -18,7 +18,7 @@ RSS_RINGOCCS_EXPORT float rssringoccs_Float_Sqrt(float x)
     return (float)sqrt((double)x);
 }
 
-long double rssringoccs_LDouble_Sqrt(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Sqrt(long double x)
 {
     return (long double)sqrt((double)x);
 }
@@ -33,7 +33,7 @@ RSS_RINGOCCS_EXPORT float rssringoccs_Float_Sqrt(float x)
     return sqrtf(x);
 }
 
-long double rssringoccs_LDouble_Sqrt(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Sqrt(long double x)
 {
     return sqrtl(x);
 }

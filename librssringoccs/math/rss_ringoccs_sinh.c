@@ -22,7 +22,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_Double_Sinh(double x)
     return sinh_x;
 }
 
-long double rssringoccs_LDouble_Sinh(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Sinh(long double x)
 {
     /*  Declare necessary variables. C89 requires declarations at the top.    */
     long double sinh_x;

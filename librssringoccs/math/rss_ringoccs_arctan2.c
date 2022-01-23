@@ -119,7 +119,7 @@ RSS_RINGOCCS_EXPORT float rssringoccs_Float_Arctan2(float y, float x)
 /*  End of rssringoccs_Float_Arctan2.                                         */
 
 /*  Long double precision 2-dimensional arctan function (atan2l equivalent).  */
-long double rssringoccs_LDouble_Arctan2(long double y, long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Arctan2(long double y, long double x)
 {
     /*  Cast "x" and "y" as doubles to atan2, and cast the output as a        *
      *  long double.                                                          */
@@ -141,7 +141,7 @@ RSS_RINGOCCS_EXPORT float rssringoccs_Float_Arctan2(float y, float x)
 /*  End of rssringoccs_Float_Arctan2.                                         */
 
 /*  Long double precision 2-dimensional arctan function (atan2l equivalent).  */
-long double rssringoccs_LDouble_Arctan2(long double y, long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Arctan2(long double y, long double x)
 {
     return atan2l(y, x);
 }

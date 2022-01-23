@@ -89,7 +89,7 @@ rssringoccs_Double_One_Slit_Fraunhofer_Diffraction(double x, double z, double a)
     return result;
 }
 
-long double
+RSS_RINGOCCS_EXPORT long double
 rssringoccs_LDouble_One_Slit_Fraunhofer_Diffraction(long double x,
                                                        long double z,
                                                        long double a)

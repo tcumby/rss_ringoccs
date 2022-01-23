@@ -101,7 +101,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_Double_Kaiser_Bessel_3_5(double x, double
     return bessel_x;
 }
 
-long double
+RSS_RINGOCCS_EXPORT long double
 rssringoccs_LDouble_Kaiser_Bessel_3_5(long double x, long double W)
 {
     long double bessel_x, arg;

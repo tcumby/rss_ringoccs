@@ -323,7 +323,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_Double_Bessel_I0(double x)
 
 /*  Compute the Bessel I_0 function for a long double precision value x. This *
  *  returns long double precision, maximum relative error ~1.e-14.            */
-long double rssringoccs_LDouble_Bessel_I0(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Bessel_I0(long double x)
 {
     /*  Declare necessary variables.                                          */
     long double bessel_I0, arg, abs_x;

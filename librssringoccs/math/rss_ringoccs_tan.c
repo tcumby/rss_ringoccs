@@ -14,7 +14,7 @@ RSS_RINGOCCS_EXPORT float rssringoccs_Float_Tan(float x)
     return (float)tan((double)x);
 }
 
-long double rssringoccs_LDouble_Tan(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Tan(long double x)
 {
     return (long double)tan((double)x);
 }
@@ -27,7 +27,7 @@ RSS_RINGOCCS_EXPORT float rssringoccs_Float_Tan(float x)
     return tanf(x);
 }
 
-long double rssringoccs_LDouble_Tan(long double x)
+RSS_RINGOCCS_EXPORT long double rssringoccs_LDouble_Tan(long double x)
 {
     return tanl(x);
 }
