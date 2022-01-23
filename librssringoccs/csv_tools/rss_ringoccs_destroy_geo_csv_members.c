@@ -28,7 +28,7 @@
 
 /*  Free's all members of a rssringoccs_GeoCSV pointer except the             *
  *  error_message. Members are set to NULL after freeing.                     */
-void rssringoccs_Destroy_GeoCSV_Members(rssringoccs_GeoCSV *geo)
+RSS_RINGOCCS_EXPORT void rssringoccs_Destroy_GeoCSV_Members(rssringoccs_GeoCSV *geo)
 {
     /*  If the pointer is NULL, there's nothing to do. Simply return.         */
     if (geo == NULL)

@@ -26,8 +26,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
-rssringoccs_GeoCSV *rssringoccs_Get_Geo(const char *filename,
+RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename,
                                         rssringoccs_Bool use_deprecated)
 {
     rssringoccs_GeoCSV *geo;

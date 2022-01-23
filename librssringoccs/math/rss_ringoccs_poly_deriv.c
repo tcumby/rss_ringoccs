@@ -7,8 +7,7 @@
 /*  Header file which contains aliases for the function in the standard C     *
  *  library math.h. This allows compatibility of C89 and C99 math.h headers.  */
 #include <rss_ringoccs/include/rss_ringoccs_math.h>
-
-float rssringoccs_Real_Poly_Deriv_Float_Coeffs(float *coeffs,
+RSS_RINGOCCS_EXPORT float rssringoccs_Real_Poly_Deriv_Float_Coeffs(float *coeffs,
                                                unsigned int degree,
                                                unsigned int deriv, float x)
 {
@@ -49,8 +48,7 @@ float rssringoccs_Real_Poly_Deriv_Float_Coeffs(float *coeffs,
     }
     return poly;
 }
-
-double rssringoccs_Real_Poly_Deriv_Double_Coeffs(double *coeffs,
+RSS_RINGOCCS_EXPORT double rssringoccs_Real_Poly_Deriv_Double_Coeffs(double *coeffs,
                                                  unsigned int degree,
                                                  unsigned int deriv, double x)
 {

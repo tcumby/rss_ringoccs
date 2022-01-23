@@ -84,7 +84,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_reconstruction.h>
 
 /*  Function for checking the keyword arguments of a tau object.              */
-void rssringoccs_Tau_Check_Keywords(rssringoccs_TAUObj *tau)
+RSS_RINGOCCS_EXPORT void rssringoccs_Tau_Check_Keywords(rssringoccs_TAUObj *tau)
 {
     /*  If tau is NULL we can't access its members. Return.                   */
     if (tau == NULL)

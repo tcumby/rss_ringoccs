@@ -17,7 +17,7 @@
  *  CHECKING ROUTINE found in the Diffrec_init function. If you do not, even  *
  *  if you've added a new string to this function, Diffrec_init will refuse   *
  *  to accept your new string and raise an error.                             */
-void
+RSS_RINGOCCS_EXPORT void
 rssringoccs_Tau_Set_Range_From_String(const char *range,
                                       rssringoccs_TAUObj *tau)
 {

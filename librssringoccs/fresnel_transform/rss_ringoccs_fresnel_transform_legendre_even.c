@@ -72,7 +72,7 @@
  *      T_out (complex double):                                               *
  *          The diffraction corrected profile.                                *
  ******************************************************************************/
-void
+RSS_RINGOCCS_EXPORT void
 Fresnel_Transform_Legendre_Even_Double(rssringoccs_TAUObj *tau, double *x_arr,
                                        double *w_func, double *coeffs,
                                        unsigned long n_pts,

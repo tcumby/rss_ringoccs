@@ -1,7 +1,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_math.h>
 #include <rss_ringoccs/include/rss_ringoccs_numerical.h>
 
-float rssringoccs_Float_Five_Point_Derivative(float (*f)(float),
+RSS_RINGOCCS_EXPORT float rssringoccs_Float_Five_Point_Derivative(float (*f)(float),
                                               float x, float h)
 {
     float y0, y1 ,y2, y3, der;
@@ -16,7 +16,7 @@ float rssringoccs_Float_Five_Point_Derivative(float (*f)(float),
     return der;
 }
 
-double rssringoccs_Double_Five_Point_Derivative(double (*f)(double),
+RSS_RINGOCCS_EXPORT double rssringoccs_Double_Five_Point_Derivative(double (*f)(double),
                                                 double x, double h)
 {
     double y0, y1 ,y2, y3, der;
@@ -31,7 +31,7 @@ double rssringoccs_Double_Five_Point_Derivative(double (*f)(double),
     return der;
 }
 
-long double
+RSS_RINGOCCS_EXPORT long double
 rssringoccs_LDouble_Five_Point_Derivative(long double (*f)(long double),
                                              long double x, long double h)
 {

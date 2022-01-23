@@ -15,7 +15,7 @@ RSS_RINGOCCS_EXPORT extern void rssringoccs_RGB_Scaled_Gradient(double val, FILE
 RSS_RINGOCCS_EXPORT extern void
 rssringoccs_RGB_Linear_Gradient(double val, double min, double max, FILE *fp);
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Easy_Complex_Plots(
     const char *func_name,
     rssringoccs_ComplexDouble(*f)(rssringoccs_ComplexDouble),
@@ -24,7 +24,7 @@ rssringoccs_Easy_Complex_Plots(
     const double y_min, const double y_max
 );
 
-extern void
+RSS_RINGOCCS_EXPORT extern void
 rssringoccs_Easy_Real_Plots(const char *func_name, double (*f)(double),
                             unsigned int x_size, unsigned int y_size,
                             const double x_min, const double x_max,

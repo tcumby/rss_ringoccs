@@ -20,8 +20,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_math.h>
 #include <rss_ringoccs/include/rss_ringoccs_complex.h>
 #include <rss_ringoccs/include/rss_ringoccs_fresnel_transform.h>
-
-void
+RSS_RINGOCCS_EXPORT void
 Fresnel_Transform_Norm_Double(rssringoccs_TAUObj *tau, double *x_arr,
                               double *w_func, unsigned long n_pts,
                               unsigned long center)

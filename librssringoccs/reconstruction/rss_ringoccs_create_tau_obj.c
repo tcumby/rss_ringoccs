@@ -98,8 +98,7 @@
 
 /*  Function for allocating memory for a Tau object and setting the default   *
  *  values for all of the keywords.                                           */
-rssringoccs_TAUObj *
-rssringoccs_Create_TAUObj(rssringoccs_DLPObj *dlp, double res)
+RSS_RINGOCCS_EXPORT rssringoccs_TAUObj* rssringoccs_Create_TAUObj(rssringoccs_DLPObj *dlp, double res)
 {
     /*  Declare necessary variables. C89 requires this at the top.            */
     rssringoccs_TAUObj *tau;

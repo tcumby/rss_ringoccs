@@ -104,7 +104,7 @@
 /*  End of CHECK_DATA_MEMBER macro.                                           */
 
 /*  Function for checking the pointers in a rssringoccs_TAUObj pointer.       */
-void rssringoccs_Tau_Check_Data(rssringoccs_TAUObj *tau)
+RSS_RINGOCCS_EXPORT void rssringoccs_Tau_Check_Data(rssringoccs_TAUObj *tau)
 {
     /*  First, check that the actual rssringoccs_TAUObj pointer is not NULL.  */
     if (tau == NULL)

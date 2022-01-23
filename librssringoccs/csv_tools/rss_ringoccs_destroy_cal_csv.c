@@ -22,8 +22,7 @@
 
 #include <stdlib.h>
 #include <rss_ringoccs/include/rss_ringoccs_csv_tools.h>
-
-void rssringoccs_Destroy_CalCSV(rssringoccs_CalCSV **cal)
+RSS_RINGOCCS_EXPORT void rssringoccs_Destroy_CalCSV(rssringoccs_CalCSV **cal)
 {
     rssringoccs_CalCSV *cal_inst = *cal;
 

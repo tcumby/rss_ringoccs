@@ -4,9 +4,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_math.h>
 #include <rss_ringoccs/include/rss_ringoccs_complex.h>
 #include <rss_ringoccs/include/rss_ringoccs_fft.h>
-
-rssringoccs_ComplexDouble *
-rssringoccs_Complex_FFT_Bluestein_Chirp_Z(rssringoccs_ComplexDouble *in,
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble* rssringoccs_Complex_FFT_Bluestein_Chirp_Z(rssringoccs_ComplexDouble *in,
                                           unsigned long N,
                                           rssringoccs_Bool inverse)
 {

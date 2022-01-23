@@ -9,8 +9,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_bool.h>
 #include <rss_ringoccs/include/rss_ringoccs_string.h>
 #include <rss_ringoccs/include/rss_ringoccs_reconstruction.h>
-
-void
+RSS_RINGOCCS_EXPORT void
 rssringoccs_Tau_Set_Psitype(const char *psitype, rssringoccs_TAUObj* tau)
 {
     if (tau == NULL)

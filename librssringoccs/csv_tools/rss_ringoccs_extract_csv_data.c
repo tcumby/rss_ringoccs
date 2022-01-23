@@ -46,9 +46,7 @@
         rssringoccs_Destroy_CSV_Members(csv_data);                             \
         return csv_data;                                                       \
     }
-
-rssringoccs_CSVData *
-rssringoccs_Extract_CSV_Data(const char *geo,
+RSS_RINGOCCS_EXPORT rssringoccs_CSVData* rssringoccs_Extract_CSV_Data(const char *geo,
                              const char *cal,
                              const char *dlp,
                              const char *tau,

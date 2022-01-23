@@ -5,8 +5,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_special_functions.h>
 #include <stdlib.h>
 #include <stdio.h>
-
-void rssringoccs_Tau_Get_Window_Width(rssringoccs_TAUObj* tau)
+RSS_RINGOCCS_EXPORT void rssringoccs_Tau_Get_Window_Width(rssringoccs_TAUObj* tau)
 {
     /*  Declare long pointer-to-pointer which stores the indices where        *
      *  F_km_vals is non-zero in the first slot (Prange[0]), and the size of  *

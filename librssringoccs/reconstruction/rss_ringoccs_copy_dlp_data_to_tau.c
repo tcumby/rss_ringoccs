@@ -179,7 +179,7 @@
 /*  End of the __TAU_CHECK_TWO_PI__ macro.                                    */
 
 /*  Function for copying the relevant DLP data to a tau object.               */
-void rssringoccs_Copy_DLP_Data_To_Tau(rssringoccs_DLPObj *dlp,
+RSS_RINGOCCS_EXPORT void rssringoccs_Copy_DLP_Data_To_Tau(rssringoccs_DLPObj *dlp,
                                       rssringoccs_TAUObj *tau)
 {
     /*  Declare necessary variables. C89 requires this at the top.            */

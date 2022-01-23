@@ -8,8 +8,7 @@
 
 /*  Where the prototypes are declared and where complex types are defined.    */
 #include <rss_ringoccs/include/rss_ringoccs_complex.h>
-
-rssringoccs_ComplexDouble
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Poly_Deriv_Real_Coeffs(double *coeffs,
                                            unsigned int degree,
                                            unsigned int deriv,

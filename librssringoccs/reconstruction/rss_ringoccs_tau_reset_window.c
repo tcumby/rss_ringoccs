@@ -33,7 +33,7 @@
  *          are defined using km/s, and the CSV files which contain the       *
  *          occultation data store values in kilometers.                      *
  ******************************************************************************/
-void rssringoccs_Tau_Reset_Window(double *x_arr, double *w_func, double dx,
+RSS_RINGOCCS_EXPORT void rssringoccs_Tau_Reset_Window(double *x_arr, double *w_func, double dx,
                                   double width, long nw_pts,
                                   rssringoccs_window_func fw)
 {

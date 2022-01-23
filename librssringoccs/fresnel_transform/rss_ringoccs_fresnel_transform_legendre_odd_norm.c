@@ -21,8 +21,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_complex.h>
 #include <rss_ringoccs/include/rss_ringoccs_fresnel_kernel.h>
 #include <rss_ringoccs/include/rss_ringoccs_fresnel_transform.h>
-
-void
+RSS_RINGOCCS_EXPORT void
 Fresnel_Transform_Legendre_Norm_Odd_Double(rssringoccs_TAUObj *tau,
                                            double *x_arr, double *w_func,
                                            double *coeffs, unsigned long n_pts,

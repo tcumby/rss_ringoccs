@@ -4,9 +4,10 @@
 /*  For floating type, set the error to 10^-8.                                */
 #define EPS 1.0e-8F
 
-float rssringoccs_Newton_Raphson_Float(float x, float (*f)(float),
-                                       float (*f_prime)(float),
-                                       unsigned int max_iters)
+RSS_RINGOCCS_EXPORT float
+rssringoccs_Newton_Raphson_Float(float x, float (*f)(float),
+                                 float (*f_prime)(float),
+                                 unsigned int max_iters)
 {
     /*  Declare necessary variables. C89 requires this at the top.            */
     float dx, y, y_prime;
@@ -53,9 +54,10 @@ float rssringoccs_Newton_Raphson_Float(float x, float (*f)(float),
 #undef EPS
 #define EPS 1.0e-16
 
-double rssringoccs_Newton_Raphson_Double(double x, double (*f)(double),
-                                         double (*f_prime)(double),
-                                         unsigned int max_iters)
+RSS_RINGOCCS_EXPORT double 
+rssringoccs_Newton_Raphson_Double(double x, double (*f)(double),
+                                  double (*f_prime)(double),
+                                  unsigned int max_iters)
 {
     /*  Declare necessary variables. C89 requires this at the top.            */
     double dx, y, y_prime;
@@ -98,7 +100,7 @@ double rssringoccs_Newton_Raphson_Double(double x, double (*f)(double),
     return x;
 }
 
-rssringoccs_ComplexDouble
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_Newton_Raphson_Complex(
     rssringoccs_ComplexDouble z,
     rssringoccs_ComplexDouble (*f)(rssringoccs_ComplexDouble),

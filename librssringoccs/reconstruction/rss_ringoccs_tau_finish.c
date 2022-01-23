@@ -33,8 +33,7 @@ static void __resize_carray(rssringoccs_ComplexDouble **ptr,
     free(data);
     *ptr = temp;
 }
-
-void rssringoccs_Tau_Finish(rssringoccs_TAUObj* tau)
+RSS_RINGOCCS_EXPORT void rssringoccs_Tau_Finish(rssringoccs_TAUObj* tau)
 {
     double mu, factor;
     unsigned long n;

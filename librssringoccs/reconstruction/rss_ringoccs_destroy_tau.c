@@ -22,8 +22,7 @@
 
 #include <stdlib.h>
 #include <rss_ringoccs/include/rss_ringoccs_reconstruction.h>
-
-void rssringoccs_Destroy_Tau(rssringoccs_TAUObj **tau)
+RSS_RINGOCCS_EXPORT void rssringoccs_Destroy_Tau(rssringoccs_TAUObj **tau)
 {
     rssringoccs_TAUObj *tau_inst = *tau;
 

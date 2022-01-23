@@ -34,9 +34,7 @@ type rssringoccs_##Type##_Window_Normalization(type *ker, long dim,            \
 _define_window_normalization(float, Float)
 _define_window_normalization(double, Double)
 _define_window_normalization(long double, LDouble)
-
-
-double
+RSS_RINGOCCS_EXPORT double
 rssringoccs_Complex_Window_Normalization(rssringoccs_ComplexDouble *ker,
                                          long dim, double dx, double f_scale)
 {

@@ -61,7 +61,7 @@
 /*  End of the MALLOC_TAU_MEMBER macro.                                       */
 
 /*  Function for computing T_hat, F, and k for a tau object.                  */
-void rssringoccs_Tau_Compute_Vars(rssringoccs_TAUObj *tau)
+RSS_RINGOCCS_EXPORT void rssringoccs_Tau_Compute_Vars(rssringoccs_TAUObj *tau)
 {
     /*  Declare necessary variables. C89 requires this at the top.            */
     unsigned long n;

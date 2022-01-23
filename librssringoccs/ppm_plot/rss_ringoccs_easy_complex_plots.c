@@ -5,7 +5,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_complex.h>
 #include <rss_ringoccs/include/rss_ringoccs_ppm_plot.h>
 
-void rssringoccs_Easy_Complex_Plots(
+RSS_RINGOCCS_EXPORT void rssringoccs_Easy_Complex_Plots(
     const char *func_name,
     rssringoccs_ComplexDouble(*func)(rssringoccs_ComplexDouble),
     unsigned int x_size, unsigned int y_size,

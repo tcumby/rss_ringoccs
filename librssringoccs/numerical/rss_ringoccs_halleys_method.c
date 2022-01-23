@@ -5,10 +5,11 @@
 /*  For floating type, set the error to 10^-8.                                */
 #define EPS 1.0e-8F
 
-float rssringoccs_Halleys_Method_Float(float x, float (*f)(float),
-                                       float (*f_prime)(float),
-                                       float (*f_2prime)(float),
-                                       unsigned int max_iters)
+RSS_RINGOCCS_EXPORT float
+rssringoccs_Halleys_Method_Float(float x, float (*f)(float),
+                                 float (*f_prime)(float),
+                                 float (*f_2prime)(float),
+                                 unsigned int max_iters)
 {
     /*  Declare necessary variables. C89 requires this at the top.            */
     float dx, y, y_prime, y_2prime, denom;
@@ -60,10 +61,11 @@ float rssringoccs_Halleys_Method_Float(float x, float (*f)(float),
 #undef EPS
 #define EPS 1.0e-16
 
-double rssringoccs_Halleys_Method_Double(double x, double (*f)(double),
-                                         double (*f_prime)(double),
-                                         double (*f_2prime)(double),
-                                         unsigned int max_iters)
+RSS_RINGOCCS_EXPORT double
+rssringoccs_Halleys_Method_Double(double x, double (*f)(double),
+                                  double (*f_prime)(double),
+                                  double (*f_2prime)(double),
+                                  unsigned int max_iters)
 {
     /*  Declare necessary variables. C89 requires this at the top.            */
     double dx, y, y_prime, y_2prime, denom;
@@ -115,7 +117,7 @@ double rssringoccs_Halleys_Method_Double(double x, double (*f)(double),
 #undef EPS
 #define EPS 1.0e-16L
 
-long double
+RSS_RINGOCCS_EXPORT long double
 rssringoccs_Halleys_Method_LDouble(long double x,
                                    long double (*f)(long double),
                                    long double (*f_prime)(long double),
@@ -172,7 +174,7 @@ rssringoccs_Halleys_Method_LDouble(long double x,
 #undef EPS
 #define EPS 1.0e-16
 
-rssringoccs_ComplexDouble
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_Halleys_Method_Complex(
     rssringoccs_ComplexDouble z,
     rssringoccs_ComplexDouble (*f)(rssringoccs_ComplexDouble),

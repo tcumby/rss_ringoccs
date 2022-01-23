@@ -26,8 +26,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
-rssringoccs_TauCSV *rssringoccs_Get_Tau(const char *filename,
+RSS_RINGOCCS_EXPORT rssringoccs_TauCSV* rssringoccs_Get_Tau(const char *filename,
                                         rssringoccs_Bool use_deprecated)
 {
     rssringoccs_TauCSV *tau;

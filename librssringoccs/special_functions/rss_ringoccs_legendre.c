@@ -1,7 +1,6 @@
 /*  Prototypes for these functions declared here.                             */
 #include <rss_ringoccs/include/rss_ringoccs_special_functions.h>
-
-void rssringoccs_Legendre_Polynomials(double *legendre_p, double x, int order)
+RSS_RINGOCCS_EXPORT void rssringoccs_Legendre_Polynomials(double *legendre_p, double x, int order)
 {
     int i;
     legendre_p[0] = 1.0;
@@ -11,8 +10,7 @@ void rssringoccs_Legendre_Polynomials(double *legendre_p, double x, int order)
                          (i-1.0) * legendre_p[i-2]) / i;
     }
 }
-
-void rssringoccs_Alt_Legendre_Polynomials(double *poly,
+RSS_RINGOCCS_EXPORT void rssringoccs_Alt_Legendre_Polynomials(double *poly,
                                           double *legendre_p, int order)
 {
     int i;
@@ -20,8 +18,7 @@ void rssringoccs_Alt_Legendre_Polynomials(double *poly,
         poly[i] = (legendre_p[i]-legendre_p[1]*legendre_p[i+1])/(i+2.0);
     }
 }
-
-void rssringoccs_Fresnel_Kernel_Coefficients(double *fresnel_ker_coeffs,
+RSS_RINGOCCS_EXPORT void rssringoccs_Fresnel_Kernel_Coefficients(double *fresnel_ker_coeffs,
                                              double *legendre_p,
                                              double *alt_legendre_p,
                                              double Legendre_Coeff, int order)

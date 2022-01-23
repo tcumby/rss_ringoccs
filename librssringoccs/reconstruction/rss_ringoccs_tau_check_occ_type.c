@@ -88,7 +88,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_reconstruction.h>
 
 /*  Function for determining the type of occultation of a tau object.         */
-void rssringoccs_Tau_Check_Occ_Type(rssringoccs_TAUObj *tau)
+RSS_RINGOCCS_EXPORT void rssringoccs_Tau_Check_Occ_Type(rssringoccs_TAUObj *tau)
 {
     /*  Declare necessary variables. C89 requires this at the top.            */
     double min_val;

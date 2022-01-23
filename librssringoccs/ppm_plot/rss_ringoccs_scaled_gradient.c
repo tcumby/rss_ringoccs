@@ -1,7 +1,6 @@
 #include <rss_ringoccs/include/rss_ringoccs_math.h>
 #include <rss_ringoccs/include/rss_ringoccs_ppm_plot.h>
-
-void rssringoccs_RGB_Scaled_Gradient(double val, FILE *fp)
+RSS_RINGOCCS_EXPORT void rssringoccs_RGB_Scaled_Gradient(double val, FILE *fp)
 {
     /*  Declare variables for the color. We'll compute the color in RGB       *
      *  format, hence the need for these three variables.                     */

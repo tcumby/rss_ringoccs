@@ -3,8 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <rss_ringoccs/include/rss_ringoccs_string.h>
-
-void rssringoccs_Make_Lower(char *str)
+RSS_RINGOCCS_EXPORT void rssringoccs_Make_Lower(char *str)
 {
     unsigned long n = 0;
 

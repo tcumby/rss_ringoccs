@@ -214,7 +214,7 @@
  *          immensely fast, capable of processing the entire Rev007 E         *
  *          occultation accurately in less than a second at 1km resolution.   *
  ******************************************************************************/
-void rssringoccs_Diffraction_Correction_Fresnel(rssringoccs_TAUObj *tau)
+RSS_RINGOCCS_EXPORT void rssringoccs_Diffraction_Correction_Fresnel(rssringoccs_TAUObj *tau)
 {
     /*  m and n used for indexing, nw_pts is number of points in window.      */
     unsigned long m, n, nw_pts, center;

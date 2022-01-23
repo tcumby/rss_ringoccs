@@ -22,8 +22,7 @@
 
 #include <stdlib.h>
 #include <rss_ringoccs/include/rss_ringoccs_csv_tools.h>
-
-void rssringoccs_Destroy_GeoCSV(rssringoccs_GeoCSV **geo)
+RSS_RINGOCCS_EXPORT void rssringoccs_Destroy_GeoCSV(rssringoccs_GeoCSV **geo)
 {
     rssringoccs_GeoCSV *geo_inst = *geo;
 

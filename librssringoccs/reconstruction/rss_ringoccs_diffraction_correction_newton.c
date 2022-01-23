@@ -35,7 +35,7 @@
  *          use of them arises if one uses FFT methods. This routine does NOT *
  *          use FFTs, but rather ordinary integration.                        *
  ******************************************************************************/
-void rssringoccs_Diffraction_Correction_Newton(rssringoccs_TAUObj *tau)
+RSS_RINGOCCS_EXPORT void rssringoccs_Diffraction_Correction_Newton(rssringoccs_TAUObj *tau)
 {
     /*  Variables for indexing. nw_pts is the number of points in the window. */
     unsigned long i, j, offset, nw_pts, center;

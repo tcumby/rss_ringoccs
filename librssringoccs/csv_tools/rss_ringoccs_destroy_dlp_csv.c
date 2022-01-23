@@ -22,8 +22,7 @@
 
 #include <stdlib.h>
 #include <rss_ringoccs/include/rss_ringoccs_csv_tools.h>
-
-void rssringoccs_Destroy_DLPCSV(rssringoccs_DLPCSV **dlp)
+RSS_RINGOCCS_EXPORT void rssringoccs_Destroy_DLPCSV(rssringoccs_DLPCSV **dlp)
 {
     rssringoccs_DLPCSV *dlp_inst = *dlp;
 

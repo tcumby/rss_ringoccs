@@ -4,8 +4,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_bool.h>
 #include <rss_ringoccs/include/rss_ringoccs_string.h>
 #include <rss_ringoccs/include/rss_ringoccs_reconstruction.h>
-
-void rssringoccs_Tau_Set_WType(const char *wtype, rssringoccs_TAUObj *tau)
+RSS_RINGOCCS_EXPORT void rssringoccs_Tau_Set_WType(const char *wtype, rssringoccs_TAUObj *tau)
 {
     if (tau == NULL)
         return;

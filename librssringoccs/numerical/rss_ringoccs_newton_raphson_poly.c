@@ -3,8 +3,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_bool.h>
 
 #define EPS 1.0e-16
-
-rssringoccs_ComplexDouble
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_Newton_Raphson_CDouble_Poly_Real(
     rssringoccs_ComplexDouble z, double *coeffs, unsigned int degree,
     unsigned int max_iters

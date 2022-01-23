@@ -57,7 +57,7 @@
 
 /*  Use Horner's method to compute a polynomial of a complex variable z with  *
  *  real coefficients.                                                        */
-rssringoccs_ComplexDouble
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Poly_Real_Coeffs(double *coeffs, unsigned int degree,
                                            rssringoccs_ComplexDouble z)
 {
@@ -105,7 +105,7 @@ rssringoccs_CDouble_Poly_Real_Coeffs(double *coeffs, unsigned int degree,
 
 /*  Use Horner's method to compute a polynomial of a complex variable z with  *
  *  complex coefficients.                                                     */
-rssringoccs_ComplexDouble
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Poly_Complex_Coeffs(rssringoccs_ComplexDouble *coeffs,
                                               unsigned int degree,
                                               rssringoccs_ComplexDouble z)

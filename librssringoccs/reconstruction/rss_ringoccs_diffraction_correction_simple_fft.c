@@ -33,7 +33,7 @@
  *          there is no FFT routine in the standard C library, FFTW has       *
  *          somewhat become the de facto standard.                            *
  ******************************************************************************/
-void rssringoccs_Diffraction_Correction_SimpleFFT(rssringoccs_TAUObj *tau)
+RSS_RINGOCCS_EXPORT void rssringoccs_Diffraction_Correction_SimpleFFT(rssringoccs_TAUObj *tau)
 {
     /*  Variables for indexing. nw_pts is the number of points in the window. */
     unsigned long i, nw_pts, center, data_size;

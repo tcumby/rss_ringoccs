@@ -27,7 +27,7 @@
 #define DESTROY_TAU_VAR(var) if (var != NULL){free(var); var = NULL;}
 
 /*  Function for freeing all member of a tau object except the error message. */
-void rssringoccs_Destroy_Tau_Members(rssringoccs_TAUObj *tau)
+RSS_RINGOCCS_EXPORT void rssringoccs_Destroy_Tau_Members(rssringoccs_TAUObj *tau)
 {
     /*  If the input pointer is NULL, do not try to access it. Just return.   */
     if (tau == NULL)

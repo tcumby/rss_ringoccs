@@ -66,8 +66,7 @@
  *      may be introduced to appropriately scale this back to one. This is    *
  *      default option selected in the Python code.                           *
  ******************************************************************************/
-
-void
+RSS_RINGOCCS_EXPORT void
 Fresnel_Transform_Quadratic_Double(rssringoccs_TAUObj *tau,
                                    double *w_func,
                                    unsigned long n_pts,

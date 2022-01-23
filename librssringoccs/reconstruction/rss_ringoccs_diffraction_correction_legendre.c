@@ -35,7 +35,7 @@
  *          Raphson method is good enough, whereas in reality 3-4 iterations  *
  *          may be needed, like in Rev133.                                    *
  ******************************************************************************/
-void rssringoccs_Diffraction_Correction_Legendre(rssringoccs_TAUObj *tau)
+RSS_RINGOCCS_EXPORT void rssringoccs_Diffraction_Correction_Legendre(rssringoccs_TAUObj *tau)
 {
     /*  i is used for indexing, nw_pts is the number of points in the window. */
     unsigned long i, nw_pts, center;

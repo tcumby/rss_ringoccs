@@ -4,8 +4,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_string.h>
 #include <rss_ringoccs/include/rss_ringoccs_complex.h>
 #include <rss_ringoccs/include/rss_ringoccs_reconstruction.h>
-
-void rssringoccs_Reconstruction(rssringoccs_TAUObj *tau)
+RSS_RINGOCCS_EXPORT void rssringoccs_Reconstruction(rssringoccs_TAUObj *tau)
 {
     rssringoccs_ComplexDouble *temp_T_in;
     rssringoccs_Bool temp_fwd;

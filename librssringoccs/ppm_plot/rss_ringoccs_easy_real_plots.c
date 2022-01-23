@@ -9,7 +9,7 @@
 #define WHITE (unsigned char)255
 
 /*  Routine for plotting the absolute value function.                         */
-void rssringoccs_Easy_Real_Plots(const char *func_name, double (*f)(double),
+RSS_RINGOCCS_EXPORT void rssringoccs_Easy_Real_Plots(const char *func_name, double (*f)(double),
                                  unsigned int x_size, unsigned int y_size,
                                  const double x_min, const double x_max,
                                  const double y_min, const double y_max)

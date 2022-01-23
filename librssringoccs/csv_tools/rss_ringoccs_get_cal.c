@@ -25,8 +25,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
-rssringoccs_CalCSV *rssringoccs_Get_Cal(const char *filename)
+RSS_RINGOCCS_EXPORT rssringoccs_CalCSV* rssringoccs_Get_Cal(const char *filename)
 {
     rssringoccs_CalCSV *cal;
     FILE *fp;

@@ -1,6 +1,5 @@
 #include <rss_ringoccs/include/rss_ringoccs_ppm_plot.h>
-
-void
+RSS_RINGOCCS_EXPORT void
 rssringoccs_RGB_Linear_Gradient(double val, double min, double max, FILE *fp)
 {
     double scaled, temp;

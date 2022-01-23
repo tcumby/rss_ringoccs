@@ -102,7 +102,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_interpolate.h>
 
 /*  Single precision linear interpolation of sorted data.                     */
-void
+RSS_RINGOCCS_EXPORT void
 rssringoccs_Float_Sorted_Interp1d(float *x,
                                   float *y,
                                   unsigned long N,
@@ -151,7 +151,7 @@ rssringoccs_Float_Sorted_Interp1d(float *x,
 /*  End of rssringoccs_Float_Sorted_Interp1d.                                 */
 
 /*  Double precision linear interpolation of sorted data.                     */
-void
+RSS_RINGOCCS_EXPORT void
 rssringoccs_Double_Sorted_Interp1d(double *x,
                                    double *y,
                                    unsigned long N,
@@ -200,7 +200,7 @@ rssringoccs_Double_Sorted_Interp1d(double *x,
 /*  End of rssringoccs_Double_Sorted_Interp1d.                                */
 
 /*  Long double precision linear interpolation of sorted data.                */
-void
+RSS_RINGOCCS_EXPORT void
 rssringoccs_LDouble_Sorted_Interp1d(long double *x,
                                     long double *y,
                                     unsigned long N,

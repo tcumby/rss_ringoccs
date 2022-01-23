@@ -26,8 +26,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-
-rssringoccs_DLPCSV *rssringoccs_Get_DLP(const char *filename,
+RSS_RINGOCCS_EXPORT rssringoccs_DLPCSV* rssringoccs_Get_DLP(const char *filename,
                                         rssringoccs_Bool use_deprecated)
 {
     rssringoccs_DLPCSV *dlp;

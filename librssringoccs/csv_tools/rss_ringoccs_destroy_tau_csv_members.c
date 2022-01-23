@@ -28,7 +28,7 @@
 
 /*  Free's all members of a rssringoccs_TauCSV pointer except the             *
  *  error_message. Members are set to NULL after freeing.                     */
-void rssringoccs_Destroy_TauCSV_Members(rssringoccs_TauCSV *tau)
+RSS_RINGOCCS_EXPORT void rssringoccs_Destroy_TauCSV_Members(rssringoccs_TauCSV *tau)
 {
     /*  If the pointer is NULL, there's nothing to do. Simply return.         */
     if (tau == NULL)

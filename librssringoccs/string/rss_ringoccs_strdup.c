@@ -3,8 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <rss_ringoccs/include/rss_ringoccs_string.h>
-
-char *rssringoccs_strdup(const char *str)
+RSS_RINGOCCS_EXPORT char* rssringoccs_strdup(const char *str)
 {
     /*  Create space for the output. The +1 is for the NULL terminator.       */
     char *dst = malloc(strlen(str) + 1);

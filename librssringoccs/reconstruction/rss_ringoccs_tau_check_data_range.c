@@ -88,7 +88,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_reconstruction.h>
 
 /*  Function for checking the data range of a rssringoccs_TAUObj pointer.     */
-void rssringoccs_Tau_Check_Data_Range(rssringoccs_TAUObj *tau)
+RSS_RINGOCCS_EXPORT void rssringoccs_Tau_Check_Data_Range(rssringoccs_TAUObj *tau)
 {
     /*  As a side not, C89/C90 does not allow mixed code. All declaration     *
      *  must be made at the top of a code block.                              */

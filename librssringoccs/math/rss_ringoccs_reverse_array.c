@@ -22,7 +22,7 @@
  *  the order. This is equivalent to taking a numpy array arr and writing     *
  *  arr = arr[::-1] (in Python 3, at least). Since all of the main routines   *
  *  use double pointers, only a double version is provided.                   */
-void rssringoccs_Reverse_Float_Array(float *arr, unsigned long arrsize)
+RSS_RINGOCCS_EXPORT void rssringoccs_Reverse_Float_Array(float *arr, unsigned long arrsize)
 {
     float val;
     unsigned long i;
@@ -33,8 +33,7 @@ void rssringoccs_Reverse_Float_Array(float *arr, unsigned long arrsize)
         arr[arrsize-i-1] = val;
     }
 }
-
-void rssringoccs_Reverse_Double_Array(double *arr, unsigned long arrsize)
+RSS_RINGOCCS_EXPORT void rssringoccs_Reverse_Double_Array(double *arr, unsigned long arrsize)
 {
     double val;
     unsigned long i;
@@ -45,8 +44,7 @@ void rssringoccs_Reverse_Double_Array(double *arr, unsigned long arrsize)
         arr[arrsize-i-1] = val;
     }
 }
-
-void rssringoccs_Reverse_LDouble_Array(long double *arr, unsigned long arrsize)
+RSS_RINGOCCS_EXPORT void rssringoccs_Reverse_LDouble_Array(long double *arr, unsigned long arrsize)
 {
     long double val;
     unsigned long i;
