@@ -48,7 +48,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_complex.h>
 #include <complex.h>
 
-extern void
+RSS_RINGOCCS_COMPARE_EXPORT extern void
 rssringoccs_Compare_CLDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexLongDouble (*f0)(rssringoccs_ComplexLongDouble),

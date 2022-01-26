@@ -53,7 +53,7 @@
 #include <complex.h>
 
 /*  Routine for comparing two complex valued functions at single precision.   */
-void
+RSS_RINGOCCS_COMPARE_EXPORT void
 rssringoccs_Compare_CFloat_Funcs(
     const char *f0_name,
     rssringoccs_ComplexFloat (*f0)(rssringoccs_ComplexFloat),

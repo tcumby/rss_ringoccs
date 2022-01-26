@@ -37,8 +37,9 @@
 
 #include <rss_ringoccs/include/rss_ringoccs_complex.h>
 #include <complex.h>
+#include "librssringoccs_compare_exports.h"
 
-extern void
+RSS_RINGOCCS_COMPARE_EXPORT extern void
 rssringoccs_Compare_Float_Funcs(
     const char *f0_name,
     float (*f0)(float),
@@ -48,7 +49,7 @@ rssringoccs_Compare_Float_Funcs(
     const float end,
     const unsigned long N);
 
-extern void
+RSS_RINGOCCS_COMPARE_EXPORT extern void
 rssringoccs_Compare_Double_Funcs(
     const char *f0_name,
     double (*f0)(double),
@@ -58,7 +59,7 @@ rssringoccs_Compare_Double_Funcs(
     const double end,
     const unsigned long N);
 
-extern void
+RSS_RINGOCCS_COMPARE_EXPORT extern void
 rssringoccs_Compare_LDouble_Funcs(
     const char *f0_name,
     long double (*f0)(long double),
@@ -68,7 +69,7 @@ rssringoccs_Compare_LDouble_Funcs(
     const long double end,
     const unsigned long N);
 
-extern void
+RSS_RINGOCCS_COMPARE_EXPORT extern void
 rssringoccs_Compare_CFloat_Funcs(
     const char *f0_name,
     rssringoccs_ComplexFloat (*f0)(rssringoccs_ComplexFloat),
@@ -78,7 +79,7 @@ rssringoccs_Compare_CFloat_Funcs(
     const float end,
     const unsigned long N);
 
-extern void
+RSS_RINGOCCS_COMPARE_EXPORT extern void
 rssringoccs_Compare_CDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexDouble (*f0)(rssringoccs_ComplexDouble),
@@ -88,7 +89,7 @@ rssringoccs_Compare_CDouble_Funcs(
     const double end,
     const unsigned long N);
 
-extern void
+RSS_RINGOCCS_COMPARE_EXPORT extern void
 rssringoccs_Compare_CLDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexLongDouble (*f0)(rssringoccs_ComplexLongDouble),
@@ -98,7 +99,7 @@ rssringoccs_Compare_CLDouble_Funcs(
     const long double end,
     const unsigned long N);
 
-extern void
+RSS_RINGOCCS_COMPARE_EXPORT extern void
 rssringoccs_RelCompare_CFloat_Funcs(
     const char *f0_name,
     rssringoccs_ComplexFloat (*f0)(rssringoccs_ComplexFloat),
@@ -108,7 +109,7 @@ rssringoccs_RelCompare_CFloat_Funcs(
     const float end,
     const unsigned long N);
 
-extern void
+RSS_RINGOCCS_COMPARE_EXPORT extern void
 rssringoccs_RelCompare_CDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexDouble (*f0)(rssringoccs_ComplexDouble),
@@ -118,7 +119,7 @@ rssringoccs_RelCompare_CDouble_Funcs(
     const double end,
     const unsigned long N);
 
-extern void
+RSS_RINGOCCS_COMPARE_EXPORT extern void
 rssringoccs_RelCompare_CLDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexLongDouble (*f0)(rssringoccs_ComplexLongDouble),
@@ -128,7 +129,7 @@ rssringoccs_RelCompare_CLDouble_Funcs(
     const long double end,
     const unsigned long N);
 
-extern void
+RSS_RINGOCCS_COMPARE_EXPORT extern void
 rssringoccs_Compare_Real_CFloat_Funcs(
     const char *f0_name,
     float (*f0)(rssringoccs_ComplexFloat),
@@ -138,7 +139,7 @@ rssringoccs_Compare_Real_CFloat_Funcs(
     const float end,
     const unsigned long N);
 
-extern void
+RSS_RINGOCCS_COMPARE_EXPORT extern void
 rssringoccs_Compare_Real_CDouble_Funcs(
     const char *f0_name,
     double (*f0)(rssringoccs_ComplexDouble),
@@ -149,7 +150,7 @@ rssringoccs_Compare_Real_CDouble_Funcs(
     const unsigned long N);
 
 
-extern void
+RSS_RINGOCCS_COMPARE_EXPORT extern void
 rssringoccs_Compare_Real_CLDouble_Funcs(
     const char *f0_name,
     long double (*f0)(rssringoccs_ComplexLongDouble),
@@ -159,7 +160,7 @@ rssringoccs_Compare_Real_CLDouble_Funcs(
     const long double end,
     const unsigned long N);
 
-extern void
+RSS_RINGOCCS_COMPARE_EXPORT extern void
 rssringoccs_Accuracy_CFloat_Funcs(
     const char *f0_name,
     rssringoccs_ComplexFloat (*f0)(rssringoccs_ComplexFloat),
@@ -169,7 +170,7 @@ rssringoccs_Accuracy_CFloat_Funcs(
     const float end,
     const unsigned long N);
 
-extern void
+RSS_RINGOCCS_COMPARE_EXPORT extern void
 rssringoccs_Accuracy_CDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexDouble (*f0)(rssringoccs_ComplexDouble),
@@ -179,7 +180,7 @@ rssringoccs_Accuracy_CDouble_Funcs(
     const double end,
     const unsigned long N);
 
-extern void
+RSS_RINGOCCS_COMPARE_EXPORT extern void
 rssringoccs_Accuracy_CLDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexLongDouble (*f0)(rssringoccs_ComplexLongDouble),

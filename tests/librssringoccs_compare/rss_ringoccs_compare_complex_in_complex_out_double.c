@@ -54,7 +54,7 @@
 
 /*  Routine for comparing complex valued functions of a double precision      *
  *  complex variable.                                                         */
-void
+RSS_RINGOCCS_COMPARE_EXPORT void
 rssringoccs_Compare_CDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexDouble (*f0)(rssringoccs_ComplexDouble),

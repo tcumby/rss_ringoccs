@@ -47,7 +47,7 @@
 #include "rss_ringoccs_compare_funcs.h"
 
 /*  Routine for comparing two real valued functions at long double precision. */
-void
+RSS_RINGOCCS_COMPARE_EXPORT void
 rssringoccs_Compare_LDouble_Funcs(
     const char *f0_name,
     long double (*f0)(long double),

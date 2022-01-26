@@ -47,7 +47,7 @@
 #include "rss_ringoccs_compare_funcs.h"
 
 /*  Routine for comparing two real valued functions at single precision.      */
-void
+RSS_RINGOCCS_COMPARE_EXPORT void
 rssringoccs_Compare_Float_Funcs(
     const char *f0_name,
     float (*f0)(float),

@@ -49,7 +49,7 @@
 #include <complex.h>
 
 /*  Routine for comparing two complex valued functions at single precision.   */
-void
+RSS_RINGOCCS_COMPARE_EXPORT void
 rssringoccs_RelCompare_CFloat_Funcs(
     const char *f0_name,
     rssringoccs_ComplexFloat (*f0)(rssringoccs_ComplexFloat),
@@ -225,7 +225,7 @@ rssringoccs_RelCompare_CFloat_Funcs(
 }
 /*  End of rssringoccs_Compare_CFloat_Funcs.                                  */
 
-void
+RSS_RINGOCCS_COMPARE_EXPORT void
 rssringoccs_RelCompare_CDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexDouble (*f0)(rssringoccs_ComplexDouble),
@@ -377,7 +377,7 @@ rssringoccs_RelCompare_CDouble_Funcs(
 }
 /*  End of rssringoccs_Compare_CDouble_Funcs.                                 */
 
-extern void
+RSS_RINGOCCS_COMPARE_EXPORT extern void
 rssringoccs_RelCompare_CLDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexLongDouble (*f0)(rssringoccs_ComplexLongDouble),
@@ -529,7 +529,7 @@ rssringoccs_RelCompare_CLDouble_Funcs(
 }
 /*  End of rssringoccs_RelCompare_CLDouble_Funcs.                             */
 
-void
+RSS_RINGOCCS_COMPARE_EXPORT void
 rssringoccs_Compare_Real_CFloat_Funcs(
     const char *f0_name,
     float (*f0)(rssringoccs_ComplexFloat),
@@ -670,7 +670,7 @@ rssringoccs_Compare_Real_CFloat_Funcs(
 }
 /*  End of rssringoccs_Compare_Real_CFloat_Funcs.                             */
 
-void
+RSS_RINGOCCS_COMPARE_EXPORT void
 rssringoccs_Compare_Real_CDouble_Funcs(
     const char *f0_name,
     double (*f0)(rssringoccs_ComplexDouble),
@@ -811,7 +811,7 @@ rssringoccs_Compare_Real_CDouble_Funcs(
 }
 /*  End of rssringoccs_Compare_Real_CDouble_Funcs.                            */
 
-void
+RSS_RINGOCCS_COMPARE_EXPORT void
 rssringoccs_Compare_Real_CLDouble_Funcs(
     const char *f0_name,
     long double (*f0)(rssringoccs_ComplexLongDouble),
