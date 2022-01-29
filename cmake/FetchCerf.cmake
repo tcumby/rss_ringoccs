@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 include_guard()
-
+include(FetchContent)
 FetchContent_Declare(
     cerf_checkout
     GIT_REPOSITORY https://jugit.fz-juelich.de/mlz/libcerf.git
