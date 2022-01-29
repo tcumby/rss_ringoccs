@@ -1,6 +1,11 @@
 cmake_minimum_required(VERSION 3.20)
 include_guard()
 include(FetchContent)
+
+if (MSVC)
+    set(CERF_CPP ON)
+endif()
+
 FetchContent_Declare(
     cerf_checkout
     GIT_REPOSITORY https://jugit.fz-juelich.de/mlz/libcerf.git
