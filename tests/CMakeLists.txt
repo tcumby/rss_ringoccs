@@ -1,0 +1,6 @@
+add_subdirectory("complex_tests")
+add_subdirectory("csv_test")
+add_subdirectory("gnuplotutils_figures")
+add_subdirectory("math_tests")
+add_subdirectory("librssringoccs_compare")
+add_subdirectory("special_functions_tests")

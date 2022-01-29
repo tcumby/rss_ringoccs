@@ -12,6 +12,7 @@ endif()
 endif()
 
 option(BUILD_EXAMPLES "Build all examples" TRUE)
+option(BUILD_TESTS "Build all tests" TRUE)
 
 project(rss_ringoccs)
 
@@ -19,4 +20,8 @@ add_subdirectory("librssringoccs")
 
 if (BUILD_EXAMPLES)
 add_subdirectory("examples")
+endif()
+
+if (BUILD_TESTS)
+add_subdirectory("tests")
 endif()
