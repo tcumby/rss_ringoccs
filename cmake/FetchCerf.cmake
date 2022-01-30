@@ -4,6 +4,7 @@ include(FetchContent)
 
 if (MSVC)
     set(CERF_CPP ON)
+    set(LIB_MAN OFF)
 endif()
 
 FetchContent_Declare(
