@@ -14,9 +14,9 @@ project(interpolate_plots_tests)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
 add_executable(linear_interpolate_plot linear_interpolate_plot.c)
-target_link_libraries(linear_interpolate_plot PRIVATE librssringoccs librssringoccs_compare)
+target_link_libraries(linear_interpolate_plot PRIVATE rss::librssringoccs rss::librssringoccs_compare)
 
 add_executable(sin_interpolate_plot sin_interpolate_plot.c)
-target_link_libraries(sin_interpolate_plot PRIVATE librssringoccs librssringoccs_compare)
+target_link_libraries(sin_interpolate_plot PRIVATE rss::librssringoccs rss::librssringoccs_compare)
 
 

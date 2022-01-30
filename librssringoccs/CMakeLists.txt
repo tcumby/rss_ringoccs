@@ -56,6 +56,7 @@ set_property(TARGET librssringoccs
         OUTPUT_NAME rssringoccs
 )
 
+add_library(rss::librssringoccs ALIAS librssringoccs)
 
 include(GNUInstallDirs)
 install(TARGETS librssringoccs

@@ -11,12 +11,12 @@ elseif (UNIX)
 endif()
 endif()
 
-project(special_funtion_tests)
+project(special_functions_tests)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
 
 add_executable(bessel_j0_time_test bessel_j0_time_test.c)
-target_link_libraries(bessel_j0_time_test PRIVATE librssringoccs librssringoccs_compare)
+target_link_libraries(bessel_j0_time_test PRIVATE rss::librssringoccs rss::librssringoccs_compare)
 
 include(GNUInstallDirs)
 install(TARGETS
