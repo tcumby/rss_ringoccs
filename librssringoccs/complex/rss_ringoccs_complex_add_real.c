@@ -156,7 +156,11 @@ rssringoccs_CLDouble_Add_Real(long double x, rssringoccs_ComplexLongDouble z)
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Add_Real(float x, rssringoccs_ComplexFloat z)
 {
+#ifdef _MSC_VER
+    return _FCbuild(crealf(z) + x, cimagf(z));
+#else
     return x + z;
+#endif
 }
 /*  End of rssringoccs_CFloat_Add_Real.                                       */
 
@@ -164,7 +168,11 @@ rssringoccs_CFloat_Add_Real(float x, rssringoccs_ComplexFloat z)
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Add_Real(double x, rssringoccs_ComplexDouble z)
 {
+#ifdef _MSC_VER
+    return _Cbuild(creal(z) + x, cimag(z));
+#else
     return x + z;
+#endif
 }
 /*  End of rssringoccs_CDouble_Add_Real.                                      */
 
@@ -172,7 +180,11 @@ rssringoccs_CDouble_Add_Real(double x, rssringoccs_ComplexDouble z)
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Add_Real(long double x, rssringoccs_ComplexLongDouble z)
 {
+#ifdef _MSC_VER
+    return _LCbuild(creall(z) + x, cimagl(z));
+#else
     return x + z;
+#endif
 }
 /*  End of rssringoccs_CLDouble_Add_Real.                                     */
 

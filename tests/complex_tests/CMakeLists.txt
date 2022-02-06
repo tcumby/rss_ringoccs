@@ -12,6 +12,8 @@ endif()
 include(FetchCerf)
 
 project(complex_tests)
+enable_language(C)
+
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
 add_executable(complex_abs_squared_alt_time_test complex_abs_squared_alt_time_test.c)

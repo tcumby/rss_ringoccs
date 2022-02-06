@@ -48,11 +48,11 @@
 #include "../rss_ringoccs_compare_funcs.h"
 
 /*  We'll test the computation of the distance from z to 1 + i.               */
-static const double _Complex z = 1.0 + (double _Complex)_Complex_I;
+static const rssringoccs_ComplexDouble z = 1.0 + (rssringoccs_ComplexDouble)_Complex_I;
 static const rssringoccs_ComplexDouble w = {{1.0, 1.0}};
 
 /*  C99 version.                                                              */
-static double dist(double _Complex z0)
+static double dist(rssringoccs_ComplexDouble z0)
 {
     return cabs(z - z0);
 }

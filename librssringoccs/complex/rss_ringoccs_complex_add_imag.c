@@ -157,7 +157,11 @@ rssringoccs_CLDouble_Add_Imag(long double y, rssringoccs_ComplexLongDouble z)
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Add_Imag(float y, rssringoccs_ComplexFloat z)
 {
+#ifdef _MSC_VER
+    return _FCbuild(crealf(z), cimagf(z) + y);
+#else
     return (float _Complex)_Complex_I*y + z;
+#endif
 }
 /*  End of rssringoccs_CFloat_Add_Imag.                                       */
 
@@ -165,7 +169,11 @@ rssringoccs_CFloat_Add_Imag(float y, rssringoccs_ComplexFloat z)
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Add_Imag(double y, rssringoccs_ComplexDouble z)
 {
-    return (double _Complex)_Complex_I*y + z;
+#ifdef _MSC_VER
+    return _Cbuild(creal(z), cimag(z) + y);
+#else
+    return (rssringoccs_ComplexDouble)_Complex_I*y + z;
+#endif
 }
 /*  End of rssringoccs_CDouble_Add_Imag.                                      */
 
@@ -173,7 +181,11 @@ rssringoccs_CDouble_Add_Imag(double y, rssringoccs_ComplexDouble z)
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Add_Imag(long double y, rssringoccs_ComplexLongDouble z)
 {
-    return (long double _Complex)_Complex_I*y + z;
+#ifdef _MSC_VER
+    return _LCbuild(creall(z), cimagl(z) + y);
+#else
+    return (rssringoccs_ComplexLongDouble)_Complex_I*y + z;
+#endif
 }
 /*  End of rssringoccs_CLDouble_Add_Imag.                                     */
 

@@ -74,7 +74,7 @@ rssringoccs_Compare_CFloat_Funcs(
     const char *f0_name,
     rssringoccs_ComplexFloat (*f0)(rssringoccs_ComplexFloat),
     const char *f1_name,
-    float _Complex (*f1)(float _Complex),
+    rssringoccs_ComplexFloat (*f1)(rssringoccs_ComplexFloat),
     const float start,
     const float end,
     const unsigned long N);
@@ -84,7 +84,7 @@ rssringoccs_Compare_CDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexDouble (*f0)(rssringoccs_ComplexDouble),
     const char *f1_name,
-    double _Complex (*f1)(double _Complex),
+    rssringoccs_ComplexDouble (*f1)(rssringoccs_ComplexDouble),
     const double start,
     const double end,
     const unsigned long N);
@@ -94,7 +94,7 @@ rssringoccs_Compare_CLDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexLongDouble (*f0)(rssringoccs_ComplexLongDouble),
     const char *f1_name,
-    long double _Complex (*f1)(long double _Complex),
+    rssringoccs_ComplexLongDouble (*f1)(rssringoccs_ComplexLongDouble),
     const long double start,
     const long double end,
     const unsigned long N);
@@ -104,7 +104,7 @@ rssringoccs_RelCompare_CFloat_Funcs(
     const char *f0_name,
     rssringoccs_ComplexFloat (*f0)(rssringoccs_ComplexFloat),
     const char *f1_name,
-    float _Complex (*f1)(float _Complex),
+    rssringoccs_ComplexFloat (*f1)(rssringoccs_ComplexFloat),
     const float start,
     const float end,
     const unsigned long N);
@@ -114,7 +114,7 @@ rssringoccs_RelCompare_CDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexDouble (*f0)(rssringoccs_ComplexDouble),
     const char *f1_name,
-    double _Complex (*f1)(double _Complex),
+    rssringoccs_ComplexDouble (*f1)(rssringoccs_ComplexDouble),
     const double start,
     const double end,
     const unsigned long N);
@@ -124,7 +124,7 @@ rssringoccs_RelCompare_CLDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexLongDouble (*f0)(rssringoccs_ComplexLongDouble),
     const char *f1_name,
-    long double _Complex (*f1)(long double _Complex),
+    rssringoccs_ComplexLongDouble (*f1)(rssringoccs_ComplexLongDouble),
     const long double start,
     const long double end,
     const unsigned long N);
@@ -134,7 +134,7 @@ rssringoccs_Compare_Real_CFloat_Funcs(
     const char *f0_name,
     float (*f0)(rssringoccs_ComplexFloat),
     const char *f1_name,
-    float (*f1)(float _Complex),
+    float (*f1)(rssringoccs_ComplexFloat),
     const float start,
     const float end,
     const unsigned long N);
@@ -144,7 +144,7 @@ rssringoccs_Compare_Real_CDouble_Funcs(
     const char *f0_name,
     double (*f0)(rssringoccs_ComplexDouble),
     const char *f1_name,
-    double (*f1)(double _Complex),
+    double (*f1)(rssringoccs_ComplexDouble),
     const double start,
     const double end,
     const unsigned long N);
@@ -155,7 +155,7 @@ rssringoccs_Compare_Real_CLDouble_Funcs(
     const char *f0_name,
     long double (*f0)(rssringoccs_ComplexLongDouble),
     const char *f1_name,
-    long double (*f1)(long double _Complex),
+    long double (*f1)(rssringoccs_ComplexLongDouble),
     const long double start,
     const long double end,
     const unsigned long N);
@@ -165,7 +165,7 @@ rssringoccs_Accuracy_CFloat_Funcs(
     const char *f0_name,
     rssringoccs_ComplexFloat (*f0)(rssringoccs_ComplexFloat),
     const char *f1_name,
-    float _Complex (*f1)(float _Complex),
+    rssringoccs_ComplexFloat (*f1)(rssringoccs_ComplexFloat),
     const float start,
     const float end,
     const unsigned long N);
@@ -175,7 +175,7 @@ rssringoccs_Accuracy_CDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexDouble (*f0)(rssringoccs_ComplexDouble),
     const char *f1_name,
-    double _Complex (*f1)(double _Complex),
+    rssringoccs_ComplexDouble (*f1)(rssringoccs_ComplexDouble),
     const double start,
     const double end,
     const unsigned long N);
@@ -185,7 +185,7 @@ rssringoccs_Accuracy_CLDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexLongDouble (*f0)(rssringoccs_ComplexLongDouble),
     const char *f1_name,
-    long double _Complex (*f1)(long double _Complex),
+    rssringoccs_ComplexLongDouble (*f1)(rssringoccs_ComplexLongDouble),
     const long double start,
     const long double end,
     const unsigned long N);

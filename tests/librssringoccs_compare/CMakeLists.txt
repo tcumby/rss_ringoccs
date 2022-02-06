@@ -54,7 +54,7 @@ target_include_directories(librssringoccs_compare PUBLIC ${CMAKE_CURRENT_BINARY_
 
 set_property(TARGET librssringoccs_compare
     PROPERTY
-        C_STANDARD 90 # C89/90
+        C_STANDARD 11 # C89/90
         INTERPROCEDURAL_OPTIMIZATION TRUE
         PUBLIC_HEADER ${librssringoccs_HEADERS}
         OUTPUT_NAME rssringoccs_compare

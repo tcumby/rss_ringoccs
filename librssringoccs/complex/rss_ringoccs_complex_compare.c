@@ -163,10 +163,17 @@ RSS_RINGOCCS_EXPORT rssringoccs_Bool
 rssringoccs_CFloat_Compare(rssringoccs_ComplexFloat z,
                            rssringoccs_ComplexFloat w)
 {
+ #ifdef _MSC_VER
+    if (crealf(z) == crealf(w) && cimagf(z) == cimagf(w))
+        return rssringoccs_True;
+    else
+        return rssringoccs_False;
+ #else
     if (z == w)
         return rssringoccs_True;
     else
         return rssringoccs_False;
+ #endif
 }
 /*  End of rssringoccs_CFloat_Compare.                                        */
 
@@ -175,10 +182,17 @@ RSS_RINGOCCS_EXPORT rssringoccs_Bool
 rssringoccs_CDouble_Compare(rssringoccs_ComplexDouble z,
                             rssringoccs_ComplexDouble w)
 {
+ #ifdef _MSC_VER
+    if (creal(z) == creal(w) && cimag(z) == cimag(w))
+        return rssringoccs_True;
+    else
+        return rssringoccs_False;
+ #else
     if (z == w)
         return rssringoccs_True;
     else
         return rssringoccs_False;
+ #endif
 }
 /*  End of rssringoccs_CDouble_Compare.                                       */
 
@@ -187,10 +201,17 @@ RSS_RINGOCCS_EXPORT rssringoccs_Bool
 rssringoccs_CLDouble_Compare(rssringoccs_ComplexLongDouble z,
                              rssringoccs_ComplexLongDouble w)
 {
+ #ifdef _MSC_VER
+    if (creall(z) == creall(w) && cimagl(z) == cimagl(w))
+        return rssringoccs_True;
+    else
+        return rssringoccs_False;
+ #else
     if (z == w)
         return rssringoccs_True;
     else
         return rssringoccs_False;
+ #endif
 }
 /*  End of rssringoccs_CLDouble_Compare.                                      */
 

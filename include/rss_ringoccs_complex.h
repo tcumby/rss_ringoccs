@@ -53,6 +53,8 @@
  ******************************************************************************
  *  2020/11/30 (Ryan Maguire):                                                *
  *      Added float and long double precision complex types.                  *
+ *  2022/02/05 (Ty Cumby):                                                    *
+ *      Added support for Visual C++ complex types.                           *
  ******************************************************************************/
 
 /*  Include guard to prevent including this file twice.                       */
@@ -95,7 +97,8 @@
  *  __STDC_VERSION__ to its C89 value. Remove -ansi and change -std=c89 to    *
  *  -std=c99 if you want complex.h support. If you are using a compiler other *
  *  than clang or gcc, see it's documentation for details.                    */
-#if !defined(__STDC_NO_COMPLEX__) && __STDC_VERSION__ >= 199901L
+#if !defined(__STDC_NO_COMPLEX__) && (__STDC_VERSION__ >= 199901L || defined(_MSC_VER))
+
 
 /*  The various .c files will check if this is 1 or 0 to compile the right    *
  *  code, depending on if you have complex.h or not.                          */
@@ -105,13 +108,25 @@
  *  functions and macros defined within.                                      */
 #include <complex.h>
 
+#ifdef _MSC_VER
+/* Visual Studio defines _Fcomplex,_Dcomplex, _Lcomplex instead of float      *
+ * _Complex, double _Complex, and long double _Complex, respectively          */
+
+/*  You have complex.h support, so we'll just typedef double _Complex.        */
+typedef _Dcomplex rssringoccs_ComplexDouble;
+
+/*  Typedef single and long double precision equivalents.                     */
+typedef _Fcomplex rssringoccs_ComplexFloat;
+typedef _Lcomplex rssringoccs_ComplexLongDouble;
+
+#else
 /*  You have complex.h support, so we'll just typedef double _Complex.        */
 typedef double _Complex rssringoccs_ComplexDouble;
 
 /*  Typedef single and long double precision equivalents.                     */
 typedef float _Complex rssringoccs_ComplexFloat;
 typedef long double _Complex rssringoccs_ComplexLongDouble;
-
+#endif
 #else
 /*  Else for #if !defined(__STDC_NO_COMPLEX__) && __STDC_VERSION__ >= 199901L */
 

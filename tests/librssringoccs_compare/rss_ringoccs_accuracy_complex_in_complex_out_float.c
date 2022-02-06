@@ -48,7 +48,7 @@ rssringoccs_Accuracy_CFloat_Funcs(
     const char *f0_name,
     rssringoccs_ComplexFloat (*f0)(rssringoccs_ComplexFloat),
     const char *f1_name,
-    float _Complex (*f1)(float _Complex),
+    rssringoccs_ComplexFloat (*f1)(rssringoccs_ComplexFloat),
     const float start,
     const float end,
     const unsigned long N)
@@ -58,7 +58,7 @@ rssringoccs_Accuracy_CFloat_Funcs(
 
     /*  Declare variables for our complex values.                             */
     rssringoccs_ComplexFloat z0;
-    float _Complex z1;
+    rssringoccs_ComplexFloat z1;
 
     /*  Declare variables for computing |z0-z1|/|z1|.                         */
     float x_c, y_c, x_s, y_s, dx, dy;

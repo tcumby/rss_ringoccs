@@ -250,19 +250,31 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Subtract(rssringoccs_ComplexFloat z0,
                                   rssringoccs_ComplexFloat z1)
 {
+#ifdef _MSC_VER
+    return _FCbuild(crealf(z0) - crealf(z1), cimagf(z0) - cimagf(z0));
+#else
     return z0 - z1;
+#endif
 }
 
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Subtract_Real(float x, rssringoccs_ComplexFloat z)
 {
+ #ifdef _MSC_VER
+    return _FCbuild(x -crealf(z), -cimagf(z));
+ #else
     return x - z;
+ #endif
 }
 
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Subtract_Imag(float y, rssringoccs_ComplexFloat z)
 {
+#ifdef _MSC_VER
+    return _FCbuild(-crealf(z), y - cimagf(z));
+#else
     return _Complex_I*y - z;
+#endif
 }
 
 /*  Double precision complex addition.                                        */
@@ -270,19 +282,31 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Subtract(rssringoccs_ComplexDouble z0,
                                    rssringoccs_ComplexDouble z1)
 {
+#ifdef _MSC_VER
+    return _Cbuild(creal(z0) - creal(z1), cimag(z0) - cimag(z1));
+#else
     return z0 - z1;
+#endif
 }
 
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Subtract_Real(double x, rssringoccs_ComplexDouble z)
 {
+#ifdef _MSC_VER
+    return _Cbuild(x - creal(z), -cimag(z));
+#else
     return x - z;
+#endif
 }
 
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Subtract_Imag(double y, rssringoccs_ComplexDouble z)
 {
+#ifdef _MSC_VER
+    return _Cbuild(-creal(z), y - cimag(z));
+#else
     return _Complex_I*y - z;
+#endif
 }
 
 /*  Long double precision complex addition.                                   */
@@ -290,14 +314,22 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Subtract(rssringoccs_ComplexLongDouble z0,
                                        rssringoccs_ComplexLongDouble z1)
 {
+#ifdef _MSC_VER
+    return _LCbuild(creall(z0) - creall(z1), cimagl(z0) - cimagl(z1));
+#else
     return z0 - z1;
+#endif
 }
 
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Subtract_Real(long double x,
                                             rssringoccs_ComplexLongDouble z)
 {
+#ifdef _MSC_VER
+    return _LCbuild(x - creall(z), -cimagl(z));
+#else
     return x - z;
+#endif
 }
 
 
@@ -305,7 +337,11 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Subtract_Imag(long double y,
                                             rssringoccs_ComplexLongDouble z)
 {
+#ifdef _MSC_VER
+    return _LCbuild(-creall(z), y - cimagl(z));
+#else
     return _Complex_I*y - z;
+#endif
 }
 
 #endif

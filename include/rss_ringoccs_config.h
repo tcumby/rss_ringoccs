@@ -38,7 +38,7 @@
  *  ones provided by C99, setting it to 1 uses C99 complex.h. By default      *
  *  rss_ringoccs does not assume you have a C99 capable compiler and          *
  *  builds using C89/C90 (also known as ANSI C) compliant code.               */
-#define __RSS_RINGOCCS_USING_COMPLEX_H__ 0
+#define __RSS_RINGOCCS_USING_COMPLEX_H__ 1
 
 /*  There are subtle differences between the C89/C90 and C99 math.h header    *
  *  files. The C99 math.h is a superset of the C89 one. rss_ringoccs provides *

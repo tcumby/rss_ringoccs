@@ -74,7 +74,7 @@ rssringoccs_CLDouble_Real_Part(rssringoccs_ComplexLongDouble z)
 
 #else
 
-RSS_RINGOCCS_EXPORT double rssringoccs_CFloat_Real_Part(rssringoccs_ComplexFloat z)
+RSS_RINGOCCS_EXPORT float rssringoccs_CFloat_Real_Part(rssringoccs_ComplexFloat z)
 {
     return crealf(z);
 }

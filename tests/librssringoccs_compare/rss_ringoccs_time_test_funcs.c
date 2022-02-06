@@ -54,7 +54,7 @@ rssringoccs_RelCompare_CFloat_Funcs(
     const char *f0_name,
     rssringoccs_ComplexFloat (*f0)(rssringoccs_ComplexFloat),
     const char *f1_name,
-    float _Complex (*f1)(float _Complex),
+    rssringoccs_ComplexFloat (*f1)(rssringoccs_ComplexFloat),
     const float start,
     const float end,
     const unsigned long N)
@@ -72,7 +72,7 @@ rssringoccs_RelCompare_CFloat_Funcs(
 
     /*  Declare two pointers to represent arrays for f0(x) and f1(x).         */
     rssringoccs_ComplexFloat **z0;
-    float _Complex **z1;
+    rssringoccs_ComplexFloat **z1;
 
     /*  Declare a dummy variable for indexing.                                */
     unsigned long m, n;
@@ -230,7 +230,7 @@ rssringoccs_RelCompare_CDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexDouble (*f0)(rssringoccs_ComplexDouble),
     const char *f1_name,
-    double _Complex (*f1)(double _Complex),
+    rssringoccs_ComplexDouble (*f1)(rssringoccs_ComplexDouble),
     const double start,
     const double end,
     const unsigned long N)
@@ -246,7 +246,7 @@ rssringoccs_RelCompare_CDouble_Funcs(
 
     /*  Declare two pointers to represent arrays for f0(x) and f1(x).         */
     rssringoccs_ComplexDouble **z0;
-    double _Complex **z1;
+    rssringoccs_ComplexDouble **z1;
 
     /*  Declare a dummy variable for indexing.                                */
     unsigned long m, n;
@@ -320,7 +320,7 @@ rssringoccs_RelCompare_CDouble_Funcs(
         x = start;
         for (n=0; n<N; ++n)
         {
-            z1[m][n] = f1(x + (double _Complex)_Complex_I * y);
+            z1[m][n] = f1(x + (rssringoccs_ComplexDouble)_Complex_I * y);
             x += ds;
         }
         y += ds;
@@ -382,7 +382,7 @@ rssringoccs_RelCompare_CLDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexLongDouble (*f0)(rssringoccs_ComplexLongDouble),
     const char *f1_name,
-    long double _Complex (*f1)(long double _Complex),
+    rssringoccs_ComplexLongDouble (*f1)(rssringoccs_ComplexLongDouble),
     const long double start,
     const long double end,
     const unsigned long N)
@@ -398,7 +398,7 @@ rssringoccs_RelCompare_CLDouble_Funcs(
 
     /*  Declare two pointers to represent arrays for f0(x) and f1(x).         */
     rssringoccs_ComplexLongDouble **z0;
-    long double _Complex **z1;
+    rssringoccs_ComplexLongDouble **z1;
 
     /*  Declare a dummy variable for indexing.                                */
     unsigned long m, n;
@@ -472,7 +472,7 @@ rssringoccs_RelCompare_CLDouble_Funcs(
         x = start;
         for (n=0; n<N; ++n)
         {
-            z1[m][n] = f1(x + (long double _Complex)_Complex_I*y);
+            z1[m][n] = f1(x + (rssringoccs_ComplexLongDouble)_Complex_I*y);
             x += ds;
         }
         y += ds;
@@ -534,7 +534,7 @@ rssringoccs_Compare_Real_CFloat_Funcs(
     const char *f0_name,
     float (*f0)(rssringoccs_ComplexFloat),
     const char *f1_name,
-    float (*f1)(float _Complex),
+    float (*f1)(rssringoccs_ComplexFloat),
     const float start,
     const float end,
     const unsigned long N)
@@ -675,7 +675,7 @@ rssringoccs_Compare_Real_CDouble_Funcs(
     const char *f0_name,
     double (*f0)(rssringoccs_ComplexDouble),
     const char *f1_name,
-    double (*f1)(double _Complex),
+    double (*f1)(rssringoccs_ComplexDouble),
     const double start,
     const double end,
     const unsigned long N)
@@ -764,7 +764,7 @@ rssringoccs_Compare_Real_CDouble_Funcs(
         x = start;
         for (n=0; n<N; ++n)
         {
-            z1[m][n] = f1(x + (double _Complex)_Complex_I*y);
+            z1[m][n] = f1(x + (rssringoccs_ComplexDouble)_Complex_I*y);
             x += ds;
         }
         y += ds;
@@ -816,7 +816,7 @@ rssringoccs_Compare_Real_CLDouble_Funcs(
     const char *f0_name,
     long double (*f0)(rssringoccs_ComplexLongDouble),
     const char *f1_name,
-    long double (*f1)(long double _Complex),
+    long double (*f1)(rssringoccs_ComplexLongDouble),
     const long double start,
     const long double end,
     const unsigned long N)
@@ -905,7 +905,7 @@ rssringoccs_Compare_Real_CLDouble_Funcs(
         x = start;
         for (n=0; n<N; ++n)
         {
-            z1[m][n] = f1(x + (long double _Complex)_Complex_I*y);
+            z1[m][n] = f1(x + (rssringoccs_ComplexLongDouble)_Complex_I*y);
             x += ds;
         }
         y += ds;

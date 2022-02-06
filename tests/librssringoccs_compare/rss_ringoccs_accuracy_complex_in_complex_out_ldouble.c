@@ -47,7 +47,7 @@ rssringoccs_Accuracy_CLDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexLongDouble (*f0)(rssringoccs_ComplexLongDouble),
     const char *f1_name,
-    long double _Complex (*f1)(long double _Complex),
+    rssringoccs_ComplexLongDouble (*f1)(rssringoccs_ComplexLongDouble),
     const long double start,
     const long double end,
     const unsigned long N)
@@ -57,7 +57,7 @@ rssringoccs_Accuracy_CLDouble_Funcs(
 
     /*  Declare variables for our complex values.                             */
     rssringoccs_ComplexLongDouble z0;
-    long double _Complex z1;
+    rssringoccs_ComplexLongDouble z1;
 
     /*  Declare variables for computing |z0-z1|/|z1|.                         */
     long double x_c, y_c, x_s, y_s, dx, dy;
@@ -101,7 +101,7 @@ rssringoccs_Accuracy_CLDouble_Funcs(
         for (n=0; n<N; ++n)
         {
             z0 = f0(rssringoccs_CLDouble_Rect(x, y));
-            z1 = f1(x + (long double _Complex)_Complex_I*y);
+            z1 = f1(x + (rssringoccs_ComplexLongDouble)_Complex_I*y);
 
             /*  Extract the real and imaginary part from z0.                  */
             x_s = rssringoccs_CLDouble_Real_Part(z0);

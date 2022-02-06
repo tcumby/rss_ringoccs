@@ -58,7 +58,7 @@ rssringoccs_Compare_CFloat_Funcs(
     const char *f0_name,
     rssringoccs_ComplexFloat (*f0)(rssringoccs_ComplexFloat),
     const char *f1_name,
-    float _Complex (*f1)(float _Complex),
+    rssringoccs_ComplexFloat (*f1)(rssringoccs_ComplexFloat),
     const float start,
     const float end,
     const unsigned long N)
@@ -76,7 +76,7 @@ rssringoccs_Compare_CFloat_Funcs(
 
     /*  Declare two pointers to represent arrays for f0(x+iy) and f1(x+iy).   */
     rssringoccs_ComplexFloat **z0;
-    float _Complex **z1;
+    rssringoccs_ComplexFloat **z1;
 
     /*  Declare a dummy variable for indexing.                                */
     unsigned long m, n;
@@ -162,7 +162,7 @@ rssringoccs_Compare_CFloat_Funcs(
         x = start;
         for (n=0; n<N; ++n)
         {
-            z1[m][n] = f1(x + _Complex_I*y);
+            z1[m][n] = f1(x + y*_Complex_I);
             x += ds;
         }
 

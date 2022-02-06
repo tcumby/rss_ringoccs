@@ -49,7 +49,7 @@
 
 /*  C99 does not provide an abs squared function, so let's create one using   *
  *  the built-in _Complex data type.                                          */
-static double cabs_sq(_Complex double z)
+static double cabs_sq(rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables.                                          */
     double x, y, abs_sq;

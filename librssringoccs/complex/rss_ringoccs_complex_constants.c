@@ -45,6 +45,7 @@
 /*  If C99 complex.h was included then we'll use the _Complex_I macro.        */
 #if _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
 
+#ifndef _MSC_VER
 /*  Single precision constants.                                               */
 RSS_RINGOCCS_EXPORT const rssringoccs_ComplexFloat
 rssringoccs_CFloat_I = _Complex_I;
@@ -64,7 +65,7 @@ rssringoccs_CFloat_Infinity = rssringoccs_Infinity_F +
 
 /*  Double precision constants.                                               */
 RSS_RINGOCCS_EXPORT const rssringoccs_ComplexDouble
-rssringoccs_CDouble_I = (double _Complex)_Complex_I;
+rssringoccs_CDouble_I = (rssringoccs_ComplexDouble)_Complex_I;
 
 RSS_RINGOCCS_EXPORT const rssringoccs_ComplexDouble
 rssringoccs_CDouble_Zero = 0.0;
@@ -74,15 +75,15 @@ rssringoccs_CDouble_One  = 1.0;
 
 RSS_RINGOCCS_EXPORT const rssringoccs_ComplexDouble
 rssringoccs_CDouble_NaN = rssringoccs_NaN +
-                          (double _Complex)_Complex_I*rssringoccs_NaN;
+                          (rssringoccs_ComplexDouble)_Complex_I*rssringoccs_NaN;
 
 RSS_RINGOCCS_EXPORT const rssringoccs_ComplexDouble
 rssringoccs_CDouble_Infinity = rssringoccs_Infinity +
-                               (double _Complex)_Complex_I*rssringoccs_Infinity;
+                               (rssringoccs_ComplexDouble)_Complex_I*rssringoccs_Infinity;
 
 /*  Long double precision constants.                                          */
 RSS_RINGOCCS_EXPORT const rssringoccs_ComplexLongDouble
-rssringoccs_CLDouble_I = (long double _Complex)_Complex_I;
+rssringoccs_CLDouble_I = (rssringoccs_ComplexLongDouble)_Complex_I;
 
 RSS_RINGOCCS_EXPORT const rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Zero = 0.0L;
@@ -92,11 +93,65 @@ rssringoccs_CLDouble_One = 1.0L;
 
 RSS_RINGOCCS_EXPORT const rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_NaN = rssringoccs_NaN_L +
-                           (long double _Complex)_Complex_I*rssringoccs_NaN_L;
+                           (rssringoccs_ComplexLongDouble)_Complex_I*rssringoccs_NaN_L;
 
 RSS_RINGOCCS_EXPORT const rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Infinity = rssringoccs_Infinity_L +
-    (long double _Complex)_Complex_I*rssringoccs_Infinity_L;
+    (rssringoccs_ComplexLongDouble)_Complex_I*rssringoccs_Infinity_L;
+
+#else
+/*  Else statement for #ifndef _MSC_VER                                       */
+
+/*  Single precision constants.                                               */
+RSS_RINGOCCS_EXPORT const rssringoccs_ComplexFloat
+rssringoccs_CFloat_I = {0.0F, 1.0F};
+
+RSS_RINGOCCS_EXPORT const rssringoccs_ComplexFloat
+rssringoccs_CFloat_Zero =  {0.0F, 0.0F};
+
+RSS_RINGOCCS_EXPORT const rssringoccs_ComplexFloat
+rssringoccs_CFloat_One  =  {1.0F, 1.0F};
+
+RSS_RINGOCCS_EXPORT const rssringoccs_ComplexFloat
+rssringoccs_CFloat_NaN = {rssringoccs_NaN_F, rssringoccs_NaN_F};
+
+RSS_RINGOCCS_EXPORT const rssringoccs_ComplexFloat
+rssringoccs_CFloat_Infinity = {rssringoccs_Infinity_F, rssringoccs_Infinity_F};
+
+/*  Double precision constants.                                               */
+RSS_RINGOCCS_EXPORT const rssringoccs_ComplexDouble
+rssringoccs_CDouble_I = {0.0, 1.0};
+
+RSS_RINGOCCS_EXPORT const rssringoccs_ComplexDouble
+rssringoccs_CDouble_Zero = {0.0, 0.0};
+
+RSS_RINGOCCS_EXPORT const rssringoccs_ComplexDouble
+rssringoccs_CDouble_One  = {1.0, 0.0};
+
+RSS_RINGOCCS_EXPORT const rssringoccs_ComplexDouble
+rssringoccs_CDouble_NaN = {rssringoccs_NaN, rssringoccs_NaN};
+
+RSS_RINGOCCS_EXPORT const rssringoccs_ComplexDouble
+rssringoccs_CDouble_Infinity = {rssringoccs_Infinity, rssringoccs_Infinity};
+
+/*  Long double precision constants.                                          */
+RSS_RINGOCCS_EXPORT const rssringoccs_ComplexLongDouble
+rssringoccs_CLDouble_I = {0.0L, 1.0L};
+
+RSS_RINGOCCS_EXPORT const rssringoccs_ComplexLongDouble
+rssringoccs_CLDouble_Zero = {0.0L, 0.0L};
+
+RSS_RINGOCCS_EXPORT const rssringoccs_ComplexLongDouble
+rssringoccs_CLDouble_One = {1.0L, 0.0L};
+
+RSS_RINGOCCS_EXPORT const rssringoccs_ComplexLongDouble
+rssringoccs_CLDouble_NaN = {rssringoccs_NaN_L, rssringoccs_NaN_L};
+
+RSS_RINGOCCS_EXPORT const rssringoccs_ComplexLongDouble
+rssringoccs_CLDouble_Infinity = {rssringoccs_Infinity_L, rssringoccs_Infinity_L};
+
+#endif
+/*  End of #ifndef _MSC_VER                                                   */
 
 #else
 /*  Else statement for #if _RSS_RINGOCCS_USING_COMPLEX_H_ == 1.               */

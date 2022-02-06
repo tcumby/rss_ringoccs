@@ -53,7 +53,7 @@ rssringoccs_Compare_CLDouble_Funcs(
     const char *f0_name,
     rssringoccs_ComplexLongDouble (*f0)(rssringoccs_ComplexLongDouble),
     const char *f1_name,
-    long double _Complex (*f1)(long double _Complex),
+    rssringoccs_ComplexLongDouble (*f1)(rssringoccs_ComplexLongDouble),
     const long double start,
     const long double end,
     const unsigned long N)
@@ -71,7 +71,7 @@ rssringoccs_Compare_CLDouble_Funcs(
 
     /*  Declare two pointers to represent arrays for f0(x) and f1(x).         */
     rssringoccs_ComplexLongDouble **z0;
-    long double _Complex **z1;
+    rssringoccs_ComplexLongDouble **z1;
 
     /*  Declare a dummy variable for indexing.                                */
     unsigned long m, n;
@@ -156,7 +156,7 @@ rssringoccs_Compare_CLDouble_Funcs(
         x = start;
         for (n=0; n<N; ++n)
         {
-            z1[m][n] = f1(x + (long double _Complex)_Complex_I*y);
+            z1[m][n] = f1(x + (rssringoccs_ComplexLongDouble)_Complex_I*y);
 
             /*  Increment x to the new row.                                   */
             x += ds;

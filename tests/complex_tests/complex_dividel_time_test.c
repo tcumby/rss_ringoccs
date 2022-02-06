@@ -48,11 +48,11 @@
 #include "../rss_ringoccs_compare_funcs.h"
 
 /*  We'll test the computation of (1+i)/z.                                    */
-static const long double _Complex z = 1.0L + (long double _Complex)_Complex_I;
+static const rssringoccs_ComplexLongDouble z = 1.0L + (rssringoccs_ComplexLongDouble)_Complex_I;
 static const rssringoccs_ComplexLongDouble w = {{1.0L, 1.0L}};
 
 /*  C99 version.                                                              */
-static long double _Complex div(long double _Complex z0)
+static rssringoccs_ComplexLongDouble div(rssringoccs_ComplexLongDouble z0)
 {
     return z/z0;
 }
