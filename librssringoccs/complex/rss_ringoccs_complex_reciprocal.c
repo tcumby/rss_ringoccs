@@ -59,12 +59,31 @@ rssringoccs_CDouble_Reciprocal(rssringoccs_ComplexDouble z)
 }
 
 #else
-
+#ifndef _MSC_VER
 /*  Function for computing 1/z for non-zero z.                                */
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Reciprocal(rssringoccs_ComplexDouble z)
 {
     return 1.0/z;
 }
+#else
+/*  Function for computing 1/z for non-zero z.                                */
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
+rssringoccs_CDouble_Reciprocal(rssringoccs_ComplexDouble z)
+{
+    /*  Declare necessary variables. C89 requires declarations at the top.    */
+    rssringoccs_ComplexDouble conj_z, rcpr_z;
+    double rcp_abs_z_sq;
+
+    /*  Compute the conjugate of z and its absolute value.                    */
+    conj_z = conj(z);
+    rcp_abs_z_sq = norm(z);
+
+    /*  The inverse of z is conj_z / abs_z^2, so return this.                 */
+    rcpr_z = rssringoccs_CDouble_Multiply_Real(rcp_abs_z_sq, conj_z);
+    return rcpr_z;
+}
+
+#endif
 
 #endif

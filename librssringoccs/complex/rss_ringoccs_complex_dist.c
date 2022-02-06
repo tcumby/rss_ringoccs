@@ -170,7 +170,7 @@ RSS_RINGOCCS_EXPORT long double rssringoccs_CLDouble_Dist(rssringoccs_ComplexLon
 RSS_RINGOCCS_EXPORT float rssringoccs_CFloat_Dist(rssringoccs_ComplexFloat z0,
                                rssringoccs_ComplexFloat z1)
 {
-    return cabsf(z0 - z1);
+    return cabsf(rssringoccs_CFloat_Subtract(z0, z1));
 }
 /*  End of rssringoccs_CFloat_Dist.                                           */
 
@@ -178,7 +178,7 @@ RSS_RINGOCCS_EXPORT float rssringoccs_CFloat_Dist(rssringoccs_ComplexFloat z0,
 RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Dist(rssringoccs_ComplexDouble z0,
                                 rssringoccs_ComplexDouble z1)
 {
-    return cabs(z0 - z1);
+    return cabs(rssringoccs_CDouble_Subtract(z0, z1));
 }
 /*  End of rssringoccs_CDouble_Dist.                                          */
 
@@ -186,7 +186,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Dist(rssringoccs_ComplexDouble z0
 RSS_RINGOCCS_EXPORT long double rssringoccs_CLDouble_Dist(rssringoccs_ComplexLongDouble z0,
                                       rssringoccs_ComplexLongDouble z1)
 {
-    return cabsl(z0 - z1);
+    return cabsl(rssringoccs_CLDouble_Subtract(z0, z1));
 }
 /*  End of rssringoccs_CLDouble_Dist.                                         */
 

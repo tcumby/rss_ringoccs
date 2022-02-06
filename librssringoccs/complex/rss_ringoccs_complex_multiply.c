@@ -142,6 +142,8 @@ rssringoccs_CDouble_Multiply_Real(double x, rssringoccs_ComplexDouble z)
 #else
 /*  Else statement for #if _RSS_RINGOCCS_USING_COMPLEX_H_ == 0.               */
 
+#ifndef _MSC_VER
+
 /*  If we get here we have complex.h support so we'll use the * symbol.       */
 
 /*  Single precision complex addition.                                        */
@@ -206,5 +208,74 @@ rssringoccs_CLDouble_Subtract_Imag(long double y,
 {
     return _Complex_I*y * z;
 }
+#else
+/*  Else statement for #if _MSC_VER == 0.                                     */
 
+/*  Single precision complex addition.                                        */
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
+rssringoccs_CFloat_Multiply(rssringoccs_ComplexFloat z0,
+                                  rssringoccs_ComplexFloat z1)
+{
+    return _FCmulcc(z0, z1);
+}
+
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
+rssringoccs_CFloat_Multiply_Real(float x, rssringoccs_ComplexFloat z)
+{
+    return _FCmulcr(z, x);
+}
+
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
+rssringoccs_CFloat_Multiply_Imag(float y, rssringoccs_ComplexFloat z)
+{
+    rssringoccs_ComplexFloat multiplier = {0.0F, y};
+    return _FCmulcc(z, multiplier);
+}
+
+/*  Double precision complex addition.                                        */
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
+rssringoccs_CDouble_Multiply(rssringoccs_ComplexDouble z0,
+                                   rssringoccs_ComplexDouble z1)
+{
+    return _Cmulcc(z0, z1);
+}
+
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
+rssringoccs_CDouble_Multiply_Real(double x, rssringoccs_ComplexDouble z)
+{
+    return _Cmulcr(z, x);
+}
+
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
+rssringoccs_CDouble_Multiply_Imag(double y, rssringoccs_ComplexDouble z)
+{
+    rssringoccs_ComplexDouble multiplier = {0.0, y};
+    return _Cmulcc(z, multiplier);
+}
+
+/*  Long double precision complex addition.                                   */
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
+rssringoccs_CLDouble_Multiply(rssringoccs_ComplexLongDouble z0,
+                                       rssringoccs_ComplexLongDouble z1)
+{
+    return _LCmulcc(z0, z1);
+}
+
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
+rssringoccs_CLDouble_Multiply_Real(long double x,
+                                            rssringoccs_ComplexLongDouble z)
+{
+    return _LCmulcr(z, x);
+}
+
+
+RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
+rssringoccs_CLDouble_Multiply_Imag(long double y,
+                                            rssringoccs_ComplexLongDouble z)
+{
+    rssringoccs_ComplexLongDouble multiplier = {0.0L, y};
+    return _LCmulcc(z, multiplier);
+}
+#endif
+/*  End of #if _MSC_VER == 0.                                                 */
 #endif
