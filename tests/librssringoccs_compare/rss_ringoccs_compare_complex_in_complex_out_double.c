@@ -162,7 +162,12 @@ rssringoccs_Compare_CDouble_Funcs(
         for (n=0; n<N; ++n)
         {
             /*  Store the value of the (n, m) entry in z1[n][m].              */
-            z1[n][m] = f1(x + (rssringoccs_ComplexDouble)_Complex_I * y);
+#if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
+            z1[m][n] = f1(_Cbuild(x, y));
+#else
+             z1[n][m] = f1(x + (rssringoccs_ComplexDouble)_Complex_I * y);
+#endif
+
 
             /*  Increment x.                                                  */
             x += ds;

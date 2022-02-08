@@ -157,7 +157,12 @@ rssringoccs_RelCompare_CFloat_Funcs(
         x = start;
         for (n=0; n<N; ++n)
         {
+#if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
+            z1[m][n] = f1(_FCbuild(x, y));
+#else
             z1[m][n] = f1(x + _Complex_I*y);
+#endif
+
 
             /*  Increment x to the next row.                                  */
             x += ds;
@@ -320,7 +325,11 @@ rssringoccs_RelCompare_CDouble_Funcs(
         x = start;
         for (n=0; n<N; ++n)
         {
+#if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
+            z1[m][n] = f1(_Cbuild(x, y));
+#else
             z1[m][n] = f1(x + (rssringoccs_ComplexDouble)_Complex_I * y);
+#endif
             x += ds;
         }
         y += ds;
@@ -472,7 +481,11 @@ rssringoccs_RelCompare_CLDouble_Funcs(
         x = start;
         for (n=0; n<N; ++n)
         {
+#if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
+            z1[m][n] = f1(_LCbuild(x, y));
+#else
             z1[m][n] = f1(x + (rssringoccs_ComplexLongDouble)_Complex_I*y);
+#endif
             x += ds;
         }
         y += ds;
@@ -623,7 +636,11 @@ rssringoccs_Compare_Real_CFloat_Funcs(
         x = start;
         for (n=0; n<N; ++n)
         {
+#if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
+            z1[m][n] = f1(_FCbuild(x,y));
+#else
             z1[m][n] = f1(x + _Complex_I*y);
+#endif
             x += ds;
         }
         y += ds;
@@ -764,7 +781,11 @@ rssringoccs_Compare_Real_CDouble_Funcs(
         x = start;
         for (n=0; n<N; ++n)
         {
+#if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
+            z1[m][n] = f1(_Cbuild(x, y));
+#else
             z1[m][n] = f1(x + (rssringoccs_ComplexDouble)_Complex_I*y);
+#endif
             x += ds;
         }
         y += ds;
@@ -905,7 +926,11 @@ rssringoccs_Compare_Real_CLDouble_Funcs(
         x = start;
         for (n=0; n<N; ++n)
         {
+#if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
+            z1[m][n] = f1(_LCbuild(x, y));
+#else
             z1[m][n] = f1(x + (rssringoccs_ComplexLongDouble)_Complex_I*y);
+#endif
             x += ds;
         }
         y += ds;

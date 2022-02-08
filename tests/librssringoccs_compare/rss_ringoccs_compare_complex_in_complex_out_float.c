@@ -162,7 +162,12 @@ rssringoccs_Compare_CFloat_Funcs(
         x = start;
         for (n=0; n<N; ++n)
         {
+#if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
+            z1[m][n] = f1(_FCbuild(x, y));
+#else
             z1[m][n] = f1(x + y*_Complex_I);
+#endif
+
             x += ds;
         }
 

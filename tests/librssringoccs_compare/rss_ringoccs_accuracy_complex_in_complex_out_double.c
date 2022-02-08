@@ -98,7 +98,11 @@ rssringoccs_Accuracy_CDouble_Funcs(
     x_w = start;
     y_w = start;
     z0 = f0(rssringoccs_CDouble_Rect(x_w, y_w));
+#if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
+    z1 = f1(_Cbuild(x_w, y_w));
+#else
     z1 = f1(x_w + (rssringoccs_ComplexDouble)_Complex_I*y_w);
+#endif
     f0_x = rssringoccs_CDouble_Real_Part(z0);
     f0_y = rssringoccs_CDouble_Imag_Part(z0);
     f1_x = creal(z1);
@@ -112,7 +116,11 @@ rssringoccs_Accuracy_CDouble_Funcs(
         for (n=0; n<N; ++n)
         {
             z0 = f0(rssringoccs_CDouble_Rect(x, y));
+#if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
+            z1 = f1(_Cbuild(x, y));
+#else
             z1 = f1(x + (rssringoccs_ComplexDouble)_Complex_I*y);
+#endif
 
             /*  Extract the real and imaginary part from z0.                  */
             x_s = rssringoccs_CDouble_Real_Part(z0);

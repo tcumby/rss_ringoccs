@@ -102,7 +102,12 @@ rssringoccs_Accuracy_CFloat_Funcs(
         for (n=0; n<N; ++n)
         {
             z0 = f0(rssringoccs_CFloat_Rect(x, y));
+#if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
+            z1 = f1(_FCbuild(x, y));
+#else
             z1 = f1(x + _Complex_I*y);
+#endif
+
 
             /*  Extract the real and imaginary part from z0.                  */
             x_s = rssringoccs_CFloat_Real_Part(z0);
