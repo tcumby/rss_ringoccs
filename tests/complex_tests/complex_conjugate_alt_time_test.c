@@ -45,7 +45,7 @@
  *                                                                            *
  *      You may need to add sudo to move files in /usr/.                      *
  *      We can then link via -lrssringoccs_compare (see below).               */
-#include "../rss_ringoccs_compare_funcs.h"
+#include <rss_ringoccs/tests/librssringoccs_compare/rss_ringoccs_compare_funcs.h>
 
 /*  A "fast" conjugate which avoids retrieving the complex variables via      *
  *  rssringoccs_CDouble_Real_Part and rssringoccs_CDouble_Imag_Part and       *

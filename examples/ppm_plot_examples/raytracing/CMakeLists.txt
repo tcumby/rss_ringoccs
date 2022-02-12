@@ -14,12 +14,18 @@ endif()
 project(raytracing)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
-add_executable(initials_graphic initials_graphic.c)
-target_link_libraries(initials_graphic PRIVATE librssringoccs)
+set(apps
+    initials_graphic
+)
+
+foreach(app ${apps})
+    add_executable(${app} ${app}.c)
+    target_link_libraries(${app} PRIVATE rss::librssringoccs)
+endforeach()
 
 include(GNUInstallDirs)
 install(TARGETS
-    initials_graphic
+    ${apps}
     RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
 )

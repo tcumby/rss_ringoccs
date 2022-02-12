@@ -14,11 +14,13 @@ include(FetchCerf)
 project(csv_tests)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
-add_executable(test_get_dlp_csv test_get_dlp_csv.c)
-target_link_libraries(test_get_dlp_csv PRIVATE rss::librssringoccs rss::librssringoccs_compare)
+set(test_apps
+    test_get_dlp_csv
+    test_get_geo_csv
+    test_get_tau_csv
+)
+foreach(app ${test_apps})
+    add_executable(${app} ${app}.c)
+    target_link_libraries(${app} PRIVATE rss::librssringoccs rss::librssringoccs_compare)
+endforeach()
 
-add_executable(test_get_geo_csv test_get_geo_csv.c)
-target_link_libraries(test_get_geo_csv PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(test_get_tau_csv test_get_tau_csv.c)
-target_link_libraries(test_get_tau_csv PRIVATE rss::librssringoccs rss::librssringoccs_compare)

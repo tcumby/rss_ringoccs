@@ -14,16 +14,18 @@ endif()
 project(numerical_examples)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
-add_executable(five_point_derivative_example five_point_derivative_example.c)
-target_link_libraries(five_point_derivative_example PRIVATE librssringoccs)
-
-add_executable(newton_rapshon_bessel_function newton_rapshon_bessel_function.c)
-target_link_libraries(newton_rapshon_bessel_function PRIVATE librssringoccs)
+set(apps
+    five_point_derivative_example
+    newton_rapshon_bessel_function
+)
+foreach(app ${apps})
+    add_executable(${app} ${app}.c)
+    target_link_libraries(${app} PRIVATE rss::librssringoccs)
+endforeach()
 
 include(GNUInstallDirs)
 install(TARGETS
-    five_point_derivative_example
-    newton_rapshon_bessel_function
+    ${apps}
     RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
 )

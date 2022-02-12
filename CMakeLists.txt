@@ -11,7 +11,7 @@ elseif (UNIX)
 endif()
 endif()
 
-option(BUILD_EXAMPLES "Build all examples" FALSE)
+option(BUILD_EXAMPLES "Build all examples" TRUE)
 option(BUILD_TESTS "Build all tests" TRUE)
 
 project(rss_ringoccs)

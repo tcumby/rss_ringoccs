@@ -14,20 +14,20 @@ endif()
 project(mandlebrot_set)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../../..)
 
-add_executable(mandelbrot_general mandelbrot_general.c)
-target_link_libraries(mandelbrot_general PRIVATE librssringoccs)
-
-add_executable(mandelbrot_quartic mandelbrot_quartic.c)
-target_link_libraries(mandelbrot_quartic PRIVATE librssringoccs)
-
-add_executable(mandelbrot_set mandelbrot_set.c)
-target_link_libraries(mandelbrot_set PRIVATE librssringoccs)
-
-include(GNUInstallDirs)
-install(TARGETS
+set(apps
     mandelbrot_general
     mandelbrot_quartic
     mandelbrot_set
+)
+
+foreach(app ${apps})
+    add_executable(${app} ${app}.c)
+    target_link_libraries(${app} PRIVATE rss::librssringoccs)
+endforeach()
+
+include(GNUInstallDirs)
+install(TARGETS
+    ${apps}
     RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
 )

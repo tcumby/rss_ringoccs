@@ -12,12 +12,18 @@ endif()
 project(special_functions_examples)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
-add_executable(complex_bessel_I0_plots complex_bessel_I0_plots.c)
-target_link_libraries(complex_bessel_I0_plots PRIVATE librssringoccs)
+set(apps
+    complex_bessel_I0_plots
+)
+
+foreach(app ${apps})
+    add_executable(${app} ${app}.c)
+    target_link_libraries(${app} PRIVATE rss::librssringoccs)
+endforeach()
 
 include(GNUInstallDirs)
 install(TARGETS
-    complex_bessel_I0_plots
+    ${apps}
     RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
 )

@@ -14,9 +14,14 @@ endif()
 project(special_functions_tests)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
+set(test_apps
+    bessel_j0_time_test
+)
+foreach(app ${test_apps})
+    add_executable(${app} ${app}.c)
+    target_link_libraries(${app} PRIVATE rss::librssringoccs rss::librssringoccs_compare)
+endforeach()
 
-add_executable(bessel_j0_time_test bessel_j0_time_test.c)
-target_link_libraries(bessel_j0_time_test PRIVATE rss::librssringoccs rss::librssringoccs_compare)
 
 include(GNUInstallDirs)
 install(TARGETS

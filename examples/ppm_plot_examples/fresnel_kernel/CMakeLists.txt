@@ -14,12 +14,18 @@ endif()
 project(fresnel_kernel)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
-add_executable(stationary_phase_plot stationary_phase_plot.c)
-target_link_libraries(stationary_phase_plot PRIVATE librssringoccs)
+set(apps
+    stationary_phase_plot
+)
+
+foreach(app ${apps})
+    add_executable(${app} ${app}.c)
+    target_link_libraries(${app} PRIVATE rss::librssringoccs)
+endforeach()
 
 include(GNUInstallDirs)
 install(TARGETS
-    stationary_phase_plot
+    ${apps}
     RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
 )

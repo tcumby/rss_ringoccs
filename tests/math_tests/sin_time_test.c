@@ -49,7 +49,7 @@
  *          mv librssringoccs_compare.so /usr/local/lib/                      *
  *                                                                            *
  *      We can then link via -lrssringoccs_compare (see below).               */
-#include "../rss_ringoccs_compare_funcs.h"
+#include <rss_ringoccs/tests/librssringoccs_compare/rss_ringoccs_compare_funcs.h>
 
 /*  Routine for comparing fabs with rssringoccs_Double_Abs.                   */
 int main(void)

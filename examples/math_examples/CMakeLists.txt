@@ -15,12 +15,17 @@ project(math_examples)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
 # abs_example.c lacks a main() at the moment. Once there is an implementation, uncomment the following lines
-# add_executable(abs_example abs_example.c)
-# target_link_libraries(abs_example PRIVATE librssringoccs)
-#
+# set(apps
+#     abs_example
+# )
+# foreach(app ${apps})
+#     add_executable(${app} ${app}.c)
+#     target_link_libraries(${app} PRIVATE rss::librssringoccs)
+# endforeach()
+
 # include(GNUInstallDirs)
-#install(TARGETS
-#    abs_example
-#    RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
-#    LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
-#)
+# install(TARGETS
+#     ${apps}
+#     RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
+#     LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
+# )

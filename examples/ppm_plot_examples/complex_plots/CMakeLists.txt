@@ -12,32 +12,7 @@ endif()
 project(complex_plots)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
-add_executable(complex_cos_plots complex_cos_plots.c)
-target_link_libraries(complex_cos_plots PRIVATE librssringoccs)
-
-add_executable(complex_erf_plots complex_erf_plots.c)
-target_link_libraries(complex_erf_plots PRIVATE librssringoccs)
-
-add_executable(complex_erfc_plots complex_erfc_plots.c)
-target_link_libraries(complex_erfc_plots PRIVATE librssringoccs)
-
-add_executable(complex_exp_plots complex_exp_plots.c)
-target_link_libraries(complex_exp_plots PRIVATE librssringoccs)
-
-add_executable(complex_faddeeva_plots complex_faddeeva_plots.c)
-target_link_libraries(complex_faddeeva_plots PRIVATE librssringoccs)
-
-add_executable(complex_log_plots complex_log_plots.c)
-target_link_libraries(complex_log_plots PRIVATE librssringoccs)
-
-add_executable(complex_sin_plots complex_sin_plots.c)
-target_link_libraries(complex_sin_plots PRIVATE librssringoccs)
-
-add_executable(complex_sqrt_plots complex_sqrt_plots.c)
-target_link_libraries(complex_sqrt_plots PRIVATE librssringoccs)
-
-include(GNUInstallDirs)
-install(TARGETS
+set(apps
     complex_cos_plots
     complex_erf_plots
     complex_erfc_plots
@@ -46,6 +21,16 @@ install(TARGETS
     complex_log_plots
     complex_sin_plots
     complex_sqrt_plots
+)
+
+foreach(app ${apps})
+    add_executable(${app} ${app}.c)
+    target_link_libraries(${app} PRIVATE rss::librssringoccs)
+endforeach()
+
+include(GNUInstallDirs)
+install(TARGETS
+    ${apps}
     RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
 )

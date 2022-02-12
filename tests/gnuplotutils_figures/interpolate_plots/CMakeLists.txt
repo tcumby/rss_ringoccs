@@ -13,10 +13,14 @@ endif()
 project(interpolate_plots_tests)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
-add_executable(linear_interpolate_plot linear_interpolate_plot.c)
-target_link_libraries(linear_interpolate_plot PRIVATE rss::librssringoccs rss::librssringoccs_compare)
+set(test_apps
+    linear_interpolate_plot
+    sin_interpolate_plot
+)
+foreach(app ${test_apps})
+    add_executable(${app} ${app}.c)
+    target_link_libraries(${app} PRIVATE rss::librssringoccs rss::librssringoccs_compare)
+endforeach()
 
-add_executable(sin_interpolate_plot sin_interpolate_plot.c)
-target_link_libraries(sin_interpolate_plot PRIVATE rss::librssringoccs rss::librssringoccs_compare)
 
 

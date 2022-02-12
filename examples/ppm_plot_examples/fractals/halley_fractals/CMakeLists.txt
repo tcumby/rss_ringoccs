@@ -12,20 +12,20 @@ endif()
 project(halley_fractals)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../../..)
 
-add_executable(halley_fractal_on_sphere halley_fractal_on_sphere.c)
-target_link_libraries(halley_fractal_on_sphere PRIVATE librssringoccs)
-
-add_executable(halley_fractal_on_sphere_polynomial halley_fractal_on_sphere_polynomial.c)
-target_link_libraries(halley_fractal_on_sphere_polynomial PRIVATE librssringoccs)
-
-add_executable(halley_fractal_polynomial halley_fractal_polynomial.c)
-target_link_libraries(halley_fractal_polynomial PRIVATE librssringoccs)
-
-include(GNUInstallDirs)
-install(TARGETS
+set(apps
     halley_fractal_on_sphere
     halley_fractal_on_sphere_polynomial
     halley_fractal_polynomial
+)
+
+foreach(app ${apps})
+    add_executable(${app} ${app}.c)
+    target_link_libraries(${app} PRIVATE rss::librssringoccs)
+endforeach()
+
+include(GNUInstallDirs)
+install(TARGETS
+    ${apps}
     RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
 )

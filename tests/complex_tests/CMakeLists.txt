@@ -16,92 +16,49 @@ enable_language(C)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
-add_executable(complex_abs_squared_alt_time_test complex_abs_squared_alt_time_test.c)
-target_link_libraries(complex_abs_squared_alt_time_test PRIVATE rss::librssringoccs rss::librssringoccs_compare)
+set(test_apps
+    complex_abs_squared_alt_time_test
+    complex_abs_squared_time_test
+    complex_abs_time_test
+    complex_absf_squared_time_test
+    complex_absf_time_test
+    complex_absl_squared_time_test
+    complex_absl_time_test
+    complex_argument_time_test
+    complex_argumentf_time_test
+    complex_argumentl_time_test
+    complex_conjugate_alt_time_test
+    complex_conjugate_time_test
+    complex_conjugatef_time_test
+    complex_conjugatel_time_test
+    complex_cos_time_test
+    complex_cosf_time_test
+    complex_cosl_time_test
+    complex_dist_time_test
+    complex_distf_time_test
+    complex_distl_time_test
+    complex_divide_time_test
+    complex_dividef_time_test
+    complex_dividel_time_test
+    complex_exp_time_test
+    complex_expf_time_test
+    complex_expl_time_test
+)
+foreach(app ${test_apps})
+    add_executable(${app} ${app}.c)
+    target_link_libraries(${app} PRIVATE rss::librssringoccs rss::librssringoccs_compare)
+endforeach()
 
-add_executable(complex_abs_squared_time_test complex_abs_squared_time_test.c)
-target_link_libraries(complex_abs_squared_time_test PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_abs_time_test complex_abs_time_test.c)
-target_link_libraries(complex_abs_time_test PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_absf_squared_time_test complex_absf_squared_time_test.c)
-target_link_libraries(complex_absf_squared_time_test    PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_absf_time_test complex_absf_time_test.c)
-target_link_libraries(complex_absf_time_test    PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_absl_squared_time_test complex_absl_squared_time_test.c)
-target_link_libraries(complex_absl_squared_time_test    PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_absl_time_test complex_absl_time_test.c)
-target_link_libraries(complex_absl_time_test    PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_argument_time_test complex_argument_time_test.c)
-target_link_libraries(complex_argument_time_test    PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_argumentf_time_test complex_argumentf_time_test.c)
-target_link_libraries(complex_argumentf_time_test   PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_argumentl_time_test complex_argumentl_time_test.c)
-target_link_libraries(complex_argumentl_time_test   PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_conjugate_alt_time_test complex_conjugate_alt_time_test.c)
-target_link_libraries(complex_conjugate_alt_time_test   PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_conjugate_time_test complex_conjugate_time_test.c)
-target_link_libraries(complex_conjugate_time_test   PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_conjugatef_time_test complex_conjugatef_time_test.c)
-target_link_libraries(complex_conjugatef_time_test  PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_conjugatel_time_test complex_conjugatel_time_test.c)
-target_link_libraries(complex_conjugatel_time_test  PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_cos_time_test complex_cos_time_test.c)
-target_link_libraries(complex_cos_time_test PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_cosf_time_test complex_cosf_time_test.c)
-target_link_libraries(complex_cosf_time_test    PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_cosl_time_test complex_cosl_time_test.c)
-target_link_libraries(complex_cosl_time_test    PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_dist_time_test complex_dist_time_test.c)
-target_link_libraries(complex_dist_time_test    PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_distf_time_test complex_distf_time_test.c)
-target_link_libraries(complex_distf_time_test   PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_distl_time_test complex_distl_time_test.c)
-target_link_libraries(complex_distl_time_test   PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_divide_time_test complex_divide_time_test.c)
-target_link_libraries(complex_divide_time_test  PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_dividef_time_test complex_dividef_time_test.c)
-target_link_libraries(complex_dividef_time_test PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_dividel_time_test complex_dividel_time_test.c)
-target_link_libraries(complex_dividel_time_test PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_erf_time_test complex_erf_time_test.c)
-target_link_libraries(complex_erf_time_test PRIVATE rss::librssringoccs rss::librssringoccs_compare cerf_LIBRARY)
-
-add_executable(complex_erfc_time_test complex_erfc_time_test.c)
-target_link_libraries(complex_erfc_time_test    PRIVATE rss::librssringoccs rss::librssringoccs_compare cerf_LIBRARY)
-
-add_executable(complex_exp_time_test complex_exp_time_test.c)
-target_link_libraries(complex_exp_time_test PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_expf_time_test complex_expf_time_test.c)
-target_link_libraries(complex_expf_time_test    PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_expl_time_test complex_expl_time_test.c)
-target_link_libraries(complex_expl_time_test    PRIVATE rss::librssringoccs rss::librssringoccs_compare)
-
-add_executable(complex_faddeeva_tests complex_faddeeva_tests.c)
-target_link_libraries(complex_faddeeva_tests    PRIVATE rss::librssringoccs rss::librssringoccs_compare cerf_LIBRARY)
+set(cerf_apps
+    complex_erf_time_test
+    complex_erfc_time_test
+    complex_faddeeva_tests
+)
+foreach(app ${cerf_apps})
+    add_executable(${app} ${app}.c)
+    target_include_directories(${app} PRIVATE ${cerf_INCLUDE_DIRECTORY})
+    target_link_libraries(${app} PRIVATE rss::librssringoccs rss::librssringoccs_compare cerf_LIBRARY)
+endforeach()
 
 include(GNUInstallDirs)
 install(TARGETS

@@ -14,32 +14,23 @@ endif()
 project(math_plots)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
-add_executable(abs_plot abs_plot.c)
-target_link_libraries(abs_plot PRIVATE librssringoccs)
-
-add_executable(erfcx_plot erfcx_plot.c)
-target_link_libraries(erfcx_plot PRIVATE librssringoccs)
-
-add_executable(max_func_average_number_of_attributes max_func_average_number_of_attributes.c)
-target_link_libraries(max_func_average_number_of_attributes PRIVATE librssringoccs)
-
-add_executable(merge_sort_iterative merge_sort_iterative.c)
-target_link_libraries(merge_sort_iterative PRIVATE librssringoccs)
-
-add_executable(merge_sort_recursive merge_sort_recursive.c)
-target_link_libraries(merge_sort_recursive PRIVATE librssringoccs)
-
-add_executable(sin_plot sin_plot.c)
-target_link_libraries(sin_plot PRIVATE librssringoccs)
-
-include(GNUInstallDirs)
-install(TARGETS
+set(apps
     abs_plot
     erfcx_plot
     max_func_average_number_of_attributes
     merge_sort_iterative
     merge_sort_recursive
     sin_plot
+)
+
+foreach(app ${apps})
+    add_executable(${app} ${app}.c)
+    target_link_libraries(${app} PRIVATE rss::librssringoccs)
+endforeach()
+
+include(GNUInstallDirs)
+install(TARGETS
+    ${apps}
     RUNTIME DESTINATION  ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION  ${CMAKE_INSTALL_LIBDIR}
 )

@@ -45,7 +45,7 @@
  *                                                                            *
  *      You may need to add sudo to move files in /usr/.                      *
  *      We can then link via -lrssringoccs_compare (see below).               */
-#include "../rss_ringoccs_compare_funcs.h"
+#include <rss_ringoccs/tests/librssringoccs_compare/rss_ringoccs_compare_funcs.h>
 
 /*  We'll test the computation of (1+i)/z.                                    */
 static const rssringoccs_ComplexLongDouble z = 1.0L + (rssringoccs_ComplexLongDouble)_Complex_I;
