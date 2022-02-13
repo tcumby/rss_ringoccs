@@ -15,6 +15,13 @@
 /*  Include the necessary standard library files we'll need to use.           */
 #include <stdio.h>
 #include <stdlib.h>
+#ifdef _MSC_VER
+#ifdef max
+/* A max() macro is defined by a header in Windows API, so we must
+undefine it                                                                   */
+#undef max
+#endif
+#endif
 
 /*  We'll need this for the floor function.                                   */
 #include <math.h>
