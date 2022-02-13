@@ -27,7 +27,7 @@
 #include <rss_ringoccs/include/rss_ringoccs_special_functions.h>
 
 /*  Create an alias for the Bessel function as "f".                           */
-double (*f)(double) = &rssringoccs_Bessel_J0_Double;
+double (*f)(double) = &rssringoccs_Double_Bessel_J0;
 
 /*  Numerically compute the derivative.                                       */
 static double f_prime(double x)
