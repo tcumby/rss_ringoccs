@@ -8,6 +8,10 @@ if (APPLE)
 elseif (UNIX)
     include(gcc)
     set(CMAKE_INSTALL_PREFIX "/usr/local")
+elseif (WIN32)
+    # We use vcpkg to retrieve a build of GSL for Windows
+    include(FetchVcpkg)
+    set(CMAKE_TOOLCHAIN_FILE ${vcpkg_toolchain_file} CACHE STRING "Vcpkg toolchain file")
 endif()
 endif()
 
