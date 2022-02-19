@@ -12,6 +12,7 @@ elseif (WIN32)
     # We use vcpkg to retrieve a build of GSL for Windows
     include(FetchVcpkg)
     set(CMAKE_TOOLCHAIN_FILE ${vcpkg_toolchain_file} CACHE STRING "Vcpkg toolchain file")
+    message("CMAKE_TOOLCHAIN_FILE: ${CMAKE_TOOLCHAIN_FILE}")
 endif()
 endif()
 
