@@ -57,7 +57,7 @@ set(cerf_apps
 foreach(app ${cerf_apps})
     add_executable(${app} ${app}.c)
     target_include_directories(${app} PRIVATE ${cerf_INCLUDE_DIRECTORY})
-    target_link_libraries(${app} PRIVATE rss::librssringoccs rss::librssringoccs_compare cerf_LIBRARY)
+    target_link_libraries(${app} PRIVATE rss::librssringoccs rss::librssringoccs_compare ${cerf_LIBRARY})
 endforeach()
 
 include(GNUInstallDirs)

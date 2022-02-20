@@ -9,9 +9,14 @@ elseif (UNIX)
 endif()
 endif()
 
+include(FetchGSL)
+
 
 project(interpolate_plots_tests)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
+
+
+
 
 set(test_apps
     linear_interpolate_plot
@@ -20,6 +25,7 @@ set(test_apps
 foreach(app ${test_apps})
     add_executable(${app} ${app}.c)
     target_link_libraries(${app} PRIVATE rss::librssringoccs rss::librssringoccs_compare)
+    target_include_directories(${app} PRIVATE "${GSL_INCLUDE_DIRS}")
 endforeach()
 
 

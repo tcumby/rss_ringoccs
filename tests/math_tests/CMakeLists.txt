@@ -17,7 +17,6 @@ set(test_apps
     absf_time_test
     absl_time_test
     copysign_time_test
-    faddeeva_im_time_test
     sin_time_test
     sinf_time_test
     sinl_time_test
@@ -25,6 +24,15 @@ set(test_apps
 foreach(app ${test_apps})
     add_executable(${app} ${app}.c)
     target_link_libraries(${app} PRIVATE rss::librssringoccs rss::librssringoccs_compare)
+endforeach()
+
+set(cerf_apps
+    faddeeva_im_time_test
+)
+foreach(app ${cerf_apps})
+    add_executable(${app} ${app}.c)
+    target_include_directories(${app} PRIVATE ${cerf_INCLUDE_DIRECTORY})
+    target_link_libraries(${app} PRIVATE rss::librssringoccs rss::librssringoccs_compare ${cerf_LIBRARY})
 endforeach()
 
 include(GNUInstallDirs)
