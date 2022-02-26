@@ -40,7 +40,7 @@ int main(void)
     double (*f)(double) = rssringoccs_Double_Sin;
     double (*f_prime)(double) = &cos;
 
-    N = (int)TWO_PI/dx;
+    N = (int)rssringoccs_Two_Pi/dx;
     max = 0.0;
 
     for (n=0; n<N; ++n)
@@ -48,7 +48,7 @@ int main(void)
         x += dx;
         y = f_prime(x);
         y0 = rssringoccs_Double_Five_Point_Derivative(f, x, h);
-        diff = rssringoccs_Abs_Double(y-y0);
+        diff = rssringoccs_Double_Abs(y-y0);
         if (max < diff)
             max = diff;
     }
