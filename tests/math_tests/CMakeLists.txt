@@ -26,6 +26,7 @@ foreach(app ${test_apps})
     target_link_libraries(${app} PRIVATE rss::librssringoccs rss::librssringoccs_compare)
 endforeach()
 
+include(FetchCerf)
 set(cerf_apps
     faddeeva_im_time_test
 )
