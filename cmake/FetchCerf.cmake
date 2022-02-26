@@ -17,4 +17,6 @@ FetchContent_MakeAvailable(cerf_checkout)
 
 if (cerf_checkout_POPULATED)
     set(cerf_INCLUDE_DIRECTORY ${cerf_checkout_SOURCE_DIR}/lib)
+else()
+    message(FATAL_ERROR "cerf is not available")
 endif()
