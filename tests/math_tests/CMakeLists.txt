@@ -10,6 +10,7 @@ endif()
 endif()
 
 project(math_tests)
+enable_language(CXX)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
 set(test_apps
