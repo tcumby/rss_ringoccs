@@ -5,13 +5,12 @@ include(FetchContent)
 if (MSVC)
     set(CERF_CPP ON)
     set(LIB_MAN OFF)
-    set(BUILD_SHARED_LIBS ON)
 endif()
 
 FetchContent_Declare(
     cerf_checkout
     GIT_REPOSITORY https://jugit.fz-juelich.de/mlz/libcerf.git
-    GIT_TAG 33f93bb6239a078c17ed032edc7c8dd7e6cb922b # the commit corresponding to v1.13
+    GIT_TAG 4f2c6384e12d51ea86302bab0c0cb53b2e948c19 # the commit corresponding to v1.17
 )
 
 FetchContent_MakeAvailable(cerf_checkout)
