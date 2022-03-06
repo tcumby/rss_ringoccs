@@ -46,4 +46,4 @@ RSS_RINGOCCS_EXPORT double rssringoccs_ThreeVector_Euclidean_Norm(rssringoccs_Th
     norm = rssringoccs_Double_Sqrt(x*x + y*y + z*z);
     return norm;
 }
-/*  End of rssringoccs_Euclidean_Norm_3D.                                     */
+/*  End of rssringoccs_ThreeVector_Euclidean_Norm.                            */
