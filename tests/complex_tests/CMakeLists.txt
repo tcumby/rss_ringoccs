@@ -11,8 +11,7 @@ endif()
 
 include(FetchCerf)
 
-project(complex_tests)
-enable_language(CXX)
+project(complex_tests LANGUAGES CXX)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
@@ -56,6 +55,7 @@ set(cerf_apps
 )
 foreach(app ${cerf_apps})
     add_executable(${app} ${app}.c)
+    set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     target_include_directories(${app} PRIVATE ${cerf_INCLUDE_DIRECTORY})
     target_link_libraries(${app} PRIVATE rss::librssringoccs rss::librssringoccs_compare ${cerf_LIBRARY})
     if(MSVC)
