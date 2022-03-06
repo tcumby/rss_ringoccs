@@ -114,7 +114,7 @@ int main(void)
         exit(0);
     }
     else
-        u = rssringoccs_Normalize_ThreeVector(camera_pos);
+        u = rssringoccs_ThreeVector_Normalize(camera_pos);
 
     /* Open and name the file and give it write permission.                   */
     fp = fopen("julia_set_on_sphere.ppm", "w");
