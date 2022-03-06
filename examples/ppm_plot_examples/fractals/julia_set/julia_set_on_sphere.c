@@ -102,7 +102,7 @@ int main(void)
 
     /*  Normalize the camera vector and set this to u. First check that the   *
      *  user didn't provide the zero vector since this will cause an error.   */
-    norm = rssringoccs_Euclidean_Norm_3D(camera_pos);
+    norm = rssringoccs_ThreeVector_Euclidean_Norm(camera_pos);
 
     if (norm == 0.0)
     {

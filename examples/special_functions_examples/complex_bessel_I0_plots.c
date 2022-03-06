@@ -174,10 +174,10 @@ int main(void)
             z_x = x * (x_max - x_min) * rcp_factor + x_min;
 
             /*  Set z to x+iy.                                                */
-            z = rssringoccs_Complex_Rect(z_x, z_y);
+            z = rssringoccs_CDouble_Rect(z_x, z_y);
 
             /*  Compute the I0(z).                                            */
-            w = rssringoccs_Bessel_I0_ComplexDouble(z);
+            w = rssringoccs_CDouble_Bessel_I0(z);
 
             /*  Extract the real and imaginary parts of w.                    */
             w_x = rssringoccs_Complex_Real_Part(w);
