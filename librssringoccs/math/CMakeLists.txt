@@ -1,26 +1,28 @@
-target_sources(librssringoccs PRIVATE
-rss_ringoccs_abs.c
-rss_ringoccs_arctan.c
-rss_ringoccs_arctan2.c
-rss_ringoccs_copysign.c
-rss_ringoccs_cos.c
-rss_ringoccs_cosh.c
-rss_ringoccs_erf.c
-rss_ringoccs_erfc.c
-rss_ringoccs_erfcx.c
-rss_ringoccs_exp.c
-rss_ringoccs_factorial.c
-rss_ringoccs_faddeeva_im.c
-rss_ringoccs_log.c
-rss_ringoccs_math_private.h
-rss_ringoccs_poly_deriv.c
-rss_ringoccs_polynomial.c
-rss_ringoccs_reverse_array.c
-rss_ringoccs_sin.c
-rss_ringoccs_sinc.c
-rss_ringoccs_sincos.c
-rss_ringoccs_sinh.c
-rss_ringoccs_sqrt.c
-rss_ringoccs_tan.c
-rss_ringoccs_tanh.c
+target_sources(
+    librssringoccs
+    PRIVATE
+        rss_ringoccs_abs.c
+        rss_ringoccs_arctan.c
+        rss_ringoccs_arctan2.c
+        rss_ringoccs_copysign.c
+        rss_ringoccs_cos.c
+        rss_ringoccs_cosh.c
+        rss_ringoccs_erf.c
+        rss_ringoccs_erfc.c
+        rss_ringoccs_erfcx.c
+        rss_ringoccs_exp.c
+        rss_ringoccs_factorial.c
+        rss_ringoccs_faddeeva_im.c
+        rss_ringoccs_log.c
+        rss_ringoccs_math_private.h
+        rss_ringoccs_poly_deriv.c
+        rss_ringoccs_polynomial.c
+        rss_ringoccs_reverse_array.c
+        rss_ringoccs_sin.c
+        rss_ringoccs_sinc.c
+        rss_ringoccs_sincos.c
+        rss_ringoccs_sinh.c
+        rss_ringoccs_sqrt.c
+        rss_ringoccs_tan.c
+        rss_ringoccs_tanh.c
 )

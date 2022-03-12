@@ -1,10 +1,11 @@
 include_guard()
 
 find_program(GCC gcc)
-if (GCC)
+if(GCC)
     set(CMAKE_C_COMPILER ${GCC})
 
-    set(extraOpts "-ansi
+    set(extraOpts
+        "-ansi
             -pedantic
             -pedantic-errors
             -Wall
@@ -19,7 +20,8 @@ if (GCC)
             -Wnull-dereference
             -Wwrite-strings
             -Wstrict-prototypes
-            -g -fPIC -O3 -flto -c")
+            -g -fPIC -O3 -flto -c"
+    )
     set(CMAKE_C_FLAGS_DEBUG_INIT ${extraOpts})
 else()
     message(FATAL_ERROR "gcc was not found")

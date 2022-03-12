@@ -1,27 +1,29 @@
-target_sources(librssringoccs PRIVATE
-rss_ringoccs_cross_product.c
-rss_ringoccs_inverse_orthographic_projection.c
-rss_ringoccs_inverse_orthographic_projection_torus.c
-rss_ringoccs_orthogonal_three_vector.c
-rss_ringoccs_stereographic_projection.c
-rss_ringoccs_stereographic_projection_torus.c
-rss_ringoccs_three_vector_add.c
-rss_ringoccs_three_vector_dot_product.c
-rss_ringoccs_three_vector_euclidean_norm.c
-rss_ringoccs_three_vector_normalize.c
-rss_ringoccs_three_vector_rect.c
-rss_ringoccs_three_vector_scale.c
-rss_ringoccs_three_vector_x.c
-rss_ringoccs_three_vector_y.c
-rss_ringoccs_three_vector_z.c
-rss_ringoccs_two_vector_add.c
-rss_ringoccs_two_vector_dot_product.c
-rss_ringoccs_two_vector_euclidean_norm.c
-rss_ringoccs_two_vector_euclidean_norm_squared.c
-rss_ringoccs_two_vector_normalize.c
-rss_ringoccs_two_vector_polar.c
-rss_ringoccs_two_vector_rect.c
-rss_ringoccs_two_vector_scale.c
-rss_ringoccs_two_vector_x.c
-rss_ringoccs_two_vector_y.c
+target_sources(
+    librssringoccs
+    PRIVATE
+        rss_ringoccs_cross_product.c
+        rss_ringoccs_inverse_orthographic_projection.c
+        rss_ringoccs_inverse_orthographic_projection_torus.c
+        rss_ringoccs_orthogonal_three_vector.c
+        rss_ringoccs_stereographic_projection.c
+        rss_ringoccs_stereographic_projection_torus.c
+        rss_ringoccs_three_vector_add.c
+        rss_ringoccs_three_vector_dot_product.c
+        rss_ringoccs_three_vector_euclidean_norm.c
+        rss_ringoccs_three_vector_normalize.c
+        rss_ringoccs_three_vector_rect.c
+        rss_ringoccs_three_vector_scale.c
+        rss_ringoccs_three_vector_x.c
+        rss_ringoccs_three_vector_y.c
+        rss_ringoccs_three_vector_z.c
+        rss_ringoccs_two_vector_add.c
+        rss_ringoccs_two_vector_dot_product.c
+        rss_ringoccs_two_vector_euclidean_norm.c
+        rss_ringoccs_two_vector_euclidean_norm_squared.c
+        rss_ringoccs_two_vector_normalize.c
+        rss_ringoccs_two_vector_polar.c
+        rss_ringoccs_two_vector_rect.c
+        rss_ringoccs_two_vector_scale.c
+        rss_ringoccs_two_vector_x.c
+        rss_ringoccs_two_vector_y.c
 )
