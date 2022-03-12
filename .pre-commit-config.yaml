@@ -72,8 +72,8 @@ repos:
     rev: 1.4.2
     hooks:
       - id: cmakelint
+        args: ["--linelength=120"]
   - repo: https://github.com/cpplint/cpplint
     rev: 1.6.0
     hooks:
       - id: cpplint
-        args: ["--linelength=120"]
