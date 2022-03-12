@@ -51,7 +51,7 @@ repos:
   # --- Linters ---
   - hooks:
       - id: black
-    repo: https://github.com/psf/black
+    repo: https://github.com/psf/black # python formatter
     rev: 22.1.0
   - repo: https://github.com/asottile/blacken-docs
     rev: v1.12.1
@@ -69,5 +69,10 @@ repos:
     hooks:
       - id: gersemi
   - repo: https://github.com/cmake-lint/cmake-lint
+    rev: 1.4.2
     hooks:
       - id: cmakelint
+  - repo: https://github.com/cpplint/cpplint
+    rev: 1.6.0
+    hooks:
+      - id: cpplint
