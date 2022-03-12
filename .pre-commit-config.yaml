@@ -76,4 +76,4 @@ repos:
     rev: 1.6.0
     hooks:
       - id: cpplint
-        args: [--linelength=120]
+        args: ["--linelength=120"]
