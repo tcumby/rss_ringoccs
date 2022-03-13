@@ -49,14 +49,7 @@ repos:
   #   rev: 0.5.0
 
   # --- Linters ---
-  - hooks:
-      - id: black
-    repo: https://github.com/psf/black # python formatter
-    rev: 22.1.0
-  - repo: https://github.com/asottile/blacken-docs
-    rev: v1.12.1
-    hooks:
-      - id: blacken-docs
+
   - repo: https://github.com/PyCQA/flake8
     rev: 4.0.1
     hooks:
@@ -64,10 +57,7 @@ repos:
         additional_dependencies:
           - flake8-bugbear == 20.11.1
         language_version: python3.8
-  - repo: https://github.com/BlankSpruce/gersemi #cmake formatter
-    rev: 0.8.0
-    hooks:
-      - id: gersemi
+
   - repo: https://github.com/cmake-lint/cmake-lint
     rev: 1.4.2
     hooks:
@@ -77,3 +67,20 @@ repos:
     rev: 1.6.0
     hooks:
       - id: cpplint
+  # Formatters
+  - repo: https://github.com/BlankSpruce/gersemi #cmake formatter
+    rev: 0.8.0
+    hooks:
+      - id: gersemi
+  - repo: https://github.com/asottile/setup-cfg-fmt
+    rev: v1.20.0
+    hooks:
+      - id: setup-cfg-fmt
+  - repo: https://github.com/psf/black # python formatter
+    rev: 22.1.0
+    hooks:
+      - id: black
+  - repo: https://github.com/asottile/blacken-docs
+    rev: v1.12.1
+    hooks:
+      - id: blacken-docs
