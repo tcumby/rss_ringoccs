@@ -139,10 +139,10 @@ int main(void)
 
     /*  Find the min and max of the function so we can set the color scale.   *
      *  This can be computed in terms of the bessel I0 function.              */
-    if (rssringoccs_Abs_Double(y_min) < rssringoccs_Abs_Double(y_max))
-        max = rssringoccs_Bessel_I0_Double(y_max);
+    if (rssringoccs_Double_Abs(y_min) < rssringoccs_Double_Abs(y_max))
+        max = rssringoccs_Double_Bessel_I0(y_max);
     else
-        max = rssringoccs_Bessel_I0_Double(y_min);
+        max = rssringoccs_Double_Bessel_I0(y_min);
 
     /*  Compress the maximum to a smaller range.                              */
     max = atan(max);
@@ -162,13 +162,13 @@ int main(void)
     rcp_factor = 1.0 / (size - 1.0);
 
     /*  Loop over each pixel and color it based on the value of I0(x+iy).     */
-    for (y=0; y<size; ++y)
+    for (y = 0; y < size; ++y)
     {
         /*  We want to center z_y so scale and shift. This makes the output   *
          *  picture lie in the box [x_min, x_max] x [y_min, y_max].           */
         z_y = y * (y_max - y_min) * rcp_factor + y_min;
 
-        for (x=0; x<size; ++x)
+        for (x = 0; x < size; ++x)
         {
             /*  Similarly, center z_x.                                        */
             z_x = x * (x_max - x_min) * rcp_factor + x_min;
@@ -180,8 +180,8 @@ int main(void)
             w = rssringoccs_CDouble_Bessel_I0(z);
 
             /*  Extract the real and imaginary parts of w.                    */
-            w_x = rssringoccs_Complex_Real_Part(w);
-            w_y = rssringoccs_Complex_Imag_Part(w);
+            w_x = rssringoccs_CDouble_Real_Part(w);
+            w_y = rssringoccs_CDouble_Imag_Part(w);
 
             /*  Scale w_x and w_y to lie in the range [0, 255].               */
             w_x = 255*(atan(w_x) - min)/max;

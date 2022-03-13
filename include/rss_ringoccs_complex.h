@@ -543,7 +543,7 @@ rssringoccs_CDouble_Faddeeva(rssringoccs_ComplexDouble z);
 
 /******************************************************************************
  *  Function:                                                                 *
- *      rssringoccs_Complex_Real_Part                                         *
+ *      rssringoccs_CDouble_Real_Part                                         *
  *  Purpose:                                                                  *
  *      Return the real part of a complex number. This is equivalent to creal *
  *      found in complex.h (C99).                                             *
@@ -565,7 +565,7 @@ rssringoccs_CLDouble_Real_Part(rssringoccs_ComplexLongDouble z);
 
 /******************************************************************************
  *  Function:                                                                 *
- *      rssringoccs_Complex_Imag_Part                                         *
+ *      rssringoccs_CDouble_Imag_Part                                         *
  *  Purpose:                                                                  *
  *      Return the imaginary part of a complex number. This is equivalent to  *
  *      cimag found in complex.h (C99).                                       *
@@ -670,8 +670,8 @@ rssringoccs_CDouble_Sqrt(rssringoccs_ComplexDouble z);
  *              z = rssringoccs_Complex_Rect(1.0, 1.0);                       *
  *              ln_z = rssringoccs_Complex_Log(z);                            *
  *                                                                            *
- *              real = rssringoccs_Complex_Real_Part(ln_z);                   *
- *              imag = rssringoccs_Complex_Imag_Part(ln_z);                   *
+ *              real = rssringoccs_CDouble_Real_Part(ln_z);                   *
+ *              imag = rssringoccs_CDouble_Imag_Part(ln_z);                   *
  *                                                                            *
  *              printf("%f + %fi\n", real, imag);                             *
  *              return 0;                                                     *
@@ -746,8 +746,8 @@ rssringoccs_CLDouble_Sin(rssringoccs_ComplexLongDouble z);
  *              z = rssringoccs_Complex_Rect(1.0, 1.0);                       *
  *              cos_z = rssringoccs_Complex_Tan(z);                           *
  *                                                                            *
- *              real = rssringoccs_Complex_Real_Part(tan_z);                  *
- *              imag = rssringoccs_Complex_Imag_Part(tan_z);                  *
+ *              real = rssringoccs_CDouble_Real_Part(tan_z);                  *
+ *              imag = rssringoccs_CDouble_Imag_Part(tan_z);                  *
  *                                                                            *
  *              printf("%f + %fi\n", real, imag);                             *
  *              return 0;                                                     *
@@ -988,8 +988,8 @@ rssringoccs_CLDouble_Reciprocal(rssringoccs_ComplexLongDouble z);
  *                                                                            *
  *              poly = rssringoccs_Complex_Poly_Real_Coeffs(coeffs, N, z);    *
  *                                                                            *
- *              real = rssringoccs_Complex_Real_Part(poly);                   *
- *              imag = rssringoccs_Complex_Imag_Part(poly);                   *
+ *              real = rssringoccs_CDouble_Real_Part(poly);                   *
+ *              imag = rssringoccs_CDouble_Imag_Part(poly);                   *
  *                                                                            *
  *              printf("f(z) = %f + i%f\n", real, imag);                      *
  *              return 0;                                                     *
