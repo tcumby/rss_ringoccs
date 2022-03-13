@@ -67,6 +67,7 @@ repos:
     rev: 1.6.0
     hooks:
       - id: cpplint
+        args: ["--linelength=120"]
   # Formatters
   - repo: https://github.com/BlankSpruce/gersemi #cmake formatter
     rev: 0.8.0
