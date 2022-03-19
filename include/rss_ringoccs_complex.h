@@ -113,11 +113,11 @@
  * _Complex, double _Complex, and long double _Complex, respectively          */
 
 /*  You have complex.h support, so we'll just typedef double _Complex.        */
-typedef _Dcomplex rssringoccs_ComplexDouble;
+typedef std::complex<double> rssringoccs_ComplexDouble;
 
 /*  Typedef single and long double precision equivalents.                     */
-typedef _Fcomplex rssringoccs_ComplexFloat;
-typedef _Lcomplex rssringoccs_ComplexLongDouble;
+typedef std::complex<float> rssringoccs_ComplexFloat;
+typedef std::complex<long double> rssringoccs_ComplexLongDouble;
 
 #else
 /*  You have complex.h support, so we'll just typedef double _Complex.        */

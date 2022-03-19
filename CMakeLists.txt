@@ -15,6 +15,14 @@ if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
             CACHE STRING "Vcpkg toolchain file"
         )
         message("CMAKE_TOOLCHAIN_FILE: ${CMAKE_TOOLCHAIN_FILE}")
+
+        if(MSVC)
+            # Compile as C++ for Microsoft Visual Studio to avoid the non-standard complex number implementation in the
+            # C compiler
+            list(APPEND CMAKE_CXX_SOURCE_FILE_EXTENSIONS c)
+            enable_language(CXX)
+            set(CMAKE_CXX_STANDARD 11)
+        endif()
     endif()
 endif()
 
