@@ -140,6 +140,28 @@ RSS_RINGOCCS_EXPORT long double rssringoccs_CLDouble_Abs(rssringoccs_ComplexLong
 #else
 /*  Else statement for #if _RSS_RINGOCCS_USING_COMPLEX_H_ == 0.               */
 
+#ifdef _MSC_VER
+/*  Single precision absolute value function, alias for cabsf.                */
+RSS_RINGOCCS_EXPORT float rssringoccs_CFloat_Abs(rssringoccs_ComplexFloat z)
+{
+    return abs(z);
+}
+/*  End of rssringoccs_CFloat_Abs.                                            */
+
+/*  Double precision absolute value function, alias for cabs.                 */
+RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Abs(rssringoccs_ComplexDouble z)
+{
+    return abs(z);
+}
+/*  End of rssringoccs_CDouble_Abs.                                           */
+
+/*  Long double precision absolute value function, alias for cabsl.           */
+RSS_RINGOCCS_EXPORT long double rssringoccs_CLDouble_Abs(rssringoccs_ComplexLongDouble z)
+{
+    return abs(z);
+}
+/*  End of rssringoccs_CLDouble_Abs.                                          */
+#else
 /*  If we get here we have complex.h support so we'll just alias the          *
  *  functions found in the library.                                           */
 
@@ -163,6 +185,6 @@ RSS_RINGOCCS_EXPORT long double rssringoccs_CLDouble_Abs(rssringoccs_ComplexLong
     return cabsl(z);
 }
 /*  End of rssringoccs_CLDouble_Abs.                                          */
-
+#endif
 #endif
 /*  End of #if _RSS_RINGOCCS_USING_COMPLEX_H_ == 0.                           */
