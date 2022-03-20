@@ -15,16 +15,12 @@ include(GenerateExportHeader)
 
 project(rssringoccs_library)
 
-enable_language(C)
+if(MSVC)
+    file(GLOB_RECURSE CFILES "*.c")
+    set_source_files_properties(${CFILES} PROPERTIES LANGUAGE CXX)
+endif()
 
 add_library(librssringoccs SHARED)
-set_target_properties(
-    librssringoccs
-    PROPERTIES
-        IMPORTED_LOCATION $<TARGET_FILE:tgt>
-        IMPORTED_IMPLIB $<TARGET_LINKER_FILE:librssringoccs>
-        INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_CURRENT_BINARY_DIR}
-)
 
 target_include_directories(
     librssringoccs
@@ -55,19 +51,17 @@ generate_export_header(
     STATIC_DEFINE SHARED_EXPORTS_BUILT_AS_STATIC
 )
 target_include_directories(librssringoccs PUBLIC ${CMAKE_CURRENT_BINARY_DIR})
-
 file(GLOB LIBRSSRINGOCCS_HEADERS ../include/*.h)
-set_property(
-    TARGET librssringoccs
-    PROPERTY
-        C_STANDARD
-        90 # C89/90
-        INTERPROCEDURAL_OPTIMIZATION
-        TRUE
-        PUBLIC_HEADER
-        ${LIBRSSRINGOCCS_HEADERS}
-        OUTPUT_NAME
-        rssringoccs
+set_target_properties(
+    librssringoccs
+    PROPERTIES
+        LANGUAGE $<IF:$<C_COMPILER_ID:MSVC>CXX,C>
+        INTERPROCEDURAL_OPTIMIZATION TRUE
+        PUBLIC_HEADER ${LIBRSSRINGOCCS_HEADERS}
+        OUTPUT_NAME rssringoccs
+        IMPORTED_LOCATION $<TARGET_FILE:tgt>
+        IMPORTED_IMPLIB $<TARGET_LINKER_FILE:librssringoccs>
+        INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_CURRENT_BINARY_DIR}
 )
 
 add_library(rss::librssringoccs ALIAS librssringoccs)
