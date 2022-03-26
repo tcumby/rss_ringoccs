@@ -76,18 +76,18 @@ rssringoccs_CLDouble_Real_Part(rssringoccs_ComplexLongDouble z)
 
 RSS_RINGOCCS_EXPORT float rssringoccs_CFloat_Real_Part(rssringoccs_ComplexFloat z)
 {
-    return crealf(z);
+    return real(z);
 }
 
 RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Real_Part(rssringoccs_ComplexDouble z)
 {
-    return creal(z);
+    return real(z);
 }
 
 RSS_RINGOCCS_EXPORT long double
 rssringoccs_CLDouble_Real_Part(rssringoccs_ComplexLongDouble z)
 {
-    return creall(z);
+    return real(z);
 }
 
 #endif

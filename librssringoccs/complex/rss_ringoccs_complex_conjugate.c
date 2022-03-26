@@ -139,7 +139,7 @@ rssringoccs_CLDouble_Conjugate(rssringoccs_ComplexLongDouble z)
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Conjugate(rssringoccs_ComplexFloat z)
 {
-    return conjf(z);
+    return conj(z);
 }
 /*  End of rssringoccs_CFloat_Conjugate.                                      */
 
@@ -155,7 +155,7 @@ rssringoccs_CDouble_Conjugate(rssringoccs_ComplexDouble z)
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Conjugate(rssringoccs_ComplexLongDouble z)
 {
-    return conjl(z);
+    return conj(z);
 }
 /*  End of rssringoccs_CLDouble_Conjugate.                                    */
 

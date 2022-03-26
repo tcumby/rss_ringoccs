@@ -175,7 +175,7 @@ rssringoccs_CLDouble_Cos(rssringoccs_ComplexLongDouble z)
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Cos(rssringoccs_ComplexFloat z)
 {
-    return ccosf(z);
+    return cos(z);
 }
 /*  End of rssringoccs_CLDouble_Cos.                                          */
 
@@ -183,7 +183,7 @@ rssringoccs_CFloat_Cos(rssringoccs_ComplexFloat z)
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Cos(rssringoccs_ComplexDouble z)
 {
-    return ccos(z);
+    return cos(z);
 }
 /*  End of rssringoccs_CDouble_Cos.                                           */
 
@@ -191,7 +191,7 @@ rssringoccs_CDouble_Cos(rssringoccs_ComplexDouble z)
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Cos(rssringoccs_ComplexLongDouble z)
 {
-    return ccosl(z);
+    return cos(z);
 }
 /*  End of rssringoccs_CLDouble_Cos.                                          */
 

@@ -216,20 +216,20 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Multiply(rssringoccs_ComplexFloat z0,
                                   rssringoccs_ComplexFloat z1)
 {
-    return _FCmulcc(z0, z1);
+    return z0 * z1;
 }
 
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Multiply_Real(float x, rssringoccs_ComplexFloat z)
 {
-    return _FCmulcr(z, x);
+    return x * z;
 }
 
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Multiply_Imag(float y, rssringoccs_ComplexFloat z)
 {
-    rssringoccs_ComplexFloat multiplier = {0.0F, y};
-    return _FCmulcc(z, multiplier);
+    using namespace std::complex_literals;
+    return 1if*y * z;
 }
 
 /*  Double precision complex addition.                                        */
@@ -237,20 +237,20 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Multiply(rssringoccs_ComplexDouble z0,
                                    rssringoccs_ComplexDouble z1)
 {
-    return _Cmulcc(z0, z1);
+    return z0 * z1;
 }
 
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Multiply_Real(double x, rssringoccs_ComplexDouble z)
 {
-    return _Cmulcr(z, x);
+    return x * z;
 }
 
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Multiply_Imag(double y, rssringoccs_ComplexDouble z)
 {
-    rssringoccs_ComplexDouble multiplier = {0.0, y};
-    return _Cmulcc(z, multiplier);
+    using namespace std::complex_literals;
+    return 1i*y * z;
 }
 
 /*  Long double precision complex addition.                                   */
@@ -258,14 +258,14 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Multiply(rssringoccs_ComplexLongDouble z0,
                                        rssringoccs_ComplexLongDouble z1)
 {
-    return _LCmulcc(z0, z1);
+    return z0 * z1;
 }
 
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Multiply_Real(long double x,
                                             rssringoccs_ComplexLongDouble z)
 {
-    return _LCmulcr(z, x);
+    return x * z;
 }
 
 
@@ -273,8 +273,8 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Multiply_Imag(long double y,
                                             rssringoccs_ComplexLongDouble z)
 {
-    rssringoccs_ComplexLongDouble multiplier = {0.0L, y};
-    return _LCmulcc(z, multiplier);
+    using namespace std::complex_literals;
+    return 1il*y * z;
 }
 #endif
 /*  End of #if _MSC_VER == 0.                                                 */
