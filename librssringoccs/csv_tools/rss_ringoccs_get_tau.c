@@ -36,7 +36,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_TauCSV* rssringoccs_Get_Tau(const char *filename
     int ch;
     unsigned long line_count, column_count, n;
 
-    tau = malloc(sizeof(*tau));
+    tau = (rssringoccs_TauCSV *)malloc(sizeof(*tau));
 
     /*  Check if malloc failed.                                               */
     if (tau == NULL)
@@ -95,7 +95,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_TauCSV* rssringoccs_Get_Tau(const char *filename
 
     /*  And count the number of columns.                                      */
     column_count = 0;
-    line = fgets(buffer,sizeof(buffer), fp);
+    line = fgets(buffer, sizeof(buffer), fp);
     record = strtok(line, ",");
     while (record != NULL)
     {
@@ -131,7 +131,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_TauCSV* rssringoccs_Get_Tau(const char *filename
     }
 
     /*  Allocate memory for t_oet_spm_vals and check for error.               */
-    tau->t_oet_spm_vals = malloc(sizeof(*tau->t_oet_spm_vals) * line_count);
+    tau->t_oet_spm_vals = (double *)malloc(sizeof(*tau->t_oet_spm_vals) * line_count);
     if (tau->t_oet_spm_vals == NULL)
     {
         tau->error_occurred = rssringoccs_True;
@@ -148,7 +148,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_TauCSV* rssringoccs_Get_Tau(const char *filename
     }
 
     /*  Allocate memory for t_ret_spm_vals and check for error.               */
-    tau->t_ret_spm_vals = malloc(sizeof(*tau->t_ret_spm_vals) * line_count);
+    tau->t_ret_spm_vals = (double *)malloc(sizeof(*tau->t_ret_spm_vals) * line_count);
     if (tau->t_ret_spm_vals == NULL)
     {
         tau->error_occurred = rssringoccs_True;
@@ -165,7 +165,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_TauCSV* rssringoccs_Get_Tau(const char *filename
     }
 
     /*  Allocate memory for t_set_spm_vals and check for error.               */
-    tau->t_set_spm_vals = malloc(sizeof(*tau->t_set_spm_vals) * line_count);
+    tau->t_set_spm_vals = (double *)malloc(sizeof(*tau->t_set_spm_vals) * line_count);
     if (tau->t_set_spm_vals == NULL)
     {
         tau->error_occurred = rssringoccs_True;
@@ -182,7 +182,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_TauCSV* rssringoccs_Get_Tau(const char *filename
     }
 
     /*  Allocate memory for rho_km_vals and check for error.                  */
-    tau->rho_km_vals = malloc(sizeof(*tau->rho_km_vals) * line_count);
+    tau->rho_km_vals = (double *)malloc(sizeof(*tau->rho_km_vals) * line_count);
     if (tau->rho_km_vals == NULL)
     {
         tau->error_occurred = rssringoccs_True;
@@ -200,7 +200,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_TauCSV* rssringoccs_Get_Tau(const char *filename
 
     /*  Allocate memory for rho_corr_pole_km_vals and check for error.        */
     tau->rho_corr_pole_km_vals
-        = malloc(sizeof(*tau->rho_corr_pole_km_vals) * line_count);
+        = (double *)malloc(sizeof(*tau->rho_corr_pole_km_vals) * line_count);
     if (tau->rho_corr_pole_km_vals == NULL)
     {
         tau->error_occurred = rssringoccs_True;
@@ -218,7 +218,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_TauCSV* rssringoccs_Get_Tau(const char *filename
 
     /*  Allocate memory for rho_corr_timing_km_vals and check for error.      */
     tau->rho_corr_timing_km_vals
-        = malloc(sizeof(*tau->rho_corr_timing_km_vals) * line_count);
+        = (double *)malloc(sizeof(*tau->rho_corr_timing_km_vals) * line_count);
     if (tau->rho_corr_timing_km_vals == NULL)
     {
         tau->error_occurred = rssringoccs_True;
@@ -235,7 +235,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_TauCSV* rssringoccs_Get_Tau(const char *filename
     }
 
     /*  Allocate memory for phi_rl_deg_vals and check for error.              */
-    tau->phi_rl_deg_vals = malloc(sizeof(*tau->phi_rl_deg_vals) * line_count);
+    tau->phi_rl_deg_vals = (double *)malloc(sizeof(*tau->phi_rl_deg_vals) * line_count);
     if (tau->phi_rl_deg_vals == NULL)
     {
         tau->error_occurred = rssringoccs_True;
@@ -252,7 +252,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_TauCSV* rssringoccs_Get_Tau(const char *filename
     }
 
     /*  Allocate memory for phi_ora_deg_vals and check for error.             */
-    tau->phi_ora_deg_vals = malloc(sizeof(*tau->phi_ora_deg_vals) * line_count);
+    tau->phi_ora_deg_vals = (double *)malloc(sizeof(*tau->phi_ora_deg_vals) * line_count);
     if (tau->phi_ora_deg_vals == NULL)
     {
         tau->error_occurred = rssringoccs_True;
@@ -269,7 +269,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_TauCSV* rssringoccs_Get_Tau(const char *filename
     }
 
     /*  Allocate memory for B_deg_vals and check for error.                   */
-    tau->B_deg_vals = malloc(sizeof(*tau->B_deg_vals) * line_count);
+    tau->B_deg_vals = (double *)malloc(sizeof(*tau->B_deg_vals) * line_count);
     if (tau->B_deg_vals == NULL)
     {
         tau->error_occurred = rssringoccs_True;
@@ -286,7 +286,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_TauCSV* rssringoccs_Get_Tau(const char *filename
     }
 
     /*  Allocate memory for tau_vals and check for error.                     */
-    tau->tau_vals = malloc(sizeof(*tau->tau_vals) * line_count);
+    tau->tau_vals = (double *)malloc(sizeof(*tau->tau_vals) * line_count);
     if (tau->tau_vals == NULL)
     {
         tau->error_occurred = rssringoccs_True;
@@ -303,7 +303,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_TauCSV* rssringoccs_Get_Tau(const char *filename
     }
 
     /*  Allocate memory for phase_deg_vals and check for error.               */
-    tau->phase_deg_vals = malloc(sizeof(*tau->phase_deg_vals) * line_count);
+    tau->phase_deg_vals = (double *)malloc(sizeof(*tau->phase_deg_vals) * line_count);
     if (tau->phase_deg_vals == NULL)
     {
         tau->error_occurred = rssringoccs_True;
@@ -321,7 +321,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_TauCSV* rssringoccs_Get_Tau(const char *filename
 
     /*  Allocate memory for tau_threshold_vals and check for error.       */
     tau->tau_threshold_vals
-        = malloc(sizeof(*tau->tau_threshold_vals) * line_count);
+        = (double *)malloc(sizeof(*tau->tau_threshold_vals) * line_count);
     if (tau->tau_threshold_vals == NULL)
     {
         tau->error_occurred = rssringoccs_True;
@@ -345,7 +345,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_TauCSV* rssringoccs_Get_Tau(const char *filename
     {
         /*  Allocate memory for power_vals.                                   */
         tau->power_vals =
-            malloc(sizeof(*tau->power_vals) * line_count);
+            (double *)malloc(sizeof(*tau->power_vals) * line_count);
         if (tau->power_vals == NULL)
         {
             tau->error_occurred = rssringoccs_True;

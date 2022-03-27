@@ -43,9 +43,9 @@
 
 /*  Use this macro to save on repetitive code. It attempts to allocate memory *
  *  for a member of a tau object and then checks if malloc failed.            */
-#define MALLOC_TAU_MEMBER(var)                                                 \
+#define MALLOC_TAU_MEMBER(var, type)                                           \
     /*  Allocate memory for the variable.                                    */\
-    tau->var = malloc(sizeof(*tau->var) * tau->arr_size);                      \
+    tau->var = (type)malloc(sizeof(*tau->var) * tau->arr_size);                \
                                                                                \
     /*  Check if malloc failed.                                              */\
     if (tau->var == NULL)                                                      \
@@ -92,9 +92,9 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Tau_Compute_Vars(rssringoccs_TAUObj *tau)
 
     /*  Allocate memory for the complex transmittance T_in, the Fresnel scale *
      *  F_km_vals, and the wavenumber k_vals.                                 */
-    MALLOC_TAU_MEMBER(T_in)
-    MALLOC_TAU_MEMBER(F_km_vals)
-    MALLOC_TAU_MEMBER(k_vals)
+    MALLOC_TAU_MEMBER(T_in, rssringoccs_ComplexDouble*)
+    MALLOC_TAU_MEMBER(F_km_vals, double*)
+    MALLOC_TAU_MEMBER(k_vals, double*)
 
     /*  Loop over the entries of each pointer and compute their values.       */
     for (n = 0; n < tau->arr_size; ++n)

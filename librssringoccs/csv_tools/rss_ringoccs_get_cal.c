@@ -34,7 +34,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_CalCSV* rssringoccs_Get_Cal(const char *filename
     int ch;
     unsigned long line_count, column_count, n;
 
-    cal = malloc(sizeof(*cal));
+    cal = (rssringoccs_CalCSV*)malloc(sizeof(*cal));
 
     /*  Check if malloc failed.                                               */
     if (cal == NULL)
@@ -84,7 +84,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_CalCSV* rssringoccs_Get_Cal(const char *filename
 
     /*  And count the number of columns.                                      */
     column_count = 0;
-    line = fgets(buffer,sizeof(buffer), fp);
+    line = fgets(buffer, sizeof(buffer), fp);
     record = strtok(line, ",");
     while (record != NULL)
     {
@@ -106,7 +106,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_CalCSV* rssringoccs_Get_Cal(const char *filename
     }
 
     /*  Allocate memory for t_oet_spm_vals and check for error.               */
-    cal->t_oet_spm_vals = malloc(sizeof(*cal->t_oet_spm_vals) * line_count);
+    cal->t_oet_spm_vals = (double*)malloc(sizeof(*cal->t_oet_spm_vals) * line_count);
     if (cal->t_oet_spm_vals == NULL)
     {
         cal->error_occurred = rssringoccs_True;
@@ -123,7 +123,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_CalCSV* rssringoccs_Get_Cal(const char *filename
     }
 
     /*  Allocate memory for f_sky_pred_vals and check for error.              */
-    cal->f_sky_pred_vals = malloc(sizeof(*cal->f_sky_pred_vals) * line_count);
+    cal->f_sky_pred_vals = (double*)malloc(sizeof(*cal->f_sky_pred_vals) * line_count);
     if (cal->f_sky_pred_vals == NULL)
     {
         cal->error_occurred = rssringoccs_True;
@@ -141,7 +141,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_CalCSV* rssringoccs_Get_Cal(const char *filename
 
     /*  Allocate memory for f_sky_resid_fit_vals and check for error.         */
     cal->f_sky_resid_fit_vals
-        = malloc(sizeof(*cal->f_sky_resid_fit_vals) * line_count);
+        = (double*)malloc(sizeof(*cal->f_sky_resid_fit_vals) * line_count);
     if (cal->f_sky_resid_fit_vals == NULL)
     {
         cal->error_occurred = rssringoccs_True;
@@ -158,7 +158,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_CalCSV* rssringoccs_Get_Cal(const char *filename
     }
 
     /*  Allocate memory for p_free_vals and check for error.                  */
-    cal->p_free_vals = malloc(sizeof(*cal->p_free_vals) * line_count);
+    cal->p_free_vals =(double*)malloc(sizeof(*cal->p_free_vals) * line_count);
     if (cal->p_free_vals == NULL)
     {
         cal->error_occurred = rssringoccs_True;

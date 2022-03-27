@@ -23,7 +23,7 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Reconstruction(rssringoccs_TAUObj *tau)
     rssringoccs_Tau_Get_Window_Width(tau);
     rssringoccs_Tau_Check_Data_Range(tau);
 
-    tau->T_out = calloc(tau->arr_size, sizeof(*tau->T_out));
+    tau->T_out = (rssringoccs_ComplexDouble *)calloc(tau->arr_size, sizeof(*tau->T_out));
     rssringoccs_Tau_Check_Data(tau);
 
     temp_fwd = tau->use_fwd;
@@ -44,7 +44,7 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Reconstruction(rssringoccs_TAUObj *tau)
     {
         temp_T_in  = tau->T_in;
         tau->T_in  = tau->T_out;
-        tau->T_out = calloc(tau->arr_size, sizeof(*tau->T_out));
+        tau->T_out = (rssringoccs_ComplexDouble *)calloc(tau->arr_size, sizeof(*tau->T_out));
 
         /*  If forward tranform is set, negate the k_vals variable. This has  *
          *  the equivalent effect of computing the forward calculation later. */
@@ -97,7 +97,6 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Reconstruction(rssringoccs_TAUObj *tau)
         tau->T_fwd = tau->T_out;
         tau->T_out = tau->T_in;;
         tau->T_in  = temp_T_in;
-
     }
 
     rssringoccs_Tau_Finish(tau);

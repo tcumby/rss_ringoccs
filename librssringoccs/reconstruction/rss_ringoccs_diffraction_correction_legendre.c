@@ -120,15 +120,15 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Diffraction_Correction_Legendre(rssringoccs
         return;
 
     /*  Allocate memory for the independent variable and window function.     */
-    x_arr  = malloc(sizeof(*x_arr)*nw_pts);
-    w_func = malloc(sizeof(*w_func)*nw_pts);
+    x_arr  = (double *)malloc(sizeof(*x_arr)*nw_pts);
+    w_func = (double *)malloc(sizeof(*w_func)*nw_pts);
 
     /*  Also for the two Legendre polynomials.                                */
-    legendre_p     = malloc(sizeof(*legendre_p)*(poly_order+1));
-    alt_legendre_p = malloc(sizeof(*alt_legendre_p)*poly_order);
+    legendre_p     = (double *)malloc(sizeof(*legendre_p)*(poly_order+1));
+    alt_legendre_p = (double *)malloc(sizeof(*alt_legendre_p)*poly_order);
 
     /*  And finally for the coefficients of psi.                              */
-    fresnel_ker_coeffs = malloc(sizeof(*fresnel_ker_coeffs)*poly_order);
+    fresnel_ker_coeffs = (double *)malloc(sizeof(*fresnel_ker_coeffs)*poly_order);
 
     /*  Check that malloc was successfull then pass the x_arr array           *
      *  (ring radius) to the void function reset_window. This alters x_arr so *

@@ -286,8 +286,8 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Diffraction_Correction_Fresnel(rssringoccs_
      *  function. This will need to be reallocated later if the window width  *
      *  changes by more than two_dx. Per C99 recommendations, we do not cast  *
      *  malloc since void will safely be promoted to a double pointer.        */
-    x_arr  = malloc(sizeof(*x_arr)  * nw_pts);
-    w_func = malloc(sizeof(*w_func) * nw_pts);
+    x_arr  = (double *)malloc(sizeof(*x_arr)  * nw_pts);
+    w_func = (double *)malloc(sizeof(*w_func) * nw_pts);
 
     /*  Check that malloc was successfull then pass the x_arr array           *
      *  (ring radius) to the void function reset_window. This alters x_arr so *
