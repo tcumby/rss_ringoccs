@@ -67,7 +67,7 @@ repos:
     rev: 1.6.0
     hooks:
       - id: cpplint
-        args: ["--linelength=120", "--filter=-legal/copyright,-whitespace/braces,-whitespace/newline,-build/namespaces,-build/header_guard,-build/include_order,-build/include_subdir, -whitespace/parens,-readability/casting,-runtime/threadsafe_fn,-runtime/int,-runtime/printf,-whitespace/operators,-readability/braces"]
+        args: ["--linelength=120", "--filter=-legal/copyright,-whitespace/braces,-whitespace/newline,-build/namespaces,-build/header_guard,-build/include_order,-build/include_subdir, -whitespace/parens,-readability/casting,-runtime/threadsafe_fn,-runtime/int,-runtime/printf,-whitespace/operators,-readability/braces,-whitespace/comma,-whitespace/tab,-readability/fn_size"]
   # Formatters
   - repo: https://github.com/BlankSpruce/gersemi #cmake formatter
     rev: 0.8.0
