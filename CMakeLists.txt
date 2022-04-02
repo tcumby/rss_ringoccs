@@ -31,6 +31,9 @@ endif()
 option(BUILD_EXAMPLES "Build all examples" TRUE)
 option(BUILD_TESTS "Build all tests" TRUE)
 
+set(RSS_RINGOCCS_PARENT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." CACHE PATH "" FORCE)
+set(RSS_RINGOCCS_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}" CACHE PATH "" FORCE)
+
 project(rss_ringoccs)
 
 add_subdirectory("librssringoccs")

@@ -12,7 +12,6 @@ if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
 endif()
 
 project(math_examples)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
 # abs_example.c lacks a main() at the moment. Once there is an implementation, uncomment the following lines
 # set(apps
@@ -20,9 +19,10 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 # )
 # foreach(app ${apps})
 #     add_executable(${app} ${app}.c)
-#    if (MSVC)
-#        set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
-#    endif()
+#     if (MSVC)
+#         set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+#     endif()
+#     target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
 #     target_link_libraries(${app} PRIVATE rss::librssringoccs)
 # endforeach()
 

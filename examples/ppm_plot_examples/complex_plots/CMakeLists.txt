@@ -11,8 +11,6 @@ endif()
 
 project(complex_plots LANGUAGES CXX)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
-
 set(apps
     complex_cos_plots
     complex_erf_plots
@@ -28,6 +26,7 @@ foreach(app ${apps})
     if(MSVC)
         set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     endif()
+    target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(${app} PRIVATE rss::librssringoccs)
 endforeach()
 
