@@ -10,11 +10,11 @@ if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
 endif()
 
 include(FetchGSL)
-project(special_functions_plots_tests)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
-include(CMakePrintHelpers)
+project(special_functions_plots_tests)
+
 set(test_apps bessel_i0_plots bessel_j0_plots)
+
 foreach(app ${test_apps})
     if(MSVC)
         set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
@@ -24,6 +24,7 @@ foreach(app ${test_apps})
         ${app}
         PRIVATE "$<TARGET_PROPERTY:GSL::gsl,INTERFACE_INCLUDE_DIRECTORIES>"
     )
+    target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(
         ${app}
         PRIVATE rss::librssringoccs rss::librssringoccs_compare GSL::gsl

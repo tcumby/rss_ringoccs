@@ -13,8 +13,6 @@ include(FetchCerf)
 
 project(complex_tests LANGUAGES CXX)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
-
 set(test_apps
     complex_abs_squared_alt_time_test
     complex_abs_squared_time_test
@@ -62,6 +60,7 @@ foreach(app ${cerf_apps})
         set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     endif()
     target_include_directories(${app} PRIVATE ${cerf_INCLUDE_DIRECTORY})
+    target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(
         ${app}
         PRIVATE rss::librssringoccs rss::librssringoccs_compare ${cerf_LIBRARY}

@@ -12,7 +12,6 @@ endif()
 include(FetchCerf)
 
 project(csv_tests)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
 set(test_apps test_get_dlp_csv test_get_geo_csv test_get_tau_csv)
 foreach(app ${test_apps})
@@ -20,6 +19,7 @@ foreach(app ${test_apps})
         set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     endif()
     add_executable(${app} ${app}.c)
+    target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(
         ${app}
         PRIVATE rss::librssringoccs rss::librssringoccs_compare
