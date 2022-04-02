@@ -18,6 +18,9 @@ set(apps julia_set julia_set_animation julia_set_on_sphere)
 
 foreach(app ${apps})
     add_executable(${app} ${app}.c)
+    if(MSVC)
+        set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+    endif()
     target_link_libraries(${app} PRIVATE rss::librssringoccs)
 endforeach()
 
