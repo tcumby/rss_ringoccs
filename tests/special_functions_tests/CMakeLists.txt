@@ -17,6 +17,9 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
 set(test_apps bessel_j0_time_test)
 foreach(app ${test_apps})
+    if(MSVC)
+        set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+    endif()
     add_executable(${app} ${app}.c)
     target_include_directories(
         ${app}

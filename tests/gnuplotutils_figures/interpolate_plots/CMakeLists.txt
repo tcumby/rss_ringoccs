@@ -16,6 +16,9 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
 set(test_apps linear_interpolate_plot sin_interpolate_plot)
 foreach(app ${test_apps})
+    if(MSVC)
+        set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+    endif()
     add_executable(${app} ${app}.c)
     target_link_libraries(
         ${app}

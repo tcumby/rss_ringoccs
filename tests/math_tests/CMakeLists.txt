@@ -23,6 +23,9 @@ set(test_apps
     sinl_time_test
 )
 foreach(app ${test_apps})
+    if(MSVC)
+        set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+    endif()
     add_executable(${app} ${app}.c)
     target_link_libraries(
         ${app}

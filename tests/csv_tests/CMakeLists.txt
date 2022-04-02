@@ -16,6 +16,9 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
 set(test_apps test_get_dlp_csv test_get_geo_csv test_get_tau_csv)
 foreach(app ${test_apps})
+    if(MSVC)
+        set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+    endif()
     add_executable(${app} ${app}.c)
     target_link_libraries(
         ${app}

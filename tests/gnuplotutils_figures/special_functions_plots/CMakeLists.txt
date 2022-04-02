@@ -16,6 +16,9 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 include(CMakePrintHelpers)
 set(test_apps bessel_i0_plots bessel_j0_plots)
 foreach(app ${test_apps})
+    if(MSVC)
+        set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+    endif()
     add_executable(${app} ${app}.c)
     target_include_directories(
         ${app}

@@ -58,7 +58,9 @@ set(cerf_apps
 )
 foreach(app ${cerf_apps})
     add_executable(${app} ${app}.c)
-    set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+    if(MSVC)
+        set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+    endif()
     target_include_directories(${app} PRIVATE ${cerf_INCLUDE_DIRECTORY})
     target_link_libraries(
         ${app}
