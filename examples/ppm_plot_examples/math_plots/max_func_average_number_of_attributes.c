@@ -146,9 +146,9 @@ int main(void)
 
     /*  Allocate memory for an array of size max_arr_length to perform our    *
      *  test on. The malloc function is defined in stdlib.h.                  */
-    arr = malloc(sizeof(*arr) * max_arr_length);
-    x0  = malloc(sizeof(*x0)  * max_arr_length);
-    y0  = malloc(sizeof(*y0)  * max_arr_length);
+    arr = (double*)malloc(sizeof(*arr) * max_arr_length);
+    x0  = (double*)malloc(sizeof(*x0)  * max_arr_length);
+    y0  = (double*)malloc(sizeof(*y0)  * max_arr_length);
 
     /*  Check the malloc didn't fail, aborting computation if it did. Malloc  *
      *  returns NULL on failure so check for this.                            */

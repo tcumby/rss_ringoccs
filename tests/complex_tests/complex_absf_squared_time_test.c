@@ -49,15 +49,20 @@
 
 /*  C99 does not provide an abs squared function, so let's create one using   *
  *  the built-in _Complex data type.                                          */
-static float cabsf_sq(_Complex float z)
+static float cabsf_sq(rssringoccs_ComplexFloat z)
 {
     /*  Declare necessary variables.                                          */
     float x, y, abs_sq;
 
     /*  Use the creal and cimag functions found in complex.h to extract the   *
      *  real and imaginary parts from the input z.                            */
+#ifdef _MSC_VER && __RSS_RINGOCCS_USING_COMPLEX_H__==1
+    x = real(z);
+    y = imag(z);
+#else
     x = crealf(z);
     y = cimagf(z);
+#endif
 
     /*  |z|^2 = x^2 + y^2 so return this.                                     */
     abs_sq = x*x + y*y;

@@ -128,8 +128,8 @@ double *merge_sort(double *arr, unsigned int arr_size)
 
     /*  We're going to copy the data in arr into unsorted so as not to        *
      *  potentially corrupt or change the input.                              */
-    unsorted = malloc(sizeof(*unsorted) * arr_size);
-    sorted   = malloc(sizeof(*sorted) * arr_size);
+    unsorted = (double*)malloc(sizeof(*unsorted) * arr_size);
+    sorted   = (double*)malloc(sizeof(*sorted) * arr_size);
 
     /*  Set both sorted and unsorted to the same values as arr.               */
     for (n=0; n<arr_size; ++n)
@@ -196,7 +196,7 @@ int main(void)
     double *sorted;
 
     /*  Allocate memory for the random unsorted array.                        */
-    double *x = malloc(sizeof(*x) * N);
+    double *x = (double*)malloc(sizeof(*x) * N);
 
     /*  Set the entries of x to random values.                                */
     for (n = 0; n < N; ++n)

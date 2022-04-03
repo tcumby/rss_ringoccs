@@ -48,8 +48,13 @@
 #include <rss_ringoccs/tests/librssringoccs_compare/rss_ringoccs_compare_funcs.h>
 
 /*  We'll test the computation of the distance from z to 1 + i.               */
+#ifdef _MSC_VER && __RSS_RINGOCCS_USING_COMPLEX_H__==1
+static const rssringoccs_ComplexLongDouble z = {1.0L, 1.0L};
+static const rssringoccs_ComplexLongDouble w = {1.0L, 1.0L};
+#else
 static const rssringoccs_ComplexLongDouble z = 1.0L + (rssringoccs_ComplexLongDouble)_Complex_I;
 static const rssringoccs_ComplexLongDouble w = {{1.0L, 1.0L}};
+#endif
 
 /*  C99 version.                                                              */
 static long double dist(rssringoccs_ComplexLongDouble z0)

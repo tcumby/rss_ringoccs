@@ -89,9 +89,15 @@ static rssringoccs_ComplexDouble f_2prime(rssringoccs_ComplexDouble z)
 /*  We can be more general and set up fractals for general polynomials. This  *
  *  cubic will have three roots, so set NRoots to 3, and compute the roots.   */
 #define NRoots 3
+#ifdef _MSC_VER && __RSS_RINGOCCS_USING_COMPLEX_H__==1
+rssringoccs_ComplexDouble ROOT_1 = {1.0, 0.0};
+rssringoccs_ComplexDouble ROOT_2 = {-0.5, +0.8660254037844386};
+rssringoccs_ComplexDouble ROOT_3 = {-0.5, -0.8660254037844386};
+#else
 rssringoccs_ComplexDouble ROOT_1 = {{1.0, 0.0}};
 rssringoccs_ComplexDouble ROOT_2 = {{-0.5, +0.8660254037844386}};
 rssringoccs_ComplexDouble ROOT_3 = {{-0.5, -0.8660254037844386}};
+#endif
 
 int main(void)
 {
@@ -206,7 +212,6 @@ int main(void)
                     rssringoccs_Color(brightness[0], brightness[1], brightness[2], fp);
                 }
             }
-
         }
     }
     return 0;

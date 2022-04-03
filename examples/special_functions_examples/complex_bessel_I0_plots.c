@@ -131,7 +131,7 @@ int main(void)
     }
 
     /*  There are two files, so malloc memory for two.                        */
-    fp = malloc(sizeof(*fp) * 2);
+    fp = (FILE**)malloc(sizeof(*fp) * 2);
 
     /*  Create the files and give them write permissions.                     */
     fp[0] = fopen("complex_bessel_I0_real_part.ppm", "w");
