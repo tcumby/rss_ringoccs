@@ -40,10 +40,10 @@ int main(void)
     double start  = -3.0;
     double end    =  3.0;
     double dx     =  (end - start) / N;
-    double *x     = malloc(sizeof(x) * (N + 1));
-    double *y     = malloc(sizeof(y) * (N + 1));
-    double *x_new = malloc(sizeof(x_new) * N_new);
-    double *y_new = malloc(sizeof(y_new) * N_new);
+    double *x     = (double*)malloc(sizeof(x) * (N + 1));
+    double *y     = (double*)malloc(sizeof(y) * (N + 1));
+    double *x_new = (double*)malloc(sizeof(x_new) * N_new);
+    double *y_new = (double*)malloc(sizeof(y_new) * N_new);
 
     for (n=0; n<=N; ++n)
     {
@@ -60,7 +60,7 @@ int main(void)
     free(x);
     free(y);
 
-    y = malloc(sizeof(y) * N_new);
+    y = (double*)malloc(sizeof(y) * N_new);
 
     for (n=0; n<N_new; ++n)
         y[n] = sin(x_new[n]);

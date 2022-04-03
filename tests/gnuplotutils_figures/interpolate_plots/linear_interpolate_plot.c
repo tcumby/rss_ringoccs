@@ -44,10 +44,10 @@ int main(void)
     double start  = -0.5*(N - 1);
     double end    =  0.5*(N - 1);
     double dx     =  (end - start) / N_new;
-    double *x     = malloc(sizeof(x) * N);
-    double *y     = malloc(sizeof(y) * N);
-    double *x_new = malloc(sizeof(x_new) * N_new);
-    double *y_new = malloc(sizeof(y_new) * N_new);
+    double *x     = (double*)malloc(sizeof(x) * N);
+    double *y     = (double*)malloc(sizeof(y) * N);
+    double *x_new = (double*)malloc(sizeof(x_new) * N_new);
+    double *y_new = (double*)malloc(sizeof(y_new) * N_new);
 
     for (n=0; n<N; ++n)
     {
