@@ -30,21 +30,13 @@ foreach(app ${apps})
     target_link_libraries(${app} PRIVATE rss::librssringoccs)
 endforeach()
 
-include(GNUInstallDirs)
-install(
-    TARGETS ${apps}
-    RUNTIME
-    DESTINATION ${CMAKE_INSTALL_BINDIR}
-    LIBRARY
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}
-)
-
 include(FetchCerf)
 set(cerf_apps complex_faddeeva_plots)
 foreach(app ${cerf_apps})
     add_executable(${app} ${app}.c)
     set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     target_include_directories(${app} PRIVATE ${cerf_INCLUDE_DIRECTORY})
+    target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(
         ${app}
         PRIVATE rss::librssringoccs rss::librssringoccs_compare ${cerf_LIBRARY}
@@ -55,3 +47,12 @@ foreach(app ${cerf_apps})
         target_compile_options(${app} PRIVATE -DCERF_AS_CPP)
     endif()
 endforeach()
+
+include(GNUInstallDirs)
+install(
+    TARGETS ${apps} ${cerf_apps}
+    RUNTIME
+    DESTINATION ${CMAKE_INSTALL_BINDIR}
+    LIBRARY
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
