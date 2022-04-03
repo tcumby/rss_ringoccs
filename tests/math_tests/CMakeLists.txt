@@ -38,6 +38,7 @@ foreach(app ${cerf_apps})
     add_executable(${app} ${app}.c)
     set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     target_include_directories(${app} PRIVATE ${cerf_INCLUDE_DIRECTORY})
+    target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(
         ${app}
         PRIVATE rss::librssringoccs rss::librssringoccs_compare ${cerf_LIBRARY}
