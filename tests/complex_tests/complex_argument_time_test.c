@@ -58,6 +58,12 @@ int main(void)
      *  the (end, end) in the complex plane.                                  */
     unsigned long N = 1e4;
 
+#if defined(_MSC_VER) && __RSS_RINGOCCS_USING_COMPLEX_H__==1
+    /* std::exp in std::complex does not have non-const overloads,
+    so we create a lambda                                                     */
+    auto carg = [](rssringoccs_ComplexDouble z) { return std::arg(z); };
+#endif
+
     /*  Use the compare function found in rss_ringoccs_compare_funcs.h.       */
     rssringoccs_Compare_Real_CDouble_Funcs("rss_ringoccs",
                                            rssringoccs_CDouble_Argument,

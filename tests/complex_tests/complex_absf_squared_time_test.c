@@ -56,7 +56,7 @@ static float cabsf_sq(rssringoccs_ComplexFloat z)
 
     /*  Use the creal and cimag functions found in complex.h to extract the   *
      *  real and imaginary parts from the input z.                            */
-#ifdef _MSC_VER && __RSS_RINGOCCS_USING_COMPLEX_H__==1
+#if defined(_MSC_VER) && __RSS_RINGOCCS_USING_COMPLEX_H__==1
     x = real(z);
     y = imag(z);
 #else

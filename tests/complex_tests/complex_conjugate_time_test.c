@@ -57,11 +57,22 @@ int main(void)
     /*  We'll test on a square grid of 100 million points from (start, start) *
      *  the (end, end) in the complex plane.                                  */
     unsigned long N = 1e4;
+#if defined(_MSC_VER) && __RSS_RINGOCCS_USING_COMPLEX_H__==1
+    /* std::conj in std::complex does not have non-const overloads,
+    so we create a lambda                                                     */
+    auto rss_conj = [](rssringoccs_ComplexDouble z) { return std::conj(z); };
+
+    /*  Use the compare function found in rss_ringoccs_compare_funcs.h.       */
+    rssringoccs_Compare_CDouble_Funcs("rss_ringoccs",
+                                      rssringoccs_CDouble_Conjugate,
+                                      "C99", rss_conj, start, end, N);
+#else
 
     /*  Use the compare function found in rss_ringoccs_compare_funcs.h.       */
     rssringoccs_Compare_CDouble_Funcs("rss_ringoccs",
                                       rssringoccs_CDouble_Conjugate,
                                       "C99", conj, start, end, N);
+#endif
 
     return 0;
 }
