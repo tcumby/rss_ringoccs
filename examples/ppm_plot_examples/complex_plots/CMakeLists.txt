@@ -39,7 +39,10 @@ foreach(app ${cerf_apps})
     target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(
         ${app}
-        PRIVATE rss::librssringoccs rss::librssringoccs_compare ${cerf_LIBRARY}
+        PRIVATE
+            rss::librssringoccs
+            rss::librssringoccs_compare
+            $<IF:$<BOOL:CERF_CPP>,cerfcpp,cerf>
     )
     if(MSVC)
         target_compile_options(${app} PRIVATE /DCERF_AS_CPP)
