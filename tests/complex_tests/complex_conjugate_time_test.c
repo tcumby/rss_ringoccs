@@ -60,7 +60,7 @@ int main(void)
 #if defined(_MSC_VER) && __RSS_RINGOCCS_USING_COMPLEX_H__==1
     /* std::conj in std::complex does not have non-const overloads,
     so we create a lambda                                                     */
-    auto rss_conj = [](rssringoccs_ComplexDouble z) { return std::conj(z); };
+    rssringoccs_ComplexDouble (*rss_conj)(rssringoccs_ComplexDouble) = [](auto z) -> auto { return std::conj(z); };
 
     /*  Use the compare function found in rss_ringoccs_compare_funcs.h.       */
     rssringoccs_Compare_CDouble_Funcs("rss_ringoccs",

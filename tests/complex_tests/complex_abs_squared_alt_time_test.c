@@ -46,7 +46,6 @@
 
 /*  C99 does not provide an abs squared function, so let's create one using   *
  *  the built-in _Complex data type.                                          */
-#if __RSS_RINGOCCS_USING_COMPLEX_H__==1
 static double cabs_sq(rssringoccs_ComplexDouble z)
 {
     /*  Declare necessary variables.                                          */
@@ -54,7 +53,7 @@ static double cabs_sq(rssringoccs_ComplexDouble z)
 
     /*  Use the creal and cimag functions found in complex.h to extract the   *
      *  real and imaginary parts from the input z.                            */
-#ifdef _MSC_VER
+#if defined(_MSC_VER) && __RSS_RINGOCCS_USING_COMPLEX_H__==1
     x = real(z);
     y = imag(z);
 #else
@@ -66,7 +65,7 @@ static double cabs_sq(rssringoccs_ComplexDouble z)
     abs_sq = x*x + y*y;
     return abs_sq;
 }
-#else
+
 /*  The rssringoccs_CDouble_Abs_Squared function was written with clarity in  *
  *  mind. We can save calls to the functions rssringoccs_CDouble_Real_Part    *
  *  and rssringoccs_CDouble_Imag_Part by directly accessing the data member   *
@@ -80,14 +79,19 @@ static double rss_cabs_sq(rssringoccs_ComplexDouble z)
 
     /*  Access the real and imaginary parts of the struct z directly, rather  *
      *  than making calls to rssringoccs_CDouble_Real/Imag_Part.              */
+#if defined(_MSC_VER) && __RSS_RINGOCCS_USING_COMPLEX_H__==1
+    x = reinterpret_cast<double(&)[2]>(z)[0];
+    y = reinterpret_cast<double(&)[2]>(z)[1];
+#else
     x = z.dat[0];
     y = z.dat[1];
+#endif
 
     /*  |z|^2 = x^2 + y^2 so return this.                                     */
     abs_sq = x*x + y*y;
     return abs_sq;
 }
-#endif
+
 /*  Routine for comparing cabs_sq with rss_cabs_sq.                           */
 int main(void)
 {

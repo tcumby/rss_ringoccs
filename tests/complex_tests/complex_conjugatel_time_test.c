@@ -23,6 +23,10 @@
 /*  rss_ringoccs complex routines found here.                                 */
 #include <rss_ringoccs/include/rss_ringoccs_complex.h>
 
+#ifdef __cplusplus
+#include <functional>
+#endif
+
 /*  C99 complex functions found here. Note, your compiler must support        *
  *  complex variables to run this test.                                       */
 #include <complex.h>
@@ -60,12 +64,13 @@ int main(void)
 #if defined(_MSC_VER) && __RSS_RINGOCCS_USING_COMPLEX_H__==1
     /* std::conj in std::complex does not have non-const overloads,
     so we create a lambda                                                     */
-    auto rss_conjl = [](rssringoccs_ComplexLongDouble z) { return std::conj(z); };
+    rssringoccs_ComplexLongDouble (*rss_conjl)(rssringoccs_ComplexLongDouble) =
+     [](auto z) -> auto { return std::conj(z); };
 
     /*  Use the compare function found in rss_ringoccs_compare_funcs.h.       */
-    rssringoccs_Compare_CFloat_Funcs("rss_ringoccs",
-                                     rssringoccs_CLDouble_Conjugate,
-                                     "C99", rss_conjl, start, end, N);
+    rssringoccs_Compare_CLDouble_Funcs("rss_ringoccs",
+                                       rssringoccs_CLDouble_Conjugate,
+                                       "C99", rss_conjl, start, end, N);
 #else
     /*  Use the compare function found in rss_ringoccs_compare_funcs.h.       */
     rssringoccs_Compare_CLDouble_Funcs("rss_ringoccs",

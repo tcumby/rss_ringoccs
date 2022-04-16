@@ -61,7 +61,7 @@ int main(void)
 #if defined(_MSC_VER) && __RSS_RINGOCCS_USING_COMPLEX_H__==1
     /* std::conj in std::complex does not have non-const overloads,
     so we create a lambda                                                     */
-    auto rss_conjf = [](rssringoccs_ComplexFloat z) { return std::conj(z); };
+    rssringoccs_ComplexFloat (*rss_conjf)(rssringoccs_ComplexFloat) = [](auto z) -> auto { return std::conj(z); };
 
     /*  Use the compare function found in rss_ringoccs_compare_funcs.h.       */
     rssringoccs_Compare_CFloat_Funcs("rss_ringoccs",
