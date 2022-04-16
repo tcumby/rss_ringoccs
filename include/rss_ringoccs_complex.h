@@ -106,13 +106,16 @@
 
 /*  Grab everything from the C99 standard complex.h and we'll just alias the  *
  *  functions and macros defined within.                                      */
-#include <complex.h>
+
 
 #ifdef _MSC_VER
-/* Visual Studio defines _Fcomplex,_Dcomplex, _Lcomplex instead of float      *
- * _Complex, double _Complex, and long double _Complex, respectively          */
 
-/*  You have complex.h support, so we'll just typedef double _Complex.        */
+#ifndef __cplusplus
+#error Only compiling as C++ is supported for Microsoft Visual Studio
+#endif
+
+#include <complex>
+
 typedef std::complex<double> rssringoccs_ComplexDouble;
 
 /*  Typedef single and long double precision equivalents.                     */
@@ -120,6 +123,7 @@ typedef std::complex<float> rssringoccs_ComplexFloat;
 typedef std::complex<long double> rssringoccs_ComplexLongDouble;
 
 #else
+#include <complex.h>
 /*  You have complex.h support, so we'll just typedef double _Complex.        */
 typedef double _Complex rssringoccs_ComplexDouble;
 
