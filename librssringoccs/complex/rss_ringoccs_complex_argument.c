@@ -152,14 +152,14 @@ rssringoccs_CLDouble_Argument(rssringoccs_ComplexLongDouble z)
 /*  Single precision complex argument function.                               */
 RSS_RINGOCCS_EXPORT float rssringoccs_CFloat_Argument(rssringoccs_ComplexFloat z)
 {
-    return cargf(z);
+    return arg(z);
 }
 /*  End of rssringoccs_CFloat_Argument.                                 */
 
 /*  Double precision complex argument function.                               */
 RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Argument(rssringoccs_ComplexDouble z)
 {
-    return carg(z);
+    return arg(z);
 }
 /*  End of rssringoccs_CDouble_Argument.                                */
 
@@ -167,7 +167,7 @@ RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Argument(rssringoccs_ComplexDoubl
 RSS_RINGOCCS_EXPORT long double
 rssringoccs_CLDouble_Argument(rssringoccs_ComplexLongDouble z)
 {
-    return cargl(z);
+    return arg(z);
 }
 /*  End of rssringoccs_CLDouble_Argument.                            */
 

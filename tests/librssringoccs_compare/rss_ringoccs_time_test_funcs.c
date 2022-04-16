@@ -101,16 +101,16 @@ rssringoccs_RelCompare_CFloat_Funcs(
     ds = (end - start) / N;
 
     /*  Allocate memory for the two pointers we've declared.                  */
-    z0 = malloc(sizeof(*z0) * N);
-    z1 = malloc(sizeof(*z1) * N);
+    z0 = (rssringoccs_ComplexFloat**)malloc(sizeof(*z0) * N);
+    z1 = (rssringoccs_ComplexFloat**)malloc(sizeof(*z1) * N);
 
     /*  Set each element of z0 and z1 to pointers for complex variables. This *
      *  has the effect of creating an NxN matrix/array of complex numbers. We *
      *  can access the (m,n) entry via z0[m][n] and z1[m][n].                 */
     for (m=0; m<N; ++m)
     {
-        z0[m] = malloc(sizeof(*z0[m]) * N);
-        z1[m] = malloc(sizeof(*z1[m]) * N);
+        z0[m] = (rssringoccs_ComplexFloat*)malloc(sizeof(*z0[m]) * N);
+        z1[m] = (rssringoccs_ComplexFloat*)malloc(sizeof(*z1[m]) * N);
     }
     /*  Don't forget to free everything when we're done.                      */
 
@@ -158,7 +158,7 @@ rssringoccs_RelCompare_CFloat_Funcs(
         for (n=0; n<N; ++n)
         {
 #if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
-            z1[m][n] = f1(_FCbuild(x, y));
+            z1[m][n] = f1({x, y});
 #else
             z1[m][n] = f1(x + _Complex_I*y);
 #endif
@@ -280,13 +280,13 @@ rssringoccs_RelCompare_CDouble_Funcs(
     ds = (end - start) / N;
 
     /*  Allocate memory for the two pointers we've declared.                  */
-    z0 = malloc(sizeof(*z0) * N);
-    z1 = malloc(sizeof(*z1) * N);
+    z0 = (rssringoccs_ComplexDouble**)malloc(sizeof(*z0) * N);
+    z1 = (rssringoccs_ComplexDouble**)malloc(sizeof(*z1) * N);
 
     for (m=0; m<N; ++m)
     {
-        z0[m] = malloc(sizeof(*z0[m]) * N);
-        z1[m] = malloc(sizeof(*z1[m]) * N);
+        z0[m] = (rssringoccs_ComplexDouble*)malloc(sizeof(*z0[m]) * N);
+        z1[m] = (rssringoccs_ComplexDouble*)malloc(sizeof(*z1[m]) * N);
     }
 
     /*  Set y to the starting value and grab the current time.                */
@@ -326,7 +326,7 @@ rssringoccs_RelCompare_CDouble_Funcs(
         for (n=0; n<N; ++n)
         {
 #if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
-            z1[m][n] = f1(_Cbuild(x, y));
+            z1[m][n] = f1({x, y});
 #else
             z1[m][n] = f1(x + (rssringoccs_ComplexDouble)_Complex_I * y);
 #endif
@@ -436,13 +436,13 @@ rssringoccs_RelCompare_CLDouble_Funcs(
     ds = (end - start) / N;
 
     /*  Allocate memory for the two pointers we've declared.                  */
-    z0 = malloc(sizeof(*z0) * N);
-    z1 = malloc(sizeof(*z1) * N);
+    z0 = (rssringoccs_ComplexLongDouble**)malloc(sizeof(*z0) * N);
+    z1 = (rssringoccs_ComplexLongDouble**)malloc(sizeof(*z1) * N);
 
     for (m=0; m<N; ++m)
     {
-        z0[m] = malloc(sizeof(*z0[m]) * N);
-        z1[m] = malloc(sizeof(*z1[m]) * N);
+        z0[m] = (rssringoccs_ComplexLongDouble*)malloc(sizeof(*z0[m]) * N);
+        z1[m] = (rssringoccs_ComplexLongDouble*)malloc(sizeof(*z1[m]) * N);
     }
 
     /*  Set y to the starting value and grab the current time.                */
@@ -482,7 +482,7 @@ rssringoccs_RelCompare_CLDouble_Funcs(
         for (n=0; n<N; ++n)
         {
 #if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
-            z1[m][n] = f1(_LCbuild(x, y));
+            z1[m][n] = f1({x, y});
 #else
             z1[m][n] = f1(x + (rssringoccs_ComplexLongDouble)_Complex_I*y);
 #endif
@@ -591,13 +591,13 @@ rssringoccs_Compare_Real_CFloat_Funcs(
     ds = (end - start) / N;
 
     /*  Allocate memory for the two pointers we've declared.                  */
-    z0 = malloc(sizeof(*z0) * N);
-    z1 = malloc(sizeof(*z1) * N);
+    z0 = (float**)malloc(sizeof(*z0) * N);
+    z1 = (float**)malloc(sizeof(*z1) * N);
 
     for (m=0; m<N; ++m)
     {
-        z0[m] = malloc(sizeof(*z0[m]) * N);
-        z1[m] = malloc(sizeof(*z1[m]) * N);
+        z0[m] = (float*)malloc(sizeof(*z0[m]) * N);
+        z1[m] = (float*)malloc(sizeof(*z1[m]) * N);
     }
 
     /*  Set y to the starting value and grab the current time.                */
@@ -637,7 +637,7 @@ rssringoccs_Compare_Real_CFloat_Funcs(
         for (n=0; n<N; ++n)
         {
 #if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
-            z1[m][n] = f1(_FCbuild(x,y));
+            z1[m][n] = f1({x,y});
 #else
             z1[m][n] = f1(x + _Complex_I*y);
 #endif
@@ -736,13 +736,13 @@ rssringoccs_Compare_Real_CDouble_Funcs(
     ds = (end - start) / N;
 
     /*  Allocate memory for the two pointers we've declared.                  */
-    z0 = malloc(sizeof(*z0) * N);
-    z1 = malloc(sizeof(*z1) * N);
+    z0 = (double**)malloc(sizeof(*z0) * N);
+    z1 = (double**)malloc(sizeof(*z1) * N);
 
     for (m=0; m<N; ++m)
     {
-        z0[m] = malloc(sizeof(*z0[m]) * N);
-        z1[m] = malloc(sizeof(*z1[m]) * N);
+        z0[m] = (double*)malloc(sizeof(*z0[m]) * N);
+        z1[m] = (double*)malloc(sizeof(*z1[m]) * N);
     }
 
     /*  Set y to the starting value and grab the current time.                */
@@ -782,7 +782,7 @@ rssringoccs_Compare_Real_CDouble_Funcs(
         for (n=0; n<N; ++n)
         {
 #if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
-            z1[m][n] = f1(_Cbuild(x, y));
+            z1[m][n] = f1({x,y});
 #else
             z1[m][n] = f1(x + (rssringoccs_ComplexDouble)_Complex_I*y);
 #endif
@@ -881,13 +881,13 @@ rssringoccs_Compare_Real_CLDouble_Funcs(
     ds = (end - start) / N;
 
     /*  Allocate memory for the two pointers we've declared.                  */
-    z0 = malloc(sizeof(*z0) * N);
-    z1 = malloc(sizeof(*z1) * N);
+    z0 = (long double**)malloc(sizeof(*z0) * N);
+    z1 = (long double**)malloc(sizeof(*z1) * N);
 
     for (m=0; m<N; ++m)
     {
-        z0[m] = malloc(sizeof(*z0[m]) * N);
-        z1[m] = malloc(sizeof(*z1[m]) * N);
+        z0[m] = (long double*)malloc(sizeof(*z0[m]) * N);
+        z1[m] = (long double*)malloc(sizeof(*z1[m]) * N);
     }
 
     /*  Set y to the starting value and grab the current time.                */
@@ -927,7 +927,7 @@ rssringoccs_Compare_Real_CLDouble_Funcs(
         for (n=0; n<N; ++n)
         {
 #if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
-            z1[m][n] = f1(_LCbuild(x, y));
+            z1[m][n] = f1({x,y});
 #else
             z1[m][n] = f1(x + (rssringoccs_ComplexLongDouble)_Complex_I*y);
 #endif

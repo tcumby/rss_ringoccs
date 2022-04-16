@@ -6,7 +6,7 @@
 RSS_RINGOCCS_EXPORT char* rssringoccs_strdup(const char *str)
 {
     /*  Create space for the output. The +1 is for the NULL terminator.       */
-    char *dst = malloc(strlen(str) + 1);
+    char *dst = (char *)malloc(strlen(str) + 1);
 
     /*  Check if malloc failed.                                               */
     if (dst == NULL)

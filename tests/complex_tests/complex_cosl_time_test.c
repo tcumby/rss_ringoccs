@@ -58,6 +58,12 @@ int main(void)
      *  the (end, end) in the complex plane.                                  */
     unsigned long N = 1e4;
 
+#if defined(_MSC_VER) && __RSS_RINGOCCS_USING_COMPLEX_H__==1
+    /* std::cos in std::complex does not have non-const overloads,
+    so we create a lambda                                                     */
+    auto ccosl = [](rssringoccs_ComplexLongDouble z) { return std::cos(z); };
+#endif
+
     /*  Use the compare function found in rss_ringoccs_compare_funcs.h.       */
     rssringoccs_Compare_CLDouble_Funcs("rss_ringoccs", rssringoccs_CLDouble_Cos,
                                        "C99", ccosl, start, end, N);

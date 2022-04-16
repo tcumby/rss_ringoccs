@@ -30,7 +30,7 @@
 #include <string.h>
 
 #define __MALLOC_CSV_VAR__(var)                                                \
-    csv_data->var = malloc(sizeof(*csv_data->var)*csv_data->n_elements);       \
+    csv_data->var = (double*)malloc(sizeof(*csv_data->var)*csv_data->n_elements); \
     if (csv_data->var == NULL)                                                 \
     {                                                                          \
         csv_data->error_occurred = rssringoccs_True;                           \
@@ -61,7 +61,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_CSVData* rssringoccs_Extract_CSV_Data(const char
     double min_dr_dt, max_dr_dt, temp;
     double *geo_rho, *geo_rho_dot, *geo_D;
 
-    csv_data = malloc(sizeof(*csv_data));
+    csv_data = (rssringoccs_CSVData*)malloc(sizeof(*csv_data));
 
     if (csv_data == NULL)
     {
@@ -306,5 +306,4 @@ RSS_RINGOCCS_EXPORT rssringoccs_CSVData* rssringoccs_Extract_CSV_Data(const char
     rssringoccs_Destroy_TauCSV(&tau_dat);
 
     return csv_data;
-
 }

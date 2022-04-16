@@ -36,7 +36,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_DLPCSV* rssringoccs_Get_DLP(const char *filename
     int ch;
     unsigned long line_count, column_count, n;
 
-    dlp = malloc(sizeof(*dlp));
+    dlp = (rssringoccs_DLPCSV *)malloc(sizeof(*dlp));
 
     /*  Check if malloc failed.                                               */
     if (dlp == NULL)
@@ -95,7 +95,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_DLPCSV* rssringoccs_Get_DLP(const char *filename
 
     /*  And count the number of columns.                                      */
     column_count = 0;
-    line = fgets(buffer,sizeof(buffer), fp);
+    line = fgets(buffer, sizeof(buffer), fp);
     record = strtok(line, ",");
     while (record != NULL)
     {
@@ -131,7 +131,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_DLPCSV* rssringoccs_Get_DLP(const char *filename
     }
 
     /*  Allocate memory for t_oet_spm_vals and check for error.               */
-    dlp->t_oet_spm_vals = malloc(sizeof(*dlp->t_oet_spm_vals) * line_count);
+    dlp->t_oet_spm_vals = (double *)malloc(sizeof(*dlp->t_oet_spm_vals) * line_count);
     if (dlp->t_oet_spm_vals == NULL)
     {
         dlp->error_occurred = rssringoccs_True;
@@ -148,7 +148,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_DLPCSV* rssringoccs_Get_DLP(const char *filename
     }
 
     /*  Allocate memory for t_ret_spm_vals and check for error.               */
-    dlp->t_ret_spm_vals = malloc(sizeof(*dlp->t_ret_spm_vals) * line_count);
+    dlp->t_ret_spm_vals = (double *)malloc(sizeof(*dlp->t_ret_spm_vals) * line_count);
     if (dlp->t_ret_spm_vals == NULL)
     {
         dlp->error_occurred = rssringoccs_True;
@@ -165,7 +165,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_DLPCSV* rssringoccs_Get_DLP(const char *filename
     }
 
     /*  Allocate memory for t_set_spm_vals and check for error.               */
-    dlp->t_set_spm_vals = malloc(sizeof(*dlp->t_set_spm_vals) * line_count);
+    dlp->t_set_spm_vals = (double *)malloc(sizeof(*dlp->t_set_spm_vals) * line_count);
     if (dlp->t_set_spm_vals == NULL)
     {
         dlp->error_occurred = rssringoccs_True;
@@ -182,7 +182,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_DLPCSV* rssringoccs_Get_DLP(const char *filename
     }
 
     /*  Allocate memory for rho_km_vals and check for error.                  */
-    dlp->rho_km_vals = malloc(sizeof(*dlp->rho_km_vals) * line_count);
+    dlp->rho_km_vals = (double *)malloc(sizeof(*dlp->rho_km_vals) * line_count);
     if (dlp->rho_km_vals == NULL)
     {
         dlp->error_occurred = rssringoccs_True;
@@ -200,7 +200,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_DLPCSV* rssringoccs_Get_DLP(const char *filename
 
     /*  Allocate memory for rho_corr_pole_km_vals and check for error.        */
     dlp->rho_corr_pole_km_vals
-        = malloc(sizeof(*dlp->rho_corr_pole_km_vals) * line_count);
+        = (double *)malloc(sizeof(*dlp->rho_corr_pole_km_vals) * line_count);
     if (dlp->rho_corr_pole_km_vals == NULL)
     {
         dlp->error_occurred = rssringoccs_True;
@@ -218,7 +218,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_DLPCSV* rssringoccs_Get_DLP(const char *filename
 
     /*  Allocate memory for rho_corr_timing_km_vals and check for error.      */
     dlp->rho_corr_timing_km_vals
-        = malloc(sizeof(*dlp->rho_corr_timing_km_vals) * line_count);
+        = (double *)malloc(sizeof(*dlp->rho_corr_timing_km_vals) * line_count);
     if (dlp->rho_corr_timing_km_vals == NULL)
     {
         dlp->error_occurred = rssringoccs_True;
@@ -235,7 +235,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_DLPCSV* rssringoccs_Get_DLP(const char *filename
     }
 
     /*  Allocate memory for phi_rl_deg_vals and check for error.              */
-    dlp->phi_rl_deg_vals = malloc(sizeof(*dlp->phi_rl_deg_vals) * line_count);
+    dlp->phi_rl_deg_vals = (double *)malloc(sizeof(*dlp->phi_rl_deg_vals) * line_count);
     if (dlp->phi_rl_deg_vals == NULL)
     {
         dlp->error_occurred = rssringoccs_True;
@@ -252,7 +252,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_DLPCSV* rssringoccs_Get_DLP(const char *filename
     }
 
     /*  Allocate memory for phi_ora_deg_vals and check for error.             */
-    dlp->phi_ora_deg_vals = malloc(sizeof(*dlp->phi_ora_deg_vals) * line_count);
+    dlp->phi_ora_deg_vals = (double *)malloc(sizeof(*dlp->phi_ora_deg_vals) * line_count);
     if (dlp->phi_ora_deg_vals == NULL)
     {
         dlp->error_occurred = rssringoccs_True;
@@ -269,7 +269,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_DLPCSV* rssringoccs_Get_DLP(const char *filename
     }
 
     /*  Allocate memory for B_deg_vals and check for error.                   */
-    dlp->B_deg_vals = malloc(sizeof(*dlp->B_deg_vals) * line_count);
+    dlp->B_deg_vals = (double *)malloc(sizeof(*dlp->B_deg_vals) * line_count);
     if (dlp->B_deg_vals == NULL)
     {
         dlp->error_occurred = rssringoccs_True;
@@ -286,7 +286,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_DLPCSV* rssringoccs_Get_DLP(const char *filename
     }
 
     /*  Allocate memory for raw_tau_vals and check for error.                 */
-    dlp->raw_tau_vals = malloc(sizeof(*dlp->raw_tau_vals) * line_count);
+    dlp->raw_tau_vals = (double *)malloc(sizeof(*dlp->raw_tau_vals) * line_count);
     if (dlp->raw_tau_vals == NULL)
     {
         dlp->error_occurred = rssringoccs_True;
@@ -303,7 +303,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_DLPCSV* rssringoccs_Get_DLP(const char *filename
     }
 
     /*  Allocate memory for phase_deg_vals and check for error.               */
-    dlp->phase_deg_vals = malloc(sizeof(*dlp->phase_deg_vals) * line_count);
+    dlp->phase_deg_vals = (double *)malloc(sizeof(*dlp->phase_deg_vals) * line_count);
     if (dlp->phase_deg_vals == NULL)
     {
         dlp->error_occurred = rssringoccs_True;
@@ -321,7 +321,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_DLPCSV* rssringoccs_Get_DLP(const char *filename
 
     /*  Allocate memory for raw_tau_threshold_vals and check for error.       */
     dlp->raw_tau_threshold_vals
-        = malloc(sizeof(*dlp->raw_tau_threshold_vals) * line_count);
+        = (double *)malloc(sizeof(*dlp->raw_tau_threshold_vals) * line_count);
     if (dlp->raw_tau_threshold_vals == NULL)
     {
         dlp->error_occurred = rssringoccs_True;
@@ -345,7 +345,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_DLPCSV* rssringoccs_Get_DLP(const char *filename
     {
         /*  Allocate memory for p_norm_vals.                                  */
         dlp->p_norm_vals =
-            malloc(sizeof(*dlp->p_norm_vals) * line_count);
+            (double *)malloc(sizeof(*dlp->p_norm_vals) * line_count);
         if (dlp->p_norm_vals == NULL)
         {
             dlp->error_occurred = rssringoccs_True;

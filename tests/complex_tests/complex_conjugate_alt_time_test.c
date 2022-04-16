@@ -53,7 +53,13 @@
  *  the imaginary part of the input and return it.                            */
 static rssringoccs_ComplexDouble rss_conj(rssringoccs_ComplexDouble z)
 {
+#if defined(_MSC_VER) && __RSS_RINGOCCS_USING_COMPLEX_H__==1
+    /* For C++, std::complex<T> supports array-oriented access via a
+     * reinterpret_cast to T(&)[2], i.e. a 2-element array of T&              */
+    reinterpret_cast<double(&)[2]>(z)[1] = -reinterpret_cast<double(&)[2]>(z)[1];
+#else
     z.dat[1] = -z.dat[1];
+#endif
     return z;
 }
 
@@ -67,10 +73,18 @@ int main(void)
     /*  We'll test on a square grid of 100 million points from (start, start) *
      *  the (end, end) in the complex plane.                                  */
     unsigned long N = 1e4;
-
+#if defined(_MSC_VER) && __RSS_RINGOCCS_USING_COMPLEX_H__==1
+    /* std::conj in std::complex does not have non-const overloads,
+    so we create a lambda                                                     */
+    rssringoccs_ComplexDouble (*local_conj)(rssringoccs_ComplexDouble) = [](auto z) -> auto { return std::conj(z); };
+    /*  Use the compare function found in rss_ringoccs_compare_funcs.h.       */
+    rssringoccs_Compare_CDouble_Funcs("rss_ringoccs", rss_conj,
+                                      "C99", local_conj, start, end, N);
+#else
     /*  Use the compare function found in rss_ringoccs_compare_funcs.h.       */
     rssringoccs_Compare_CDouble_Funcs("rss_ringoccs", rss_conj,
                                       "C99", conj, start, end, N);
+#endif
 
     return 0;
 }

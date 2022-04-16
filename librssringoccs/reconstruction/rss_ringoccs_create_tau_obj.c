@@ -104,7 +104,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_TAUObj* rssringoccs_Create_TAUObj(rssringoccs_DL
     rssringoccs_TAUObj *tau;
 
     /*  Try to allocate memory for the tau pointer.                           */
-    tau = malloc(sizeof(*tau));
+    tau = (rssringoccs_TAUObj *)malloc(sizeof(*tau));
 
     /*  Check if malloc failed.                                               */
     if (tau == NULL)

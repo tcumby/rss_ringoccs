@@ -106,15 +106,15 @@ rssringoccs_Compare_CDouble_Funcs(
     ds = (end - start) / N;
 
     /*  Allocate memory for the two pointers we've declared.                  */
-    z0 = malloc(sizeof(*z0) * N);
-    z1 = malloc(sizeof(*z1) * N);
+    z0 = (rssringoccs_ComplexDouble**)malloc(sizeof(*z0) * N);
+    z1 = (rssringoccs_ComplexDouble**)malloc(sizeof(*z1) * N);
 
     /*  And set each entry of z0 and z1 to point to blocks of memory for N    *
      *  complex doubles.                                                      */
     for (m=0; m<N; ++m)
     {
-        z0[m] = malloc(sizeof(*z0[m]) * N);
-        z1[m] = malloc(sizeof(*z1[m]) * N);
+        z0[m] = (rssringoccs_ComplexDouble*)malloc(sizeof(*z0[m]) * N);
+        z1[m] = (rssringoccs_ComplexDouble*)malloc(sizeof(*z1[m]) * N);
     }
     /*  Be sure to free when done!                                            */
 
@@ -163,7 +163,7 @@ rssringoccs_Compare_CDouble_Funcs(
         {
             /*  Store the value of the (n, m) entry in z1[n][m].              */
 #if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
-            z1[m][n] = f1(_Cbuild(x, y));
+            z1[m][n] = f1({x, y});
 #else
              z1[n][m] = f1(x + (rssringoccs_ComplexDouble)_Complex_I * y);
 #endif

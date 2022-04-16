@@ -116,7 +116,7 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Diffraction_Correction_Newton(rssringoccs_T
     }
 
     /*  Allocate memory for these required variables.                         */
-    w_func = malloc(sizeof(*w_func) * nw_pts);
+    w_func = (double *)malloc(sizeof(*w_func) * nw_pts);
 
     if (!(w_func))
     {
@@ -150,7 +150,7 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Diffraction_Correction_Newton(rssringoccs_T
             offset = center - (long)((nw_pts-1)/2);
 
             /*  Reallocate memory since the sizes have changed.           */
-            w_func = realloc(w_func, sizeof(*w_func) * nw_pts);
+            w_func = (double *)realloc(w_func, sizeof(*w_func) * nw_pts);
 
             /*  Recompute rho, phi, and the window function.              */
             for (j=0; j<nw_pts; ++j)

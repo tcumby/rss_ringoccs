@@ -14,7 +14,6 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Easy_Real_Plots(const char *func_name, doub
                                  const double x_min, const double x_max,
                                  const double y_min, const double y_max)
 {
-
     /*  Set a parameter for the thickness of the curve and the axes.          */
     double pixel_width = 0.002;
 
@@ -104,7 +103,7 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Easy_Real_Plots(const char *func_name, doub
     /*  Allocate enough memory for filename to include func_name plus the     *
      *  suffix "_plot.pgm" plus the NULL terminator at the end. So we need    *
      *  string_length + 9 + 1 in total.                                       */
-    filename = malloc(sizeof(*filename) *(string_length + 10));
+    filename = (char *)malloc(sizeof(*filename) *(string_length + 10));
 
     /*  Copy func_name to filename and then concatenate "_plot.pgm" to it.    */
     strcpy(filename, func_name);
@@ -117,11 +116,11 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Easy_Real_Plots(const char *func_name, doub
     fprintf(fp, "P5\n%d %d\n255\n", x_size, y_size);
 
     /*  Allocate memory for the five variables.                               */
-    Px     = malloc(sizeof(Px) * x_size);
-    Py     = malloc(sizeof(Py) * y_size);
-    abs_Px = malloc(sizeof(*abs_Px) * x_size);
-    abs_Py = malloc(sizeof(*abs_Py) * y_size);
-    f_of_x = malloc(sizeof(*f_of_x) * x_size);
+    Px     = (double *)malloc(sizeof(Px) * x_size);
+    Py     = (double *)malloc(sizeof(Py) * y_size);
+    abs_Px = (double *)malloc(sizeof(*abs_Px) * x_size);
+    abs_Py = (double *)malloc(sizeof(*abs_Py) * y_size);
+    f_of_x = (double *)malloc(sizeof(*f_of_x) * x_size);
 
     /*  Loop through and compute the Cartesian x coordinate corresponding to  *
      *  a given integer in the range [0, x_size]. Compute the absolute value  *

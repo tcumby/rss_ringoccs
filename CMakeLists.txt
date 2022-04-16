@@ -22,12 +22,17 @@ if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
             list(APPEND CMAKE_CXX_SOURCE_FILE_EXTENSIONS c)
             enable_language(CXX)
             set(CMAKE_CXX_STANDARD 11)
+
+            target_compile_options(<target> PRIVATE "/MP")
         endif()
     endif()
 endif()
 
 option(BUILD_EXAMPLES "Build all examples" TRUE)
 option(BUILD_TESTS "Build all tests" TRUE)
+
+set(RSS_RINGOCCS_PARENT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." CACHE PATH "" FORCE)
+set(RSS_RINGOCCS_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}" CACHE PATH "" FORCE)
 
 project(rss_ringoccs)
 

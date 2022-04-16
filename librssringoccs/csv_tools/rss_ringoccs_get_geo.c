@@ -36,7 +36,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     int ch;
     unsigned long line_count, column_count, n;
 
-    geo = malloc(sizeof(*geo));
+    geo = (rssringoccs_GeoCSV *)malloc(sizeof(*geo));
 
     /*  Check if malloc failed.                                               */
     if (geo == NULL)
@@ -101,7 +101,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
 
     /*  And count the number of columns.                                      */
     column_count = 0;
-    line = fgets(buffer,sizeof(buffer), fp);
+    line = fgets(buffer, sizeof(buffer), fp);
     record = strtok(line, ",");
     while (record != NULL)
     {
@@ -137,7 +137,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     }
 
     /*  Allocate memory for t_oet_spm_vals and check for error.               */
-    geo->t_oet_spm_vals = malloc(sizeof(*geo->t_oet_spm_vals) * line_count);
+    geo->t_oet_spm_vals = (double *)malloc(sizeof(*geo->t_oet_spm_vals) * line_count);
     if (geo->t_oet_spm_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -154,7 +154,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     }
 
     /*  Allocate memory for t_ret_spm_vals and check for error.               */
-    geo->t_ret_spm_vals = malloc(sizeof(*geo->t_ret_spm_vals) * line_count);
+    geo->t_ret_spm_vals = (double *)malloc(sizeof(*geo->t_ret_spm_vals) * line_count);
     if (geo->t_ret_spm_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -171,7 +171,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     }
 
     /*  Allocate memory for t_set_spm_vals and check for error.               */
-    geo->t_set_spm_vals = malloc(sizeof(*geo->t_set_spm_vals) * line_count);
+    geo->t_set_spm_vals = (double *)malloc(sizeof(*geo->t_set_spm_vals) * line_count);
     if (geo->t_set_spm_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -188,7 +188,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     }
 
     /*  Allocate memory for rho_km_vals and check for error.                  */
-    geo->rho_km_vals = malloc(sizeof(*geo->rho_km_vals) * line_count);
+    geo->rho_km_vals = (double *)malloc(sizeof(*geo->rho_km_vals) * line_count);
     if (geo->rho_km_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -205,7 +205,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     }
 
     /*  Allocate memory for phi_rl_deg_vals and check for error.              */
-    geo->phi_rl_deg_vals = malloc(sizeof(*geo->phi_rl_deg_vals) * line_count);
+    geo->phi_rl_deg_vals = (double *)malloc(sizeof(*geo->phi_rl_deg_vals) * line_count);
     if (geo->phi_rl_deg_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -222,7 +222,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     }
 
     /*  Allocate memory for phi_ora_deg_vals and check for error.             */
-    geo->phi_ora_deg_vals = malloc(sizeof(*geo->phi_ora_deg_vals) * line_count);
+    geo->phi_ora_deg_vals = (double *)malloc(sizeof(*geo->phi_ora_deg_vals) * line_count);
     if (geo->phi_ora_deg_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -239,7 +239,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     }
 
     /*  Allocate memory for B_deg_vals and check for error.                   */
-    geo->B_deg_vals = malloc(sizeof(*geo->B_deg_vals) * line_count);
+    geo->B_deg_vals = (double *)malloc(sizeof(*geo->B_deg_vals) * line_count);
     if (geo->B_deg_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -256,7 +256,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     }
 
     /*  Allocate memory for D_km_vals and check for error.                    */
-    geo->D_km_vals = malloc(sizeof(*geo->D_km_vals) * line_count);
+    geo->D_km_vals = (double *)malloc(sizeof(*geo->D_km_vals) * line_count);
     if (geo->D_km_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -273,7 +273,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     }
 
     /*  Allocate memory for rho_dot_kms_vals and check for error.             */
-    geo->rho_dot_kms_vals = malloc(sizeof(*geo->rho_dot_kms_vals) * line_count);
+    geo->rho_dot_kms_vals = (double *)malloc(sizeof(*geo->rho_dot_kms_vals) * line_count);
     if (geo->rho_dot_kms_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -291,7 +291,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
 
     /*  Allocate memory for phi_rl_dot_kms_vals and check for error.          */
     geo->phi_rl_dot_kms_vals =
-        malloc(sizeof(*geo->phi_rl_dot_kms_vals)*line_count);
+        (double *)malloc(sizeof(*geo->phi_rl_dot_kms_vals)*line_count);
     if (geo->phi_rl_dot_kms_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -308,7 +308,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     }
 
     /*  Allocate memory for F_km_vals and check for error.                    */
-    geo->F_km_vals = malloc(sizeof(*geo->F_km_vals) * line_count);
+    geo->F_km_vals = (double *)malloc(sizeof(*geo->F_km_vals) * line_count);
     if (geo->F_km_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -325,7 +325,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     }
 
     /*  Allocate memory for R_imp_km_vals and check for error.                */
-    geo->R_imp_km_vals = malloc(sizeof(*geo->R_imp_km_vals) * line_count);
+    geo->R_imp_km_vals = (double *)malloc(sizeof(*geo->R_imp_km_vals) * line_count);
     if (geo->R_imp_km_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -342,7 +342,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     }
 
     /*  Allocate memory for rx_km_vals and check for error.                   */
-    geo->rx_km_vals = malloc(sizeof(*geo->rx_km_vals) * line_count);
+    geo->rx_km_vals = (double *)malloc(sizeof(*geo->rx_km_vals) * line_count);
     if (geo->rx_km_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -359,7 +359,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     }
 
     /*  Allocate memory for ry_km_vals and check for error.                   */
-    geo->ry_km_vals = malloc(sizeof(*geo->ry_km_vals) * line_count);
+    geo->ry_km_vals = (double *)malloc(sizeof(*geo->ry_km_vals) * line_count);
     if (geo->ry_km_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -376,7 +376,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     }
 
     /*  Allocate memory for rz_km_vals and check for error.                   */
-    geo->rz_km_vals = malloc(sizeof(*geo->rz_km_vals) * line_count);
+    geo->rz_km_vals = (double *)malloc(sizeof(*geo->rz_km_vals) * line_count);
     if (geo->rz_km_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -393,7 +393,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     }
 
     /*  Allocate memory for vx_kms_vals and check for error.                  */
-    geo->vx_kms_vals = malloc(sizeof(*geo->vx_kms_vals) * line_count);
+    geo->vx_kms_vals = (double *)malloc(sizeof(*geo->vx_kms_vals) * line_count);
     if (geo->vx_kms_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -410,7 +410,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     }
 
     /*  Allocate memory for vy_kms_vals and check for error.                  */
-    geo->vy_kms_vals = malloc(sizeof(*geo->vy_kms_vals) * line_count);
+    geo->vy_kms_vals = (double *)malloc(sizeof(*geo->vy_kms_vals) * line_count);
     if (geo->vy_kms_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -427,7 +427,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     }
 
     /*  Allocate memory for vz_kms_vals and check for error.                  */
-    geo->vz_kms_vals = malloc(sizeof(*geo->vz_kms_vals) * line_count);
+    geo->vz_kms_vals = (double *)malloc(sizeof(*geo->vz_kms_vals) * line_count);
     if (geo->vz_kms_vals == NULL)
     {
         geo->error_occurred = rssringoccs_True;
@@ -451,7 +451,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_GeoCSV* rssringoccs_Get_Geo(const char *filename
     {
         /*  Allocate memory for obs_spacecract_lat_deg_vals.                  */
         geo->obs_spacecract_lat_deg_vals =
-            malloc(sizeof(*geo->obs_spacecract_lat_deg_vals) * line_count);
+            (double *)malloc(sizeof(*geo->obs_spacecract_lat_deg_vals) * line_count);
         if (geo->obs_spacecract_lat_deg_vals == NULL)
         {
             geo->error_occurred = rssringoccs_True;

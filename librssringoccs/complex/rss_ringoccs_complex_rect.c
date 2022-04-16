@@ -106,14 +106,16 @@ rssringoccs_CLDouble_Rect(long double x, long double y)
 /*  Create single precision complex numbers in Cartesian coordinates.         */
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat rssringoccs_CFloat_Rect(float x, float y)
 {
-    return _FCbuild(x, y);
+    using namespace std::complex_literals;
+    return x + 1if*y;
 }
 /*  End of rssringoccs_CFloat_Rect.                                     */
 
 /*  Create double precision complex numbers in Cartesian coordinates.         */
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble rssringoccs_CDouble_Rect(double x, double y)
 {
-    return _Cbuild(x, y);
+    using namespace std::complex_literals;
+    return x + 1i*y;
 }
 /*  End of rssringoccs_CDouble_Rect.                                    */
 
@@ -121,7 +123,8 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble rssringoccs_CDouble_Rect(double x,
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Rect(long double x, long double y)
 {
-    return _LCbuild(x, y);
+    using namespace std::complex_literals;
+    return x + 1il*y;
 }
 
 #endif

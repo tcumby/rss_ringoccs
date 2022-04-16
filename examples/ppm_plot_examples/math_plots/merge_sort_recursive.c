@@ -30,8 +30,8 @@ void merge(double *out, double *LA, double *LB, unsigned int a, unsigned int b)
 
     /*  LAE needs the same number of entries as LA, plus 1 for infinity.      *
      *  Similarly for LBE.                                                    */
-    LAE = malloc(sizeof(*LAE) * (a+1));
-    LBE = malloc(sizeof(*LBE) * (b+1));
+    LAE = (double*)malloc(sizeof(*LAE) * (a+1));
+    LBE = (double*)malloc(sizeof(*LBE) * (b+1));
 
     /*  Check the malloc didn't fail.                                         */
     if (LAE == NULL)
@@ -109,8 +109,8 @@ double *merge_sort(double *arr, unsigned int arr_length)
     b = arr_length - a;
 
     /*  Allocate memory for LA and LB.                                        */
-    LA = malloc(sizeof(*LA) * a);
-    LB = malloc(sizeof(*LB) * b);
+    LA = (double*)malloc(sizeof(*LA) * a);
+    LB = (double*)malloc(sizeof(*LB) * b);
 
     /*  Check that malloc didn't fail.                                        */
     if (LA == NULL)
@@ -137,7 +137,7 @@ double *merge_sort(double *arr, unsigned int arr_length)
     LBS = merge_sort(LB, b);
 
     /*  Allocate memory for the output array and merge.                       */
-    out = malloc(sizeof(*out) * arr_length);
+    out = (double*)malloc(sizeof(*out) * arr_length);
     merge(out, LAS, LBS, a, b);
 
     /*  Free the LA and LB pointers we malloc'd above.                        */
@@ -175,7 +175,7 @@ int main(void)
 
     /*  Pointers for the sorted and unsorted arrays.                          */
     double *sorted;
-    double *unsorted = malloc(sizeof(*unsorted) * N);
+    double *unsorted = (double*)malloc(sizeof(*unsorted) * N);
 
     /*  Make unsorted an array of random real numbers.                        */
     for (n = 0; n < N; ++n)

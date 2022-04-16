@@ -31,7 +31,7 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Tau_Get_Window_Width(rssringoccs_TAUObj* ta
     else if (tau->rng_list[0] > tau->rho_km_vals[tau->arr_size-1])
     {
         tau->error_occurred = rssringoccs_True;
-        tau->error_message = malloc(sizeof(*tau->error_message)*512);
+        tau->error_message = (char *)malloc(sizeof(*tau->error_message)*512);
         if (tau->error_message == NULL)
             return;
 
@@ -66,7 +66,7 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Tau_Get_Window_Width(rssringoccs_TAUObj* ta
     else if (tau->rng_list[1] < tau->rho_km_vals[0])
     {
         tau->error_occurred = rssringoccs_True;
-        tau->error_message = malloc(sizeof(*tau->error_message)*512);
+        tau->error_message = (char *)malloc(sizeof(*tau->error_message)*512);
         if (tau->error_message == NULL)
             return;
 
@@ -109,13 +109,13 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Tau_Get_Window_Width(rssringoccs_TAUObj* ta
     /*  Use calloc to both allocate memory for tau.w_km_vals (like malloc)    *
      *  and initialize the data to zero (unlike malloc). This is similar to   *
      *  numpy.zeros(tau.arr_size) in Python.                                  */
-    tau->w_km_vals = calloc(tau->arr_size, sizeof(double));
+    tau->w_km_vals = (double *)calloc(tau->arr_size, sizeof(double));
 
     if (tau->bfac)
     {
         w_fac = tau->normeq;
-        alpha  = malloc(sizeof(*alpha) * tau->n_used);
-        P_vals = malloc(sizeof(*P_vals) * tau->n_used);
+        alpha  = (double *)malloc(sizeof(*alpha) * tau->n_used);
+        P_vals = (double *)malloc(sizeof(*P_vals) * tau->n_used);
 
         for(n = 0; n < tau->n_used; ++n)
         {
@@ -151,7 +151,7 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Tau_Get_Window_Width(rssringoccs_TAUObj* ta
         }
     }
 
-    rho_legal = malloc(sizeof(*rho_legal) * tau->n_used);
+    rho_legal = (double *)malloc(sizeof(*rho_legal) * tau->n_used);
 
     for(n=0; n<tau->n_used; ++n)
         rho_legal[n] = tau->rho_km_vals[tau->start + n] -
@@ -220,7 +220,7 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Tau_Get_Window_Width(rssringoccs_TAUObj* ta
     if (tau->start > tau->arr_size)
     {
         tau->error_occurred = rssringoccs_True;
-        tau->error_message = malloc(sizeof(*tau->error_message)*512);
+        tau->error_message = (char *)malloc(sizeof(*tau->error_message)*512);
         if (tau->error_message == NULL)
             return;
 
@@ -240,7 +240,7 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Tau_Get_Window_Width(rssringoccs_TAUObj* ta
     else if ((tau->start + tau->n_used) > tau->arr_size)
     {
         tau->error_occurred = rssringoccs_True;
-        tau->error_message = malloc(sizeof(*tau->error_message)*512);
+        tau->error_message = (char *)malloc(sizeof(*tau->error_message)*512);
         if (tau->error_message == NULL)
             return;
 

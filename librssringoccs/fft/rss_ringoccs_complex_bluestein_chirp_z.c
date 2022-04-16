@@ -57,9 +57,9 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble* rssringoccs_Complex_FFT_Bluestein
     /*  Allocate memory for x_in and chirp, which will be a power of two in   *
      *  size. Per C90 guidelines, we do not cast malloc since void pointers   *
      *  safely promoted without the need for type casting.                    */
-    chirp      = malloc(sizeof(*chirp)      * chirp_size);
-    rcpr_chirp = malloc(sizeof(*rcpr_chirp) * N_pow_2);
-    x_in       = malloc(sizeof(*x_in)       * N_pow_2);
+    chirp      = (rssringoccs_ComplexDouble *)malloc(sizeof(*chirp)      * chirp_size);
+    rcpr_chirp = (rssringoccs_ComplexDouble *)malloc(sizeof(*rcpr_chirp) * N_pow_2);
+    x_in       = (rssringoccs_ComplexDouble *)malloc(sizeof(*x_in)       * N_pow_2);
 
     if (inverse)
         chirp_factor = rssringoccs_One_Pi/(double)N;
@@ -135,7 +135,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble* rssringoccs_Complex_FFT_Bluestein
         return NULL;
     }
 
-    out = malloc(sizeof(*out) * N);
+    out = (rssringoccs_ComplexDouble *)malloc(sizeof(*out) * N);
 
     for(n=0; n<N; ++n)
     {

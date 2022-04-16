@@ -105,8 +105,8 @@ rssringoccs_Compare_CFloat_Funcs(
     ds = (end - start) / N;
 
     /*  Allocate memory for the two pointers we've declared.                  */
-    z0 = malloc(sizeof(*z0) * N);
-    z1 = malloc(sizeof(*z1) * N);
+    z0 = (rssringoccs_ComplexFloat**)malloc(sizeof(*z0) * N);
+    z1 = (rssringoccs_ComplexFloat**)malloc(sizeof(*z1) * N);
 
     /*  We've allocated memory for a pointer to N pointers for z0 and z1. Set *
      *  each element to a block of memory of size N. This will mimic a matrix *
@@ -114,8 +114,8 @@ rssringoccs_Compare_CFloat_Funcs(
      *  z0[m][n] and z1[m][n].                                                */
     for (m=0; m<N; ++m)
     {
-        z0[m] = malloc(sizeof(*z0[m]) * N);
-        z1[m] = malloc(sizeof(*z1[m]) * N);
+        z0[m] = (rssringoccs_ComplexFloat*)malloc(sizeof(*z0[m]) * N);
+        z1[m] = (rssringoccs_ComplexFloat*)malloc(sizeof(*z1[m]) * N);
     }
     /*  Be sure to free all of this when we're done!                          */
 
@@ -163,7 +163,7 @@ rssringoccs_Compare_CFloat_Funcs(
         for (n=0; n<N; ++n)
         {
 #if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
-            z1[m][n] = f1(_FCbuild(x, y));
+            z1[m][n] = f1({x, y});
 #else
             z1[m][n] = f1(x + y*_Complex_I);
 #endif

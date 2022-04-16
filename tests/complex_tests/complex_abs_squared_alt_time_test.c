@@ -53,8 +53,13 @@ static double cabs_sq(rssringoccs_ComplexDouble z)
 
     /*  Use the creal and cimag functions found in complex.h to extract the   *
      *  real and imaginary parts from the input z.                            */
+#if defined(_MSC_VER) && __RSS_RINGOCCS_USING_COMPLEX_H__==1
+    x = real(z);
+    y = imag(z);
+#else
     x = creal(z);
     y = cimag(z);
+#endif
 
     /*  |z|^2 = x^2 + y^2 so return this.                                     */
     abs_sq = x*x + y*y;
@@ -74,8 +79,13 @@ static double rss_cabs_sq(rssringoccs_ComplexDouble z)
 
     /*  Access the real and imaginary parts of the struct z directly, rather  *
      *  than making calls to rssringoccs_CDouble_Real/Imag_Part.              */
+#if defined(_MSC_VER) && __RSS_RINGOCCS_USING_COMPLEX_H__==1
+    x = reinterpret_cast<double(&)[2]>(z)[0];
+    y = reinterpret_cast<double(&)[2]>(z)[1];
+#else
     x = z.dat[0];
     y = z.dat[1];
+#endif
 
     /*  |z|^2 = x^2 + y^2 so return this.                                     */
     abs_sq = x*x + y*y;

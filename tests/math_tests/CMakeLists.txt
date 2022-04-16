@@ -11,8 +11,6 @@ endif()
 
 project(math_tests LANGUAGES CXX)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
-
 set(test_apps
     abs_time_test
     absf_time_test
@@ -23,7 +21,11 @@ set(test_apps
     sinl_time_test
 )
 foreach(app ${test_apps})
+    if(MSVC)
+        set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+    endif()
     add_executable(${app} ${app}.c)
+    target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(
         ${app}
         PRIVATE rss::librssringoccs rss::librssringoccs_compare
@@ -36,9 +38,13 @@ foreach(app ${cerf_apps})
     add_executable(${app} ${app}.c)
     set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     target_include_directories(${app} PRIVATE ${cerf_INCLUDE_DIRECTORY})
+    target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(
         ${app}
-        PRIVATE rss::librssringoccs rss::librssringoccs_compare ${cerf_LIBRARY}
+        PRIVATE
+            rss::librssringoccs
+            rss::librssringoccs_compare
+            $<IF:$<BOOL:CERF_CPP>,cerfcpp,cerf>
     )
     if(MSVC)
         target_compile_options(${app} PRIVATE /DCERF_AS_CPP)

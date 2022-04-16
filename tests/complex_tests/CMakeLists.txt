@@ -13,8 +13,6 @@ include(FetchCerf)
 
 project(complex_tests LANGUAGES CXX)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
-
 set(test_apps
     complex_abs_squared_alt_time_test
     complex_abs_squared_time_test
@@ -45,6 +43,10 @@ set(test_apps
 )
 foreach(app ${test_apps})
     add_executable(${app} ${app}.c)
+    if(MSVC)
+        set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+    endif()
+    target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(
         ${app}
         PRIVATE rss::librssringoccs rss::librssringoccs_compare
@@ -58,11 +60,17 @@ set(cerf_apps
 )
 foreach(app ${cerf_apps})
     add_executable(${app} ${app}.c)
-    set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+    if(MSVC)
+        set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+    endif()
     target_include_directories(${app} PRIVATE ${cerf_INCLUDE_DIRECTORY})
+    target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(
         ${app}
-        PRIVATE rss::librssringoccs rss::librssringoccs_compare ${cerf_LIBRARY}
+        PRIVATE
+            rss::librssringoccs
+            rss::librssringoccs_compare
+            $<IF:$<BOOL:CERF_CPP>,cerfcpp,cerf>
     )
     if(MSVC)
         target_compile_options(${app} PRIVATE /DCERF_AS_CPP)

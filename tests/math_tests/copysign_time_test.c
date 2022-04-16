@@ -60,14 +60,14 @@ int main(void)
     max_err = 0.0;
 
     /*  Allocate memory for the two pointers we've declared.                  */
-    z0 = malloc(sizeof(*z0) * N);
-    z1 = malloc(sizeof(*z1) * N);
+    z0 = (double**)malloc(sizeof(*z0) * N);
+    z1 = (double**)malloc(sizeof(*z1) * N);
 
     /*  Allocate memory for each entry of the z0 and z1 pointers.             */
     for (n=0; n<N; ++n)
     {
-        z0[n] = malloc(sizeof(*z0[n]) * N);
-        z1[n] = malloc(sizeof(*z1[n]) * N);
+        z0[n] = (double*)malloc(sizeof(*z0[n]) * N);
+        z1[n] = (double*)malloc(sizeof(*z1[n]) * N);
     }
 
     /*  Set x and y to the starting value and grab the current time.          */

@@ -8,7 +8,7 @@ static void __resize_array(double **ptr, unsigned long start, unsigned long len)
 {
     double *temp, *data;
     unsigned long n;
-    temp = malloc(sizeof(*temp) * len);
+    temp = (double *)malloc(sizeof(*temp) * len);
 
     data = *ptr;
 
@@ -24,7 +24,7 @@ static void __resize_carray(rssringoccs_ComplexDouble **ptr,
 {
     rssringoccs_ComplexDouble *temp, *data;
     unsigned long n;
-    temp = malloc(sizeof(*temp) * len);
+    temp = (rssringoccs_ComplexDouble *)malloc(sizeof(*temp) * len);
     data = *ptr;
 
     for (n = 0; n < len; ++n)
@@ -47,16 +47,16 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Tau_Finish(rssringoccs_TAUObj* tau)
 
     len = tau->n_used;
 
-    tau->power_vals         = malloc(sizeof(*tau->power_vals)         * len);
-    tau->phase_vals         = malloc(sizeof(*tau->phase_vals)         * len);
-    tau->tau_vals           = malloc(sizeof(*tau->tau_vals)           * len);
-    tau->tau_threshold_vals = malloc(sizeof(*tau->tau_threshold_vals) * len);
+    tau->power_vals         = (double *)malloc(sizeof(*tau->power_vals)         * len);
+    tau->phase_vals         = (double *)malloc(sizeof(*tau->phase_vals)         * len);
+    tau->tau_vals           = (double *)malloc(sizeof(*tau->tau_vals)           * len);
+    tau->tau_threshold_vals = (double *)malloc(sizeof(*tau->tau_threshold_vals) * len);
 
     if (tau->use_fwd)
     {
-        tau->p_norm_fwd_vals = malloc(sizeof(*tau->p_norm_fwd_vals) * len);
-        tau->phase_fwd_vals  = malloc(sizeof(*tau->phase_fwd_vals)  * len);
-        tau->tau_fwd_vals    = malloc(sizeof(*tau->tau_fwd_vals)    * len);
+        tau->p_norm_fwd_vals = (double *)malloc(sizeof(*tau->p_norm_fwd_vals) * len);
+        tau->phase_fwd_vals  = (double *)malloc(sizeof(*tau->phase_fwd_vals)  * len);
+        tau->tau_fwd_vals    = (double *)malloc(sizeof(*tau->tau_fwd_vals)    * len);
     }
 
     __resize_carray(&tau->T_in, tau->start, len);

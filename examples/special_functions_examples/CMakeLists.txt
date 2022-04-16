@@ -10,12 +10,15 @@ if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
 endif()
 
 project(special_functions_examples)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
 set(apps complex_bessel_I0_plots)
 
 foreach(app ${apps})
     add_executable(${app} ${app}.c)
+    if(MSVC)
+        set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+    endif()
+    target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(${app} PRIVATE rss::librssringoccs)
 endforeach()
 

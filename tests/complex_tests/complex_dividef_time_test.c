@@ -48,8 +48,13 @@
 #include <rss_ringoccs/tests/librssringoccs_compare/rss_ringoccs_compare_funcs.h>
 
 /*  We'll test the computation of (1+i)/z.                                    */
+#if defined( _MSC_VER) && __RSS_RINGOCCS_USING_COMPLEX_H__==1
+static const rssringoccs_ComplexFloat z = {1.0F, 1.0F};
+static const rssringoccs_ComplexFloat w = {1.0F, 1.0F};
+#else
 static const rssringoccs_ComplexFloat z = 1.0F + (rssringoccs_ComplexFloat)_Complex_I;
 static const rssringoccs_ComplexFloat w = {{1.0F, 1.0F}};
+#endif
 
 /*  C99 version.                                                              */
 static rssringoccs_ComplexFloat div(rssringoccs_ComplexFloat z0)

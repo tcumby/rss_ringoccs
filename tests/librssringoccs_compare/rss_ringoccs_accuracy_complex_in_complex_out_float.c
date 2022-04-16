@@ -103,7 +103,7 @@ rssringoccs_Accuracy_CFloat_Funcs(
         {
             z0 = f0(rssringoccs_CFloat_Rect(x, y));
 #if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
-            z1 = f1(_FCbuild(x, y));
+            z1 = f1({x, y});
 #else
             z1 = f1(x + _Complex_I*y);
 #endif

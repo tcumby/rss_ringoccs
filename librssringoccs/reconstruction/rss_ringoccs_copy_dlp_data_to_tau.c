@@ -124,7 +124,7 @@
     }                                                                          \
                                                                                \
     /*  Allocate memory for the variable.                                    */\
-    tau->var = malloc(sizeof(*tau->var) * tau->arr_size);                      \
+    tau->var = (double *)malloc(sizeof(*tau->var) * tau->arr_size);            \
                                                                                \
     /*  Check if malloc failed.                                              */\
     if (tau->var == NULL)                                                      \

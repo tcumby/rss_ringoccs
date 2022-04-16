@@ -39,7 +39,7 @@ repos:
       - id: commitizen
         stages: ["commit-msg"]
     repo: https://github.com/commitizen-tools/commitizen
-    rev: v2.20.5
+    rev: v2.23.0
 
   # --- Strip output from .ipynb files ---
   # - hooks:
@@ -67,18 +67,18 @@ repos:
     rev: 1.6.0
     hooks:
       - id: cpplint
-        args: ["--linelength=120", "--filter=-legal/copyright,-whitespace/braces,-whitespace/newline,-build/header_guard,-build/include_order,-build/include_subdir"]
+        args: ["--linelength=120", "--filter=-legal/copyright,-whitespace/braces,-whitespace/newline,-build/namespaces,-build/header_guard,-build/include_order,-build/include_subdir, -whitespace/parens,-readability/casting,-runtime/threadsafe_fn,-runtime/int,-runtime/printf,-whitespace/operators,-readability/braces,-whitespace/comma,-whitespace/tab,-readability/fn_size"]
   # Formatters
   - repo: https://github.com/BlankSpruce/gersemi #cmake formatter
     rev: 0.8.0
     hooks:
       - id: gersemi
   - repo: https://github.com/asottile/setup-cfg-fmt
-    rev: v1.20.0
+    rev: v1.20.1
     hooks:
       - id: setup-cfg-fmt
   - repo: https://github.com/psf/black # python formatter
-    rev: 22.1.0
+    rev: 22.3.0
     hooks:
       - id: black
   - repo: https://github.com/asottile/blacken-docs

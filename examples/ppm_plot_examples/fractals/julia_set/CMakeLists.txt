@@ -12,12 +12,15 @@ if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
 endif()
 
 project(julia_set)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../../../..)
 
 set(apps julia_set julia_set_animation julia_set_on_sphere)
 
 foreach(app ${apps})
     add_executable(${app} ${app}.c)
+    if(MSVC)
+        set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+    endif()
+    target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(${app} PRIVATE rss::librssringoccs)
 endforeach()
 

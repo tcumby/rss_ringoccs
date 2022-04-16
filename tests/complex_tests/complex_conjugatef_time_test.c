@@ -58,10 +58,23 @@ int main(void)
      *  the (end, end) in the complex plane.                                  */
     unsigned long N = 1e4;
 
+#if defined(_MSC_VER) && __RSS_RINGOCCS_USING_COMPLEX_H__==1
+    /* std::conj in std::complex does not have non-const overloads,
+    so we create a lambda                                                     */
+    rssringoccs_ComplexFloat (*rss_conjf)(rssringoccs_ComplexFloat) = [](auto z) -> auto { return std::conj(z); };
+
+    /*  Use the compare function found in rss_ringoccs_compare_funcs.h.       */
+    rssringoccs_Compare_CFloat_Funcs("rss_ringoccs",
+                                     rssringoccs_CFloat_Conjugate,
+                                     "C99", rss_conjf, start, end, N);
+#else
+
     /*  Use the compare function found in rss_ringoccs_compare_funcs.h.       */
     rssringoccs_Compare_CFloat_Funcs("rss_ringoccs",
                                      rssringoccs_CFloat_Conjugate,
                                      "C99", conjf, start, end, N);
+#endif
+
 
     return 0;
 }

@@ -19,7 +19,7 @@ unsigned long **rssringoccs_Where_Greater_##Type(type *data, unsigned long dim,\
     unsigned long arr_size = 0;                                                \
                                                                                \
     /*  Create a dummy array to store the correct indices in for now.        */\
-    arr = malloc(sizeof(*arr) * dim);                                          \
+    arr = (unsigned long *)malloc(sizeof(*arr) * dim);                         \
                                                                                \
     /*  Loop over the input array data to check which indices match.         */\
     for (i=0; i<dim; ++i)                                                      \
@@ -32,20 +32,20 @@ unsigned long **rssringoccs_Where_Greater_##Type(type *data, unsigned long dim,\
     }                                                                          \
                                                                                \
     /*  Resize the array dummy to avoid hogging extra memory.                */\
-    arr = realloc(arr, sizeof(*arr) * arr_size);                               \
+    arr = (unsigned long *)realloc(arr, sizeof(*arr) * arr_size);              \
                                                                                \
     /*  Declare a pointer to a pointer to containg all info to be returned.  */\
-    where = malloc(sizeof(*where) * 2);                                        \
+    where = (unsigned long **)malloc(sizeof(*where) * 2);                      \
                                                                                \
     /*  The first index is the actual array of indices.                      */\
     where[0] = arr;                                                            \
                                                                                \
     /*  The second index is the size of the returning array.                 */\
-    where[1] = malloc(sizeof(*where[1]));                                      \
+    where[1] = (unsigned long *)malloc(sizeof(*where[1]));                     \
     *where[1] = arr_size;                                                      \
     return where;                                                              \
 }
- 
+
 CreateWhereFunction(char, Char, double)
 CreateWhereFunction(unsigned char, UChar, double)
 CreateWhereFunction(short, Short, double)
@@ -72,7 +72,7 @@ unsigned long **rssringoccs_Where_Lesser_##Type(type *data, unsigned long dim, \
     unsigned long arr_size = 0;                                                \
                                                                                \
     /*  Create a dummy array to store the correct indices in for now.        */\
-    arr = malloc(sizeof(*arr) * dim);                                          \
+    arr = (unsigned long *)malloc(sizeof(*arr) * dim);                         \
                                                                                \
     /*  Loop over the input array data to check which indices match.         */\
     for (i=0; i<dim; ++i)                                                      \
@@ -85,16 +85,16 @@ unsigned long **rssringoccs_Where_Lesser_##Type(type *data, unsigned long dim, \
     }                                                                          \
                                                                                \
     /*  Resize the array dummy to avoid hogging extra memory.                */\
-    arr = realloc(arr, sizeof(*arr) * arr_size);                               \
+    arr = (unsigned long *)realloc(arr, sizeof(*arr) * arr_size);              \
                                                                                \
     /*  Declare a pointer to a pointer to containg all info to be returned.  */\
-    where = malloc(sizeof(*where) * 2);                                        \
+    where = (unsigned long **)malloc(sizeof(*where) * 2);                      \
                                                                                \
     /*  The first index is the actual array of indices.                      */\
     where[0] = arr;                                                            \
                                                                                \
     /*  The second index is the size of the returning array.                 */\
-    where[1] = malloc(sizeof(*where[1]));                                      \
+    where[1] = (unsigned long *)malloc(sizeof(*where[1]));                     \
     *where[1] = arr_size;                                                      \
     return where;                                                              \
 }
@@ -125,7 +125,7 @@ unsigned long **rssringoccs_Where_LesserGreater_##Type(type *data, unsigned long
     unsigned long arr_size = 0;                                                \
                                                                                \
     /*  Create a dummy array to store the correct indices in for now.        */\
-    arr = malloc(sizeof(*arr) * dim);                                          \
+    arr = (unsigned long *)malloc(sizeof(*arr) * dim);                         \
                                                                                \
     /*  Loop over the input array data to check which indices match.         */\
     for (i=0; i<dim; ++i)                                                      \
@@ -138,16 +138,16 @@ unsigned long **rssringoccs_Where_LesserGreater_##Type(type *data, unsigned long
     }                                                                          \
                                                                                \
     /*  Resize the array dummy to avoid hogging extra memory.                */\
-    arr = realloc(arr, sizeof(*arr) * arr_size);                               \
+    arr = (unsigned long *)realloc(arr, sizeof(*arr) * arr_size);              \
                                                                                \
     /*  Declare a pointer to a pointer to containg all info to be returned.  */\
-    where = malloc(sizeof(*where) * 2);                                        \
+    where = (unsigned long **)malloc(sizeof(*where) * 2);                      \
                                                                                \
     /*  The first index is the actual array of indices.                      */\
     where[0] = arr;                                                            \
                                                                                \
     /*  The second index is the size of the returning array.                 */\
-    where[1] = malloc(sizeof(*where[1]));                                      \
+    where[1] = (unsigned long *)malloc(sizeof(*where[1]));                     \
     *where[1] = arr_size;                                                      \
     return where;                                                              \
 }

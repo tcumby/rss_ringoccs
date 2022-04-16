@@ -95,8 +95,8 @@ rssringoccs_Compare_Float_Funcs(
     dx = (end - start) / N;
 
     /*  Allocate memory for the two pointers we've declared.                  */
-    y0 = malloc(sizeof(*y0) * N);
-    y1 = malloc(sizeof(*y1) * N);
+    y0 = (float*)malloc(sizeof(*y0) * N);
+    y1 = (float*)malloc(sizeof(*y1) * N);
 
     /*  Set x to the starting value and grab the current time.                */
     x = start;

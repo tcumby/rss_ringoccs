@@ -12,7 +12,6 @@ if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
 endif()
 
 project(math_plots)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../../..)
 
 set(apps
     abs_plot
@@ -25,6 +24,10 @@ set(apps
 
 foreach(app ${apps})
     add_executable(${app} ${app}.c)
+    if(MSVC)
+        set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+    endif()
+    target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(${app} PRIVATE rss::librssringoccs)
 endforeach()
 

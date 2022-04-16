@@ -77,9 +77,9 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Diffraction_Correction_SimpleFFT(rssringocc
     factor = 0.5*tau->dx_km;
 
     /*  Allocate memory for the Fresnel kernel and other variables.           */
-    ker     = malloc(sizeof(*ker)     * data_size);
-    fft_out = malloc(sizeof(*fft_out) * data_size);
-    T_in    = malloc(sizeof(*T_in)    * data_size);
+    ker     = (rssringoccs_ComplexDouble *)malloc(sizeof(*ker)     * data_size);
+    fft_out = (rssringoccs_ComplexDouble *)malloc(sizeof(*fft_out) * data_size);
+    T_in    = (rssringoccs_ComplexDouble *)malloc(sizeof(*T_in)    * data_size);
 
     w_thresh = 0.5*tau->w_km_vals[center];
 

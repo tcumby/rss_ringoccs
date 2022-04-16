@@ -63,10 +63,10 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Easy_Complex_Plots(
         exit(0);
     }
     string_length = strlen(func_name);
-    re_file = malloc(sizeof(*re_file) *(string_length + 10));
-    im_file = malloc(sizeof(*im_file) *(string_length + 10));
-    mag_file = malloc(sizeof(*re_file) *(string_length + 9));
-    arg_file = malloc(sizeof(*im_file) *(string_length + 9));
+    re_file = (char *)malloc(sizeof(*re_file) *(string_length + 10));
+    im_file = (char *)malloc(sizeof(*im_file) *(string_length + 10));
+    mag_file = (char *)malloc(sizeof(*re_file) *(string_length + 9));
+    arg_file = (char *)malloc(sizeof(*im_file) *(string_length + 9));
 
     x_rcp_factor = 1.0/(x_size - 1.0);
     y_rcp_factor = 1.0/(y_size - 1.0);
@@ -80,7 +80,7 @@ RSS_RINGOCCS_EXPORT void rssringoccs_Easy_Complex_Plots(
     strcat(mag_file, "_mag.ppm");
     strcat(arg_file, "_arg.ppm");
 
-    fp = malloc(sizeof(*fp) * 2);
+    fp = (FILE **)malloc(sizeof(*fp) * 2);
 
     fp[0] = fopen(re_file, "w");
     fp[1] = fopen(im_file, "w");

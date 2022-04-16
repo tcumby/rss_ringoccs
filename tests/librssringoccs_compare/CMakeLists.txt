@@ -16,29 +16,37 @@ include(GenerateExportHeader)
 project(rssringoccs_compare_library)
 
 enable_language(C)
+set(LIBRSSRINGOCCS_COMPARE_SOURCE_FILES
+    rss_ringoccs_compare_real_in_real_out_double.c
+    rss_ringoccs_compare_complex_in_complex_out_float.c
+    rss_ringoccs_compare_real_in_real_out_ldouble.c
+    rss_ringoccs_compare_complex_in_complex_out_ldouble.c
+    rss_ringoccs_accuracy_complex_in_complex_out_ldouble.c
+    rss_ringoccs_compare_complex_in_complex_out_double.c
+    rss_ringoccs_accuracy_complex_in_complex_out_float.c
+    rss_ringoccs_compare_real_in_real_out_float.c
+    rss_ringoccs_time_test_funcs.c
+    rss_ringoccs_accuracy_complex_in_complex_out_double.c
+)
+
+if(MSVC)
+    foreach(source_file ${LIBRSSRINGOCCS_COMPARE_SOURCE_FILES})
+        set_source_files_properties(${source_file} PROPERTIES LANGUAGE CXX)
+    endforeach()
+endif()
 
 add_library(librssringoccs_compare SHARED)
 target_sources(
     librssringoccs_compare
-    PRIVATE
-        rss_ringoccs_compare_real_in_real_out_double.c
-        rss_ringoccs_compare_complex_in_complex_out_float.c
-        rss_ringoccs_compare_real_in_real_out_ldouble.c
-        rss_ringoccs_compare_complex_in_complex_out_ldouble.c
-        rss_ringoccs_accuracy_complex_in_complex_out_ldouble.c
-        rss_ringoccs_compare_complex_in_complex_out_double.c
-        rss_ringoccs_accuracy_complex_in_complex_out_float.c
-        rss_ringoccs_compare_real_in_real_out_float.c
-        rss_ringoccs_time_test_funcs.c
-        rss_ringoccs_accuracy_complex_in_complex_out_double.c
+    PRIVATE ${LIBRSSRINGOCCS_COMPARE_SOURCE_FILES}
 )
 
 target_include_directories(
     librssringoccs_compare
     PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/../../include
+        ${RSS_RINGOCCS_SOURCE_DIR}/include
         ${CMAKE_CURRENT_SOURCE_DIR}
-        ${CMAKE_CURRENT_SOURCE_DIR}/../../..
+        ${RSS_RINGOCCS_PARENT_DIR}
 )
 
 set_target_properties(

@@ -10,7 +10,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble* rssringoccs_Complex_FFT_Cooley_Tu
     unsigned long k, m, n, skip;
 
     /*  Boolean for determining if we're on an even iteration.                */
-    rssringoccs_Bool evenIteration = N & 0x55555555;
+    rssringoccs_Bool evenIteration = (rssringoccs_Bool)(N & 0x55555555);
 
     /*  Declare several pointers for performing the Cooley-Tukey algorithm.   */
     rssringoccs_ComplexDouble *out;
@@ -29,7 +29,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble* rssringoccs_Complex_FFT_Cooley_Tu
     if (!((N > 0) && ((N & (N-1)) == 0)))
         return NULL;
 
-    out = malloc(sizeof(*out) * N);
+    out = (rssringoccs_ComplexDouble *)malloc(sizeof(*out) * N);
 
     /*  If N is 1, simply return the output. That is, the FFT of a point is   *
      *  just that point.                                                      */
@@ -42,8 +42,8 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble* rssringoccs_Complex_FFT_Cooley_Tu
     /*  The "twiddle" factors are just the complex exponentials that occur    *
      *  inside the discrete Fourier transform. Allocate memory for this and   *
      *  the "scratch" factor. Per C99 recommendations we do not cast malloc.  */
-    twiddles = malloc(sizeof(*twiddles) * N);
-    scratch  = malloc(sizeof(*scratch)  * N);
+    twiddles = (rssringoccs_ComplexDouble *)malloc(sizeof(*twiddles) * N);
+    scratch  = (rssringoccs_ComplexDouble *)malloc(sizeof(*scratch)  * N);
 
     /*  If we are performing an inverse Fourier transform, the factor inside  *
      *  the exponential is 2 pi / N. Forward transform is minus this.         */
@@ -97,7 +97,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble* rssringoccs_Complex_FFT_Cooley_Tu
         E = Xstart;
 
         /*  The next iteration is the opposite of what evenIteration is now.  */
-        evenIteration = !evenIteration;
+        evenIteration = (rssringoccs_True==evenIteration) ? rssringoccs_False : rssringoccs_True;
     }
 
     /*  Free your allocated memory!                                           */

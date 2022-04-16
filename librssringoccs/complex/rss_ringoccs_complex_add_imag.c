@@ -158,7 +158,8 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Add_Imag(float y, rssringoccs_ComplexFloat z)
 {
 #ifdef _MSC_VER
-    return _FCbuild(crealf(z), cimagf(z) + y);
+    using namespace std::complex_literals;
+    return 1if*y + z;
 #else
     return (float _Complex)_Complex_I*y + z;
 #endif
@@ -170,7 +171,8 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Add_Imag(double y, rssringoccs_ComplexDouble z)
 {
 #ifdef _MSC_VER
-    return _Cbuild(creal(z), cimag(z) + y);
+    using namespace std::complex_literals;
+    return 1i*y + z;
 #else
     return (rssringoccs_ComplexDouble)_Complex_I*y + z;
 #endif
@@ -182,7 +184,8 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Add_Imag(long double y, rssringoccs_ComplexLongDouble z)
 {
 #ifdef _MSC_VER
-    return _LCbuild(creall(z), cimagl(z) + y);
+    using namespace std::complex_literals;
+    return 1il*y + z;
 #else
     return (rssringoccs_ComplexLongDouble)_Complex_I*y + z;
 #endif

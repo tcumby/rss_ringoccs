@@ -100,16 +100,16 @@ rssringoccs_Compare_CLDouble_Funcs(
     ds = (end - start) / N;
 
     /*  Allocate memory for the two pointers we've declared.                  */
-    z0 = malloc(sizeof(*z0) * N);
-    z1 = malloc(sizeof(*z1) * N);
+    z0 = (rssringoccs_ComplexLongDouble**)malloc(sizeof(*z0) * N);
+    z1 = (rssringoccs_ComplexLongDouble**)malloc(sizeof(*z1) * N);
 
     /*  Set each element of z0 and z1 to pointers to complex variables. This  *
      *  will allow us to mimic a complex array/matrix. We can access the      *
      *  (m,n) value via z0[m][n] and z1[m][n].                                */
     for (m=0; m<N; ++m)
     {
-        z0[m] = malloc(sizeof(*z0[m]) * N);
-        z1[m] = malloc(sizeof(*z1[m]) * N);
+        z0[m] = (rssringoccs_ComplexLongDouble*)malloc(sizeof(*z0[m]) * N);
+        z1[m] = (rssringoccs_ComplexLongDouble*)malloc(sizeof(*z1[m]) * N);
     }
     /*  Don't forget to free everything when done!                            */
 
@@ -156,9 +156,8 @@ rssringoccs_Compare_CLDouble_Funcs(
         x = start;
         for (n=0; n<N; ++n)
         {
-
 #if defined(_MSC_VER) && _RSS_RINGOCCS_USING_COMPLEX_H_ == 1
-            z1[m][n] = f1(_LCbuild(x, y));
+            z1[m][n] = f1({x, y});
 #else
              z1[m][n] = f1(x + (rssringoccs_ComplexLongDouble)_Complex_I*y);
 #endif

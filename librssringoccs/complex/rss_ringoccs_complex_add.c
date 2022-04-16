@@ -172,11 +172,7 @@ rssringoccs_CLDouble_Add(rssringoccs_ComplexLongDouble z0,
 RSS_RINGOCCS_EXPORT rssringoccs_ComplexFloat
 rssringoccs_CFloat_Add(rssringoccs_ComplexFloat z0, rssringoccs_ComplexFloat z1)
 {
-#ifdef _MSC_VER
-    return _FCbuild(crealf(z0) + crealf(z1), cimagf(z0) + cimagf(z1));
-#else
     return z0 + z1;
-#endif
 }
 /*  End of rssringoccs_CFloat_Add.                                            */
 
@@ -185,11 +181,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexDouble
 rssringoccs_CDouble_Add(rssringoccs_ComplexDouble z0,
                         rssringoccs_ComplexDouble z1)
 {
-#ifdef _MSC_VER
-    return _Cbuild(creal(z0) + creal(z1), cimag(z0) + cimag(z1));
-#else
     return z0 + z1;
-#endif
 }
 /*  End of rssringoccs_CDouble_Add.                                           */
 
@@ -198,11 +190,7 @@ RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
 rssringoccs_CLDouble_Add(rssringoccs_ComplexLongDouble z0,
                          rssringoccs_ComplexLongDouble z1)
 {
-#ifdef _MSC_VER
-    return _LCbuild(creall(z0) + creall(z1), cimagl(z0) + cimagl(z1));
-#else
     return z0 + z1;
-#endif
 }
 /*  End of rssringoccs_CLDouble_Add.                                          */
 
