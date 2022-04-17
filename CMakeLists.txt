@@ -1,6 +1,13 @@
 cmake_minimum_required(VERSION 3.20)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
+# We use vcpkg to retrieve a build of GSL
+include(FetchVcpkg)
+set(CMAKE_TOOLCHAIN_FILE ${vcpkg_toolchain_file}
+    CACHE STRING "Vcpkg toolchain file"
+)
+message("CMAKE_TOOLCHAIN_FILE: ${CMAKE_TOOLCHAIN_FILE}")
+
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
     if(APPLE)
         include(gcc-macos)
@@ -9,13 +16,6 @@ if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
         include(gcc)
         set(CMAKE_INSTALL_PREFIX "/usr/local")
     elseif(WIN32)
-        # We use vcpkg to retrieve a build of GSL for Windows
-        include(FetchVcpkg)
-        set(CMAKE_TOOLCHAIN_FILE ${vcpkg_toolchain_file}
-            CACHE STRING "Vcpkg toolchain file"
-        )
-        message("CMAKE_TOOLCHAIN_FILE: ${CMAKE_TOOLCHAIN_FILE}")
-
         if(MSVC)
             # Compile as C++ for Microsoft Visual Studio to avoid the non-standard complex number implementation in the
             # C compiler
