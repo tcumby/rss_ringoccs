@@ -58,7 +58,7 @@ set_target_properties(
         IMPORTED_IMPLIB $<TARGET_LINKER_FILE:rss::librssringoccs>
         INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_CURRENT_BINARY_DIR}
 )
-target_link_libraries(librssringoccs_compare rss::librssringoccs)
+target_link_libraries(librssringoccs_compare PRIVATE rss::librssringoccs)
 
 generate_export_header(
     librssringoccs_compare # generates the export header shared_EXPORTS.h automatically
