@@ -194,20 +194,6 @@ rssringoccs_CLDouble_Multiply(rssringoccs_ComplexLongDouble z0,
     return z0 * z1;
 }
 
-RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
-rssringoccs_CLDouble_Subtract_Real(long double x,
-                                            rssringoccs_ComplexLongDouble z)
-{
-    return x * z;
-}
-
-
-RSS_RINGOCCS_EXPORT rssringoccs_ComplexLongDouble
-rssringoccs_CLDouble_Subtract_Imag(long double y,
-                                            rssringoccs_ComplexLongDouble z)
-{
-    return _Complex_I*y * z;
-}
 #else
 /*  Else statement for #if _MSC_VER == 0.                                     */
 
