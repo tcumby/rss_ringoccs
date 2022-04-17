@@ -21,6 +21,9 @@ if(MSVC)
 endif()
 
 add_library(librssringoccs SHARED)
+if(UNIX)
+    target_link_libraries(librssringoccs PRIVATE m)
+endif()
 
 target_include_directories(
     librssringoccs
