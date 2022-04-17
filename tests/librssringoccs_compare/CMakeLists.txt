@@ -40,7 +40,9 @@ target_sources(
     librssringoccs_compare
     PRIVATE ${LIBRSSRINGOCCS_COMPARE_SOURCE_FILES}
 )
-
+if(UNIX)
+    target_link_libraries(librssringoccs_compare PRIVATE m)
+endif()
 target_include_directories(
     librssringoccs_compare
     PUBLIC

@@ -26,4 +26,7 @@ foreach(app ${test_apps})
         PRIVATE rss::librssringoccs rss::librssringoccs_compare
     )
     target_include_directories(${app} PRIVATE "${GSL_INCLUDE_DIRS}")
+    if(UNIX)
+        target_link_libraries(${app} PRIVATE m)
+    endif()
 endforeach()

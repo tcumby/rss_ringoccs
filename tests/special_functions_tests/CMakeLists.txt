@@ -30,6 +30,9 @@ foreach(app ${test_apps})
         ${app}
         PRIVATE rss::librssringoccs rss::librssringoccs_compare GSL::gsl
     )
+    if(UNIX)
+        target_link_libraries(${app} PRIVATE m)
+    endif()
 endforeach()
 
 include(GNUInstallDirs)
