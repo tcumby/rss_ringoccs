@@ -83,8 +83,13 @@ static double rss_cabs_sq(rssringoccs_ComplexDouble z)
     x = reinterpret_cast<double(&)[2]>(z)[0];
     y = reinterpret_cast<double(&)[2]>(z)[1];
 #else
+#if __RSS_RINGOCCS_USING_COMPLEX_H__==1
+    x = creal(z);
+    y = cimag(z);
+#else
     x = z.dat[0];
     y = z.dat[1];
+#endif
 #endif
 
     /*  |z|^2 = x^2 + y^2 so return this.                                     */
