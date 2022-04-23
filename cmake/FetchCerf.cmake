@@ -4,8 +4,10 @@ include(FetchContent)
 
 if(MSVC)
     set(CERF_CPP ON)
-    set(LIB_MAN OFF)
+else()
+    set(CERF_CPP OFF)
 endif()
+set(LIB_MAN OFF)
 
 fetchcontent_declare(
     cerf_checkout
