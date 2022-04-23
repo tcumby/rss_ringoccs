@@ -31,6 +31,9 @@ foreach(app ${test_apps})
         ${app}
         PRIVATE rss::librssringoccs rss::librssringoccs_compare
     )
+    if(UNIX)
+        target_link_libraries(${app} PRIVATE m)
+    endif()
 endforeach()
 
 include(FetchCerf)
