@@ -43,6 +43,7 @@ set(test_apps
 )
 foreach(app ${test_apps})
     add_executable(${app} ${app}.c)
+    set_property(TARGET ${app} PROPERTY C_STANDARD 99)
     if(MSVC)
         set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     endif()
@@ -63,6 +64,7 @@ set(cerf_apps
 )
 foreach(app ${cerf_apps})
     add_executable(${app} ${app}.c)
+    set_property(TARGET ${app} PROPERTY C_STANDARD 99)
     if(MSVC)
         set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     endif()
@@ -73,12 +75,17 @@ foreach(app ${cerf_apps})
         PRIVATE
             rss::librssringoccs
             rss::librssringoccs_compare
-            $<IF:$<BOOL:CERF_CPP>,cerfcpp,cerf>
+            $<IF:$<BOOL:${CERF_CPP}>,cerfcpp,cerf>
     )
     if(MSVC)
         target_compile_options(${app} PRIVATE /DCERF_AS_CPP)
     else()
-        target_compile_options(${app} PRIVATE -DCERF_AS_CPP)
+        if(CERF_CPP)
+            target_compile_options(${app} PRIVATE -DCERF_AS_CPP)
+        endif()
+    endif()
+    if(UNIX)
+        target_link_libraries(${app} PRIVATE m)
     endif()
 endforeach()
 

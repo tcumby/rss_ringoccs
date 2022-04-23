@@ -25,6 +25,7 @@ foreach(app ${test_apps})
         set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     endif()
     add_executable(${app} ${app}.c)
+    set_property(TARGET ${app} PROPERTY C_STANDARD 99)
     target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(
         ${app}
@@ -36,7 +37,10 @@ include(FetchCerf)
 set(cerf_apps faddeeva_im_time_test)
 foreach(app ${cerf_apps})
     add_executable(${app} ${app}.c)
-    set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+    set_property(TARGET ${app} PROPERTY C_STANDARD 99)
+    if(MSVC)
+        set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
+    endif()
     target_include_directories(${app} PRIVATE ${cerf_INCLUDE_DIRECTORY})
     target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(
@@ -44,12 +48,14 @@ foreach(app ${cerf_apps})
         PRIVATE
             rss::librssringoccs
             rss::librssringoccs_compare
-            $<IF:$<BOOL:CERF_CPP>,cerfcpp,cerf>
+            $<IF:$<BOOL:${CERF_CPP}>,cerfcpp,cerf>
     )
     if(MSVC)
         target_compile_options(${app} PRIVATE /DCERF_AS_CPP)
     else()
-        target_compile_options(${app} PRIVATE -DCERF_AS_CPP)
+        if(CERF_CPP)
+            target_compile_options(${app} PRIVATE -DCERF_AS_CPP)
+        endif()
     endif()
     if(UNIX)
         target_link_libraries(${app} PRIVATE m)
