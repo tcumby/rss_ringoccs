@@ -77,7 +77,7 @@ set_property(
     TARGET librssringoccs_compare
     PROPERTY
         C_STANDARD
-        90 # C89/90
+        99 # C89/90
         INTERPROCEDURAL_OPTIMIZATION
         TRUE
         PUBLIC_HEADER
