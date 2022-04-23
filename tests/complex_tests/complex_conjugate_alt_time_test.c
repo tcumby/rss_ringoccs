@@ -58,7 +58,11 @@ static rssringoccs_ComplexDouble rss_conj(rssringoccs_ComplexDouble z)
      * reinterpret_cast to T(&)[2], i.e. a 2-element array of T&              */
     reinterpret_cast<double(&)[2]>(z)[1] = -reinterpret_cast<double(&)[2]>(z)[1];
 #else
+#if __RSS_RINGOCCS_USING_COMPLEX_H__==1
+    z = conj(z);
+#else
     z.dat[1] = -z.dat[1];
+#endif
 #endif
     return z;
 }
