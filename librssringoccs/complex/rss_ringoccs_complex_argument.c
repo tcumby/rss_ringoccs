@@ -148,7 +148,7 @@ rssringoccs_CLDouble_Argument(rssringoccs_ComplexLongDouble z)
 
 /*  If we get here we have complex.h support so we'll just alias the          *
  *  functions found in the library.                                           */
-
+#ifdef __cplusplus
 /*  Single precision complex argument function.                               */
 RSS_RINGOCCS_EXPORT float rssringoccs_CFloat_Argument(rssringoccs_ComplexFloat z)
 {
@@ -170,6 +170,35 @@ rssringoccs_CLDouble_Argument(rssringoccs_ComplexLongDouble z)
     return arg(z);
 }
 /*  End of rssringoccs_CLDouble_Argument.                            */
+#else
+/*  Else statement for #ifdef __cplusplus.                                   */
+
+/*  If we get here we have complex.h support so we'll just alias the          *
+ *  functions found in the library.                                           */
+
+/*  Single precision complex argument function.                               */
+RSS_RINGOCCS_EXPORT float rssringoccs_CFloat_Argument(rssringoccs_ComplexFloat z)
+{
+    return cargf(z);
+}
+/*  End of rssringoccs_CFloat_Argument.                                 */
+
+/*  Double precision complex argument function.                               */
+RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Argument(rssringoccs_ComplexDouble z)
+{
+    return carg(z);
+}
+/*  End of rssringoccs_CDouble_Argument.                                */
+
+/*  Long double precision complex argument function.                          */
+RSS_RINGOCCS_EXPORT long double
+rssringoccs_CLDouble_Argument(rssringoccs_ComplexLongDouble z)
+{
+    return carg(z);
+}
+/*  End of rssringoccs_CLDouble_Argument.                            */
+
+#endif
 
 #endif
 /*  End of #if _RSS_RINGOCCS_USING_COMPLEX_H_ == 0.                           */

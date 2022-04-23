@@ -74,6 +74,8 @@ rssringoccs_CLDouble_Real_Part(rssringoccs_ComplexLongDouble z)
 
 #else
 
+#ifdef __cplusplus
+// Using C++ std::complex::real<>()
 RSS_RINGOCCS_EXPORT float rssringoccs_CFloat_Real_Part(rssringoccs_ComplexFloat z)
 {
     return real(z);
@@ -89,5 +91,25 @@ rssringoccs_CLDouble_Real_Part(rssringoccs_ComplexLongDouble z)
 {
     return real(z);
 }
+
+#else
+
+RSS_RINGOCCS_EXPORT float rssringoccs_CFloat_Real_Part(rssringoccs_ComplexFloat z)
+{
+    return crealf(z);
+}
+
+RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Real_Part(rssringoccs_ComplexDouble z)
+{
+    return creal(z);
+}
+
+RSS_RINGOCCS_EXPORT long double
+rssringoccs_CLDouble_Real_Part(rssringoccs_ComplexLongDouble z)
+{
+    return creall(z);
+}
+
+#endif
 
 #endif

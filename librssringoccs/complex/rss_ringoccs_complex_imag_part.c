@@ -74,6 +74,8 @@ rssringoccs_CLDouble_Imag_Part(rssringoccs_ComplexLongDouble z)
 
 #else
 
+#ifdef __cplusplus
+
 RSS_RINGOCCS_EXPORT float rssringoccs_CFloat_Imag_Part(rssringoccs_ComplexFloat z)
 {
     return imag(z);
@@ -89,6 +91,25 @@ rssringoccs_CLDouble_Imag_Part(rssringoccs_ComplexLongDouble z)
 {
     return imag(z);
 }
+
+#else
+
+RSS_RINGOCCS_EXPORT float rssringoccs_CFloat_Imag_Part(rssringoccs_ComplexFloat z)
+{
+    return cimagf(z);
+}
+
+RSS_RINGOCCS_EXPORT double rssringoccs_CDouble_Imag_Part(rssringoccs_ComplexDouble z)
+{
+    return cimag(z);
+}
+
+RSS_RINGOCCS_EXPORT long double
+rssringoccs_CLDouble_Imag_Part(rssringoccs_ComplexLongDouble z)
+{
+    return cimagl(z);
+}
+#endif
 
 
 #endif
