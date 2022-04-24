@@ -37,6 +37,7 @@ set(RSS_RINGOCCS_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}" CACHE PATH "" FORCE)
 project(rss_ringoccs)
 
 add_subdirectory("librssringoccs")
+add_subdirectory("rss_ringoccs")
 
 if(BUILD_EXAMPLES)
     add_subdirectory("examples")
