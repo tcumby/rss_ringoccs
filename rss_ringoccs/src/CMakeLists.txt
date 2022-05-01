@@ -16,7 +16,12 @@ foreach(module ${modules})
     if(MSVC)
         set_source_files_properties(${module}.c PROPERTIES LANGUAGE CXX)
     endif()
-    target_link_libraries(${module} PRIVATE rss::librssringoccs)
+    set_target_properties(${module} PROPERTIES CXX_STANDARD 20 C_STANDARD 99)
+    target_link_directories(${module} PRIVATE ${Python_LIBRARY_DIRS})
+    target_link_libraries(
+        ${module}
+        PRIVATE rss::librssringoccs ${Python_LIBRARIES}
+    )
     target_include_directories(
         ${module}
         PRIVATE
