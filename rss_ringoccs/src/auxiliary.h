@@ -16,7 +16,7 @@ static void capsule_cleanup(PyObject *capsule)
 }
 
 #define _convert_void_to_double(in, out, n, dim, type)                         \
-    out = malloc(sizeof(*out) * dim);                                          \
+    out = (double *)malloc(sizeof(*out) * dim);                                \
     for (n=0; n<dim; ++n)                                                      \
         out[n] = (double)((type *)in)[n];
 
@@ -25,7 +25,7 @@ static void *_get_array_from_one_long(void *in, long dim, long (*f)(long))
     long n, x;
     void *out;
     long *out_data;
-    out_data = malloc(sizeof(*out_data)*dim);
+    out_data = (long*)malloc(sizeof(*out_data)*dim);
 
     for (n=0; n<dim; ++n)
     {
@@ -43,7 +43,7 @@ static void *_get_array_from_one_float(void *in, long dim, float (*f)(float))
     void *out;
     float *out_data;
     float x;
-    out_data = malloc(sizeof(*out_data) * dim);
+    out_data = (float*)malloc(sizeof(*out_data) * dim);
 
     for (n=0; n<dim; ++n)
     {
@@ -60,7 +60,7 @@ static void *_get_array_from_one_double(void *in, long dim, double (*f)(double))
     long n;
     void *out;
     double *out_data;
-    out_data = malloc(sizeof(*out_data)*dim);
+    out_data = (double*)malloc(sizeof(*out_data)*dim);
 
     for (n=0; n<dim; ++n)
         out_data[n] = f(((double *)in)[n]);
@@ -75,7 +75,7 @@ static void *_get_array_from_one_ldouble(void *in, long dim,
     long n;
     void *out;
     long double *out_data;
-    out_data = malloc(sizeof(*out_data)*dim);
+    out_data = (long double*)malloc(sizeof(*out_data)*dim);
 
     for (n=0; n<dim; ++n)
         out_data[n] = f(((long double *)in)[n]);
@@ -90,7 +90,7 @@ static void *_get_complex_from_double(double *in, long dim,
     long n;
     void *out;
     rssringoccs_ComplexDouble *out_data;
-    out_data = malloc(sizeof(*out_data)*dim);
+    out_data = (rssringoccs_ComplexDouble*)malloc(sizeof(*out_data)*dim);
 
     for (n=0; n<dim; ++n)
         out_data[n] = f(in[n]);
@@ -108,7 +108,7 @@ _get_complex_from_complex(void *in, long dim,
     void *out;
     rssringoccs_ComplexDouble *out_data;
     rssringoccs_ComplexDouble z;
-    out_data = malloc(sizeof(*out_data) * dim);
+    out_data = (rssringoccs_ComplexDouble*)malloc(sizeof(*out_data) * dim);
 
     for (n=0; n<dim; ++n)
     {
@@ -125,7 +125,7 @@ static void *_get_void_from_double(double *in, long dim, double (*f)(double))
     long n;
     void *out;
     double *out_data;
-    out_data = malloc(sizeof(*out_data) * dim);
+    out_data = (double*)malloc(sizeof(*out_data) * dim);
 
     for (n=0; n<dim; ++n)
         out_data[n] = f(in[n]);
@@ -140,7 +140,7 @@ static void *_get_cvoid_from_double(double *in, long dim,
     long n;
     void *out;
     rssringoccs_ComplexDouble *out_data;
-    out_data = malloc(sizeof(*out_data) * dim);
+    out_data = (rssringoccs_ComplexDouble*)malloc(sizeof(*out_data) * dim);
 
     for (n=0; n<dim; ++n)
         out_data[n] = f(in[n]);
@@ -385,7 +385,7 @@ rssringoccs_Get_Py_Func_From_C(PyObject *self, PyObject *args,
                 out = _get_array_from_one_double(data, dim,
                                                  c_func->double_func);
             else if (c_func->cdouble_from_real_func != NULL)
-                out = _get_complex_from_double(data, dim,
+                out = _get_complex_from_double((double*)data, dim,
                                                c_func->cdouble_from_real_func);
             else
                 error_occured = rssringoccs_True;
@@ -440,7 +440,6 @@ rssringoccs_Get_Py_Func_From_C(PyObject *self, PyObject *args,
 
         default:
             error_occured = rssringoccs_True;
-
     }
 
     if (error_occured)
@@ -462,7 +461,7 @@ rssringoccs_Get_Py_Func_From_C(PyObject *self, PyObject *args,
         return NULL;
     }
 
-    output  = PyArray_SimpleNewFromData(1, &dim, typenum, out);
+    output  = PyArray_SimpleNewFromData(1, (npy_intp *)&dim, typenum, out);
     capsule = PyCapsule_New(out, NULL, capsule_cleanup);
 
     /*  This frees the variable at the Python level once it's destroyed.  */
