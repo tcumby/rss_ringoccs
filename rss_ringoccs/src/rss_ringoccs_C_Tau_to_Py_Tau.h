@@ -13,7 +13,7 @@ static void __set_var(PyObject **py_ptr, double **ptr, unsigned long len);
 static void __set_cvar(PyObject **py_ptr, rssringoccs_ComplexDouble **ptr,
                        unsigned long len);
 
-static void rssringoccs_C_Tau_to_Py_Tau(PyDiffrecObj *py_tau,
-                                        rssringoccs_TAUObj *tau);
+void rssringoccs_C_Tau_to_Py_Tau(PyDiffrecObj *py_tau,
+                                 rssringoccs_TAUObj *tau);
 
 #endif

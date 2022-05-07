@@ -46,8 +46,8 @@ static void __set_cvar(PyObject **py_ptr, rssringoccs_ComplexDouble **ptr,
     Py_XDECREF(tmp);
 }
 
-static void rssringoccs_C_Tau_to_Py_Tau(PyDiffrecObj *py_tau,
-                                        rssringoccs_TAUObj *tau)
+void rssringoccs_C_Tau_to_Py_Tau(PyDiffrecObj *py_tau,
+                                 rssringoccs_TAUObj *tau)
 {
     PyObject *tmp;
     if (tau == NULL)
