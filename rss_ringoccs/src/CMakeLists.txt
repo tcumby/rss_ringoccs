@@ -30,3 +30,13 @@ foreach(module ${modules})
             "${RSS_RINGOCCS_PARENT_DIR}"
     )
 endforeach()
+
+target_sources(
+    diffraction_correction_class
+    PRIVATE
+        rss_ringoccs_Py_DLP_to_C_DLP.c
+        rss_ringoccs_C_Tau_to_Py_Tau.c
+        rss_ringoccs_Get_Py_Perturb.c
+        rss_ringoccs_Get_Py_Range.c
+        rss_ringoccs_Get_Py_Vars_From_Self.c
+)

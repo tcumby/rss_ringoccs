@@ -197,11 +197,11 @@
 #include <rss_ringoccs/include/rss_ringoccs_special_functions.h>
 
 #include "rss_ringoccs_py_api.h"
-#include "rss_ringoccs_Py_DLP_to_C_DLP.c"
-#include "rss_ringoccs_C_Tau_to_Py_Tau.c"
-#include "rss_ringoccs_Get_Py_Perturb.c"
-#include "rss_ringoccs_Get_Py_Range.c"
-#include "rss_ringoccs_Get_Py_Vars_From_Self.c"
+#include "rss_ringoccs_Py_DLP_to_C_DLP.h"
+#include "rss_ringoccs_C_Tau_to_Py_Tau.h"
+#include "rss_ringoccs_Get_Py_Perturb.h"
+#include "rss_ringoccs_Get_Py_Range.h"
+#include "rss_ringoccs_Get_Py_Vars_From_Self.h"
 
 /*  Deallocating function for the DiffractionCorrection class.                */
 static void Diffrec_dealloc(PyDiffrecObj *self)
@@ -260,21 +260,21 @@ static int Diffrec_init(PyDiffrecObj *self, PyObject *args, PyObject *kwds)
      *  dlp and res are REQUIRED inputs, the rest are optional. If the user   *
      *  does not provide these optional keywords, we must set them ourselves. */
     static char *kwlist[] = {
-        "dlp",
-        "res",
-        "rng",
-        "wtype",
-        "use_fwd",
-        "use_norm",
-        "verbose",
-        "bfac",
-        "sigma",
-        "psitype",
-        "write_file",
-        "res_factor",
-        "ecc",
-        "peri",
-        "perturb",
+        (char*)"dlp",
+        (char*)"res",
+        (char*)"rng",
+        (char*)"wtype",
+        (char*)"use_fwd",
+        (char*)"use_norm",
+        (char*)"verbose",
+        (char*)"bfac",
+        (char*)"sigma",
+        (char*)"psitype",
+        (char*)"write_file",
+        (char*)"res_factor",
+        (char*)"ecc",
+        (char*)"peri",
+        (char*)"perturb",
         NULL
     };
 
@@ -341,7 +341,7 @@ static int Diffrec_init(PyDiffrecObj *self, PyObject *args, PyObject *kwds)
 
     /*  Extract the inputs and keywords supplied by the user. If the data     *
      *  cannot be extracted, raise a type error and return to caller. A short *
-     *  explaination of PyArg_ParseTupleAndKeywords. The inputs args and kwds *
+     *  explanation of PyArg_ParseTupleAndKeywords. The inputs args and kwds  *
      *  are somewhat straight-forward, they're the arguments and keywords     *
      *  passed by the string. The cryptic string is not straight-forward. The *
      *  | symbol means everything after need not be positional, and we can    *
@@ -920,26 +920,36 @@ static PyMemberDef Custom_members[] = {
     }  /* Sentinel */
 };
 
-static PyTypeObject DiffrecType = {
-    PyVarObject_HEAD_INIT(NULL, 0)
-    .tp_name = "diffrec.DiffractionCorrection",
-    .tp_doc = "Diffraction Correction class.",
-    .tp_basicsize = sizeof(PyDiffrecObj),
-    .tp_itemsize = 0,
-    .tp_flags = Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,
-    .tp_new = PyType_GenericNew,
-    .tp_init = (initproc) Diffrec_init,
-    .tp_dealloc = (destructor) Diffrec_dealloc,
-    .tp_members = Custom_members,
-    .tp_methods = DiffractionCorrection_methods,
-};
+static PyTypeObject constructDiffrecType(void) {
+    PyTypeObject DiffrecType = { PyVarObject_HEAD_INIT(NULL, 0)};
 
-static PyModuleDef moduledef = {
-    PyModuleDef_HEAD_INIT,
-    .m_name = "custom",
-    .m_doc = "Module containing the rss_ringoccs class.",
-    .m_size = -1,
-};
+    DiffrecType.tp_name = "diffrec.DiffractionCorrection";
+    DiffrecType.tp_doc = "Diffraction Correction class.";
+    DiffrecType.tp_basicsize = sizeof(PyDiffrecObj);
+    DiffrecType.tp_itemsize = 0;
+    DiffrecType.tp_flags = Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE;
+    DiffrecType.tp_new = PyType_GenericNew;
+    DiffrecType.tp_init = (initproc) Diffrec_init;
+    DiffrecType.tp_dealloc = (destructor) Diffrec_dealloc;
+    DiffrecType.tp_members = Custom_members;
+    DiffrecType.tp_methods = DiffractionCorrection_methods;
+
+    return DiffrecType;
+}
+
+static PyTypeObject DiffrecType = constructDiffrecType();
+
+static PyModuleDef constructModuleDef(void)
+{
+    PyModuleDef moduledef = { PyModuleDef_HEAD_INIT};
+    moduledef.m_name = "custom";
+    moduledef.m_doc = "Module containing the rss_ringoccs class.";
+    moduledef.m_size = -1;
+
+    return moduledef;
+}
+
+static PyModuleDef moduledef = constructModuleDef();
 
 PyMODINIT_FUNC PyInit_diffrec(void)
 {
