@@ -31,12 +31,18 @@ foreach(module ${modules})
     )
 endforeach()
 
-target_sources(
-    diffraction_correction_class
-    PRIVATE
-        rss_ringoccs_Py_DLP_to_C_DLP.c
-        rss_ringoccs_C_Tau_to_Py_Tau.c
-        rss_ringoccs_Get_Py_Perturb.c
-        rss_ringoccs_Get_Py_Range.c
-        rss_ringoccs_Get_Py_Vars_From_Self.c
+set(diffraction_sources
+    rss_ringoccs_Py_DLP_to_C_DLP.c
+    rss_ringoccs_C_Tau_to_Py_Tau.c
+    rss_ringoccs_Get_Py_Perturb.c
+    rss_ringoccs_Get_Py_Range.c
+    rss_ringoccs_Get_Py_Vars_From_Self.c
 )
+
+foreach(source ${diffraction_sources})
+    if(MSVC)
+        set_source_files_properties(${source} PROPERTIES LANGUAGE CXX)
+    endif()
+endforeach()
+
+target_sources(diffraction_correction_class PRIVATE ${diffraction_sources})
