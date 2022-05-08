@@ -1,5 +1,9 @@
 #include "rss_ringoccs_Get_Py_Range.h"
 
+#include <rss_ringoccs/include/rss_ringoccs_string.h>
+#include <numpy/ndarraytypes.h>
+#include <numpy/ufuncobject.h>
+
 void rssringoccs_Get_Py_Range(rssringoccs_TAUObj *tau, PyObject *rngreq)
 {
     PyObject *iter;
@@ -25,7 +29,7 @@ void rssringoccs_Get_Py_Range(rssringoccs_TAUObj *tau, PyObject *rngreq)
 
     /*  If the rng variable is a string, make sure it is a legal value and    *
      *  try to extract the corresponding values in kilometers.                */
-    if PyBytes_Check(rngreq)
+    if (PyBytes_Check(rngreq))
     {
         rssringoccs_Tau_Set_Range_From_String(PyBytes_AsString(rngreq), tau);
 
@@ -33,7 +37,7 @@ void rssringoccs_Get_Py_Range(rssringoccs_TAUObj *tau, PyObject *rngreq)
      *  make sure it is a legal value and try to extract the corresponding    *
      *  values in kilometers.                                                 */
     }
-    else if PyUnicode_Check(rngreq)
+    else if (PyUnicode_Check(rngreq))
     {
         /*  Convert the Python string to a C string via PyUnicode_AsUTF8. The *
          *  C API recommends not altering the string, so we create a copy of  *
@@ -42,7 +46,7 @@ void rssringoccs_Get_Py_Range(rssringoccs_TAUObj *tau, PyObject *rngreq)
     }
 
     /*  If the requested range is a list, try to parse the elements.          */
-    else if PyList_Check(rngreq)
+    else if (PyList_Check(rngreq))
     {
         if (PyList_Size(rngreq) != 2)
         {

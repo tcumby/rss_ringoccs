@@ -2,6 +2,8 @@
 #define __RSS_RINGOCCS_PY_DLP_TO_C_DLP_H__
 
 #include "rss_ringoccs_py_api.h"
+#include <numpy/ndarraytypes.h>
+#include <numpy/ufuncobject.h>
 
 /*  Macro for raising the appropriate python error if the DLP instance is     *
  *  missing an attribute. This is equivalent to the following in python       *

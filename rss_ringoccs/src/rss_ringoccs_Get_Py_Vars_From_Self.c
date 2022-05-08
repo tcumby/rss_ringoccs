@@ -1,4 +1,5 @@
 #include "rss_ringoccs_Get_Py_Vars_From_Self.h"
+#include <rss_ringoccs/include/rss_ringoccs_string.h>
 
 void rssringoccs_Get_Py_Vars_From_Self(rssringoccs_TAUObj *tau,
                                        PyDiffrecObj *self)

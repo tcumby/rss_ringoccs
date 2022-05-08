@@ -1,4 +1,7 @@
 #include "rss_ringoccs_C_Tau_to_Py_Tau.h"
+#include <rss_ringoccs/include/rss_ringoccs_string.h>
+#include <numpy/ndarraytypes.h>
+#include <numpy/ufuncobject.h>
 
 /*  This function frees the memory allocated to a pointer by malloc when the  *
  *  corresponding variable is destroyed at the Python level. Without this you *

@@ -2,6 +2,7 @@
 #define __RSS_RINGOCCS_C_TAU_TO_PY_TAU_H__
 
 #include "rss_ringoccs_py_api.h"
+#include <rss_ringoccs/include/rss_ringoccs_reconstruction.h>
 
 /*  This function frees the memory allocated to a pointer by malloc when the  *
  *  corresponding variable is destroyed at the Python level. Without this you *

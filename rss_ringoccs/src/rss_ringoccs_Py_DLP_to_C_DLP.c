@@ -1,5 +1,5 @@
 #include "rss_ringoccs_Py_DLP_to_C_DLP.h"
-
+#include <rss_ringoccs/include/rss_ringoccs_string.h>
 
 rssringoccs_DLPObj *rssringoccs_Py_DLP_to_C_DLP(PyObject *py_dlp)
 {
