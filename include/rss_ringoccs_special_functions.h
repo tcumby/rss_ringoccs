@@ -241,90 +241,90 @@ rssringoccs_Complex_Window_Normalization(rssringoccs_ComplexDouble *ker,
  ******************************************************************************/
 
 #define WhereExternFuncs(FuncName)                                             \
-extern unsigned long **                                                                 \
+RSS_RINGOCCS_EXPORT extern unsigned long **                                                                 \
 rssringoccs_Where_##FuncName##_Char(char *data, unsigned long dim, double threshold);   \
                                                                                \
-extern unsigned long **                                                                 \
+RSS_RINGOCCS_EXPORT extern unsigned long **                                                                 \
 rssringoccs_Where_##FuncName##_UChar(unsigned char *data, unsigned long dim,            \
                                      double threshold);                        \
                                                                                \
-extern unsigned long **                                                                 \
+RSS_RINGOCCS_EXPORT extern unsigned long **                                                                 \
 rssringoccs_Where_##FuncName##_Short(short *data, unsigned long dim, double threshold); \
                                                                                \
-extern unsigned long **                                                                 \
+RSS_RINGOCCS_EXPORT extern unsigned long **                                                                 \
 rssringoccs_Where_##FuncName##_UShort(unsigned short *data, unsigned long dim,          \
                                       double threshold);                       \
                                                                                \
-extern unsigned long **                                                                 \
+RSS_RINGOCCS_EXPORT extern unsigned long **                                                                 \
 rssringoccs_Where_##FuncName##_Int(int *data, unsigned long dim, double threshold);     \
                                                                                \
-extern unsigned long **                                                                 \
+RSS_RINGOCCS_EXPORT extern unsigned long **                                                                 \
 rssringoccs_Where_##FuncName##_UInt(unsigned int *data, unsigned long dim,              \
                                     double threshold);                         \
                                                                                \
-extern unsigned long **                                                                 \
+RSS_RINGOCCS_EXPORT extern unsigned long **                                                                 \
 rssringoccs_Where_##FuncName##_Long(long *data, unsigned long dim, double threshold);   \
                                                                                \
-extern unsigned long **                                                                 \
+RSS_RINGOCCS_EXPORT extern unsigned long **                                                                 \
 rssringoccs_Where_##FuncName##_ULong(unsigned long *data, unsigned long dim,            \
                                      double threshold);                        \
                                                                                \
                                                                                \
-extern unsigned long **                                                                 \
+RSS_RINGOCCS_EXPORT extern unsigned long **                                                                 \
 rssringoccs_Where_##FuncName##_Float(float *data, unsigned long dim, float threshold);  \
                                                                                \
-extern unsigned long **                                                                 \
+RSS_RINGOCCS_EXPORT extern unsigned long **                                                                 \
 rssringoccs_Where_##FuncName##_Double(double *data, unsigned long dim,                  \
                                       double threshold);                       \
                                                                                \
-extern unsigned long **                                                                 \
+RSS_RINGOCCS_EXPORT extern unsigned long **                                                                 \
 rssringoccs_Where_##FuncName##_LDouble(long double *data, unsigned long dim,         \
                                           long double threshold);
 
 WhereExternFuncs(Lesser)
 WhereExternFuncs(Greater)
 
-extern unsigned long **
+RSS_RINGOCCS_EXPORT extern unsigned long **
 rssringoccs_Where_LesserGreater_Char(char *data, unsigned long dim,
                                      double lower, double upper);
 
-extern unsigned long **
+RSS_RINGOCCS_EXPORT extern unsigned long **
 rssringoccs_Where_LesserGreater_UChar(unsigned char *data, unsigned long dim,
                                       double lower, double upper);
 
-extern unsigned long **
+RSS_RINGOCCS_EXPORT extern unsigned long **
 rssringoccs_Where_LesserGreater_Short(short *data, unsigned long dim,
                                       double lower, double upper);
 
-extern unsigned long **
+RSS_RINGOCCS_EXPORT extern unsigned long **
 rssringoccs_Where_LesserGreater_UShort(unsigned short *data, unsigned long dim,
                                        double lower, double upper);
 
-extern unsigned long **
+RSS_RINGOCCS_EXPORT extern unsigned long **
 rssringoccs_Where_LesserGreater_Int(int *data, unsigned long dim,
                                     double lower, double upper);
 
-extern unsigned long **
+RSS_RINGOCCS_EXPORT extern unsigned long **
 rssringoccs_Where_LesserGreater_UInt(unsigned int *data, unsigned long dim,
                                      double lower, double upper);
 
-extern unsigned long **
+RSS_RINGOCCS_EXPORT extern unsigned long **
 rssringoccs_Where_LesserGreater_Long(long *data, unsigned long dim,
                                      double lower, double upper);
 
-extern unsigned long **
+RSS_RINGOCCS_EXPORT extern unsigned long **
 rssringoccs_Where_LesserGreater_ULong(unsigned long *data, unsigned long dim,
                                       double lower, double upper);
 
-extern unsigned long **
+RSS_RINGOCCS_EXPORT extern unsigned long **
 rssringoccs_Where_LesserGreater_Float(float *data, unsigned long dim,
                                       float lower, float upper);
 
-extern unsigned long **
+RSS_RINGOCCS_EXPORT extern unsigned long **
 rssringoccs_Where_LesserGreater_Double(double *data, unsigned long dim,
                                        double lower, double upper);
 
-extern unsigned long **
+RSS_RINGOCCS_EXPORT extern unsigned long **
 rssringoccs_Where_LesserGreater_LDouble(long double *data, unsigned long dim,
                                            long double lower,
                                            long double upper);
