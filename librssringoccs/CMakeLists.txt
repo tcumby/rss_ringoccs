@@ -69,15 +69,19 @@ set_target_properties(
 
 add_library(rss::librssringoccs ALIAS librssringoccs)
 
-include(GNUInstallDirs)
-install(
-    TARGETS librssringoccs
-    RUNTIME
-    DESTINATION ${CMAKE_INSTALL_BINDIR}
-    LIBRARY
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    ARCHIVE
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    PUBLIC_HEADER
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}}
-)
+if(NOT DEFINED SKBUILD)
+    include(GNUInstallDirs)
+    install(
+        TARGETS librssringoccs
+        RUNTIME
+        DESTINATION ${CMAKE_INSTALL_BINDIR}
+        LIBRARY
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        ARCHIVE
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        PUBLIC_HEADER
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}}
+    )
+else()
+    install(TARGETS librssringoccs DESTINATION .)
+endif()
