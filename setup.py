@@ -15,6 +15,7 @@ from skbuild import setup  # type: ignore
 
 setup(
     name="rss_ringoccs",
+    packages=["rss_ringoccs"],
     version="1.3",
     author="Ryan Maguire",
     description="a suite of open-source C and Python-based analysis tools for Cassini Radio Science (RSS) ring "
