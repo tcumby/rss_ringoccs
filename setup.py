@@ -18,7 +18,7 @@ setup(
     packages=["rss_ringoccs"],
     version="1.3",
     author="Ryan Maguire",
-    description="a suite of open-source C and Python-based analysis tools for Cassini Radio Science (RSS) ring "
+    description="A suite of open-source C and Python-based analysis tools for Cassini Radio Science (RSS) ring "
     "occultations.",
     install_requires=[
         "cmake",
@@ -31,4 +31,5 @@ setup(
         "PyMieScatt",
     ],
     cmake_install_dir="rss_ringoccs",
+    cmake_args=["-DBUILD_EXAMPLES:BOOL=OFF", "-DBUILD_TESTS:BOOL=OFF"],
 )
