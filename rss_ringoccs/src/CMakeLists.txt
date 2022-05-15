@@ -46,3 +46,20 @@ foreach(source ${diffraction_sources})
 endforeach()
 
 target_sources(diffraction_correction_class PRIVATE ${diffraction_sources})
+
+if(NOT DEFINED SKBUILD)
+    include(GNUInstallDirs)
+    install(
+        TARGETS ${modules}
+        RUNTIME
+        DESTINATION ${CMAKE_INSTALL_BINDIR}
+        LIBRARY
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        ARCHIVE
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        PUBLIC_HEADER
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}}
+    )
+else()
+    install(TARGETS ${modules} DESTINATION .)
+endif()
