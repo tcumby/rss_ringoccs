@@ -30,6 +30,7 @@ foreach(module ${modules})
             "${RSS_RINGOCCS_PARENT_DIR}"
     )
     if(SKBUILD)
+        # sci-kit build defines its own CMake variables that must be used in place of those created by FindPython
         target_include_directories(${module} PRIVATE "${Python_INCLUDE_DIR}")
 
         target_link_libraries(${module} PRIVATE ${Python_LIBRARY})
