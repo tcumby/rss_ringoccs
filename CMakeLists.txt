@@ -22,7 +22,7 @@ if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
             list(APPEND CMAKE_CXX_SOURCE_FILE_EXTENSIONS c)
             enable_language(CXX)
             set(CMAKE_CXX_STANDARD 11)
-
+            set(CMAKE_GENERATOR_PLATFORM x64 CACHE INTERNAL "")
             target_compile_options(<target> PRIVATE "/MP")
         endif()
     endif()
