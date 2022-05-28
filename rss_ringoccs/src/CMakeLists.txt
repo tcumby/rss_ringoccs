@@ -29,6 +29,11 @@ foreach(module ${modules})
             "${Python_INCLUDE_DIRS}"
             "${RSS_RINGOCCS_PARENT_DIR}"
     )
+    if(SKBUILD)
+        target_include_directories(${module} PRIVATE "${Python_INCLUDE_DIR}")
+
+        target_link_libraries(${module} PRIVATE ${Python_LIBRARY})
+    endif()
 endforeach()
 
 set(diffraction_sources
