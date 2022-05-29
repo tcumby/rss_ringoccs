@@ -20,6 +20,7 @@ setup(
     author="Ryan Maguire",
     description="A suite of open-source C and Python-based analysis tools for Cassini Radio Science (RSS) ring "
     "occultations.",
+    url="https://github.com/NASA-Planetary-Science/rss_ringoccs",
     install_requires=[
         "cmake",
         "numpy",
