@@ -1,0 +1,4 @@
+pre-commit
+cmake
+
+-r docs/requirements.txt
