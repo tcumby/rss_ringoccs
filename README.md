@@ -85,7 +85,7 @@ compiler.
 
 ### Python
 
-To test building the package as a wheel (including the C\C++ libraries), execute the following
+To test building the package as a wheel (including the C/C++ libraries), execute the following
 ```
 python setup.py bdist_wheel
 ```
