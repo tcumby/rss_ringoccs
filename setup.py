@@ -21,6 +21,11 @@ setup(
     description="A suite of open-source C and Python-based analysis tools for Cassini Radio Science (RSS) ring "
     "occultations.",
     url="https://github.com/NASA-Planetary-Science/rss_ringoccs",
+    project_urls={
+        "Documentation": "https://rss-ringoccs.readthedocs.io/en/master/",
+        "Bug Reports": "https://github.com/NASA-Planetary-Science/rss_ringoccs/issues",
+        "Source": "https://github.com/NASA-Planetary-Science/rss_ringoccs",
+    },
     install_requires=[
         "cmake",
         "numpy",
