@@ -87,6 +87,10 @@ a dependency of this project, also takes this approach) and instead use the std:
 compiler.
 
 ### Python
+Installing the dependencies for python development is accomplished with
+```
+pip install -r dev-requirements.txt
+```
 
 To test building the package as a wheel (including the C/C++ libraries), execute the following
 ```
