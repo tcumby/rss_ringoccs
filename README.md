@@ -1,4 +1,7 @@
 # rss_ringoccs
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 The master branch is currently v1.3-beta. rss_ringoccs is unable to run on the
 latest releases of Python (3.8 or 3.9) and it is recommended that 3.6 is used.
 There is active work in rewriting the project C89/C90 compliant code to allow
