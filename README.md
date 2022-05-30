@@ -46,10 +46,10 @@ incorporated in future editions of rss_ringoccs.
 
 ## Installation and Documentation
 Detailed installation instructions and full documentation are contained the
-`rss_ringoccs User Guide` at https://github.com/NASA-Planetary-Science/rss_ringoccs/tree/master/docs/rss_ringoccs_User_Guide_V1.3.pdf.
+`rss_ringoccs User Guide` at https://github.com/NASA-Planetary-Science/rss_ringoccs/blob/master/docs/rss_ringoccs_User_Guide_V1.3.pdf.
 
 For experienced users, we provide a `rss_ringoccs Quick Start` guide located at
-https://github.com/NASA-Planetary-Science/rss_ringoccs/tree/master/docs/rss_ringoccs_Quick_Start_V1.3.pdf
+https://github.com/NASA-Planetary-Science/rss_ringoccs/blob/master/docs/rss_ringoccs_Quick_Start_V1.3.pdf
 
 Release notes are contained in
 https://github.com/NASA-Planetary-Science/rss_ringoccs/blob/master/ReleaseNotes.md
