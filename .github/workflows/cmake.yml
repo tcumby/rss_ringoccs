@@ -18,7 +18,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        cmake_config_options: ${{ '' }}
+        cmake_config_options: ${{ null }}
         os: [ macos-latest, ubuntu-latest ]
         include:
           - os: windows-latest
