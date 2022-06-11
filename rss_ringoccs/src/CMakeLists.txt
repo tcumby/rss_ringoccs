@@ -1,12 +1,16 @@
 project(python_modules)
-
-if(NOT DEFINED Python_NumPy_INCLUDE_DIRS)
-    find_package(Python COMPONENTS Development NumPy)
-    if(Python_NumPy_FOUND)
-        message(STATUS "Building against NumPy ${Python_NumPy_VERSION}")
-    else()
-        message(FATAL_ERROR "NumPy not found")
+if(SKBUILD)
+    find_package(NumPy REQUIRED)
+else()
+    if(NOT DEFINED Python_NumPy_INCLUDE_DIRS)
+        find_package(Python COMPONENTS Development NumPy)
     endif()
+endif()
+
+if(Python_NumPy_FOUND)
+    message(STATUS "Building against NumPy ${Python_NumPy_VERSION}")
+else()
+    message(FATAL_ERROR "NumPy not found")
 endif()
 
 set(modules diffraction_correction_class special_functions_module)

@@ -8,6 +8,10 @@ set(CMAKE_TOOLCHAIN_FILE ${vcpkg_toolchain_file}
 )
 message("CMAKE_TOOLCHAIN_FILE: ${CMAKE_TOOLCHAIN_FILE}")
 
+if(SKBUILD)
+    message(STATUS "The project is built using scikit-build")
+endif()
+
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
     if(APPLE)
         include(gcc-macos)
