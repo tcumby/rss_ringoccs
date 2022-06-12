@@ -1,17 +1,26 @@
 project(python_modules)
+include(CMakePrintHelpers)
+
 if(SKBUILD)
     find_package(NumPy REQUIRED)
 else()
     if(NOT DEFINED Python_NumPy_INCLUDE_DIRS)
         find_package(Python COMPONENTS Development NumPy)
     endif()
+
+    set(NumPy_VERSION ${Python_NumPy_VERSION})
+    set(NumPy_FOUND ${Python_NumPy_FOUND})
+    set(NumPy_INCLUDE_DIRS ${Python_NumPy_INCLUDE_DIRS})
 endif()
 
-if(Python_NumPy_FOUND)
-    message(STATUS "Building against NumPy ${Python_NumPy_VERSION}")
+if(NumPy_FOUND)
+    message(STATUS "Building against NumPy ${NumPy_VERSION}")
 else()
     message(FATAL_ERROR "NumPy not found")
 endif()
+
+cmake_print_variables(PYTHON_EXECUTABLE)
+cmake_print_variables(NumPy_INCLUDE_DIRS)
 
 set(modules diffraction_correction_class special_functions_module)
 
@@ -30,6 +39,7 @@ foreach(module ${modules})
         ${module}
         PRIVATE
             "${Python_NumPy_INCLUDE_DIRS}"
+            "${NumPy_INCLUDE_DIRS}"
             "${Python_INCLUDE_DIRS}"
             "${RSS_RINGOCCS_PARENT_DIR}"
     )
