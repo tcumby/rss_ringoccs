@@ -7,6 +7,7 @@ else()
     if(NOT DEFINED Python_NumPy_INCLUDE_DIRS)
         find_package(Python COMPONENTS Development NumPy)
     endif()
+    cmake_print_variables(Python_NumPy_FOUND)
 
     set(NumPy_VERSION ${Python_NumPy_VERSION})
     set(NumPy_FOUND ${Python_NumPy_FOUND})
