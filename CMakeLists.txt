@@ -12,6 +12,19 @@ if(SKBUILD)
     message(STATUS "The project is built using scikit-build")
 endif()
 
+if(DEFINED ENV{GITHUB_ENV})
+    message(STATUS "The project is being built via Github CI")
+
+    # Stop Python lookup as soon as a version satisfying version constraints is founded
+    set(Python_FIND_STRATEGY "LOCATION")
+
+    # Windows only: Perform lookup via environment variables before inspecting the registry
+    set(Python_FIND_REGISTRY "LAST")
+
+    # macOS only: look for a matching Python version in the form of a framework
+    set(Python_FIND_FRAMEWORK "LAST")
+endif()
+
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
     if(APPLE)
         include(gcc-macos)
