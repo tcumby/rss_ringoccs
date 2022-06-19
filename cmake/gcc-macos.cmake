@@ -7,6 +7,13 @@ find_program(
     PATHS /usr/local/Cellar /usr/local/opt /opt/local/bin
     NO_DEFAULT_PATH
 )
+
+execute_process(
+    COMMAND which gcc-11
+    ECHO_OUTPUT_VARIABLE
+    ECHO_ERROR_VARIABLE
+    COMMAND_ECHO STDOUT
+)
 if(GCC)
     set(CMAKE_C_COMPILER ${GCC})
 
