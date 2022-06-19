@@ -4,7 +4,7 @@ include_guard()
 find_program(
     GCC
     NAMES gcc gcc-9 gcc-10 gcc-11
-    PATHS /usr/local/Cellar /usr/local/opt /opt/local/bin
+    PATHS /usr/local/Cellar /usr/local/opt /opt/local/bin /usr/local/bin
     NO_DEFAULT_PATH
 )
 
