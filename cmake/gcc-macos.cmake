@@ -33,6 +33,7 @@ if(GCC)
             -Wnull-dereference
             -Wwrite-strings
             -Wstrict-prototypes
+            -fuse-linker-plugin
             -g -fPIC -O3 -flto -c"
     )
     set(CMAKE_C_FLAGS_DEBUG_INIT ${extraOpts})
