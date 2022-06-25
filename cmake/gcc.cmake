@@ -5,22 +5,24 @@ if(GCC)
     set(CMAKE_C_COMPILER ${GCC})
 
     set(extraOpts
-        "-ansi
-            -pedantic
-            -pedantic-errors
-            -Wall
-            -Wextra
-            -Wpedantic
-            -Wmisleading-indentation
-            -Wmissing-field-initializers
-            -Wmissing-prototypes
-            -Wold-style-definition
-            -Winit-self
-            -Wmissing-declarations
-            -Wnull-dereference
-            -Wwrite-strings
-            -Wstrict-prototypes
-            -g -fPIC -O3 -flto -c"
+        -ansi
+        -pedantic
+        -pedantic-errors
+        -Wall
+        -Wextra
+        -Wpedantic
+        -Wmisleading-indentation
+        -Wmissing-field-initializers
+        -Wmissing-prototypes
+        -Wold-style-definition
+        -Winit-self
+        -Wmissing-declarations
+        -Wnull-dereference
+        -Wwrite-strings
+        -Wstrict-prototypes
+        -g
+        -fPIC
+        -O3
     )
     set(CMAKE_C_FLAGS_DEBUG_INIT ${extraOpts})
 else()

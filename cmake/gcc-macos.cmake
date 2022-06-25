@@ -31,8 +31,6 @@ if(GCC)
         -g
         -fPIC
         -O3
-        -flto
-        -c
     )
     set(CMAKE_C_FLAGS_DEBUG_INIT ${extraOpts})
 
