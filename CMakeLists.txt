@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
+include(CompilerOptions)
+
 # We use vcpkg to retrieve a build of GSL
 include(FetchVcpkg)
 set(CMAKE_TOOLCHAIN_FILE ${vcpkg_toolchain_file}
@@ -25,26 +27,6 @@ if(DEFINED ENV{GITHUB_ENV})
     set(Python_FIND_FRAMEWORK "LAST")
 endif()
 
-if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)
-    if(APPLE)
-        include(gcc-macos)
-        set(CMAKE_INSTALL_PREFIX "/usr/local")
-    elseif(UNIX)
-        include(gcc)
-        set(CMAKE_INSTALL_PREFIX "/usr/local")
-    elseif(WIN32)
-        if(MSVC)
-            # Compile as C++ for Microsoft Visual Studio to avoid the non-standard complex number implementation in the
-            # C compiler
-            list(APPEND CMAKE_CXX_SOURCE_FILE_EXTENSIONS c)
-            enable_language(CXX)
-            set(CMAKE_CXX_STANDARD 11)
-            set(CMAKE_GENERATOR_PLATFORM x64 CACHE INTERNAL "")
-            target_compile_options(<target> PRIVATE "/MP")
-        endif()
-    endif()
-endif()
-
 option(BUILD_EXAMPLES "Build all examples" TRUE)
 option(BUILD_TESTS "Build all tests" TRUE)
 
@@ -52,6 +34,24 @@ set(RSS_RINGOCCS_PARENT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." CACHE PATH "" FORCE
 set(RSS_RINGOCCS_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}" CACHE PATH "" FORCE)
 
 project(rss_ringoccs)
+
+if(MSVC)
+    enable_language(CXX)
+else()
+    enable_language(C)
+endif()
+
+cmake_policy(SET CMP0069 NEW)
+include(CheckIPOSupported)
+# Optional IPO. Do not use IPO if it's not supported by compiler.
+check_ipo_supported(RESULT IPO_SUPPORTED OUTPUT IPO_CHECK_OUTPUT)
+if(IPO_SUPPORTED)
+    # enable IPO/LTO by default if IPO is supported
+    set(CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
+    message(STATUS "Enable IPO by defauilt")
+else()
+    message(WARNING "IPO is not supported: ${IPO_CHECK_OUTPUT}")
+endif()
 
 add_subdirectory("librssringoccs")
 add_subdirectory("rss_ringoccs")
