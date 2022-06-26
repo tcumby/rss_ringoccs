@@ -29,11 +29,7 @@ foreach(app ${apps})
     add_executable(${app} ${app}.c)
     set_target_properties(
         ${app}
-        PROPERTY
-        C_STANDARD
-        99
-        INTERPROCEDURAL_OPTIMIZATION
-        ${IPO_SUPPORTED}
+        PROPERTIES C_STANDARD 99 INTERPROCEDURAL_OPTIMIZATION ${IPO_SUPPORTED}
     )
     target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(${app} PRIVATE rss::librssringoccs)

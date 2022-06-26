@@ -18,11 +18,7 @@ foreach(app ${apps})
     add_executable(${app} ${app}.c)
     set_target_properties(
         ${app}
-        PROPERTY
-        C_STANDARD
-        99
-        INTERPROCEDURAL_OPTIMIZATION
-        ${IPO_SUPPORTED}
+        PROPERTIES C_STANDARD 99 INTERPROCEDURAL_OPTIMIZATION ${IPO_SUPPORTED}
     )
     if(MSVC)
         set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)

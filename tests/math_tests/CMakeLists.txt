@@ -27,11 +27,7 @@ foreach(app ${test_apps})
     add_executable(${app} ${app}.c)
     set_target_properties(
         ${app}
-        PROPERTY
-        C_STANDARD
-        99
-        INTERPROCEDURAL_OPTIMIZATION
-        ${IPO_SUPPORTED}
+        PROPERTIES C_STANDARD 99 INTERPROCEDURAL_OPTIMIZATION ${IPO_SUPPORTED}
     )
     target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(
@@ -52,11 +48,7 @@ foreach(app ${cerf_apps})
     add_executable(${app} ${app}.c)
     set_target_properties(
         ${app}
-        PROPERTY
-        C_STANDARD
-        99
-        INTERPROCEDURAL_OPTIMIZATION
-        ${IPO_SUPPORTED}
+        PROPERTIES C_STANDARD 99 INTERPROCEDURAL_OPTIMIZATION ${IPO_SUPPORTED}
     )
     target_include_directories(${app} PRIVATE ${cerf_INCLUDE_DIRECTORY})
     target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
