@@ -16,7 +16,14 @@ project(numerical_examples)
 set(apps five_point_derivative_example newton_rapshon_bessel_function)
 foreach(app ${apps})
     add_executable(${app} ${app}.c)
-    target_set_property(${app} PROPERTY C_STANDARD 99 INTERPROCEDURAL_OPTIMIZATION ${IPO_SUPPORTED})
+    set_target_properties(
+        ${app}
+        PROPERTY
+        C_STANDARD
+        99
+        INTERPROCEDURAL_OPTIMIZATION
+        ${IPO_SUPPORTED}
+    )
     if(MSVC)
         set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     endif()

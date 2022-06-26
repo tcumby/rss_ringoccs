@@ -17,7 +17,14 @@ set(apps mandelbrot_general mandelbrot_quartic mandelbrot_set)
 
 foreach(app ${apps})
     add_executable(${app} ${app}.c)
-    target_set_property(${app} PROPERTY C_STANDARD 99 INTERPROCEDURAL_OPTIMIZATION ${IPO_SUPPORTED})
+    set_target_properties(
+        ${app}
+        PROPERTY
+        C_STANDARD
+        99
+        INTERPROCEDURAL_OPTIMIZATION
+        ${IPO_SUPPORTED}
+    )
     if(MSVC)
         set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     endif()

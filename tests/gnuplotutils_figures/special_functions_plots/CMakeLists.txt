@@ -20,7 +20,14 @@ foreach(app ${test_apps})
         set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     endif()
     add_executable(${app} ${app}.c)
-    target_set_property(${app} PROPERTY C_STANDARD 99 INTERPROCEDURAL_OPTIMIZATION ${IPO_SUPPORTED})
+    set_target_properties(
+        ${app}
+        PROPERTY
+        C_STANDARD
+        99
+        INTERPROCEDURAL_OPTIMIZATION
+        ${IPO_SUPPORTED}
+    )
     target_include_directories(
         ${app}
         PRIVATE "$<TARGET_PROPERTY:GSL::gsl,INTERFACE_INCLUDE_DIRECTORIES>"
