@@ -46,11 +46,15 @@ include(CheckIPOSupported)
 # Optional IPO. Do not use IPO if it's not supported by compiler.
 check_ipo_supported(RESULT IPO_SUPPORTED OUTPUT IPO_CHECK_OUTPUT)
 if(IPO_SUPPORTED)
-    # enable IPO/LTO by default if IPO is supported
-    set(CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
-    message(STATUS "Enable IPO by defauilt")
+    message(
+        STATUS
+        "Interprocedural Optimization/Link-Time Optimization is supported."
+    )
 else()
-    message(WARNING "IPO is not supported: ${IPO_CHECK_OUTPUT}")
+    message(
+        WARNING
+        "Interprocedural Optimization/Link-Time Optimization is not supported: ${IPO_CHECK_OUTPUT}"
+    )
 endif()
 
 add_subdirectory("librssringoccs")

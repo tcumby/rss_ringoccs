@@ -43,7 +43,7 @@ set(test_apps
 )
 foreach(app ${test_apps})
     add_executable(${app} ${app}.c)
-    set_property(TARGET ${app} PROPERTY C_STANDARD 99)
+    target_set_property(${app} PROPERTY C_STANDARD 99 INTERPROCEDURAL_OPTIMIZATION ${IPO_SUPPORTED})
     if(MSVC)
         set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     endif()
@@ -63,11 +63,11 @@ set(cerf_apps
     complex_faddeeva_tests
 )
 foreach(app ${cerf_apps})
-    add_executable(${app} ${app}.c)
-    set_property(TARGET ${app} PROPERTY C_STANDARD 99)
     if(MSVC)
         set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     endif()
+    add_executable(${app} ${app}.c)
+    target_set_property(${app} PROPERTY C_STANDARD 99 INTERPROCEDURAL_OPTIMIZATION ${IPO_SUPPORTED})
     target_include_directories(${app} PRIVATE ${cerf_INCLUDE_DIRECTORY})
     target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(

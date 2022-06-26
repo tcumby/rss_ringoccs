@@ -30,7 +30,13 @@ foreach(module ${modules})
     if(MSVC)
         set_source_files_properties(${module}.c PROPERTIES LANGUAGE CXX)
     endif()
-    set_target_properties(${module} PROPERTIES CXX_STANDARD 20 C_STANDARD 99)
+    set_target_properties(
+        ${module}
+        PROPERTIES
+            CXX_STANDARD 20
+            C_STANDARD 99
+            INTERPROCEDURAL_OPTIMIZATION ${IPO_SUPPORTED}
+    )
     target_link_directories(${module} PRIVATE ${Python_LIBRARY_DIRS})
     target_link_libraries(
         ${module}
