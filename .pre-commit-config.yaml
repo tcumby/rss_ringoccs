@@ -32,7 +32,7 @@ repos:
       - id: check-yaml
         exclude: ^recipes/.*
     repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.2.0
+    rev: v4.3.0
 
   # --- Commit msg checks ---
   - hooks:
@@ -71,7 +71,7 @@ repos:
         args: ["--linelength=120", "--filter=-legal/copyright,-whitespace/braces,-whitespace/newline,-build/namespaces,-build/header_guard,-build/include_order,-build/include_subdir, -whitespace/parens,-readability/casting,-runtime/threadsafe_fn,-runtime/int,-runtime/printf,-whitespace/operators,-readability/braces,-whitespace/comma,-whitespace/tab,-readability/fn_size"]
   # Formatters
   - repo: https://github.com/BlankSpruce/gersemi #cmake formatter
-    rev: 0.8.0
+    rev: 0.8.1
     hooks:
       - id: gersemi
   - repo: https://github.com/asottile/setup-cfg-fmt
@@ -79,7 +79,7 @@ repos:
     hooks:
       - id: setup-cfg-fmt
   - repo: https://github.com/psf/black # python formatter
-    rev: 22.3.0
+    rev: 22.6.0
     hooks:
       - id: black
   - repo: https://github.com/asottile/blacken-docs
