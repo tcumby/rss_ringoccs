@@ -58,6 +58,35 @@ foreach(module ${modules})
     endif()
 endforeach()
 
+# For Python < 3.7, the parts of the Python API used by diffraction_correction_class.c are not const-correct for
+# injesting string literals and building on MSVC errors since we're building as C++, which is less forgiving of these
+# conversions.
+cmake_print_variables(Python_VERSION)
+if("${Python_VERSION}" VERSION_LESS "3.7.0")
+    if(MSVC)
+        # Enable string literal type conversion
+        target_compile_options(
+            diffraction_correction_class
+            PRIVATE "/Zc:strictStrings-"
+        )
+
+        # Remove the compile option that disables string liter type conversion, if present
+        get_target_property(
+            target_options
+            diffraction_correction_class
+            COMPILE_OPTIONS
+        )
+        if(target_options)
+            list(REMOVE_ITEM target_options "/Zc:strictStrings")
+            set_property(
+                TARGET diffraction_correction_class
+                PROPERTY COMPILE_OPTIONS ${target_options}
+            )
+        endif()
+        unset(target_options)
+    endif()
+endif()
+
 set(diffraction_sources
     rss_ringoccs_Py_DLP_to_C_DLP.c
     rss_ringoccs_C_Tau_to_Py_Tau.c
