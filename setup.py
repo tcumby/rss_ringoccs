@@ -1,4 +1,5 @@
 from skbuild import setup  # type: ignore
+import sys
 
 # This seems to be needed to ensure Python uses the correct gcc. Without this
 # You may get a linker warning, for example:
@@ -37,5 +38,11 @@ setup(
         "PyMieScatt",
     ],
     cmake_install_dir="rss_ringoccs",
-    cmake_args=["-DBUILD_EXAMPLES:BOOL=OFF", "-DBUILD_TESTS:BOOL=OFF"],
+    cmake_args=[
+        "-DBUILD_EXAMPLES:BOOL=OFF",
+        "-DBUILD_TESTS:BOOL=OFF",
+        "-DPython_VERSION={0}.{1}.{2}".format(
+            sys.version_info.major, sys.version_info.minor, sys.version_info.micro
+        ),
+    ],
 )
