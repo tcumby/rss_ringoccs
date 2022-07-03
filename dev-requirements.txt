@@ -2,5 +2,6 @@ pre-commit
 cmake
 gersemi
 black
+mypy
 
 -r docs/requirements.txt
