@@ -2,10 +2,8 @@ include_guard()
 
 if(APPLE)
     include(gcc-macos)
-    set(CMAKE_INSTALL_PREFIX "/usr/local")
 elseif(UNIX)
     include(gcc)
-    set(CMAKE_INSTALL_PREFIX "/usr/local")
 elseif(WIN32)
     if(MSVC)
         # Compile as C++ for Microsoft Visual Studio to avoid the non-standard complex number implementation in the
