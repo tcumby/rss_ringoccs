@@ -3,5 +3,6 @@ cmake
 gersemi
 black
 mypy
+pyupgrade
 
 -r docs/requirements.txt
