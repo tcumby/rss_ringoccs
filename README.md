@@ -13,7 +13,7 @@ at Wellesley College (Sophia Flury, Jolene Fong, Ryan Maguire, and Glenn
 Steranka) under the direction of Richard French, Cassini RSS Team Leader, with
 funding provided by the NASA/JPL Cassini project.
 
-Version 1.2 was offically released on July 1, 2019.
+Version 1.2 was officially released on July 1, 2019.
 
 Version 1.2.1 was a development version that incorporated changes between
 Versions 1.2 and 1.3.
