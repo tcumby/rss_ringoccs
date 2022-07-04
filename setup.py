@@ -16,7 +16,13 @@ import sys
 
 setup(
     name="rss_ringoccs",
-    packages=["rss_ringoccs"],
+    packages=[
+        "rss_ringoccs",
+        "rss_ringoccs.calibration",
+        "rss_ringoccs.occgeo",
+        "rss_ringoccs.rsr_reader",
+        "rss_ringoccs.tools",
+    ],
     version="1.3",
     author="Ryan Maguire",
     description="A suite of open-source C and Python-based analysis tools for Cassini Radio Science (RSS) ring "
@@ -41,7 +47,7 @@ setup(
     cmake_args=[
         "-DBUILD_EXAMPLES:BOOL=OFF",
         "-DBUILD_TESTS:BOOL=OFF",
-        "-DPython_VERSION={0}.{1}.{2}".format(
+        "-DPython_VERSION={}.{}.{}".format(
             sys.version_info.major, sys.version_info.minor, sys.version_info.micro
         ),
     ],
