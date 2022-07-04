@@ -4,5 +4,6 @@ gersemi
 black
 mypy
 pyupgrade
+pandas-stubs
 
 -r docs/requirements.txt
