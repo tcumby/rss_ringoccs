@@ -3,6 +3,7 @@ include(CMakePrintHelpers)
 
 if(SKBUILD)
     find_package(NumPy REQUIRED)
+    find_package(PythonExtensions REQUIRED)
 else()
     if(NOT DEFINED Python_NumPy_INCLUDE_DIRS)
         find_package(Python COMPONENTS Development NumPy)
@@ -23,12 +24,22 @@ endif()
 cmake_print_variables(PYTHON_EXECUTABLE)
 cmake_print_variables(NumPy_INCLUDE_DIRS)
 
-set(modules diffraction_correction_class special_functions_module)
-
+set(modules diffrec special_functions)
+set(module_diffrec_source diffraction_correction_class)
+set(module_special_functions_source special_functions_module)
 foreach(module ${modules})
-    add_library(${module} SHARED ${module}.c)
+    if(SKBuild)
+        add_library(${module} MODULE ${module_${module}_source}.c)
+        python_extension_module(${module})
+    else()
+        add_library(${module} SHARED ${module_${module}_source}.c)
+    endif()
+
     if(MSVC)
-        set_source_files_properties(${module}.c PROPERTIES LANGUAGE CXX)
+        set_source_files_properties(
+            ${module_${module}_source}.c
+            PROPERTIES LANGUAGE CXX
+        )
     endif()
     set_target_properties(
         ${module}
@@ -65,21 +76,14 @@ cmake_print_variables(Python_VERSION)
 if("${Python_VERSION}" VERSION_LESS "3.7.0")
     if(MSVC)
         # Enable string literal type conversion
-        target_compile_options(
-            diffraction_correction_class
-            PRIVATE "/Zc:strictStrings-"
-        )
+        target_compile_options(diffrec PRIVATE "/Zc:strictStrings-")
 
         # Remove the compile option that disables string liter type conversion, if present
-        get_target_property(
-            target_options
-            diffraction_correction_class
-            COMPILE_OPTIONS
-        )
+        get_target_property(target_options diffrec COMPILE_OPTIONS)
         if(target_options)
             list(REMOVE_ITEM target_options "/Zc:strictStrings")
             set_property(
-                TARGET diffraction_correction_class
+                TARGET diffrec
                 PROPERTY COMPILE_OPTIONS ${target_options}
             )
         endif()
@@ -101,7 +105,7 @@ foreach(source ${diffraction_sources})
     endif()
 endforeach()
 
-target_sources(diffraction_correction_class PRIVATE ${diffraction_sources})
+target_sources(diffrec PRIVATE ${diffraction_sources})
 
 if(NOT DEFINED SKBUILD)
     include(GNUInstallDirs)
