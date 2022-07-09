@@ -224,7 +224,7 @@ def galleryplots(
     cal,
     dlp,
     tau=None,
-    res=[1.0],
+    res=None,
     rng="all",
     wtype="kbmd20",
     psitype="Fresnel4",
@@ -370,6 +370,8 @@ def galleryplots(
             Ex: ymax = 1.5
     """
     # Check that the input variables contain legal values.
+    if res is None:
+        res = [1.0]
     fname = "tools.compare.galleryplots"
     error_check.check_type(rev, str, "rev", fname)
     error_check.check_type(geo, str, "geo", fname)
@@ -454,7 +456,7 @@ def galleryplots(
                 if i == 0:
                     start = str(np.min(rec.rho_km_vals))
                     end = str(np.max(rec.rho_km_vals))
-                    plt.title("Comparison Plots: %skm to %skm" % (start, end))
+                    plt.title(f"Comparison Plots: {start}km to {end}km")
                     plt.tick_params(
                         axis="x",
                         which="both",
@@ -540,7 +542,7 @@ def galleryplots(
                 if i == 0:
                     start = str(np.min(rec.rho_km_vals))
                     end = str(np.max(rec.rho_km_vals))
-                    plt.title("Comparison Plots: %skm to %skm" % (start, end))
+                    plt.title(f"Comparison Plots: {start}km to {end}km")
                     plt.tick_params(
                         axis="x",
                         which="both",
