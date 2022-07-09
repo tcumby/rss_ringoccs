@@ -93,7 +93,8 @@ from . import tools
 from . import rsr_reader
 from . import occgeo
 from . import calibration
-from . import diffrec
+from ._diffrec import diffrec  # type: ignore # noqa: F401
+from ._special_functions import special_functions  # type: ignore # noqa: F401
 from . import scatter
 
 """

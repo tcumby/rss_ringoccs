@@ -24,20 +24,20 @@ endif()
 cmake_print_variables(PYTHON_EXECUTABLE)
 cmake_print_variables(NumPy_INCLUDE_DIRS)
 
-set(modules diffrec special_functions)
+set(modules _diffrec _special_functions)
 set(module_diffrec_source diffraction_correction_class)
 set(module_special_functions_source special_functions_module)
 foreach(module ${modules})
     if(SKBuild)
-        add_library(${module} MODULE ${module_${module}_source}.c)
+        add_library(${module} MODULE ${module${module}_source}.c)
         python_extension_module(${module})
     else()
-        add_library(${module} SHARED ${module_${module}_source}.c)
+        add_library(${module} SHARED ${module${module}_source}.c)
     endif()
 
     if(MSVC)
         set_source_files_properties(
-            ${module_${module}_source}.c
+            ${module${module}_source}.c
             PROPERTIES LANGUAGE CXX
         )
     endif()
@@ -76,14 +76,14 @@ cmake_print_variables(Python_VERSION)
 if("${Python_VERSION}" VERSION_LESS "3.7.0")
     if(MSVC)
         # Enable string literal type conversion
-        target_compile_options(diffrec PRIVATE "/Zc:strictStrings-")
+        target_compile_options(_diffrec PRIVATE "/Zc:strictStrings-")
 
         # Remove the compile option that disables string liter type conversion, if present
-        get_target_property(target_options diffrec COMPILE_OPTIONS)
+        get_target_property(target_options _diffrec COMPILE_OPTIONS)
         if(target_options)
             list(REMOVE_ITEM target_options "/Zc:strictStrings")
             set_property(
-                TARGET diffrec
+                TARGET _diffrec
                 PROPERTY COMPILE_OPTIONS ${target_options}
             )
         endif()
@@ -105,7 +105,7 @@ foreach(source ${diffraction_sources})
     endif()
 endforeach()
 
-target_sources(diffrec PRIVATE ${diffraction_sources})
+target_sources(_diffrec PRIVATE ${diffraction_sources})
 
 if(NOT DEFINED SKBUILD)
     include(GNUInstallDirs)
