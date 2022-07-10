@@ -944,7 +944,7 @@ static PyTypeObject DiffrecType = constructDiffrecType();
 static PyModuleDef constructModuleDef(void)
 {
     PyModuleDef moduledef = { PyModuleDef_HEAD_INIT};
-    moduledef.m_name = "custom";
+    moduledef.m_name = "diffrec";
     moduledef.m_doc = "Module containing the rss_ringoccs class.";
     moduledef.m_size = -1;
 
@@ -952,6 +952,29 @@ static PyModuleDef constructModuleDef(void)
 }
 
 static PyModuleDef moduledef = constructModuleDef();
+
+#else
+static PyTypeObject DiffrecType = {
+    PyVarObject_HEAD_INIT(NULL, 0)
+    .tp_name = "diffrec.DiffractionCorrection",
+    .tp_doc = "Diffraction Correction class.",
+    .tp_basicsize = sizeof(PyDiffrecObj),
+    .tp_itemsize = 0,
+    .tp_flags = Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,
+    .tp_new = PyType_GenericNew,
+    .tp_init = (initproc) Diffrec_init,
+    .tp_dealloc = (destructor) Diffrec_dealloc,
+    .tp_members = Custom_members,
+    .tp_methods = DiffractionCorrection_methods,
+};
+
+static PyModuleDef moduledef = {
+    PyModuleDef_HEAD_INIT,
+    .m_name = "diffrec",
+    .m_doc = "Module containing the rss_ringoccs class.",
+    .m_size = -1,
+};
+#endif
 
 PyMODINIT_FUNC PyInit_diffrec(void)
 {
@@ -979,26 +1002,3 @@ PyMODINIT_FUNC PyInit_diffrec(void)
     import_array();
     return m;
 }
-
-#else
-static PyTypeObject DiffrecType = {
-    PyVarObject_HEAD_INIT(NULL, 0)
-    .tp_name = "diffrec.DiffractionCorrection",
-    .tp_doc = "Diffraction Correction class.",
-    .tp_basicsize = sizeof(PyDiffrecObj),
-    .tp_itemsize = 0,
-    .tp_flags = Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE,
-    .tp_new = PyType_GenericNew,
-    .tp_init = (initproc) Diffrec_init,
-    .tp_dealloc = (destructor) Diffrec_dealloc,
-    .tp_members = Custom_members,
-    .tp_methods = DiffractionCorrection_methods,
-};
-
-static PyModuleDef moduledef = {
-    PyModuleDef_HEAD_INIT,
-    .m_name = "custom",
-    .m_doc = "Module containing the rss_ringoccs class.",
-    .m_size = -1,
-};
-#endif

@@ -24,35 +24,26 @@ endif()
 cmake_print_variables(PYTHON_EXECUTABLE)
 cmake_print_variables(NumPy_INCLUDE_DIRS)
 
-set(modules _diffrec _special_functions)
+set(modules diffrec special_functions)
 set(module_diffrec_source diffraction_correction_class)
 set(module_special_functions_source special_functions_module)
 foreach(module ${modules})
-    if(SKBuild)
-        add_library(${module} MODULE ${module${module}_source}.c)
+    if(SKBUILD)
+        add_library(${module} MODULE ${module_${module}_source}.c)
         python_extension_module(${module})
     else()
-        add_library(${module} SHARED ${module${module}_source}.c)
+        add_library(${module} SHARED ${module_${module}_source}.c)
     endif()
 
     if(MSVC)
-        set_source_files_properties(
-            ${module${module}_source}.c
-            PROPERTIES LANGUAGE CXX
-        )
+        set_source_files_properties(${module_${module}_source}.c PROPERTIES LANGUAGE CXX)
     endif()
     set_target_properties(
         ${module}
-        PROPERTIES
-            CXX_STANDARD 20
-            C_STANDARD 99
-            INTERPROCEDURAL_OPTIMIZATION ${IPO_SUPPORTED}
+        PROPERTIES CXX_STANDARD 20 C_STANDARD 99 INTERPROCEDURAL_OPTIMIZATION ${IPO_SUPPORTED}
     )
     target_link_directories(${module} PRIVATE ${Python_LIBRARY_DIRS})
-    target_link_libraries(
-        ${module}
-        PRIVATE rss::librssringoccs ${Python_LIBRARIES}
-    )
+    target_link_libraries(${module}  rss::librssringoccs ${Python_LIBRARIES})
     target_include_directories(
         ${module}
         PRIVATE
@@ -65,7 +56,7 @@ foreach(module ${modules})
         # sci-kit build defines its own CMake variables that must be used in place of those created by FindPython
         target_include_directories(${module} PRIVATE "${Python_INCLUDE_DIR}")
 
-        target_link_libraries(${module} PRIVATE ${Python_LIBRARY})
+        target_link_libraries(${module} ${Python_LIBRARY})
     endif()
 endforeach()
 
@@ -76,16 +67,13 @@ cmake_print_variables(Python_VERSION)
 if("${Python_VERSION}" VERSION_LESS "3.7.0")
     if(MSVC)
         # Enable string literal type conversion
-        target_compile_options(_diffrec PRIVATE "/Zc:strictStrings-")
+        target_compile_options(diffrec PRIVATE "/Zc:strictStrings-")
 
         # Remove the compile option that disables string liter type conversion, if present
-        get_target_property(target_options _diffrec COMPILE_OPTIONS)
+        get_target_property(target_options diffrec COMPILE_OPTIONS)
         if(target_options)
             list(REMOVE_ITEM target_options "/Zc:strictStrings")
-            set_property(
-                TARGET _diffrec
-                PROPERTY COMPILE_OPTIONS ${target_options}
-            )
+            set_property(TARGET diffrec PROPERTY COMPILE_OPTIONS ${target_options})
         endif()
         unset(target_options)
     endif()
@@ -105,7 +93,7 @@ foreach(source ${diffraction_sources})
     endif()
 endforeach()
 
-target_sources(_diffrec PRIVATE ${diffraction_sources})
+target_sources(diffrec PRIVATE ${diffraction_sources})
 
 if(NOT DEFINED SKBUILD)
     include(GNUInstallDirs)
