@@ -22,6 +22,8 @@ occgeo_uranus.py
     #. sys
 
 """
+import pdb
+
 from ..tools.spm_to_et import spm_to_et
 from ..tools.et_to_spm import et_to_spm
 from ..tools.write_output_files import write_output_files
@@ -32,9 +34,10 @@ from . import calc_occ_geometry as cog
 from scipy.interpolate import splrep
 from scipy.interpolate import splev
 
-import spiceypy as spice
+import spiceypy as spice  # type: ignore
 import numpy as np
 import sys
+
 
 class Geometry(object):
 
@@ -113,49 +116,61 @@ class Geometry(object):
 
 
     """
-    def __init__(self, year, doy, dsn, f_sky_hz_vals, t_oet_spm_vals,
-            planet, spacecraft, kernels, rev_info, pt_per_sec=1., ref='J2000',
-            ring_frame=None, nhat_p=None, verbose=False, write_file=True):
+
+    def __init__(
+        self,
+        year,
+        doy,
+        dsn,
+        f_sky_hz_vals,
+        t_oet_spm_vals,
+        planet,
+        spacecraft,
+        kernels,
+        rev_info,
+        pt_per_sec=1.0,
+        ref="J2000",
+        ring_frame=None,
+        nhat_p=None,
+        verbose=False,
+        write_file=True,
+    ):
 
         self.verbose = verbose
         # Write processing history dictionary attribute
 
-
         input_vars = {
-                "year": year,
-                "doy": doy,
-                "dsn": dsn,
-                "f_sky_hz_vals": f_sky_hz_vals,
-                "t_oet_spm_vals": t_oet_spm_vals,
-                "planet": planet,
-                "spacecraft": spacecraft,
-                "kernels": kernels
-                }
+            "year": year,
+            "doy": doy,
+            "dsn": dsn,
+            "f_sky_hz_vals": f_sky_hz_vals,
+            "t_oet_spm_vals": t_oet_spm_vals,
+            "planet": planet,
+            "spacecraft": spacecraft,
+            "kernels": kernels,
+        }
         input_kwds = {
-                "pt_per_sec": pt_per_sec,
-                "ref": ref,
-                "ring_frame": ring_frame,
-                "nhat_p": nhat_p
-                }
+            "pt_per_sec": pt_per_sec,
+            "ref": ref,
+            "ring_frame": ring_frame,
+            "nhat_p": nhat_p,
+        }
 
         if verbose:
-            print('Calculating occultation geometry...')
-
+            print("Calculating occultation geometry...")
 
         if type(planet) != str:
-            raise ValueError('ERROR (Geometry): Input planet is NOT a string!')
+            raise ValueError("ERROR (Geometry): Input planet is NOT a string!")
 
         if type(spacecraft) != str:
-            raise ValueError('ERROR (Geometry): Input spacecraft is NOT '
-                            + 'a string!')
+            raise ValueError("ERROR (Geometry): Input spacecraft is NOT " + "a string!")
 
         if not isinstance(pt_per_sec, (int, float)):
-            raise ValueError('ERROR (Geometry): Input pt_per_sec is NOT an int '
-                                + 'or float!')
-
+            raise ValueError(
+                "ERROR (Geometry): Input pt_per_sec is NOT an int " + "or float!"
+            )
 
         t_oet_et_vals = spm_to_et(t_oet_spm_vals, doy, year, kernels=kernels)
-
 
         # Calculate spacecraft event time
         t_set_et_vals = cog.calc_set_et(t_oet_et_vals, spacecraft, dsn)
@@ -166,54 +181,52 @@ class Geometry(object):
             nhat_p = cog.get_pole(t_set_et_vals[0], planet)
 
         # Calculate spacecraft state vector
-        R_sc_km_vals, R_sc_dot_kms_vals = cog.calc_sc_state(t_set_et_vals,
-                spacecraft, planet, dsn, nhat_p, ref=ref)
+        R_sc_km_vals, R_sc_dot_kms_vals = cog.calc_sc_state(
+            t_set_et_vals, spacecraft, planet, dsn, nhat_p, ref=ref
+        )
 
         # Calculate Saturn center to ring intercept vector
-        rho_vec_vals, t_ret_et_vals = cog.calc_rho_vec_km(t_oet_et_vals, planet,
-                spacecraft, dsn, kernels=kernels, ref=ref,ring_frame=ring_frame)
-
-
-
+        rho_vec_vals, t_ret_et_vals = cog.calc_rho_vec_km(
+            t_oet_et_vals,
+            planet,
+            spacecraft,
+            dsn,
+            kernels=kernels,
+            ref=ref,
+            ring_frame=ring_frame,
+        )
 
         rho_km_vals = [spice.vnorm(vec) for vec in rho_vec_vals]
 
-
-
-
-
-
         # Calculated ring longitude and observed ring azimuth
-        phi_rl_deg_vals, phi_ora_deg_vals = cog.calc_phi_deg(t_oet_et_vals,
-                rho_vec_vals, spacecraft, dsn, nhat_p, ref=ref)
-
-
-
+        phi_rl_deg_vals, phi_ora_deg_vals = cog.calc_phi_deg(
+            t_oet_et_vals, rho_vec_vals, spacecraft, dsn, nhat_p, ref=ref
+        )
 
         # Calculate distance from spacecraft to ring intercept point
         D_km_vals = cog.calc_D_km(t_ret_et_vals, t_set_et_vals)
 
         # Calculate ring opening angle
-        B_deg_vals = cog.calc_B_deg(t_oet_et_vals, spacecraft, dsn, nhat_p,
-                ref=ref)
+        B_deg_vals = cog.calc_B_deg(t_oet_et_vals, spacecraft, dsn, nhat_p, ref=ref)
 
         # Calculate Fresnel scale
-        F_km_vals = cog.calc_F_km(D_km_vals, f_sky_hz_vals, B_deg_vals,
-                phi_ora_deg_vals)
+        F_km_vals = cog.calc_F_km(
+            D_km_vals, f_sky_hz_vals, B_deg_vals, phi_ora_deg_vals
+        )
 
         t_ret_spm_vals = et_to_spm(t_ret_et_vals)
         t_set_spm_vals = et_to_spm(t_set_et_vals)
 
         # Calculate ring intercept velocities
-        step = 1.
+        step = 1.0
         rho_dot_kms_vals, phi_rl_dot_kms_vals = cog.calc_rip_velocity(
-                rho_km_vals, phi_rl_deg_vals, step)
-
+            rho_km_vals, phi_rl_deg_vals, step
+        )
 
         # Calculate impact radius
-        R_imp_km_vals = cog.calc_impact_radius_km(R_sc_km_vals, t_set_et_vals,
-                spacecraft, dsn, nhat_p, ref=ref)
-
+        R_imp_km_vals = cog.calc_impact_radius_km(
+            R_sc_km_vals, t_set_et_vals, spacecraft, dsn, nhat_p, ref=ref
+        )
 
         # Calculate target angle above the horizon
         elev_deg_vals = cog.calc_elevation_deg(t_oet_et_vals, spacecraft, dsn)
@@ -223,15 +236,16 @@ class Geometry(object):
         B_eff_deg_vals = cog.calc_B_eff_deg(B_deg_vals, phi_ora_deg_vals)
 
         # Calculate when signal passes atmosphere + ionosphere
-        ionos_occ_et_vals = cog.get_planet_occ_times(t_oet_et_vals, dsn,
-                planet, spacecraft, height_above=5000.)
+        ionos_occ_et_vals = cog.get_planet_occ_times(
+            t_oet_et_vals, dsn, planet, spacecraft, height_above=5000.0
+        )
         self.ionos_occ_spm_vals = et_to_spm(ionos_occ_et_vals, ref_doy=doy)
         self.ionos_occ_et_vals = ionos_occ_et_vals
 
-        atmos_occ_et_vals = cog.get_planet_occ_times(t_oet_et_vals, dsn,
-                planet, spacecraft, height_above=500.)
+        atmos_occ_et_vals = cog.get_planet_occ_times(
+            t_oet_et_vals, dsn, planet, spacecraft, height_above=500.0
+        )
         self.atmos_occ_spm_vals = et_to_spm(atmos_occ_et_vals, ref_doy=doy)
-
 
         # Set attributes, first block contains the inputs to *GEO.TAB
         self.t_oet_spm_vals = np.asarray(t_oet_spm_vals)
@@ -265,11 +279,9 @@ class Geometry(object):
         self.rev_info = rev_info
 
         if len(self.atmos_occ_spm_vals) == 0:
-            self.rev_info['planetary_occ_flag'] = '"N"'
+            self.rev_info["planetary_occ_flag"] = '"N"'
         else:
-            self.rev_info['planetary_occ_flag'] = '"Y"'
-
-
+            self.rev_info["planetary_occ_flag"] = '"Y"'
 
         self.history = write_history_dict(input_vars, input_kwds, __file__)
 
@@ -285,8 +297,8 @@ class Geometry(object):
             :naif_str (*str*): NAIF toolkit version in format '"V.N0066"'.
 
         """
-        naif_ver = spice.tkvrsn('TOOLKIT')
-        naif_str = ('"V.' + naif_ver.split('_')[-1] + '"')
+        naif_ver = spice.tkvrsn("TOOLKIT")
+        naif_str = '"V.' + naif_ver.split("_")[-1] + '"'
         return naif_str
 
     def get_profile_dir(self):
@@ -329,7 +341,6 @@ class Geometry(object):
         n_ing = len(t_oet_ing)
         n_egr = len(t_oet_egr)
 
-
         atmos_blocked_spm = list(self.atmos_occ_spm_vals)
 
         ing_blocked = [x for x in t_oet_ing if x in atmos_blocked_spm]
@@ -340,7 +351,7 @@ class Geometry(object):
 
             # Remove false chord portions
             if self.verbose:
-                print('\tRemoving portion blocked by atmosphere...')
+                print("\tRemoving portion blocked by atmosphere...")
             self.__remove_atmos_values()
 
         elif len(egr_blocked) == n_egr:
@@ -348,7 +359,7 @@ class Geometry(object):
 
             # Remove falsechord portions
             if self.verbose:
-                print('\tRemoving portion blocked by atmosphere...')
+                print("\tRemoving portion blocked by atmosphere...")
             self.__remove_atmos_values()
         else:
             prof_dir = '"BOTH"'
@@ -359,28 +370,24 @@ class Geometry(object):
         npts = len(self.t_oet_spm_vals)
 
         # Index array of where atmosphere is blocking signal
-        ind1 = np.argwhere(
-                self.t_oet_spm_vals == min(self.atmos_occ_spm_vals))[0][0]
-        ind2 = np.argwhere(
-                self.t_oet_spm_vals == max(self.atmos_occ_spm_vals))[0][0]
+        ind1 = np.argwhere(self.t_oet_spm_vals == min(self.atmos_occ_spm_vals))[0][0]
+        ind2 = np.argwhere(self.t_oet_spm_vals == max(self.atmos_occ_spm_vals))[0][0]
 
-        rind = np.arange(ind1, ind2+1, step=1)
+        rind = np.arange(ind1, ind2 + 1, step=1)
 
         # Make sure ind2 > ind1
         if ind1 > ind2:
             ind1t = ind1
-            ind2t = ind2t
+            ind2t = ind2
 
             ind1 = ind2t
             ind2 = ind1t
-
 
         for attr, value in self.__dict__.items():
             if type(value) is not bool and len(value) == npts:
                 setattr(self, attr, np.delete(value, rind))
             else:
                 continue
-
 
     def get_chord_ind(self):
         """
@@ -397,7 +404,7 @@ class Geometry(object):
         ind = np.argwhere(np.diff(np.sign(self.rho_dot_kms_vals)))
 
         if len(ind) > 1:
-            print('WARNING! ring radius changes direction twice!')
+            print("WARNING! ring radius changes direction twice!")
             pdb.set_trace()
         elif len(ind) == 0:
             ind = None
@@ -405,6 +412,7 @@ class Geometry(object):
             ind = int(ind[0]) + 2
 
         return ind
+
 
 """
 Revisions:
