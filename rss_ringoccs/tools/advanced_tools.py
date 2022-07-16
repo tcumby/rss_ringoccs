@@ -1,5 +1,5 @@
 import numpy
-from rss_ringoccs import diffrec
+from rss_ringoccs import diffrec, special_functions
 from rss_ringoccs.tools import CSV_tools, error_check, history
 
 
@@ -20,10 +20,12 @@ class CompareTau:
         norm=True,
         psitype="newton",
         res_factor=0.75,
-        perturb=[0, 0, 0, 0, 0],
+        perturb=None,
     ):
 
         # Check all input variables for errors.
+        if perturb is None:
+            perturb = [0, 0, 0, 0, 0]
         fname = "diffrec.advanced_tools.CompareTau"
         error_check.check_type(verbose, bool, "verbose", fname)
         error_check.check_type(geo, str, "geo", fname)
@@ -109,12 +111,14 @@ class FindOptimalResolution:
         sigma=2.0e-13,
         psitype="fresnel4",
         rng="all",
-        wlst=["kbmd20"],
+        wlst=None,
         res_factor=0.75,
         verbose=True,
     ):
 
         # Check all input variables for errors.
+        if wlst is None:
+            wlst = ["kbmd20"]
         fname = "diffrec.advanced_tools.FindOptimalResolution"
         error_check.check_type(verbose, bool, "verbose", fname)
         error_check.check_type(geo, str, "geo", fname)
