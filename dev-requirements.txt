@@ -6,5 +6,6 @@ mypy
 pyupgrade
 pandas-stubs
 scikit-build
+flake8
 
 -r docs/requirements.txt
