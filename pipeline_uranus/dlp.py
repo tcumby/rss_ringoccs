@@ -193,15 +193,8 @@ for dir in ["I", "E"]:
     for ring_name in pipe.rnames:
 
         # naming convention for profile direction and ring
-        fstart = (
-            "../output/"
-            + dir
-            + "/"
-            + ring_name
-            + "/VGR2_X43_"
-            + dir
-            + "_URING_"
-            + ring_name
+        fstart = os.path.join(
+            "..", "output", dir, ring_name, f"VGR2_X43_{dir}_URING_{ring_name}"
         )
         # geo file
         geofile = fstart + "_GEO_" + pipe.geo_date + "_" + pipe.geo_sn + ".TAB"
