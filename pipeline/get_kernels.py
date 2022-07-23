@@ -1,14 +1,18 @@
 import argparse
+import logging
 import pathlib
 from pathlib import Path
 from typing import List
 
-import requests
+from pipeline.utility import download_url_list
 
 
 def main(kernel_list_file: Path, output_folder_path: Path):
+    base_url = "https://naif.jpl.nasa.gov/pub/"
+
     if not output_folder_path.exists():
-        output_folder_path.mkdir(parents=True)
+        logging.info(f"Creating {output_folder_path}")
+        output_folder_path.mkdir(parents=True, exist_ok=True)
 
     if not kernel_list_file.exists():
         raise FileNotFoundError(f"'{kernel_list_file}' does not exist.")
@@ -16,24 +20,7 @@ def main(kernel_list_file: Path, output_folder_path: Path):
     with kernel_list_file.open() as f:
         sub_url_list: List[str] = f.read().split()
 
-    base_url = "https://naif.jpl.nasa.gov/pub/"
-
-    for sub_url in sub_url_list:
-        url = base_url + sub_url
-
-        path_elems = sub_url.split("/")
-        output_file_path = Path(output_folder_path, *path_elems)
-
-        if not output_file_path.exists():
-            if not output_file_path.parent.exists():
-                output_folder_path.parent.mkdir(parents=True)
-
-            with requests.get(url=url) as r:
-                r.raise_for_status()
-                with output_file_path.open("wb") as f:
-                    f.write(r.content)
-        else:
-            print(f"Current file {output_file_path} already exists.")
+    download_url_list(base_url, sub_url_list, output_folder_path)
 
 
 if __name__ == "__main__":
@@ -57,6 +44,9 @@ if __name__ == "__main__":
     )
 
     args = parser.parse_args()
+
+    logger = logging.getLogger()
+    logger.setLevel(logging.INFO)
 
     main(
         kernel_list_file=Path(args.kernel_list_file),
