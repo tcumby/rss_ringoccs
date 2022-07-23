@@ -3,6 +3,7 @@ cmake
 gersemi
 black
 mypy
+types-requests
 pyupgrade
 pandas-stubs
 scikit-build
