@@ -920,10 +920,13 @@ static PyMemberDef Custom_members[] = {
     }  /* Sentinel */
 };
 
+
+#ifdef __cplusplus
+// C++ does not support C's designated initializer syntax
 static PyTypeObject constructDiffrecType(void) {
     PyTypeObject DiffrecType = { PyVarObject_HEAD_INIT(NULL, 0)};
 
-    DiffrecType.tp_name = "diffrec.DiffractionCorrection";
+    DiffrecType.tp_name = "_diffrec.DiffractionCorrection";
     DiffrecType.tp_doc = "Diffraction Correction class.";
     DiffrecType.tp_basicsize = sizeof(PyDiffrecObj);
     DiffrecType.tp_itemsize = 0;
@@ -937,14 +940,13 @@ static PyTypeObject constructDiffrecType(void) {
     return DiffrecType;
 }
 
-#ifdef __cplusplus
-// C++ does not support C's designated initializer syntax
+
 static PyTypeObject DiffrecType = constructDiffrecType();
 
 static PyModuleDef constructModuleDef(void)
 {
     PyModuleDef moduledef = { PyModuleDef_HEAD_INIT};
-    moduledef.m_name = "diffrec";
+    moduledef.m_name = "_diffrec";
     moduledef.m_doc = "Module containing the rss_ringoccs class.";
     moduledef.m_size = -1;
 
@@ -976,7 +978,7 @@ static PyModuleDef moduledef = {
 };
 #endif
 
-PyMODINIT_FUNC PyInit_diffrec(void)
+PyMODINIT_FUNC PyInit__diffrec(void)
 {
     PyObject *m;
     int pymod_addobj;

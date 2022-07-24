@@ -1675,7 +1675,7 @@ static PyMethodDef special_functions_methods[] =
 
 static struct PyModuleDef moduledef = {
     PyModuleDef_HEAD_INIT,
-    "special_functions",
+    "_special_functions",
     NULL,
     -1,
     special_functions_methods,
@@ -1685,7 +1685,7 @@ static struct PyModuleDef moduledef = {
     NULL
 };
 
-PyMODINIT_FUNC PyInit_special_functions(void)
+PyMODINIT_FUNC PyInit__special_functions(void)
 {
     PyObject *m = PyModule_Create(&moduledef);
     if (!m) return NULL;
