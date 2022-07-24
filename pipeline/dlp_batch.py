@@ -3,10 +3,11 @@ import sys
 import rss_ringoccs as rss
 import traceback
 import time
+import os
 
 # Create new error file
 err_file = sys.argv[0].split(".")[0] + time.strftime("_%Y%m%d-%H%M%S") + ".err"
-fail_file = open("../output/" + err_file, "w")
+fail_file = open(os.path.join("..", "output", err_file), "w")
 files = [args.mpath + line.strip("\n") for line in open(args.rsr_file_list).readlines()]
 
 nfiles = len(files)
