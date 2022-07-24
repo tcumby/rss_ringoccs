@@ -17,11 +17,13 @@ import os
 # from .pds3_spectro_image import write_spectro_image
 from time import strftime
 
-import rss_ringoccs as rss
 from .pds3_cal_series import write_cal_series
 from .pds3_dlp_series import write_dlp_series
 from .pds3_geo_series import write_geo_series
 from .pds3_tau_series import write_tau_series
+from ..calibration import Calibration, DiffractionLimitedProfile
+from rss_ringoccs.diffrec import DiffractionCorrection
+from ..occgeo import Geometry
 
 func_typ = {
     "GEO": write_geo_series,
@@ -52,16 +54,16 @@ def write_output_files(inst, add_text=None):
         add = ""
 
     # Check for instance type and write that specific file
-    if isinstance(inst, rss.occgeo.Geometry):
+    if isinstance(inst, Geometry):
         filtyp = "GEO" + add
 
-    elif isinstance(inst, rss.calibration.Calibration):
+    elif isinstance(inst, Calibration):
         filtyp = "CAL" + add
 
-    elif isinstance(inst, rss.calibration.DiffractionLimitedProfile):
+    elif isinstance(inst, DiffractionLimitedProfile):
         filtyp = "DLP_" + str(int(inst.dr_km * 1000 * 2)).zfill(4) + "M" + add
 
-    elif isinstance(inst, rss.diffrec.DiffractionCorrection):
+    elif isinstance(inst, DiffractionCorrection):
         filtyp = "TAU_" + str(int(inst.input_res * 1000)).zfill(5) + "M" + add
     # elif isinstance(inst, rss.scatter.Scatter):
     #    filtyp = 'SCATTER_' + inst.band + (inst.dsn).split('-')[1] + add
