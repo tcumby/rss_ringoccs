@@ -14,41 +14,42 @@ import subprocess
 import os
 import time
 
-from . import error_check
+from rss_ringoccs.tools import error_check
+
 
 def shell_execute(script):
     """
-        Purpose:
-            Execute a shell script from within Python.
-        Variables:
-            :script (*str*):
-                A list containing the path to the shell
-                script and variables. For example:
-                    script = ['path/to/script','v1',...,'vn']
-                Elements must be strings.
-        Outputs:
-            :Process (*object*):
-                An instance of the Popen class from the
-                subprocess module. This contains attributes
-                such as the arguments passed to it, and other
-                system details.
-        Notes:
-            This routine has only been tested using scripts
-            written in Bash, and on standard Unix commands.
-        Examples:
-            Suppose we have the following shell script test.sh:
-                #!/bin/bash
-                printf "Hello, World! My name is %s!" "$1"
-            Run this shell script inside of Python:
-                In [1]: from rss_ringoccs.tools import sys_tools
-                In [2]: sys_tools.shell_execute(['./test.sh','Bob'])
-                        Hello World! My name is Bob!
-            We can also execute simple Unix commands.
-                In [1]: import diffcorr as dc
-                In [2]: a = dc.shell_execute(["echo","Bob"])
-                        Bob
-                In [3]: a.args
-                Out[3]: [' echo Bob']
+    Purpose:
+        Execute a shell script from within Python.
+    Variables:
+        :script (*str*):
+            A list containing the path to the shell
+            script and variables. For example:
+                script = ['path/to/script','v1',...,'vn']
+            Elements must be strings.
+    Outputs:
+        :Process (*object*):
+            An instance of the Popen class from the
+            subprocess module. This contains attributes
+            such as the arguments passed to it, and other
+            system details.
+    Notes:
+        This routine has only been tested using scripts
+        written in Bash, and on standard Unix commands.
+    Examples:
+        Suppose we have the following shell script test.sh:
+            #!/bin/bash
+            printf "Hello, World! My name is %s!" "$1"
+        Run this shell script inside of Python:
+            In [1]: from rss_ringoccs.tools import sys_tools
+            In [2]: sys_tools.shell_execute(['./test.sh','Bob'])
+                    Hello World! My name is Bob!
+        We can also execute simple Unix commands.
+            In [1]: import diffcorr as dc
+            In [2]: a = dc.shell_execute(["echo","Bob"])
+                    Bob
+            In [3]: a.args
+            Out[3]: [' echo Bob']
     """
     fname = "tools.sys_tools.shell_execute"
     error_check.check_type(script, list, "script", fname)
@@ -56,24 +57,26 @@ def shell_execute(script):
     string = ""
     for x in script:
         error_check.check_type(x, str, "script[i]", fname)
-        string = "%s %s" % (string, x)
+        string = f"{string} {x}"
 
-    return subprocess.Popen([string],shell=True)
+    return subprocess.Popen([string], shell=True)
+
 
 def date_string():
     """
-        Purpose:
-            Create string of the form "yyyy_mm_dd_HH_MM_SS_"
-        Outputs:
-            :date (*str*):
-                Current date "year/month/day/hour/minute/second"
+    Purpose:
+        Create string of the form "yyyy_mm_dd_HH_MM_SS_"
+    Outputs:
+        :date (*str*):
+            Current date "year/month/day/hour/minute/second"
     """
     strings = time.strftime("%Y,%m,%d,%H,%M,%S")
-    t = strings.split(',')
-    date=""
+    t = strings.split(",")
+    date = ""
     for x in t:
-        date = "%s%s_" % (date,x)
+        date = f"{date}{x}_"
     return date
+
 
 def make_executable(path):
     error_check.check_type(path, str, "path", "tools.sys_tools.make_executable")
@@ -84,6 +87,7 @@ def make_executable(path):
     mode |= (mode & 0o444) >> 2
     os.chmod(path, mode)
 
+
 def latex_summary_doc(pdffil, res_km, geo, cal, tau):
     fname = "tools.sys_tools.latex_summary_doc"
     error_check.check_type(pdffil, str, "pdffil", fname)
@@ -92,7 +96,7 @@ def latex_summary_doc(pdffil, res_km, geo, cal, tau):
     error_check.check_type(tau, str, "tau", fname)
 
     res = error_check.check_type_and_convert(res_km, float, "res_km", fname)
-    res = "%sM" % str(int(res_km*1000.0))
+    res = "%sM" % str(int(res_km * 1000.0))
 
     var = pdffil.split("/")[-1]
     var = var.split("_")
@@ -103,40 +107,40 @@ def latex_summary_doc(pdffil, res_km, geo, cal, tau):
     year = var[2]
     band = var[4][0:3]
 
-    geo = geo.replace("_", "\_")
-    cal = cal.replace("_", "\_")
-    tau = tau.replace("_", "\_")
+    geo = geo.replace("_", r"\_")
+    cal = cal.replace("_", r"\_")
+    tau = tau.replace("_", r"\_")
 
     LaTeXFile = r"""
-        \documentclass{article}
-        \usepackage{geometry}
-        \geometry{a4paper, margin = 1.0in}
-        \usepackage{graphicx, float}
-        \usepackage{pdflscape}
-        \usepackage[english]{babel}
-        \usepackage[dvipsnames]{xcolor}
-        \usepackage[font={normalsize}, labelsep=colon]{caption}
-        \addto\captionsenglish{\renewcommand{\figurename}{Fig.}}
-        \newcommand{\thePDF}{%s}
-        \newcommand{\theREV}{%s}
-        \newcommand{\theDOY}{%s}
-        \newcommand{\theRES}{%s}
-        \newcommand{\theOCC}{%s}
-        \newcommand{\theGEO}{%s}
-        \newcommand{\theCAL}{%s}
-        \newcommand{\theTAU}{%s}
-        \newcommand{\theYEAR}{%s}
-        \newcommand{\theBAND}{%s}
-        \newcommand{\theDSN}{%s}
-        \setlength{\parindent}{0em}
-        \setlength{\parskip}{0em}
-        \begin{document}
-            \pagenumbering{gobble}
-            \begin{center}
-                \LARGE{\texttt{
-                    RSS\textunderscore\theYEAR%%
-                    \textunderscore\theDOY\textunderscore\theBAND%%
-                    \textunderscore\theOCC}\\[2.0ex]
+        \documentclass{{article}}
+        \usepackage{{geometry}}
+        \geometry{{a4paper, margin = 1.0in}}
+        \usepackage{{graphicx, float}}
+        \usepackage{{pdflscape}}
+        \usepackage[english]{{babel}}
+        \usepackage[dvipsnames]{{xcolor}}
+        \usepackage[font={{normalsize}}, labelsep=colon]{{caption}}
+        \addto\captionsenglish{{\renewcommand{{\figurename}}{{Fig.}}}}
+        \newcommand{{\thePDF}}{{{}}}
+        \newcommand{{\theREV}}{{{}}}
+        \newcommand{{\theDOY}}{{{}}}
+        \newcommand{{\theRES}}{{{}}}
+        \newcommand{{\theOCC}}{{{}}}
+        \newcommand{{\theGEO}}{{{}}}
+        \newcommand{{\theCAL}}{{{}}}
+        \newcommand{{\theTAU}}{{{}}}
+        \newcommand{{\theYEAR}}{{{}}}
+        \newcommand{{\theBAND}}{{{}}}
+        \newcommand{{\theDSN}}{{{}}}
+        \setlength{{\parindent}}{{0em}}
+        \setlength{{\parskip}}{{0em}}
+        \begin{{document}}
+            \pagenumbering{{gobble}}
+            \begin{{center}}
+                \LARGE{{\texttt{{
+                    RSS\textunderscore\theYEAR%
+                    \textunderscore\theDOY\textunderscore\theBAND%
+                    \textunderscore\theOCC}}\\[2.0ex]
                     Rev\theREV\theOCC\
                     Cassini Radio Science Ring Occultation:\\[1.0ex]
                     Geometry, Data Calibration,
@@ -144,190 +148,190 @@ def latex_summary_doc(pdffil, res_km, geo, cal, tau):
                     Optical Depth and
                     Phase Shift Profiles\\[1.0ex]
                     at \theRES\
-                    Resolution\footnote{
-                    This document was produced by \texttt{rss\_ringoccs}, a suite of open-source Python-based analysis tools for Cassini Radio Science (RSS) ring occultations. This was developed with funding provided by the NASA/JPL Cassini project.}\\[2.5ex]}
-                \large{\today}
-            \end{center}
-            \vspace{2ex}
-            \begin{figure}[H]
+                    Resolution\footnote{{
+                    This document was produced by \texttt{{rss\_ringoccs}}, a suite of open-source Python-based analysis tools for Cassini Radio Science (RSS) ring occultations. This was developed with funding provided by the NASA/JPL Cassini project.}}\\[2.5ex]}}
+                \large{{\today}}
+            \end{{center}}
+            \vspace{{2ex}}
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=1,
-                        trim={0.0cm 0.0cm 0.0cm 0.9cm},
+                        trim={{0.0cm 0.0cm 0.0cm 0.9cm}},
                         clip,
                         width=\textwidth
-                    ]{\thePDF}
-                }
-                \caption*{
+                    ]{{\thePDF}}
+                }}
+                \caption*{{
                     The radio occultation track as seen
                     looking down on the ring plane.
                     The solid
-                    \textcolor{red}{red} track is relative to
+                    \textcolor{{red}}{{red}} track is relative to
                     a reference direction defined by the
                     direction to Earth, The solid
-                    \textcolor{blue}{blue}
+                    \textcolor{{blue}}{{blue}}
                     track is relative to an initial reference
                     direction defined by the ascending
                     node of J2000 on the ring plane.
-                }
-            \end{figure}
+                }}
+            \end{{figure}}
             \newpage
-            \pagenumbering{arabic}
-            \begin{table}[H]
+            \pagenumbering{{arabic}}
+            \begin{{table}}[H]
                 \centering
-                \begin{tabular}{ll}
+                \begin{{tabular}}{{ll}}
                     \hline
                     Symbol&Parameter Name\\
                     \hline
-                    $t_{\scriptsize{\textrm{ERT}}}$&
+                    $t_{{\scriptsize{{\textrm{{ERT}}}}}}$&
                     OBSERVED EVENT TIME (Earth Receiving Time)\\
-                    $t_{\scriptsize{\textrm{RET}}}$&
+                    $t_{{\scriptsize{{\textrm{{RET}}}}}}$&
                     RING EVENT TIME\\
-                    $t_{\scriptsize{\textrm{SCET}}}$&
+                    $t_{{\scriptsize{{\textrm{{SCET}}}}}}$&
                     SPACECRAFT EVENT TIME\\
                     $\rho$&RING RADIUS\\
-                    $\phi_{\scriptsize{\textrm{J2K}}}$&
+                    $\phi_{{\scriptsize{{\textrm{{J2K}}}}}}$&
                     RING LONGITUDE\\
-                    $\phi_{\scriptsize{\textrm{E}}}$&
+                    $\phi_{{\scriptsize{{\textrm{{E}}}}}}$&
                     OBSERVED RING AZIMUTH\\
                     $B$&OBSERVED RING ELEVATION\\
                     $D$&SPACECRAFT TO RING INTERCEPT DISTANCE\\
-                    $V_{\scriptsize{\textrm{rad}}}$&
+                    $V_{{\scriptsize{{\textrm{{rad}}}}}}$&
                     RING INTERCEPT RADIAL VELOCITY\\
-                    $V_{\scriptsize{\textrm{az}}}$&
+                    $V_{{\scriptsize{{\textrm{{az}}}}}}$&
                     RING INTERCEPT AZIMUTHAL VELOCITY\\
                     $F$&FRESNEL SCALE\\
-                    $R_{\scriptsize{\textrm{imp}}}$&
+                    $R_{{\scriptsize{{\textrm{{imp}}}}}}$&
                     IMPACT RADIUS\\
-                    $r_{X}$&SPACECRAFT POSITION X\\
-                    $r_{y}$&SPACECRAFT POSITION Y\\
-                    $r_{z}$&SPACECRAFT POSITION Z\\
-                    $v_{x}$&SPACECRAFT VELOCITY X\\
-                    $v_{y}$&SPACECRAFT VELOCITY Y\\
-                    $v_{z}$&SPACECRAFT VELOCITY Z\\
-                    $\theta_{\scriptsize{\textrm{EL}}}$&
+                    $r_{{X}}$&SPACECRAFT POSITION X\\
+                    $r_{{y}}$&SPACECRAFT POSITION Y\\
+                    $r_{{z}}$&SPACECRAFT POSITION Z\\
+                    $v_{{x}}$&SPACECRAFT VELOCITY X\\
+                    $v_{{y}}$&SPACECRAFT VELOCITY Y\\
+                    $v_{{z}}$&SPACECRAFT VELOCITY Z\\
+                    $\theta_{{\scriptsize{{\textrm{{EL}}}}}}$&
                     OBSERVED SPACECRAFT ELEVATION\\
                     \hline
-                \end{tabular}
-                \caption[Glossary of Parameters from the Geo File]{
+                \end{{tabular}}
+                \caption[Glossary of Parameters from the Geo File]{{
                     Glossary of parameters in file \theGEO.
                     See companion label (.LBL) file for description
                     of parameters.
-                }
-                \label{tab:easydata_glossary_of_geo_file}
-            \end{table}
-            \begin{table}[H]
+                }}
+                \label{{tab:easydata_glossary_of_geo_file}}
+            \end{{table}}
+            \begin{{table}}[H]
                 \centering
-                \begin{tabular}{l l}
+                \begin{{tabular}}{{l l}}
                     \hline
                     Symbol&Parameter Name\\
                     \hline
-                    $t_{\scriptsize{\textrm{ERT}}}$&
+                    $t_{{\scriptsize{{\textrm{{ERT}}}}}}$&
                     OBSERVED EVENT TIME\\
-                    $f_{\scriptsize{\textrm{sky}}}$&
+                    $f_{{\scriptsize{{\textrm{{sky}}}}}}$&
                     SKY FREQUENCY\\
-                    $f_{\scriptsize{\textrm{offset}}}$&
+                    $f_{{\scriptsize{{\textrm{{offset}}}}}}$&
                     OFFSET FREQUENCY\\
-                    $P_{\scriptsize{\textrm{free}}}$&
+                    $P_{{\scriptsize{{\textrm{{free}}}}}}$&
                     FREESPACE POWER\\
                     \hline
-                \end{tabular}
-                \caption[Glossary of Data from the Cal File]{
+                \end{{tabular}}
+                \caption[Glossary of Data from the Cal File]{{
                     Glossary of calibration data in file
                     \theCAL. See companion label (.LBL)
                     file for description of the data.
-                }
-                \label{tab:easydata_glossary_from_cal_file}
-            \end{table}
-            \begin{table}[H]
+                }}
+                \label{{tab:easydata_glossary_from_cal_file}}
+            \end{{table}}
+            \begin{{table}}[H]
                 \centering
-                \begin{tabular}{l l}
+                \begin{{tabular}}{{l l}}
                     \hline
                     Symbol&Parameter Name\\
                     \hline
                     $\rho$&RING RADIUS\\
-                    $\Delta\rho_{\scriptsize{\textrm{IP}}}$
+                    $\Delta\rho_{{\scriptsize{{\textrm{{IP}}}}}}$
                     &RADIUS CORRECTION DUE TO IMPROVED POLE\\
-                    $\Delta\rho_{\scriptsize{\textrm{TO}}}$&
+                    $\Delta\rho_{{\scriptsize{{\textrm{{TO}}}}}}$&
                     RADIUS CORRECTION DUE TO TIMING OFFSET\\
-                    $\phi_{\scriptsize{\textrm{RL}}}$&
+                    $\phi_{{\scriptsize{{\textrm{{RL}}}}}}$&
                     RING LONGITUDE\\
-                    $\phi_{\scriptsize{\textrm{ORA}}}$&
+                    $\phi_{{\scriptsize{{\textrm{{ORA}}}}}}$&
                     OBSERVED RING AZIMUTH\\
                     $P$&NORMALIZED SIGNAL POWER\\
                     $\tau$&NORMAL OPTICAL DEPTH\\
                     $\phi$&PHASE SHIFT\\
-                    $\tau_{\scriptsize{\textrm{TH}}}$
+                    $\tau_{{\scriptsize{{\textrm{{TH}}}}}}$
                     &NORMAL OPTICAL DEPTH THRESHOLD\\
-                    $t_{\scriptsize{\textrm{ERT}}}$&
+                    $t_{{\scriptsize{{\textrm{{ERT}}}}}}$&
                     OBSERVED EVENT TIME
                     (Earth Recieving Time)\\
-                    $t_{\footnotesize{\textrm{RET}}}$&
+                    $t_{{\footnotesize{{\textrm{{RET}}}}}}$&
                     RING EVENT TIME\\
-                    $t_{\footnotesize{\textrm{SCET}}}$&
+                    $t_{{\footnotesize{{\textrm{{SCET}}}}}}$&
                     SPACECRAFT EVENT TIME\\
                     $B$&OBSERVED RING ELEVATION\\
                     \hline
-                \end{tabular}
-                \caption[Glossary of Parameters in Tau File]{
+                \end{{tabular}}
+                \caption[Glossary of Parameters in Tau File]{{
                     Glossary of optical depth, phase shift,
                     and selected geometry and time parameters
                     in \theTAU.
                     See companion label
                     (.LBL) files for description of the data.
-                }
-                \label{tab:easydata_parameters_from_tau_file}
-            \end{table}
+                }}
+                \label{{tab:easydata_parameters_from_tau_file}}
+            \end{{table}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \large{\textbf{View from Earth}}\par
+                \large{{\textbf{{View from Earth}}}}\par
                 \includegraphics[
                     page=2,
-                    trim={0.0in 1.0in 0.0in 1.0in},
+                    trim={{0.0in 1.0in 0.0in 1.0in}},
                     clip,
                     width=0.75\textwidth
-                ]{\thePDF}
-                \caption{View of RSS ring occultation from Earth,
+                ]{{\thePDF}}
+                \caption{{View of RSS ring occultation from Earth,
                          with occultation track plotted in blue
                          (dashed when blocked by planet). 30-min markers are
                          plotted as solid blue dots. Black solid line
-                         represents direction to Earth.}
-            \end{figure}
-            \vspace{30ex}
-            \begin{figure}[H]
+                         represents direction to Earth.}}
+            \end{{figure}}
+            \vspace{{30ex}}
+            \begin{{figure}}[H]
                 \centering
-                \large{\textbf{View from North Pole}}\par
+                \large{{\textbf{{View from North Pole}}}}\par
                 \includegraphics[
                     page=3,
-                    trim={0.0in 0.65in 0.0in 0.65in},
+                    trim={{0.0in 0.65in 0.0in 0.65in}},
                     clip,
                     width=\textwidth
-                ]{\thePDF}
-                \caption{View of RSS ring occultation from north pole of planet,
+                ]{{\thePDF}}
+                \caption{{View of RSS ring occultation from north pole of planet,
                          with occultation track plotted in blue
                          (dashed when blocked by planet). 30-min markers are
                          plotted as solid blue dots. Black solid line
-                         represents direction to Earth.}
-            \end{figure}
+                         represents direction to Earth.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \includegraphics[page=4, width=\textwidth]{\thePDF}
-                \caption{Rev\theREV\theOCC;
-                         selected occultation parameters.}
-            \end{figure}
+                \includegraphics[page=4, width=\textwidth]{{\thePDF}}
+                \caption{{Rev\theREV\theOCC;
+                         selected occultation parameters.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
                 \includegraphics[
                     page=5,
                     width=\textwidth,
-                    trim = {1cm 2cm 0.5cm 2cm},
+                    trim = {{1cm 2cm 0.5cm 2cm}},
                     clip
-                ]{\thePDF}
-                \caption{Calibration data in file \theCAL.
+                ]{{\thePDF}}
+                \caption{{Calibration data in file \theCAL.
                          The frequency offset data
                          (the smooth curve, in the second panel)
                          is used to steer the carrier signal to the
@@ -336,403 +340,407 @@ def latex_summary_doc(pdffil, res_km, geo, cal, tau):
                          the third panel) is used to normalize signal
                          power measurements so that the corresponding
                          optical depth has nearly zero value in the
-                         absence of rings.}
-            \end{figure}
-            \begin{landscape}
-                \begin{figure}[H]
+                         absence of rings.}}
+            \end{{figure}}
+            \begin{{landscape}}
+                \begin{{figure}}[H]
                     \centering
-                    \resizebox{9.5in}{5.5in}{
+                    \resizebox{{9.5in}}{{5.5in}}{{
                         \includegraphics[
                             page=6,
-                            trim={2.0cm 1.0cm 1.5cm 1.5cm},
+                            trim={{2.0cm 1.0cm 1.5cm 1.5cm}},
                             clip
-                        ]{\thePDF}
-                    }
-                    \caption{Observing DSN station (DSS-\theDSN) elevation
-                             angle (in \textcolor{magenta}{magenta})
-                             superimposed on ring profile at \theRES  
+                        ]{{\thePDF}}
+                    }}
+                    \caption{{Observing DSN station (DSS-\theDSN) elevation
+                             angle (in \textcolor{{magenta}}{{magenta}})
+                             superimposed on ring profile at \theRES
                              ~resolution from data file \theTAU.
-                             \textcolor{blue}{Blue}: Reconstructed normal
-                             optical depth; \textcolor{cyan}{Cyan}:
+                             \textcolor{{blue}}{{Blue}}: Reconstructed normal
+                             optical depth; \textcolor{{cyan}}{{Cyan}}:
                              Free-space baseline;
-                             \textcolor{red}{Red}: Threshold optical depth
+                             \textcolor{{red}}{{Red}}: Threshold optical depth
                              (measurement SNR $\simeq$ 1). Optical depth is
                              plotted increasing downward, the same direction
-                             as increasing direct signal extinction.}
-                \end{figure}
-            \end{landscape}
-            \begin{figure}[H]
+                             as increasing direct signal extinction.}}
+                \end{{figure}}
+            \end{{landscape}}
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=7,
                         width=\textwidth,
-                        trim = {0.4cm 0cm 0.5cm 0cm},
+                        trim = {{0.4cm 0cm 0.5cm 0cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Observing DSN station (DSS-\theDSN) elevation angle
-                         (in \textcolor{magenta}{magenta}) superimposed on ring
+                    ]{{\thePDF}}
+                }}
+                \caption{{Observing DSN station (DSS-\theDSN) elevation angle
+                         (in \textcolor{{magenta}}{{magenta}}) superimposed on ring
                          profile at \theRES M resolution from data file \theTAU.
-                         \textcolor{blue}{Blue}: Reconstructed normal optical
-                         depth; \textcolor{cyan}{Cyan}: Free-space baseline;
-                         \textcolor{red}{Red}:Threshold optical depth
+                         \textcolor{{blue}}{{Blue}}: Reconstructed normal optical
+                         depth; \textcolor{{cyan}}{{Cyan}}: Free-space baseline;
+                         \textcolor{{red}}{{Red}}:Threshold optical depth
                          (measurement SNR $\simeq$ 1). Optical depth is plotted
                          increasing downward, the same direction as increasing
-                         direct signal extinction.}
-            \end{figure}
+                         direct signal extinction.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=8,
                         width=\textwidth,
-                        trim = {0.4cm 0cm 0.5cm 0cm},
+                        trim = {{0.4cm 0cm 0.5cm 0cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Rev\theREV\-\theOCC\ $\tau$-profile from data file
-                         \theTAU. \textcolor{blue}{Blue}: Reconstructed normal
-                         optical depth; \textcolor{cyan}{Cyan}: Free-space
-                         baseline; \textcolor{red}{Red}: Threshold optical depth
+                    ]{{\thePDF}}
+                }}
+                \caption{{Rev\theREV\-\theOCC\ $\tau$-profile from data file
+                         \theTAU. \textcolor{{blue}}{{Blue}}: Reconstructed normal
+                         optical depth; \textcolor{{cyan}}{{Cyan}}: Free-space
+                         baseline; \textcolor{{red}}{{Red}}: Threshold optical depth
                          (measurement SNR $\simeq$ 1). Optical depth is plotted
                          downword, the same direction as increasing direct
-                         signal extinction.}
-            \end{figure}
+                         signal extinction.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=9,
                         width=\textwidth,
-                        trim = {0.4cm 0cm 0.5cm 0cm},
+                        trim = {{0.4cm 0cm 0.5cm 0cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Rev\theREV\-\theOCC\ $\tau$-profile from data file
-                         \theTAU. \textcolor{blue}{Blue}: Reconstructed normal
-                         optical depth; \textcolor{cyan}{Cyan}: Free-space
-                         baseline; \textcolor{red}{Red}: Threshold optical
+                    ]{{\thePDF}}
+                }}
+                \caption{{Rev\theREV\-\theOCC\ $\tau$-profile from data file
+                         \theTAU. \textcolor{{blue}}{{Blue}}: Reconstructed normal
+                         optical depth; \textcolor{{cyan}}{{Cyan}}: Free-space
+                         baseline; \textcolor{{red}}{{Red}}: Threshold optical
                          depth (measurement SNR $\simeq$ 1). Optical depth is
                          plotted downword, the same direction as increasing
-                         direct signal extinction.}
-            \end{figure}
+                         direct signal extinction.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=10,
                         width=\textwidth,
-                        trim = {0.4cm 0cm 0.5cm 0cm},
+                        trim = {{0.4cm 0cm 0.5cm 0cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Rev\theREV\-\theOCC\ $\tau$-profile from data file
-                         \theTAU. \textcolor{blue}{Blue}: Reconstructed normal
-                         optical depth; \textcolor{cyan}{Cyan}: Free-space
-                         baseline; \textcolor{red}{Red}: Threshold optical
+                    ]{{\thePDF}}
+                }}
+                \caption{{Rev\theREV\-\theOCC\ $\tau$-profile from data file
+                         \theTAU. \textcolor{{blue}}{{Blue}}: Reconstructed normal
+                         optical depth; \textcolor{{cyan}}{{Cyan}}: Free-space
+                         baseline; \textcolor{{red}}{{Red}}: Threshold optical
                          depth (measurement SNR $\simeq$ 1). Optical depth is
                          plotted downword, the same direction as increasing
-                         direct signal extinction.}
-            \end{figure}
+                         direct signal extinction.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=11,
                         width=\textwidth,
-                        trim = {0.4cm 0cm 0.5cm 0cm},
+                        trim = {{0.4cm 0cm 0.5cm 0cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Rev\theREV\-\theOCC\ $\tau$-profile from data file
-                         \theTAU. \textcolor{blue}{Blue}: Reconstructed normal
-                         optical depth; \textcolor{cyan}{Cyan}: Free-space
-                         baseline; \textcolor{red}{Red}: Threshold optical
+                    ]{{\thePDF}}
+                }}
+                \caption{{Rev\theREV\-\theOCC\ $\tau$-profile from data file
+                         \theTAU. \textcolor{{blue}}{{Blue}}: Reconstructed normal
+                         optical depth; \textcolor{{cyan}}{{Cyan}}: Free-space
+                         baseline; \textcolor{{red}}{{Red}}: Threshold optical
                          depth (measurement SNR $\simeq$ 1). Optical depth is
                          plotted downword, the same direction as increasing
-                         direct signal extinction.}
-            \end{figure}
+                         direct signal extinction.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=12,
                         width=\textwidth,
-                        trim = {0.4cm 0cm 0.5cm 0cm},
+                        trim = {{0.4cm 0cm 0.5cm 0cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Rev\theREV\-\theOCC\ $\tau$-profile from data file
-                         \theTAU. \textcolor{blue}{Blue}: Reconstructed normal
-                         optical depth; \textcolor{cyan}{Cyan}: Free-space
-                         baseline; \textcolor{red}{Red}: Threshold optical
+                    ]{{\thePDF}}
+                }}
+                \caption{{Rev\theREV\-\theOCC\ $\tau$-profile from data file
+                         \theTAU. \textcolor{{blue}}{{Blue}}: Reconstructed normal
+                         optical depth; \textcolor{{cyan}}{{Cyan}}: Free-space
+                         baseline; \textcolor{{red}}{{Red}}: Threshold optical
                          depth (measurement SNR $\simeq$ 1). Optical depth is
                          plotted downword, the same direction as increasing
-                         direct signal extinction.}
-            \end{figure}
+                         direct signal extinction.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[page=13,
                         width=\textwidth,
-                        trim = {0.4cm 0cm 0.5cm 0cm},
+                        trim = {{0.4cm 0cm 0.5cm 0cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Rev\theREV\-\theOCC\ $\tau$-profile from data file
-                         \theTAU. \textcolor{blue}{Blue}: Reconstructed normal
-                         optical depth; \textcolor{cyan}{Cyan}: Free-space
-                         baseline; \textcolor{red}{Red}: Threshold optical depth
+                    ]{{\thePDF}}
+                }}
+                \caption{{Rev\theREV\-\theOCC\ $\tau$-profile from data file
+                         \theTAU. \textcolor{{blue}}{{Blue}}: Reconstructed normal
+                         optical depth; \textcolor{{cyan}}{{Cyan}}: Free-space
+                         baseline; \textcolor{{red}}{{Red}}: Threshold optical depth
                          (measurement SNR $\simeq$ 1). Optical depth is plotted
                          downword, the same direction as increasing direct
-                         signal extinction.}
-            \end{figure}
+                         signal extinction.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=14,
                         width=\textwidth,
-                        trim = {0.4cm 0cm 0.5cm 0cm},
+                        trim = {{0.4cm 0cm 0.5cm 0cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Rev\theREV\-\theOCC\ $\tau$-profile from data file
-                         \theTAU. \textcolor{blue}{Blue}: Reconstructed normal
-                         optical depth; \textcolor{cyan}{Cyan}: Free-space
-                         baseline; \textcolor{red}{Red}: Threshold optical depth
+                    ]{{\thePDF}}
+                }}
+                \caption{{Rev\theREV\-\theOCC\ $\tau$-profile from data file
+                         \theTAU. \textcolor{{blue}}{{Blue}}: Reconstructed normal
+                         optical depth; \textcolor{{cyan}}{{Cyan}}: Free-space
+                         baseline; \textcolor{{red}}{{Red}}: Threshold optical depth
                          (measurement SNR $\simeq$ 1). Optical depth is plotted
                          downword, the same direction as increasing direct
-                         signal extinction.}
-            \end{figure}
+                         signal extinction.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=15,
                         width=\textwidth,
-                        trim = {0.4cm 0cm 0.5cm 0cm},
+                        trim = {{0.4cm 0cm 0.5cm 0cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Rev\theREV\-\theOCC\ $\tau$-profile from data file
-                         \theTAU. \textcolor{blue}{Blue}: Reconstructed normal
-                         optical depth; \textcolor{cyan}{Cyan}: Free-space
-                         baseline; \textcolor{red}{Red}: Threshold optical depth
+                    ]{{\thePDF}}
+                }}
+                \caption{{Rev\theREV\-\theOCC\ $\tau$-profile from data file
+                         \theTAU. \textcolor{{blue}}{{Blue}}: Reconstructed normal
+                         optical depth; \textcolor{{cyan}}{{Cyan}}: Free-space
+                         baseline; \textcolor{{red}}{{Red}}: Threshold optical depth
                          (measurement SNR $\simeq$ 1). Optical depth is plotted
                          downword, the same direction as increasing direct
-                         signal extinction.}
-            \end{figure}
+                         signal extinction.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=16,
                         width=\textwidth,
-                        trim = {0.4cm 0cm 0.5cm 0cm},
+                        trim = {{0.4cm 0cm 0.5cm 0cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Rev\theREV\-\theOCC\ $\tau$-profile from data file
-                         \theTAU. \textcolor{blue}{Blue}: Reconstructed normal
-                         optical depth; \textcolor{cyan}{Cyan}: Free-space
-                         baseline; \textcolor{red}{Red}: Threshold optical
+                    ]{{\thePDF}}
+                }}
+                \caption{{Rev\theREV\-\theOCC\ $\tau$-profile from data file
+                         \theTAU. \textcolor{{blue}}{{Blue}}: Reconstructed normal
+                         optical depth; \textcolor{{cyan}}{{Cyan}}: Free-space
+                         baseline; \textcolor{{red}}{{Red}}: Threshold optical
                          depth (measurement SNR $\simeq$ 1). Optical depth is
                          plotted downword, the same direction as increasing
-                         direct signal extinction.}
-            \end{figure}
+                         direct signal extinction.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=17,
                         width=\textwidth,
-                        trim = {0.4cm 0cm 0.5cm 0cm},
+                        trim = {{0.4cm 0cm 0.5cm 0cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Rev\theREV\-\theOCC\ $\tau$-profile from data file
-                         \theTAU. \textcolor{blue}{Blue}: Reconstructed normal
-                         optical depth; \textcolor{cyan}{Cyan}: Free-space
-                         baseline; \textcolor{red}{Red}: Threshold optical
+                    ]{{\thePDF}}
+                }}
+                \caption{{Rev\theREV\-\theOCC\ $\tau$-profile from data file
+                         \theTAU. \textcolor{{blue}}{{Blue}}: Reconstructed normal
+                         optical depth; \textcolor{{cyan}}{{Cyan}}: Free-space
+                         baseline; \textcolor{{red}}{{Red}}: Threshold optical
                          depth (measurement SNR $\simeq$ 1). Optical depth is
                          plotted downword, the same direction as increasing
-                         direct signal extinction.}
-            \end{figure}
+                         direct signal extinction.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=18,
                         width=\textwidth,
-                        trim = {0.4cm 0cm 0.5cm 0cm},
+                        trim = {{0.4cm 0cm 0.5cm 0cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Rev\theREV\-\theOCC\ $\tau$-profile from data file
-                         \theTAU. \textcolor{blue}{Blue}: Reconstructed normal
-                         optical depth; \textcolor{cyan}{Cyan}: Free-space
-                         baseline; \textcolor{red}{Red}: Threshold optical
+                    ]{{\thePDF}}
+                }}
+                \caption{{Rev\theREV\-\theOCC\ $\tau$-profile from data file
+                         \theTAU. \textcolor{{blue}}{{Blue}}: Reconstructed normal
+                         optical depth; \textcolor{{cyan}}{{Cyan}}: Free-space
+                         baseline; \textcolor{{red}}{{Red}}: Threshold optical
                          depth (measurement SNR $\simeq$ 1). Optical depth is
                          plotted downword, the same direction as increasing
-                         direct signal extinction.}
-            \end{figure}
+                         direct signal extinction.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=19,
                         width=\textwidth,
-                        trim = {0.4cm 0cm 0.5cm 0cm},
+                        trim = {{0.4cm 0cm 0.5cm 0cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Rev\theREV\-\theOCC\ $\tau$-profile from data file
-                         \theTAU. \textcolor{blue}{Blue}: Reconstructed normal
-                         optical depth; \textcolor{cyan}{Cyan}: Free-space
-                         baseline; \textcolor{red}{Red}: Threshold optical
+                    ]{{\thePDF}}
+                }}
+                \caption{{Rev\theREV\-\theOCC\ $\tau$-profile from data file
+                         \theTAU. \textcolor{{blue}}{{Blue}}: Reconstructed normal
+                         optical depth; \textcolor{{cyan}}{{Cyan}}: Free-space
+                         baseline; \textcolor{{red}}{{Red}}: Threshold optical
                          depth (measurement SNR $\simeq$ 1). Optical depth is
                          plotted downword, the same direction as increasing
-                         direct signal extinction.}
-            \end{figure}
+                         direct signal extinction.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=20,
                         width=\textwidth,
-                        trim = {0.4cm 0cm 0.5cm 0cm},
+                        trim = {{0.4cm 0cm 0.5cm 0cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Rev\theREV\-\theOCC\ $\tau$-profile from data file
-                         \theTAU. \textcolor{blue}{Blue}: Reconstructed normal
-                         optical depth; \textcolor{cyan}{Cyan}: Free-space
-                         baseline; \textcolor{red}{Red}: Threshold optical
+                    ]{{\thePDF}}
+                }}
+                \caption{{Rev\theREV\-\theOCC\ $\tau$-profile from data file
+                         \theTAU. \textcolor{{blue}}{{Blue}}: Reconstructed normal
+                         optical depth; \textcolor{{cyan}}{{Cyan}}: Free-space
+                         baseline; \textcolor{{red}}{{Red}}: Threshold optical
                          depth (measurement SNR $\simeq$ 1). Optical depth is
                          plotted downword, the same direction as increasing
-                         direct signal extinction.}
-            \end{figure}
+                         direct signal extinction.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=21,
                         width=\textwidth,
-                        trim = {0.4cm 0cm 0.5cm 0cm},
+                        trim = {{0.4cm 0cm 0.5cm 0cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Rev\theREV\-\theOCC\ $\tau$-profile from data file
-                         \theTAU. \textcolor{blue}{Blue}: Reconstructed normal
-                         optical depth; \textcolor{cyan}{Cyan}: Free-space
-                         baseline; \textcolor{red}{Red}: Threshold optical
+                    ]{{\thePDF}}
+                }}
+                \caption{{Rev\theREV\-\theOCC\ $\tau$-profile from data file
+                         \theTAU. \textcolor{{blue}}{{Blue}}: Reconstructed normal
+                         optical depth; \textcolor{{cyan}}{{Cyan}}: Free-space
+                         baseline; \textcolor{{red}}{{Red}}: Threshold optical
                          depth (measurement SNR $\simeq$ 1). Optical depth is
                          plotted downword, the same direction as increasing
-                         direct signal extinction.}
-            \end{figure}
+                         direct signal extinction.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=22,
                         width=\textwidth,
-                        trim = {0.4cm 0cm 0.5cm 0cm},
+                        trim = {{0.4cm 0cm 0.5cm 0cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Rev\theREV\-\theOCC\ $\tau$-profile from data file
-                         \theTAU. \textcolor{blue}{Blue}: Reconstructed normal
-                         optical depth; \textcolor{cyan}{Cyan}: Free-space
-                         baseline; \textcolor{red}{Red}: Threshold optical
+                    ]{{\thePDF}}
+                }}
+                \caption{{Rev\theREV\-\theOCC\ $\tau$-profile from data file
+                         \theTAU. \textcolor{{blue}}{{Blue}}: Reconstructed normal
+                         optical depth; \textcolor{{cyan}}{{Cyan}}: Free-space
+                         baseline; \textcolor{{red}}{{Red}}: Threshold optical
                          depth (measurement SNR $\simeq$ 1). Optical depth is
                          plotted downword, the same direction as increasing
-                         direct signal extinction.}
-            \end{figure}
+                         direct signal extinction.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=23,
                         width=\textwidth,
-                        trim = {0.4cm 0cm 0.5cm 0cm},
+                        trim = {{0.4cm 0cm 0.5cm 0cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Rev\theREV\-\theOCC\ $\tau$-profile from data file
-                         \theTAU. \textcolor{blue}{Blue}: Reconstructed normal
-                         optical depth; \textcolor{cyan}{Cyan}: Free-space
-                         baseline; \textcolor{red}{Red}: Threshold optical
+                    ]{{\thePDF}}
+                }}
+                \caption{{Rev\theREV\-\theOCC\ $\tau$-profile from data file
+                         \theTAU. \textcolor{{blue}}{{Blue}}: Reconstructed normal
+                         optical depth; \textcolor{{cyan}}{{Cyan}}: Free-space
+                         baseline; \textcolor{{red}}{{Red}}: Threshold optical
                          depth (measurement SNR $\simeq$ 1). Optical depth is
                          plotted downword, the same direction as increasing
-                         direct signal extinction.}
-            \end{figure}
+                         direct signal extinction.}}
+            \end{{figure}}
             \newpage
-            \begin{figure}[H]
+            \begin{{figure}}[H]
                 \centering
-                \resizebox{\textwidth}{!}{
+                \resizebox{{\textwidth}}{{!}}{{
                     \includegraphics[
                         page=24,
                         width=\textwidth,
-                        trim = {1.0cm 1cm 1.4cm 1cm},
+                        trim = {{1.0cm 1cm 1.4cm 1cm}},
                         clip
-                    ]{\thePDF}
-                }
-                \caption{Rev\theREV\-\theOCC\ DSS-\theDSN\ $\phi$-profile
+                    ]{{\thePDF}}
+                }}
+                \caption{{Rev\theREV\-\theOCC\ DSS-\theDSN\ $\phi$-profile
                          from data file \theTAU. Phase wrapping occurs at
-                         the $\pm$180$^{\circ}$ boundaries.}
-            \end{figure}
-        \end{document}
-    """ % (pdffil, rev, doy, res, occ, geo, cal, tau, year, band, dsn)
+                         the $\pm$180$^{{\circ}}$ boundaries.}}
+            \end{{figure}}
+        \end{{document}}
+    """.format(
+        pdffil, rev, doy, res, occ, geo, cal, tau, year, band, dsn
+    )
 
     texvar = pdffil.split("/")
 
-    if (len(texvar) > 1):
+    if len(texvar) > 1:
         out = "%s/" % (texvar[0])
-        for i in range(1, len(texvar)-1):
-            out = "%s%s/" % (out, texvar[i])
+        for i in range(1, len(texvar) - 1):
+            out = f"{out}{texvar[i]}/"
     else:
         out = "$PWD"
 
     TexName = texvar[-1]
     TexName = TexName.split(".")[0]
-    TexFileName = '%s.tex' % TexName
-    TexFile = open(TexFileName,'w')
+    TexFileName = "%s.tex" % TexName
+    TexFile = open(TexFileName, "w")
     TexFile.write(LaTeXFile)
     TexFile.close()
 
     TexScript = """
         #!/bin/bash
-        pdflatex %s.tex > tex.out
-        pdflatex %s.tex > tex.out
+        pdflatex {}.tex > tex.out
+        pdflatex {}.tex > tex.out
         rm tex.out
-        mv %s.pdf %s
-        rm %s.log
-        rm %s.aux
-        rm %s.tex
-        rm %s.sh
-    """ % (TexName, TexName, TexName, out, TexName, TexName, TexName, TexName)
+        mv {}.pdf {}
+        rm {}.log
+        rm {}.aux
+        rm {}.tex
+        rm {}.sh
+    """.format(
+        TexName, TexName, TexName, out, TexName, TexName, TexName, TexName
+    )
 
-    TexSh = open("%s.sh" % TexName,'w')
+    TexSh = open("%s.sh" % TexName, "w")
     TexSh.write(TexScript)
     TexSh.close()
 
-    make_executable('%s.sh' % TexName)
-    shell_execute(['./%s.sh' % TexName])
+    make_executable("%s.sh" % TexName)
+    shell_execute(["./%s.sh" % TexName])

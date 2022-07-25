@@ -9,8 +9,9 @@
 
 import numpy as np
 import pandas as pd
+from rss_ringoccs.tools import error_check
+
 from .history import write_history_dict, date_to_rev, rev_to_occ_info
-from . import error_check
 
 
 def get_geo(geo, verbose=True, use_deprecate=False):
