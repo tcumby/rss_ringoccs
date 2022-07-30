@@ -24,22 +24,17 @@ occgeo_uranus.py
 """
 import pdb
 
-from ..tools.spm_to_et import spm_to_et
-from ..tools.et_to_spm import et_to_spm
-from ..tools.write_output_files import write_output_files
-from ..tools.history import write_history_dict
-
-from . import calc_occ_geometry as cog
-
-from scipy.interpolate import splrep
-from scipy.interpolate import splev
-
-import spiceypy as spice  # type: ignore
 import numpy as np
-import sys
+import spiceypy as spice  # type: ignore
+
+import rss_ringoccs.occgeo.calc_occ_geometry as cog
+from ..tools.et_to_spm import et_to_spm
+from ..tools.history import write_history_dict
+from ..tools.spm_to_et import spm_to_et
+from ..tools.write_output_files import write_output_files
 
 
-class Geometry(object):
+class Geometry:
 
     """
     :Purpose:

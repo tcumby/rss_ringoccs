@@ -27,6 +27,9 @@
 import numpy as np
 from scipy.signal import spectrogram  # type: ignore
 
+from rss_ringoccs.calibration import Calibration
+from rss_ringoccs.rsr_reader import RSRReader
+
 
 class calc_tau_thresh:
     """
@@ -57,7 +60,14 @@ class calc_tau_thresh:
 
     """
 
-    def __init__(self, rsr_inst, geo_inst, cal_inst, res_km=1.0, Calpha=2.41):
+    def __init__(
+        self,
+        rsr_inst: RSRReader,
+        geo_inst,
+        cal_inst: Calibration,
+        res_km=1.0,
+        Calpha=2.41,
+    ):
 
         # find time-series sampling frequency and rate
         df = rsr_inst.sample_rate_khz * 1e3

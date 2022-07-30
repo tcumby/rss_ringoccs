@@ -20,21 +20,19 @@
     #. spiceypy
 
 """
-from ..tools.spm_to_et import spm_to_et
-from ..tools.et_to_spm import et_to_spm
-from ..tools.write_output_files import write_output_files
-from ..tools.history import write_history_dict
+from typing import Optional, Union, Any, List
 
-from . import calc_occ_geometry as cog
-
-from scipy.interpolate import splrep
-from scipy.interpolate import splev
-
-import spiceypy as spice  # type: ignore
 import numpy as np
+import spiceypy as spice  # type: ignore
+
+import rss_ringoccs.occgeo.calc_occ_geometry as cog
+from ..rsr_reader import RSRReader
+from ..tools.et_to_spm import et_to_spm
+from ..tools.history import write_history_dict
+from ..tools.spm_to_et import spm_to_et
 
 
-class Geometry(object):
+class Geometry:
 
     """
     :Purpose:
@@ -133,20 +131,20 @@ class Geometry(object):
 
     def __init__(
         self,
-        rsr_inst,
-        planet,
-        spacecraft,
-        kernels,
-        pt_per_sec=1.0,
-        ref="J2000",
-        ring_frame=None,
-        nhat_p=None,
-        verbose=False,
-        write_file=True,
+        rsr_inst: RSRReader,
+        planet: str,
+        spacecraft: str,
+        kernels: Union[str, List[Any]],
+        pt_per_sec: float = 1.0,
+        ref: str = "J2000",
+        ring_frame: Optional[str] = None,
+        nhat_p: Optional[List[float]] = None,
+        verbose: bool = False,
+        write_file: bool = True,
     ):
 
         self.verbose = verbose
-        self.add_info = {}
+        self.add_info: Optional[dict[str, str]] = {}
         nhat_p_input = nhat_p
 
         if verbose:
@@ -163,7 +161,7 @@ class Geometry(object):
                 "ERROR (Geometry): Input pt_per_sec is NOT an int " + "or float!"
             )
 
-        ## Extract information from rsr instance
+        # # Extract information from rsr instance
         year = rsr_inst.year
         doy = rsr_inst.doy
         dsn = rsr_inst.dsn
@@ -450,6 +448,9 @@ class Geometry(object):
 
         # Write output data and label file if set
         if write_file:
+            # Defer the import to avoid a circular import issue with tool.write_output_files
+            from ..tools.write_output_files import write_output_files
+
             self.outfiles = write_output_files(self)
 
     def __get_naif_version(self):

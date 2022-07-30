@@ -19,8 +19,11 @@ setup(
     packages=[
         "rss_ringoccs",
         "rss_ringoccs.calibration",
+        "rss_ringoccs.diffrec",
         "rss_ringoccs.occgeo",
         "rss_ringoccs.rsr_reader",
+        "rss_ringoccs.scatter",
+        "rss_ringoccs.special_functions",
         "rss_ringoccs.tools",
     ],
     version="1.3",

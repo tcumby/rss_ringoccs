@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.signal import spectrogram  # type: ignore
-from ..tools.write_output_files import construct_filepath
+from ..tools.filepath_tools import construct_filepath
 
 
 def cont_stft(time, signal, numpts=int(1e3), nsegs=int(5e2)):

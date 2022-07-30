@@ -92,11 +92,13 @@
         Created: Team Cassini - 2018/06/14 2:20 P.M.
         Nov 26 2018 - sflury - doc strings updated to match sphinx formatting
 """
-from . import _diffrec as diffrec  # type: ignore # noqa: F401
-from . import _special_functions as special_functions  # type: ignore # noqa: F401
+# from . import _diffrec as diffrec  # type: ignore # noqa: F401
+# from . import _special_functions as special_functions  # type: ignore # noqa: F401
+import rss_ringoccs.diffrec  # type: ignore # noqa: F401
+import rss_ringoccs.special_functions  # type: ignore # noqa: F401
 
-from . import tools  # noqa: F401
-from . import rsr_reader  # noqa: F401
-from . import occgeo  # noqa: F401
-from . import calibration  # noqa: F401
-from . import scatter  # noqa: F401
+import rss_ringoccs.tools  # noqa: F401
+import rss_ringoccs.rsr_reader  # noqa: F401
+import rss_ringoccs.occgeo  # noqa: F401
+import rss_ringoccs.calibration  # noqa: F401
+import rss_ringoccs.scatter  # noqa: F401

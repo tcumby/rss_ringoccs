@@ -13,18 +13,18 @@ Dependencies:
     #. sys
 """
 
-import numpy as np
-from scipy.interpolate import splrep,splev
-from scipy.integrate import simps
 import sys
 
-from ..tools.history import write_history_dict
-from ..tools.write_output_files import write_output_files
+import numpy as np
+from scipy.interpolate import splrep, splev  # type: ignore
+
 from .freq_offset_fit import FreqOffsetFit
 from .power_normalization import Normalization
 from ..occgeo import Geometry
+from ..tools.history import write_history_dict
 
-class Calibration(object):
+
+class Calibration:
     """
     :Purpose:
         Define a class which, when instantiated, calls the submodules
@@ -70,29 +70,40 @@ class Calibration(object):
                         and computation of the calibration procedures
         :FORFIT_chi_squared (*float*): sum of the squared residual
                         frequency offset fit such that
-                        :math:`\chi^2 = \\frac{1}{N-m}
-                        \sum((\hat{f}(t)_{offset}-f(t)_{offset})
-                        /\hat{f}(t)_{offset})^2`
+                        :math:`\\chi^2 = \\frac{1}{N-m}
+                        \\sum((\\hat{f}(t)_{offset}-f(t)_{offset})
+                        /\\hat{f}(t)_{offset})^2`
         :FSPFIT_chi_squared (*float*):
-                        :math:`\chi^2 = \\frac{1}{N-m}\sum
-                        ((\hat{P}_0(t)-P_0(t))/\hat{P}_0(t))^2`
+                        :math:`\\chi^2 = \\frac{1}{N-m}\\sum
+                        ((\\hat{P}_0(t)-P_0(t))/\\hat{P}_0(t))^2`
     """
 
-    def __init__(self, rsr_inst, geo_inst, pnf_order=3, fof_lims = None,
-                 verbose=False, write_file=True, interact=False):
+    def __init__(
+        self,
+        rsr_inst,
+        geo_inst,
+        pnf_order=3,
+        fof_lims=None,
+        verbose=False,
+        write_file=True,
+        interact=False,
+    ):
 
         if not isinstance(geo_inst, Geometry):
-            sys.exit('ERROR (Calibration): geo_inst input needs to be an '
-                + 'instance of the Geometry class')
-
+            sys.exit(
+                "ERROR (Calibration): geo_inst input needs to be an "
+                + "instance of the Geometry class"
+            )
 
         if not isinstance(verbose, bool):
-            print('WARNING (Calibration): verbose input must be one of '
-                + 'Python\'s built-in booleans (True or False). Setting to '
-                + 'False')
+            print(
+                "WARNING (Calibration): verbose input must be one of "
+                + "Python's built-in booleans (True or False). Setting to "
+                + "False"
+            )
             verbose = False
 
-        '''
+        """
         # Find the max and min SPM values with True boolean indices
         if len(self.raw_spm_vals[inds]) > 2 :
             # if user-defined lower spm is more constraining than geometry
@@ -112,43 +123,54 @@ class Calibration(object):
             print('Error in estimating SPM range for frequency offset!')
             spm_min = self.raw_spm_vals[0]
             spm_max = self.raw_spm_vals[-1]
-        '''
+        """
 
         if verbose:
-            print('\nCalibrating frequency and power...')
+            print("\nCalibrating frequency and power...")
 
         # Extract rev_info from geo_inst -- this will inherit its prof_dir
         self.rev_info = geo_inst.rev_info
 
-
         # Calculate frequency offset fit
         # Use default offset frequency fit
-        fit_inst = FreqOffsetFit(rsr_inst, geo_inst, verbose=verbose,
-                write_file=write_file, fof_lims=fof_lims)
+        fit_inst = FreqOffsetFit(
+            rsr_inst,
+            geo_inst,
+            verbose=verbose,
+            write_file=write_file,
+            fof_lims=fof_lims,
+        )
 
         # Get corrected I's and Q's
-        self.IQ_c = self.correct_IQ(rsr_inst.spm_vals,rsr_inst.IQ_m,
-                            fit_inst.f_spm,fit_inst.f_offset_fit)
+        self.IQ_c = self.correct_IQ(
+            rsr_inst.spm_vals, rsr_inst.IQ_m, fit_inst.f_spm, fit_inst.f_offset_fit
+        )
 
         # Normalize observed power by the freespace signal
-        norm_inst = Normalization(rsr_inst.spm_vals, self.IQ_c, geo_inst,
-                order=pnf_order,verbose=verbose,interact=interact,
-                write_file=write_file)
+        norm_inst = Normalization(
+            rsr_inst.spm_vals,
+            self.IQ_c,
+            geo_inst,
+            order=pnf_order,
+            verbose=verbose,
+            interact=interact,
+            write_file=write_file,
+        )
 
         spm_cal = geo_inst.t_oet_spm_vals
 
         # Evaluate f_sky_recon at spm_cal
         f_sky_recon_splcoef = splrep(fit_inst.f_spm, fit_inst.f_sky_recon)
-        f_sky_recon_cal = splev(spm_cal,f_sky_recon_splcoef)
+        f_sky_recon_cal = splev(spm_cal, f_sky_recon_splcoef)
 
         # Evaluate f_offset_fit at spm_cal
-        f_offset_fit_splcoef = splrep(fit_inst.f_spm,fit_inst.f_offset_fit)
-        f_offset_fit_cal = splev(spm_cal,f_offset_fit_splcoef)
+        f_offset_fit_splcoef = splrep(fit_inst.f_spm, fit_inst.f_offset_fit)
+        f_offset_fit_cal = splev(spm_cal, f_offset_fit_splcoef)
 
         # Evaluate spline fit at spm_cal
         p_free_cal_splcoef = splrep(norm_inst.spm_down, norm_inst.pnorm_fit)
-        p_free_cal = splev(spm_cal,p_free_cal_splcoef)
-        p_free_raw = splev(rsr_inst.spm_vals,p_free_cal_splcoef)
+        p_free_cal = splev(spm_cal, p_free_cal_splcoef)
+        p_free_raw = splev(rsr_inst.spm_vals, p_free_cal_splcoef)
 
         # attributes for writing to file
         self.t_oet_spm_vals = spm_cal
@@ -163,31 +185,29 @@ class Calibration(object):
         self.FSPFIT_chi_squared = norm_inst.chi_squared
 
         # Write to file
-        input_vars = {
-                "rsr_inst": rsr_inst.history,
-                "geo_inst": geo_inst.history}
-        input_kwds = {
-                "pnf_order": pnf_order,
-                "interact": interact}
+        input_vars = {"rsr_inst": rsr_inst.history, "geo_inst": geo_inst.history}
+        input_kwds = {"pnf_order": pnf_order, "interact": interact}
 
         additional_info = {
-                "FORFIT_chi_squared": self.FORFIT_chi_squared,
-                "FSPFIT_chi_squared": self.FSPFIT_chi_squared,
-                "pnf_fittype": 'poly',
-                "fof_order": fit_inst.poly_order,
-                "freespace_spm": gaps_used}
+            "FORFIT_chi_squared": self.FORFIT_chi_squared,
+            "FSPFIT_chi_squared": self.FSPFIT_chi_squared,
+            "pnf_fittype": "poly",
+            "fof_order": fit_inst.poly_order,
+            "freespace_spm": gaps_used,
+        }
 
-
-        self.history = write_history_dict(input_vars, input_kwds, __file__,
-                add_info=additional_info)
+        self.history = write_history_dict(
+            input_vars, input_kwds, __file__, add_info=additional_info
+        )
         self.naif_toolkit_version = geo_inst.naif_toolkit_version
 
-
         if write_file:
+            # Defer import to avoid a circular import cycle
+            from ..tools.write_output_files import write_output_files
+
             self.outfiles = write_output_files(self)
 
-
-    def correct_IQ(self,spm_vals,IQ_m,f_spm,f_offset_fit):
+    def correct_IQ(self, spm_vals, IQ_m, f_spm, f_offset_fit):
         """
         Purpose:
             Apply frequency offset fit to raw measured signal using
@@ -198,8 +218,8 @@ class Calibration(object):
             function :math:`\\psi` using Equation 18 from
             [CRSUG2018]_ where
             .. math::
-                \\psi = \int^{t}\hat{f}(\\tau)_{offset}
-                \mathrm{d}\\tau+\\psi(t_0)
+                \\psi = \\int^{t}\\hat{f}(\\tau)_{offset}
+                \\mathrm{d}\\tau+\\psi(t_0)
             Finally, applies phase detrending correction to signal to
             raw signal such that
             .. math::
@@ -225,12 +245,12 @@ class Calibration(object):
         npts = round((f_spm[-1] - f_spm[0]) / dt)
         f_spm_ip = f_spm[0] + dt * np.arange(npts)
         f_off_splcoef = splrep(f_spm, f_offset_fit)
-        f_off_ip = splev(f_spm_ip,f_off_splcoef)
+        f_off_ip = splev(f_spm_ip, f_off_splcoef)
 
         # Integration of frequency offset fit to get phase detrending function.
-        f_detrend_ip = np.cumsum(f_off_ip)*dt
-        #f_detrend_ip = np.zeros(len(f_off_ip))
-        #for i in range(len(f_off_ip)):
+        f_detrend_ip = np.cumsum(f_off_ip) * dt
+        # f_detrend_ip = np.zeros(len(f_off_ip))
+        # for i in range(len(f_off_ip)):
         #    f_detrend_ip[i] = simps(f_off_ip[:i+1],x=f_spm_ip[:i+1])
         f_detrend_ip_rad = f_detrend_ip * (2.0 * np.pi)
         # Then interpolate to same SPM as I and Q
