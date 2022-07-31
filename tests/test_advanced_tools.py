@@ -1,9 +1,9 @@
 from pathlib import Path
-import pytest
+import pytest  # type: ignore
 import matplotlib.pyplot as plt  # type: ignore
 import numpy
-import rss_ringoccs.diffrec.advanced_tools as at
-import rss_ringoccs.diffrec.diffraction_correction as dc
+import rss_ringoccs.tools.advanced_tools as at
+import rss_ringoccs.diffrec as dc
 from matplotlib import gridspec
 from matplotlib.backends.backend_pdf import PdfPages  # type: ignore
 
@@ -138,7 +138,7 @@ class TestAdvancedTools:
                 plt.rc("font", family="serif")
                 plt.rc("font", size=10)
                 plt.figure(figsize=(8.5, 11))
-                plt.suptitle("%s Reconstructions: %s Resolution" % (rev, res), size=14)
+                plt.suptitle("{} Reconstructions: {} Resolution".format(rev, res), size=14)
 
                 # Use gridspec to create 4-by-2 plots.
                 gs = gridspec.GridSpec(4, 2, wspace=0.5, hspace=0.5)
@@ -196,7 +196,7 @@ class TestAdvancedTools:
                 plt.rc("font", size=10)
                 plt.figure(figsize=(8.5, 11))
                 plt.suptitle(
-                    "%s C-Ring Reconstructions: %s Resolution" % (rev, res), size=14
+                    "{} C-Ring Reconstructions: {} Resolution".format(rev, res), size=14
                 )
 
                 # Use gridspec to create 4-by-2 plots.
