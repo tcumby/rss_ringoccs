@@ -23,7 +23,9 @@ endif()
 
 cmake_print_variables(PYTHON_EXECUTABLE)
 cmake_print_variables(NumPy_INCLUDE_DIRS)
-
+# TODO the more standard place to install dependent libraries would be in rss_ringoccs.libs in site-packages,
+# similar to what numpy does with their BLAS libraries. We should try this and update RUNPATH / @rpath entries
+# accordingly
 set(modules _diffrec _special_functions)
 set(module_diffrec_source diffraction_correction_class)
 set(module_special_functions_source special_functions_module)
@@ -137,4 +139,5 @@ if(NOT DEFINED SKBUILD)
     )
 else()
     install(TARGETS ${modules} DESTINATION .)
+    # TODO install to rss_ringoccs/diffrec and /special_functions
 endif()
