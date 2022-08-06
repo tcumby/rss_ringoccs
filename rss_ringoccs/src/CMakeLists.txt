@@ -32,11 +32,23 @@ foreach(module ${modules})
         add_library(${module} MODULE ${module${module}_source}.c)
         python_extension_module(${module})
         set_target_properties(
-			${module}
-       		PROPERTIES
-				INSTALL_RPATH "$ORIGIN"
-				BUILD_WITH_INSTALL_RPATH TRUE
-        	)
+            ${module}
+            PROPERTIES INSTALL_RPATH "$ORIGIN" BUILD_WITH_INSTALL_RPATH TRUE
+        )
+        if(MACOSX)
+            add_custom_command(
+                ${module}
+                POST_BUILD
+                COMMAND
+                install_name_tool
+                -add_rpath
+                @loader_path
+                "$<TARGET_FILE:${module}>"
+                VERBATIM
+                COMMENT
+                "Add @loader_path to the @rpath search list for $<TARGET_FILE:${module}>"
+            )
+        endif()
     else()
         add_library(${module} SHARED ${module${module}_source}.c)
     endif()
