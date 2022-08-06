@@ -31,6 +31,12 @@ foreach(module ${modules})
     if(SKBUILD)
         add_library(${module} MODULE ${module${module}_source}.c)
         python_extension_module(${module})
+        set_target_properties(
+			${module}
+       		PROPERTIES
+				INSTALL_RPATH "$ORIGIN"
+				BUILD_WITH_INSTALL_RPATH TRUE
+        	)
     else()
         add_library(${module} SHARED ${module${module}_source}.c)
     endif()
