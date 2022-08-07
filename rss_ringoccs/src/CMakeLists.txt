@@ -35,7 +35,9 @@ foreach(module ${modules})
         python_extension_module(${module})
         set_target_properties(
             ${module}
-            PROPERTIES INSTALL_RPATH "$ORIGIN" BUILD_WITH_INSTALL_RPATH TRUE
+            PROPERTIES
+                INSTALL_RPATH "$ORIGIN/../.libs"
+                BUILD_WITH_INSTALL_RPATH TRUE
         )
         if(MACOSX)
             add_custom_command(
@@ -44,7 +46,7 @@ foreach(module ${modules})
                 COMMAND
                 install_name_tool
                 -add_rpath
-                @loader_path
+                "@loader_path/../.dylibs"
                 "$<TARGET_FILE:${module}>"
                 VERBATIM
                 COMMENT
