@@ -84,8 +84,24 @@ if(NOT DEFINED SKBUILD)
     )
 else()
     if(MACOSX)
-        install(TARGETS librssringoccs DESTINATION .dylibs)
+        set(LIBRSSRINGOCCS_LIB_PACKAGE_DIR ".dylibs"
+            CACHE INTERNAL
+            "The folder in which to store \
+        librssringoccs.so/.dylib/.dll"
+        )
     else()
-        install(TARGETS librssringoccs DESTINATION .libs)
+        set(LIBRSSRINGOCCS_LIB_PACKAGE_DIR ".libs"
+            CACHE INTERNAL
+            "The folder in which to store \
+        librssringoccs.so/.dylib/.dll"
+        )
     endif()
+
+    configure_file("../cmake/__config__.py.in" "__config__.py")
+
+    install(
+        TARGETS librssringoccs
+        DESTINATION ${LIBRSSRINGOCCS_LIB_PACKAGE_DIR}
+    )
+    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/__config__.py" DESTINATION .)
 endif()

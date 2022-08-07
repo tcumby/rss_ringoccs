@@ -92,8 +92,17 @@
         Created: Team Cassini - 2018/06/14 2:20 P.M.
         Nov 26 2018 - sflury - doc strings updated to match sphinx formatting
 """
-# from . import _diffrec as diffrec  # type: ignore # noqa: F401
-# from . import _special_functions as special_functions  # type: ignore # noqa: F401
+try:
+    # This import will also append .libs to PATH for Windows so librssringoccs.dll can be located
+    from rss_ringoccs.__config__ import show as show_config  # type: ignore # noqa: F401
+
+except ImportError as e:
+    msg = """Error importing rss_ringoccs: you should not try to import rss_ringoccs from
+    its source directory because it will lack the built Python extensions; please exit the rss_ringoccs source tree,
+    and relaunch your python interpreter from there."""
+    raise ImportError(msg) from e
+
+
 import rss_ringoccs.diffrec  # type: ignore # noqa: F401
 import rss_ringoccs.special_functions  # type: ignore # noqa: F401
 
