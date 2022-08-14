@@ -53,6 +53,28 @@ repos:
     hooks:
     -   id: pyupgrade
         args: [--py36-plus]
+  # Formatters
+-   repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+    rev: v2.4.0
+    hooks:
+    -   id: pretty-format-yaml
+        args: [--autofix, --indent, '4']
+-   repo: https://github.com/BlankSpruce/gersemi #cmake formatter
+    rev: 0.8.1
+    hooks:
+    -   id: gersemi
+-   repo: https://github.com/asottile/setup-cfg-fmt
+    rev: v1.20.1
+    hooks:
+    -   id: setup-cfg-fmt
+-   repo: https://github.com/psf/black # python formatter
+    rev: 22.6.0
+    hooks:
+    -   id: black
+-   repo: https://github.com/asottile/blacken-docs
+    rev: v1.12.1
+    hooks:
+    -   id: blacken-docs
 
   # --- Linters ---
 -   repo: https://github.com/pre-commit/mirrors-mypy
@@ -80,25 +102,3 @@ repos:
     hooks:
     -   id: cpplint
         args: [--linelength=120, '--filter=-legal/copyright,-whitespace/braces,-whitespace/newline,-build/namespaces,-build/header_guard,-build/include_order,-build/include_subdir, -whitespace/parens,-readability/casting,-runtime/threadsafe_fn,-runtime/int,-runtime/printf,-whitespace/operators,-readability/braces,-whitespace/comma,-whitespace/tab,-readability/fn_size']
-  # Formatters
--   repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
-    rev: v2.4.0
-    hooks:
-    -   id: pretty-format-yaml
-        args: [--autofix, --indent, '4']
--   repo: https://github.com/BlankSpruce/gersemi #cmake formatter
-    rev: 0.8.1
-    hooks:
-    -   id: gersemi
--   repo: https://github.com/asottile/setup-cfg-fmt
-    rev: v1.20.1
-    hooks:
-    -   id: setup-cfg-fmt
--   repo: https://github.com/psf/black # python formatter
-    rev: 22.6.0
-    hooks:
-    -   id: black
--   repo: https://github.com/asottile/blacken-docs
-    rev: v1.12.1
-    hooks:
-    -   id: blacken-docs
