@@ -19,12 +19,12 @@ def test_root_dir() -> Path:
 
 @pytest.fixture()
 def test_data_dir(test_root_dir) -> Path:
-    return test_root_dir / "Test_Data"
+    return test_root_dir.parent / "Test_Data"
 
 
 @pytest.fixture()
 def figures_dir(test_root_dir) -> Path:
-    return test_root_dir / "Figures"
+    return test_root_dir.parent / "Figures"
 
 
 class TestAdvancedTools:
