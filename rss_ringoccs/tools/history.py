@@ -4,7 +4,7 @@
     Functions related to recording processing history.
 
 :Dependencies:
-    #. sys
+    #. getpass
     #. time
     #. os
     #. platform
