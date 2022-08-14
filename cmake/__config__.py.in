@@ -17,5 +17,4 @@ def get_info():
 
 
 def show():
-
     print(get_info())
