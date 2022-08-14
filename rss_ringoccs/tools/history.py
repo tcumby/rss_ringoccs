@@ -11,6 +11,7 @@
     #. pandas
     #. numpy
 """
+
 import time
 import platform
 import os
@@ -552,12 +553,15 @@ def write_history_dict(input_vars, input_kwds, source_file, add_info=None):
     try:
         user_name = os.getlogin()
     except OSError:
+        # When run from Github CI, os.getlogin() errors
         user_name = getpass.getuser()
 
-    host_name = os.uname()[1]
+    host_name = platform.uname()[1]
+    operating_system = platform.system()
+
     run_date = time.ctime() + " " + time.tzname[0]
     python_version = platform.python_version()
-    operating_system = os.uname()[0]
+
     src_dir = source_file.rsplit("/", 1)[0] + "/"
     src_file = source_file.split("/")[-1]
     rssocc_version = "1.3-beta"
