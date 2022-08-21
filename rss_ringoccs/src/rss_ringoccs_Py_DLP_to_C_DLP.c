@@ -3,14 +3,17 @@
 
 rssringoccs_DLPObj *rssringoccs_Py_DLP_to_C_DLP(PyObject *py_dlp)
 {
-    PyObject *tmp;
-    PyObject *arr;
-    rssringoccs_DLPObj *dlp;
+    PyObject *tmp = NULL;
+    PyObject *arr = NULL;
+    rssringoccs_DLPObj *dlp = NULL;
 
     if (py_dlp == NULL)
         return NULL;
-
+#ifdef __cplusplus
+    dlp = new rssringoccs_DLPObj;
+#else
     dlp = (rssringoccs_DLPObj*)malloc(sizeof(*dlp));
+#endif
     if (dlp == NULL)
         return dlp;
 
@@ -49,7 +52,9 @@ rssringoccs_DLPObj *rssringoccs_Py_DLP_to_C_DLP(PyObject *py_dlp)
 
     /*  If it exists, get a pointer to it.                                    */
     else
+    {
         tmp = PyObject_GetAttrString(py_dlp, "rho_km_vals");
+    }
 
     /*  Now make sure rho_km_vals is a numpy array.                           */
     if (!PyArray_Check(tmp))
@@ -65,7 +70,9 @@ rssringoccs_DLPObj *rssringoccs_Py_DLP_to_C_DLP(PyObject *py_dlp)
 
     /*  If rho_km_vals is a numpy array, try to convert it to double.         */
     else
+    {
         arr = PyArray_FromObject(tmp, NPY_DOUBLE, 1, 1);
+    }
 
     /*  If PyArray_FromObject failed arr should be NULL. If so, raise error. */
     if (!arr)

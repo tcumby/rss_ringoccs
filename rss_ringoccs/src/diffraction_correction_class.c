@@ -249,8 +249,8 @@ static void Diffrec_dealloc(PyDiffrecObj *self)
 static int Diffrec_init(PyDiffrecObj *self, PyObject *args, PyObject *kwds)
 {
     /*  Declare variables for a DLP and Tau object.                           */
-    rssringoccs_DLPObj *dlp;
-    rssringoccs_TAUObj *tau;
+    rssringoccs_DLPObj *dlp = NULL;
+    rssringoccs_TAUObj *tau = NULL;
 
     /*  For computing the calculation time.                                   */
     clock_t t1 = clock();
@@ -543,7 +543,13 @@ static int Diffrec_init(PyDiffrecObj *self, PyObject *args, PyObject *kwds)
 
     /*  Similarly, we free the DLP. This does not free the data from the      *
      *  input DLP PyObject. Those are also still available.                   */
+#ifdef __cplusplus
+    if (dlp != NULL){
+        delete dlp;
+    }
+#else
     free(dlp);
+#endif
 
     if (self->verbose)
         puts("\tDiffraction Correction: Building arguments dictionary...");
@@ -926,7 +932,7 @@ static PyMemberDef Custom_members[] = {
 static PyTypeObject constructDiffrecType(void) {
     PyTypeObject DiffrecType = { PyVarObject_HEAD_INIT(NULL, 0)};
 
-    DiffrecType.tp_name = "_diffrec.DiffractionCorrection";
+    DiffrecType.tp_name = "diffrec.DiffractionCorrection";
     DiffrecType.tp_doc = "Diffraction Correction class.";
     DiffrecType.tp_basicsize = sizeof(PyDiffrecObj);
     DiffrecType.tp_itemsize = 0;
@@ -946,7 +952,7 @@ static PyTypeObject DiffrecType = constructDiffrecType();
 static PyModuleDef constructModuleDef(void)
 {
     PyModuleDef moduledef = { PyModuleDef_HEAD_INIT};
-    moduledef.m_name = "_diffrec";
+    moduledef.m_name = "diffrec";
     moduledef.m_doc = "Module containing the rss_ringoccs class.";
     moduledef.m_size = -1;
 
