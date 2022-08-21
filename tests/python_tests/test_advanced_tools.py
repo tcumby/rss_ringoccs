@@ -80,7 +80,7 @@ class TestAdvancedTools:
             res,
             rng=rng,
             wtype=wtype,
-            verbose=False,
+            verbose=True,
             psitype=psitype,
             res_factor=res_f,
             perturb=perturb,
