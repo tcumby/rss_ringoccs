@@ -127,6 +127,28 @@ foreach(source ${diffraction_sources})
 endforeach()
 
 target_sources(_diffrec PRIVATE ${diffraction_sources})
+if(ENABLE_ASAN)
+    if(MSVC)
+        target_compile_options(_diffrec PRIVATE "-fsanitize=address")
+        target_link_directories(
+            _diffrec
+            PRIVATE
+                "$ENV{ProgramFiles\(x86\)}/Microsoft Visual Studio/2019/Community/VC/Tools/Llvm/x64/lib/clang/12.0.0/\
+                lib/windows"
+        )
+        target_link_libraries(
+            _diffrec
+            clang_rt.asan_dynamic-x86_64
+            clang_rt.asan_dynamic_runtime_thunk-x86_64
+        )
+        target_link_options(
+            _diffrec
+            PRIVATE
+                /wholearchive:clang_rt.asan_dynamic_runtime_thunk-x86_64.lib
+                /wholearchive:clang_rt.asan_dynamic-x86_64.lib
+        )
+    endif()
+endif()
 
 if(NOT DEFINED SKBUILD)
     include(GNUInstallDirs)

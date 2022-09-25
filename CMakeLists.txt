@@ -29,6 +29,7 @@ endif()
 
 option(BUILD_EXAMPLES "Build all examples" TRUE)
 option(BUILD_TESTS "Build all tests" TRUE)
+option(ENABLE_ASAN "Enable build with Clang's Address Sanitizer" FALSE)
 
 set(RSS_RINGOCCS_PARENT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.." CACHE PATH "" FORCE)
 set(RSS_RINGOCCS_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}" CACHE PATH "" FORCE)
