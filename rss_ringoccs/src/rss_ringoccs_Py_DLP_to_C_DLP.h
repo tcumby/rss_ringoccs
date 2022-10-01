@@ -1,9 +1,16 @@
 #ifndef __RSS_RINGOCCS_PY_DLP_TO_C_DLP_H__
 #define __RSS_RINGOCCS_PY_DLP_TO_C_DLP_H__
 
+/* To avoid seg faults due to numpy, this must be defined before any numpy    *
+ *  includes and must be also defined in any other linked *.c files that      *
+ *  that utilize numpy functions.                                             */
+#define NO_IMPORT_ARRAY
+#define PY_ARRAY_UNIQUE_SYMBOL DIFFREC_ARRAY_API
+
 #include "rss_ringoccs_py_api.h"
 #include <numpy/ndarraytypes.h>
 #include <numpy/ufuncobject.h>
+
 
 /*  Macro for raising the appropriate python error if the DLP instance is     *
  *  missing an attribute. This is equivalent to the following in python       *

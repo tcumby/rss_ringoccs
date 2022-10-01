@@ -1,6 +1,12 @@
 #ifndef __RSS_RINGOCCS_C_TAU_TO_PY_TAU_H__
 #define __RSS_RINGOCCS_C_TAU_TO_PY_TAU_H__
 
+/* To avoid seg faults due to numpy, this must be defined before any numpy    *
+ *  includes and must be also defined in any other linked *.c files that      *
+ *  that utilize numpy functions.                                             */
+#define NO_IMPORT_ARRAY
+#define PY_ARRAY_UNIQUE_SYMBOL DIFFREC_ARRAY_API
+
 #include "rss_ringoccs_py_api.h"
 #include <rss_ringoccs/include/rss_ringoccs_reconstruction.h>
 

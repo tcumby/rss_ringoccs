@@ -166,6 +166,11 @@
 /*  To avoid compiler warnings about deprecated numpy stuff.                  */
 #define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
 
+/* To avoid seg faults due to numpy, this must be defined before any numpy    *
+ *  includes and must be also defined in any other linked *.c files that      *
+ *  that utilize numpy functions.                                             */
+#define PY_ARRAY_UNIQUE_SYMBOL DIFFREC_ARRAY_API
+
 /*  The standard library header stdlib contains malloc, calloc, and realloc,  *
  *  free, as well as strtol (string-to-long) which converts a string like     *
  *  "314" to the integer 314.                                                 */
@@ -180,6 +185,8 @@
 #include <Python.h>
 #include <numpy/ndarraytypes.h>
 #include <numpy/ufuncobject.h>
+
+
 
 /*  The following header files are NON-STANDARD, and are a part of the        *
  *  rss_ringoccs package. The setup scripts will add the correct CFLAGS so    *
@@ -1008,5 +1015,6 @@ PyMODINIT_FUNC PyInit__diffrec(void)
     }
 
     import_array();
+
     return m;
 }
