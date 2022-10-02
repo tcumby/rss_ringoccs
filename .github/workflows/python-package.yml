@@ -41,4 +41,4 @@ jobs:
         -   name: Test with pytest
             working-directory: ..
             run: |
-                pytest --cov-report term-missing --cov=rss_ringoccs rss_ringoccs/tests
+                pytest  --capture=tee-sys --showlocals --cov-report term-missing --cov=rss_ringoccs rss_ringoccs/tests/
