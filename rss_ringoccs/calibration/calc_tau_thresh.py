@@ -25,9 +25,13 @@
 """
 
 import numpy as np
-from scipy.signal import spectrogram
+from scipy.signal import spectrogram  # type: ignore
 
-class calc_tau_thresh(object):
+from rss_ringoccs.calibration import Calibration
+from rss_ringoccs.rsr_reader import RSRReader
+
+
+class calc_tau_thresh:
     """
     :Purpose:
         Compute threshold optical depth following
@@ -55,34 +59,46 @@ class calc_tau_thresh(object):
                                   spm_vals
 
     """
-    def __init__(self,rsr_inst,geo_inst,cal_inst,
-                res_km=1.0,Calpha=2.41):
+
+    def __init__(
+        self,
+        rsr_inst: RSRReader,
+        geo_inst,
+        cal_inst: Calibration,
+        res_km=1.0,
+        Calpha=2.41,
+    ):
 
         # find time-series sampling frequency and rate
         df = rsr_inst.sample_rate_khz * 1e3
 
         # resample rho and rho dot
-        rho_km = np.interp(cal_inst.t_oet_spm_vals,geo_inst.t_oet_spm_vals,
-                geo_inst.rho_km_vals)
-        rho_dot_kms = np.interp(cal_inst.t_oet_spm_vals,geo_inst.t_oet_spm_vals,
-                geo_inst.rho_dot_kms_vals)
-        B_rad = np.deg2rad(np.interp(cal_inst.t_oet_spm_vals,
-            geo_inst.t_oet_spm_vals,geo_inst.B_deg_vals))
+        rho_km = np.interp(
+            cal_inst.t_oet_spm_vals, geo_inst.t_oet_spm_vals, geo_inst.rho_km_vals
+        )
+        rho_dot_kms = np.interp(
+            cal_inst.t_oet_spm_vals, geo_inst.t_oet_spm_vals, geo_inst.rho_dot_kms_vals
+        )
+        B_rad = np.deg2rad(
+            np.interp(
+                cal_inst.t_oet_spm_vals, geo_inst.t_oet_spm_vals, geo_inst.B_deg_vals
+            )
+        )
 
         # set attributes
         self.spm_vals = cal_inst.t_oet_spm_vals
         self.rho_vals = rho_km
 
         # find noise power
-        noise = self.find_noise(rsr_inst.spm_vals,rsr_inst.IQ_m,df)
+        noise = self.find_noise(rsr_inst.spm_vals, rsr_inst.IQ_m, df)
 
         # find signal power
         signal = cal_inst.p_free_vals
 
-        bandwidth = abs( rho_dot_kms / res_km )
-        snr = signal/noise
+        bandwidth = abs(rho_dot_kms / res_km)
+        snr = signal / noise
 
-        tau = -np.sin(abs(B_rad))*np.log(0.5*Calpha*bandwidth/snr)
+        tau = -np.sin(abs(B_rad)) * np.log(0.5 * Calpha * bandwidth / snr)
 
         # compute SNR and set attribute
         self.snr = snr
@@ -92,7 +108,7 @@ class calc_tau_thresh(object):
         # compute threshold optical depth
         self.tau_thresh = tau
 
-    def find_noise(self,spm,IQ,df):
+    def find_noise(self, spm, IQ, df):
         """
         Locate the additive receiver noise within the data set.
         This is done by computing a spectrogram of the raw
@@ -108,20 +124,23 @@ class calc_tau_thresh(object):
             :p_noise (*np.ndarray*): noise power
         """
         # Spectrogram to filter out spacecraft signal
-        n = int(1.024 * df) # number of elements based on frequency sampling
-        freq,time,Sxx = spectrogram(IQ,df,nperseg=n,return_onesided=False)
+        n = int(1.024 * df)  # number of elements based on frequency sampling
+        freq, time, Sxx = spectrogram(IQ, df, nperseg=n, return_onesided=False)
         time += spm[0]
         # frequency filtering to include only the thermal receiver power,
         #   averaged over time
-        Sxx_freq_filt = np.nanmean(Sxx[((freq>-450)&(freq<-200))|
-            ((freq>200)&(freq<450)),:],0)
+        Sxx_freq_filt = np.nanmean(
+            Sxx[((freq > -450) & (freq < -200)) | ((freq > 200) & (freq < 450)), :], 0
+        )
         # time filtering to include only the signal outside the occultation
         # by looking at just the first and last 1,000 seconds
-        tmin = spm[0]+1e3
-        tmax = spm[-1]-1e3
-        p_noise = np.nanmean(Sxx_freq_filt[(time<tmin)|(time>tmax)])
+        tmin = spm[0] + 1e3
+        tmax = spm[-1] - 1e3
+        p_noise = np.nanmean(Sxx_freq_filt[(time < tmin) | (time > tmax)])
 
         return p_noise
+
+
 """
 Revision history
     Nov 29 2018 - sflury -- original

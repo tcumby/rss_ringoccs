@@ -55,6 +55,7 @@ set_target_properties(
     librssringoccs_compare
     PROPERTIES
         IMPORTED_LOCATION $<TARGET_FILE:tgt>
+        INTERPROCEDURAL_OPTIMIZATION ${IPO_SUPPORTED}
         IMPORTED_IMPLIB $<TARGET_LINKER_FILE:rss::librssringoccs>
         INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_CURRENT_BINARY_DIR}
 )

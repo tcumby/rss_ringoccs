@@ -166,6 +166,11 @@
 /*  To avoid compiler warnings about deprecated numpy stuff.                  */
 #define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
 
+/* To avoid seg faults due to numpy, this must be defined before any numpy    *
+ *  includes and must be also defined in any other linked *.c files that      *
+ *  that utilize numpy functions.                                             */
+#define PY_ARRAY_UNIQUE_SYMBOL DIFFREC_ARRAY_API
+
 /*  The standard library header stdlib contains malloc, calloc, and realloc,  *
  *  free, as well as strtol (string-to-long) which converts a string like     *
  *  "314" to the integer 314.                                                 */
@@ -180,6 +185,8 @@
 #include <Python.h>
 #include <numpy/ndarraytypes.h>
 #include <numpy/ufuncobject.h>
+
+
 
 /*  The following header files are NON-STANDARD, and are a part of the        *
  *  rss_ringoccs package. The setup scripts will add the correct CFLAGS so    *
@@ -197,11 +204,11 @@
 #include <rss_ringoccs/include/rss_ringoccs_special_functions.h>
 
 #include "rss_ringoccs_py_api.h"
-#include "rss_ringoccs_Py_DLP_to_C_DLP.c"
-#include "rss_ringoccs_C_Tau_to_Py_Tau.c"
-#include "rss_ringoccs_Get_Py_Perturb.c"
-#include "rss_ringoccs_Get_Py_Range.c"
-#include "rss_ringoccs_Get_Py_Vars_From_Self.c"
+#include "rss_ringoccs_Py_DLP_to_C_DLP.h"
+#include "rss_ringoccs_C_Tau_to_Py_Tau.h"
+#include "rss_ringoccs_Get_Py_Perturb.h"
+#include "rss_ringoccs_Get_Py_Range.h"
+#include "rss_ringoccs_Get_Py_Vars_From_Self.h"
 
 /*  Deallocating function for the DiffractionCorrection class.                */
 static void Diffrec_dealloc(PyDiffrecObj *self)
@@ -249,8 +256,8 @@ static void Diffrec_dealloc(PyDiffrecObj *self)
 static int Diffrec_init(PyDiffrecObj *self, PyObject *args, PyObject *kwds)
 {
     /*  Declare variables for a DLP and Tau object.                           */
-    rssringoccs_DLPObj *dlp;
-    rssringoccs_TAUObj *tau;
+    rssringoccs_DLPObj *dlp = NULL;
+    rssringoccs_TAUObj *tau = NULL;
 
     /*  For computing the calculation time.                                   */
     clock_t t1 = clock();
@@ -260,21 +267,21 @@ static int Diffrec_init(PyDiffrecObj *self, PyObject *args, PyObject *kwds)
      *  dlp and res are REQUIRED inputs, the rest are optional. If the user   *
      *  does not provide these optional keywords, we must set them ourselves. */
     static char *kwlist[] = {
-        "dlp",
-        "res",
-        "rng",
-        "wtype",
-        "use_fwd",
-        "use_norm",
-        "verbose",
-        "bfac",
-        "sigma",
-        "psitype",
-        "write_file",
-        "res_factor",
-        "ecc",
-        "peri",
-        "perturb",
+        (char*)"dlp",
+        (char*)"res",
+        (char*)"rng",
+        (char*)"wtype",
+        (char*)"use_fwd",
+        (char*)"use_norm",
+        (char*)"verbose",
+        (char*)"bfac",
+        (char*)"sigma",
+        (char*)"psitype",
+        (char*)"write_file",
+        (char*)"res_factor",
+        (char*)"ecc",
+        (char*)"peri",
+        (char*)"perturb",
         NULL
     };
 
@@ -341,7 +348,7 @@ static int Diffrec_init(PyDiffrecObj *self, PyObject *args, PyObject *kwds)
 
     /*  Extract the inputs and keywords supplied by the user. If the data     *
      *  cannot be extracted, raise a type error and return to caller. A short *
-     *  explaination of PyArg_ParseTupleAndKeywords. The inputs args and kwds *
+     *  explanation of PyArg_ParseTupleAndKeywords. The inputs args and kwds  *
      *  are somewhat straight-forward, they're the arguments and keywords     *
      *  passed by the string. The cryptic string is not straight-forward. The *
      *  | symbol means everything after need not be positional, and we can    *
@@ -543,7 +550,13 @@ static int Diffrec_init(PyDiffrecObj *self, PyObject *args, PyObject *kwds)
 
     /*  Similarly, we free the DLP. This does not free the data from the      *
      *  input DLP PyObject. Those are also still available.                   */
+#ifdef __cplusplus
+    if (dlp != NULL){
+        delete dlp;
+    }
+#else
     free(dlp);
+#endif
 
     if (self->verbose)
         puts("\tDiffraction Correction: Building arguments dictionary...");
@@ -920,6 +933,42 @@ static PyMemberDef Custom_members[] = {
     }  /* Sentinel */
 };
 
+
+#ifdef __cplusplus
+// C++ does not support C's designated initializer syntax
+static PyTypeObject constructDiffrecType(void) {
+    PyTypeObject DiffrecType = { PyVarObject_HEAD_INIT(NULL, 0)};
+
+    DiffrecType.tp_name = "diffrec.DiffractionCorrection";
+    DiffrecType.tp_doc = "Diffraction Correction class.";
+    DiffrecType.tp_basicsize = sizeof(PyDiffrecObj);
+    DiffrecType.tp_itemsize = 0;
+    DiffrecType.tp_flags = Py_TPFLAGS_DEFAULT | Py_TPFLAGS_BASETYPE;
+    DiffrecType.tp_new = PyType_GenericNew;
+    DiffrecType.tp_init = (initproc) Diffrec_init;
+    DiffrecType.tp_dealloc = (destructor) Diffrec_dealloc;
+    DiffrecType.tp_members = Custom_members;
+    DiffrecType.tp_methods = DiffractionCorrection_methods;
+
+    return DiffrecType;
+}
+
+
+static PyTypeObject DiffrecType = constructDiffrecType();
+
+static PyModuleDef constructModuleDef(void)
+{
+    PyModuleDef moduledef = { PyModuleDef_HEAD_INIT};
+    moduledef.m_name = "diffrec";
+    moduledef.m_doc = "Module containing the rss_ringoccs class.";
+    moduledef.m_size = -1;
+
+    return moduledef;
+}
+
+static PyModuleDef moduledef = constructModuleDef();
+
+#else
 static PyTypeObject DiffrecType = {
     PyVarObject_HEAD_INIT(NULL, 0)
     .tp_name = "diffrec.DiffractionCorrection",
@@ -936,12 +985,13 @@ static PyTypeObject DiffrecType = {
 
 static PyModuleDef moduledef = {
     PyModuleDef_HEAD_INIT,
-    .m_name = "custom",
+    .m_name = "diffrec",
     .m_doc = "Module containing the rss_ringoccs class.",
     .m_size = -1,
 };
+#endif
 
-PyMODINIT_FUNC PyInit_diffrec(void)
+PyMODINIT_FUNC PyInit__diffrec(void)
 {
     PyObject *m;
     int pymod_addobj;
@@ -965,5 +1015,6 @@ PyMODINIT_FUNC PyInit_diffrec(void)
     }
 
     import_array();
+
     return m;
 }

@@ -1,3 +1,7 @@
+#include "rss_ringoccs_C_Tau_to_Py_Tau.h"
+#include <rss_ringoccs/include/rss_ringoccs_string.h>
+#include <numpy/ndarraytypes.h>
+#include <numpy/ufuncobject.h>
 
 /*  This function frees the memory allocated to a pointer by malloc when the  *
  *  corresponding variable is destroyed at the Python level. Without this you *
@@ -15,7 +19,7 @@ static void __set_var(PyObject **py_ptr, double **ptr, unsigned long len)
     PyObject *tmp;
     long pylength = (long)len;
 
-    arr     = PyArray_SimpleNewFromData(1, &pylength, NPY_DOUBLE, *ptr);
+    arr     = PyArray_SimpleNewFromData(1, (const npy_intp *)&pylength, NPY_DOUBLE, *ptr);
     capsule = PyCapsule_New((void *) (*ptr), NULL, capsule_cleanup);
 
     PyArray_SetBaseObject((PyArrayObject *)arr, capsule);
@@ -34,7 +38,7 @@ static void __set_cvar(PyObject **py_ptr, rssringoccs_ComplexDouble **ptr,
     PyObject *tmp;
     long pylength = (long)len;
 
-    arr     = PyArray_SimpleNewFromData(1, &pylength, NPY_CDOUBLE, *ptr);
+    arr     = PyArray_SimpleNewFromData(1, (const npy_intp *)&pylength, NPY_CDOUBLE, *ptr);
     capsule = PyCapsule_New((void *)(*ptr), NULL, capsule_cleanup);
 
     PyArray_SetBaseObject((PyArrayObject *)arr, capsule);
@@ -45,8 +49,8 @@ static void __set_cvar(PyObject **py_ptr, rssringoccs_ComplexDouble **ptr,
     Py_XDECREF(tmp);
 }
 
-static void rssringoccs_C_Tau_to_Py_Tau(PyDiffrecObj *py_tau,
-                                        rssringoccs_TAUObj *tau)
+void rssringoccs_C_Tau_to_Py_Tau(PyDiffrecObj *py_tau,
+                                 rssringoccs_TAUObj *tau)
 {
     PyObject *tmp;
     if (tau == NULL)

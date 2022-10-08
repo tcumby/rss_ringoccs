@@ -1,4 +1,3 @@
-cmake
 numpy
 scipy
 spiceypy

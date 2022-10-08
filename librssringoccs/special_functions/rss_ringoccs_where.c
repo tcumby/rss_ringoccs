@@ -9,8 +9,8 @@
  *  pointer, the code is exactly the same.                                    */
 
 #define CreateWhereFunction(type, Type, threshtype)                            \
-unsigned long **rssringoccs_Where_Greater_##Type(type *data, unsigned long dim,\
-                                        threshtype threshold)                  \
+RSS_RINGOCCS_EXPORT unsigned long **rssringoccs_Where_Greater_##Type(type *data,\
+                                         unsigned long dim,threshtype threshold)\
 {                                                                              \
     /*  Declare necessary variables.                                         */\
     unsigned long i;                                                           \

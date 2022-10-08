@@ -17,6 +17,10 @@ set(apps julia_set julia_set_animation julia_set_on_sphere)
 
 foreach(app ${apps})
     add_executable(${app} ${app}.c)
+    set_target_properties(
+        ${app}
+        PROPERTIES C_STANDARD 99 INTERPROCEDURAL_OPTIMIZATION ${IPO_SUPPORTED}
+    )
     if(MSVC)
         set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     endif()

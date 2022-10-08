@@ -1,4 +1,5 @@
-
+#include "rss_ringoccs_Get_Py_Perturb.h"
+#include <rss_ringoccs/include/rss_ringoccs_string.h>
 
 void rssringoccs_Get_Py_Perturb(rssringoccs_TAUObj *tau, PyObject *perturb)
 {

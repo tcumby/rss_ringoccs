@@ -87,17 +87,27 @@
         ..  https://en.wikipedia.org/wiki/Error_function
         ..  http://mathworld.wolfram.com/FresnelIntegrals.html
         ..  http://mathworld.wolfram.com/Erf.html
-"""
 
-from . import tools
-from . import rsr_reader
-from . import occgeo
-from . import calibration
-from . import diffrec
-from . import scatter
+    History:
+        Created: Team Cassini - 2018/06/14 2:20 P.M.
+        Nov 26 2018 - sflury - doc strings updated to match sphinx formatting
+"""
+try:
+    # This import will also append .libs to PATH for Windows so librssringoccs.dll can be located
+    from rss_ringoccs.__config__ import show as show_config  # type: ignore # noqa: F401
 
-"""
-History:
-    Created: Team Cassini - 2018/06/14 2:20 P.M.
-    Nov 26 2018 - sflury - doc strings updated to match sphinx formatting
-"""
+except ImportError as e:
+    msg = """Error importing rss_ringoccs: you should not try to import rss_ringoccs from
+    its source directory because it will lack the built Python extensions; please exit the rss_ringoccs source tree,
+    and relaunch your python interpreter from there."""
+    raise ImportError(msg) from e
+
+
+import rss_ringoccs.diffrec  # type: ignore # noqa: F401
+import rss_ringoccs.special_functions  # type: ignore # noqa: F401
+
+import rss_ringoccs.tools  # noqa: F401
+import rss_ringoccs.rsr_reader  # noqa: F401
+import rss_ringoccs.occgeo  # noqa: F401
+import rss_ringoccs.calibration  # noqa: F401
+import rss_ringoccs.scatter  # noqa: F401

@@ -46,7 +46,7 @@ static void *_get_array_from_two_##name(void *in, type param1, long dim,       \
     void *out;                                                                 \
     type *out_data;                                                            \
                                                                                \
-    out_data = malloc(sizeof(*out_data)*dim);                                  \
+    out_data = (type *)malloc(sizeof(*out_data)*dim);                          \
                                                                                \
     for (n=0; n<dim; ++n)                                                      \
         out_data[n] = f(((type *)in)[n], param1);                              \
@@ -75,7 +75,7 @@ static void *_get_array_from_three_##name(void *in, type param1,               \
     void *out;                                                                 \
     type *out_data;                                                            \
                                                                                \
-    out_data = malloc(sizeof(*out_data)*dim);                                  \
+    out_data = (type *)malloc(sizeof(*out_data)*dim);                          \
                                                                                \
     for (n=0; n<dim; ++n)                                                      \
         out_data[n] = f(((type *)in)[n], param1, param2);                      \
@@ -225,7 +225,8 @@ static PyObject * FuncName(PyObject *self, PyObject *args)                     \
         typenum = NPY_DOUBLE;                                                  \
     }                                                                          \
                                                                                \
-    output  = PyArray_SimpleNewFromData(1, &dim, typenum, out);                \
+    output  = PyArray_SimpleNewFromData(1, (const npy_intp *)&dim, typenum,    \
+                                        out);                                  \
     capsule = PyCapsule_New(out, NULL, capsule_cleanup);                       \
                                                                                \
     /*  This frees the variable at the Python level once it's destroyed.  */   \
@@ -380,7 +381,8 @@ static PyObject * FuncName(PyObject *self, PyObject *args)                     \
         typenum = NPY_DOUBLE;                                                  \
     }                                                                          \
                                                                                \
-    output  = PyArray_SimpleNewFromData(1, &dim, typenum, out);                \
+    output  = PyArray_SimpleNewFromData(1, (const npy_intp*)&dim, typenum,     \
+                                        out);                                  \
     capsule = PyCapsule_New(out, NULL, capsule_cleanup);                       \
                                                                                \
     /*  This frees the variable at the Python level once it's destroyed.  */   \
@@ -760,7 +762,6 @@ static PyObject *where_greater(PyObject *self, PyObject *args)
 
     /*  The input is a numpy array, proceed. Otherwise spit out an error.     */
     if (PyArg_ParseTuple(args, "O!d", &PyArray_Type, &arr, &threshold)){
-        
         /*  Declare some more necessary variables.                            */
         long typenum, dim;
         void *data;
@@ -840,7 +841,7 @@ static PyObject *where_greater(PyObject *self, PyObject *args)
 
         /*  Create a Numpy array object to be passed back to Python.          */
         output =
-        PyArray_SimpleNewFromData(1, &where_dim, NPY_LONG, (void *)where_arr);
+        PyArray_SimpleNewFromData(1, (const npy_intp*)&where_dim, NPY_LONG, (void *)where_arr);
 
         /*  This frees the variable at the Python level once it's destroyed.  */
         capsule = PyCapsule_New(where_arr, NULL, capsule_cleanup);
@@ -896,7 +897,6 @@ static PyObject *where_lesser(PyObject *self, PyObject *args)
 
     /*  The input is a numpy array, proceed. Otherwise spit out an error.     */
     if (PyArg_ParseTuple(args, "O!d", &PyArray_Type, &arr, &threshold)){
-
         /*  Check to make sure input is one dimensional.                      */
         if (PyArray_NDIM(arr) != 1){
             PyErr_Format(
@@ -975,7 +975,7 @@ static PyObject *where_lesser(PyObject *self, PyObject *args)
         long where_dim = (long)*where[1];
 
         /*  Create a Numpy array object to be passed back to Python.          */
-        output  = PyArray_SimpleNewFromData(1, &where_dim, NPY_LONG,
+        output  = PyArray_SimpleNewFromData(1, (const npy_intp*)&where_dim, NPY_LONG,
                                             (void *)where_arr);
 
         /*  This frees the variable at the Python level once it's destroyed.  */
@@ -1075,7 +1075,7 @@ static PyObject *window_norm(PyObject *self, PyObject *args){
                      "\rInput should be a numpy array of numbers,"
                      "or a floating point/integer value.");
         return NULL;
-    }  
+    }
 }
 
 static PyMethodDef special_functions_methods[] =
@@ -1675,7 +1675,7 @@ static PyMethodDef special_functions_methods[] =
 
 static struct PyModuleDef moduledef = {
     PyModuleDef_HEAD_INIT,
-    "special_functions",
+    "_special_functions",
     NULL,
     -1,
     special_functions_methods,
@@ -1685,7 +1685,7 @@ static struct PyModuleDef moduledef = {
     NULL
 };
 
-PyMODINIT_FUNC PyInit_special_functions(void)
+PyMODINIT_FUNC PyInit__special_functions(void)
 {
     PyObject *m = PyModule_Create(&moduledef);
     if (!m) return NULL;

@@ -25,7 +25,10 @@ foreach(app ${test_apps})
         set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     endif()
     add_executable(${app} ${app}.c)
-    set_property(TARGET ${app} PROPERTY C_STANDARD 99)
+    set_target_properties(
+        ${app}
+        PROPERTIES C_STANDARD 99 INTERPROCEDURAL_OPTIMIZATION ${IPO_SUPPORTED}
+    )
     target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(
         ${app}
@@ -39,11 +42,14 @@ endforeach()
 include(FetchCerf)
 set(cerf_apps faddeeva_im_time_test)
 foreach(app ${cerf_apps})
-    add_executable(${app} ${app}.c)
-    set_property(TARGET ${app} PROPERTY C_STANDARD 99)
     if(MSVC)
         set_source_files_properties(${app}.c PROPERTIES LANGUAGE CXX)
     endif()
+    add_executable(${app} ${app}.c)
+    set_target_properties(
+        ${app}
+        PROPERTIES C_STANDARD 99 INTERPROCEDURAL_OPTIMIZATION ${IPO_SUPPORTED}
+    )
     target_include_directories(${app} PRIVATE ${cerf_INCLUDE_DIRECTORY})
     target_include_directories(${app} PUBLIC "${RSS_RINGOCCS_PARENT_DIR}")
     target_link_libraries(

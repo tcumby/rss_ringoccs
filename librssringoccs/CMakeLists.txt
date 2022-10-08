@@ -59,7 +59,7 @@ set_target_properties(
     librssringoccs
     PROPERTIES
         LANGUAGE $<IF:$<C_COMPILER_ID:MSVC>CXX,C>
-        INTERPROCEDURAL_OPTIMIZATION TRUE
+        INTERPROCEDURAL_OPTIMIZATION ${IPO_SUPPORTED}
         PUBLIC_HEADER "${LIBRSSRINGOCCS_HEADERS}"
         OUTPUT_NAME rssringoccs
         IMPORTED_LOCATION $<TARGET_FILE:tgt>
@@ -69,15 +69,39 @@ set_target_properties(
 
 add_library(rss::librssringoccs ALIAS librssringoccs)
 
-include(GNUInstallDirs)
-install(
-    TARGETS librssringoccs
-    RUNTIME
-    DESTINATION ${CMAKE_INSTALL_BINDIR}
-    LIBRARY
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    ARCHIVE
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    PUBLIC_HEADER
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}}
-)
+if(NOT DEFINED SKBUILD)
+    include(GNUInstallDirs)
+    install(
+        TARGETS librssringoccs
+        RUNTIME
+        DESTINATION ${CMAKE_INSTALL_BINDIR}
+        LIBRARY
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        ARCHIVE
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        PUBLIC_HEADER
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}}
+    )
+else()
+    if(MACOSX)
+        set(LIBRSSRINGOCCS_LIB_PACKAGE_DIR ".dylibs"
+            CACHE INTERNAL
+            "The folder in which to store \
+        librssringoccs.so/.dylib/.dll"
+        )
+    else()
+        set(LIBRSSRINGOCCS_LIB_PACKAGE_DIR ".libs"
+            CACHE INTERNAL
+            "The folder in which to store \
+        librssringoccs.so/.dylib/.dll"
+        )
+    endif()
+
+    configure_file("../cmake/__config__.py.in" "__config__.py")
+
+    install(
+        TARGETS librssringoccs
+        DESTINATION ${LIBRSSRINGOCCS_LIB_PACKAGE_DIR}
+    )
+    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/__config__.py" DESTINATION .)
+endif()

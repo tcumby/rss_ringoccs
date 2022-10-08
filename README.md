@@ -1,4 +1,7 @@
 # rss_ringoccs
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 The master branch is currently v1.3-beta. rss_ringoccs is unable to run on the
 latest releases of Python (3.8 or 3.9) and it is recommended that 3.6 is used.
 There is active work in rewriting the project C89/C90 compliant code to allow
@@ -10,7 +13,7 @@ at Wellesley College (Sophia Flury, Jolene Fong, Ryan Maguire, and Glenn
 Steranka) under the direction of Richard French, Cassini RSS Team Leader, with
 funding provided by the NASA/JPL Cassini project.
 
-Version 1.2 was offically released on July 1, 2019.
+Version 1.2 was officially released on July 1, 2019.
 
 Version 1.2.1 was a development version that incorporated changes between
 Versions 1.2 and 1.3.
@@ -46,16 +49,59 @@ incorporated in future editions of rss_ringoccs.
 
 ## Installation and Documentation
 Detailed installation instructions and full documentation are contained the
-`rss_ringoccs User Guide` at https://github.com/NASA-Planetary-Science/rss_ringoccs/tree/master/docs/rss_ringoccs_User_Guide_V1.3.pdf.
+`rss_ringoccs User Guide` at https://github.com/NASA-Planetary-Science/rss_ringoccs/blob/master/docs/rss_ringoccs_User_Guide_V1.3.pdf.
 
 For experienced users, we provide a `rss_ringoccs Quick Start` guide located at
-https://github.com/NASA-Planetary-Science/rss_ringoccs/tree/master/docs/rss_ringoccs_Quick_Start_V1.3.pdf
+https://github.com/NASA-Planetary-Science/rss_ringoccs/blob/master/docs/rss_ringoccs_Quick_Start_V1.3.pdf
 
 Release notes are contained in
 https://github.com/NASA-Planetary-Science/rss_ringoccs/blob/master/ReleaseNotes.md
 
 Source code documentation is found at
 https://rss-ringoccs.readthedocs.io/en/master/
+
+To install the python package from a git working copy of rss-ringoccs run (this will build all associated C libraries)
+```
+pip install .
+```
+
+## Development
+### C\C++
+This project uses [CMake](https://cmake.org/) to define the build system for the libraries to be built, as well as
+the stand-alone executable examples and tests. Additionally, the build system boot-straps a [vcpkg](https://vcpkg.io/en/index.html)
+installation locally so that external projects (namely [GSL](https://www.gnu.org/software/gsl/)) can be incorporated
+into the build system consistently for all support OS's.
+
+CMake will generate the Makefiles on Linux / macOS and Microsoft Visual Studio project files in a directory of your
+choosing (denoted by <build directory> below). Similarly, the installation directory can be specified (denoted by <install
+directory> below). The steps for generating the build system, building all libraries and executables, and installing are
+as follows
+```
+cmake -B <build directory>
+cmake --build <build directory> --config Release
+cmake --install <build directory> --prefix <install directory>
+```
+_Note_ that for Microsoft Visual Studio, the libraries and executables are built as C++ only. This is due to avoid
+Microsoft's non-standard implementation of complex numbers in their C compiler ([libcerf](https://jugit.fz-juelich.de/mlz/libcerf),
+a dependency of this project, also takes this approach) and instead use the std::complex implementation in their C++
+compiler.
+
+### Python
+Installing the dependencies for python development is accomplished with
+```
+pip install -r dev-requirements.txt
+```
+
+To test building the package as a wheel (including the C/C++ libraries), execute the following
+```
+python setup.py bdist_wheel
+```
+
+If successful a *.whl file will be produces in the `dist` folder within the current directory which can be installed via
+pip with
+```
+pip install dist/<whl file name>
+```
 
 ## Batch Data Processing
 Once `rss_ringoccs` has been installed and the necessary data and
@@ -69,8 +115,9 @@ default list is the 1 kHz Cassini RSR files prior to the USO failure, which can
 be found in the  `./tables/` directory. This batch script implementation of the
 pipeline is located in the `./pipeline/` directory. We suggest running the batch
 script using the `yes` command as shown here:
-```cd rss_ringoccs_master/pipeline
-yes | python e2e_batch.py 
+```
+cd rss_ringoccs_master/pipeline
+yes | python e2e_batch.py
 ```
 The `rss_ringoccs User Guide` includes several additional examples of end-to-end
 processing scripts, as well as instructions to enable users to construct their
@@ -83,7 +130,7 @@ https://github.com/NASA-Planetary-Science/rss_ringoccs/issues. We will attempt
 to respond promptly, and ther users will benefit. Alternatively, you can write
 email directly to Richard French: rfrench_at_wellesley.edu.
 ## Citing rss_ringoccs
-If you use rss_ringoccs as the basis of a publication, please consider 
+If you use rss_ringoccs as the basis of a publication, please consider
 citing rss_ringoccs using the DOI:10.5281/zenodo.2548947
 
 ## Acknowledgements

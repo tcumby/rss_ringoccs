@@ -1,9 +1,5 @@
-from distutils.core import setup, Extension
-import os, platform
-
-# Numpy is needed for the get_include function which tells us where various
-# header files, like numpy/arrayobject.h, live.
-import numpy
+from skbuild import setup  # type: ignore
+import sys
 
 # This seems to be needed to ensure Python uses the correct gcc. Without this
 # You may get a linker warning, for example:
@@ -15,48 +11,47 @@ import numpy
 # CFLAG fixed the issue.
 
 #   We only need this fix for macOS, so check what operating system is used.
-if (platform.system() == "Darwin"):
-    os.environ["CFLAGS"] = "-mmacosx-version-min=%s" % platform.mac_ver()[0]
+# if platform.system() == "Darwin":
+#     os.environ["CFLAGS"] = "-mmacosx-version-min=%s" % platform.mac_ver()[0]
 
-setup(name='special_functions',
-      version='1.3',
-      description='Common math and physics functions',
-      author='Ryan Maguire',
-      install_requires = ['cmake',
-                          'numpy',
-                          'scipy',
-                          'spiceypy',
-                          'matplotlib',
-                          'mayavi',
-                          'pandas',
-                          'PyMieScatt'],
-      ext_modules=[
-          Extension('special_functions',
-                    ['rss_ringoccs/src/special_functions_module.c'],
-                    include_dirs=[numpy.get_include()],
-                    library_dirs=['/usr/local/lib'],
-                    libraries=['rssringoccs'])
-        ]
-     )
-
-setup(name='diffrec',
-      version='1.3',
-      description='Diffraction correction and modeling',
-      author='Ryan Maguire',
-      install_requires=['cmake',
-                        'numpy',
-                        'scipy',
-                        'spiceypy',
-                        'matplotlib',
-                        'mayavi',
-                        'pandas',
-                        'PyMieScatt'],
-      ext_modules=[
-          Extension('diffrec',
-                    ['rss_ringoccs/src/diffraction_correction_class.c'],
-                    include_dirs=[numpy.get_include()],
-                    library_dirs=['/usr/local/lib'],
-                    libraries=['rssringoccs'])
-        ]
-     )
-
+setup(
+    name="rss_ringoccs",
+    packages=[
+        "rss_ringoccs",
+        "rss_ringoccs.calibration",
+        "rss_ringoccs.diffrec",
+        "rss_ringoccs.occgeo",
+        "rss_ringoccs.rsr_reader",
+        "rss_ringoccs.scatter",
+        "rss_ringoccs.special_functions",
+        "rss_ringoccs.tools",
+    ],
+    version="1.3",
+    author="Ryan Maguire",
+    description="A suite of open-source C and Python-based analysis tools for Cassini Radio Science (RSS) ring "
+    "occultations.",
+    url="https://github.com/NASA-Planetary-Science/rss_ringoccs",
+    project_urls={
+        "Documentation": "https://rss-ringoccs.readthedocs.io/en/master/",
+        "Bug Reports": "https://github.com/NASA-Planetary-Science/rss_ringoccs/issues",
+        "Source": "https://github.com/NASA-Planetary-Science/rss_ringoccs",
+    },
+    install_requires=[
+        "cmake",
+        "numpy",
+        "scipy",
+        "spiceypy",
+        "matplotlib",
+        "mayavi",
+        "pandas",
+        "PyMieScatt",
+    ],
+    cmake_install_dir="rss_ringoccs",
+    cmake_args=[
+        "-DBUILD_EXAMPLES:BOOL=OFF",
+        "-DBUILD_TESTS:BOOL=OFF",
+        "-DPython_VERSION={}.{}.{}".format(
+            sys.version_info.major, sys.version_info.minor, sys.version_info.micro
+        ),
+    ],
+)
