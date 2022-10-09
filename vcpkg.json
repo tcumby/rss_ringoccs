@@ -3,6 +3,7 @@
   "version-string": "1.3.0",
   "dependencies": [
     "gsl",
-    "catch2"
+    "catch2",
+    "gtest"
   ]
 }
