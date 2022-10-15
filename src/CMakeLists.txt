@@ -28,8 +28,7 @@ if(OpenMP_C_FOUND)
     target_link_libraries(librssringoccs PUBLIC OpenMP::OpenMP_C)
 endif()
 
-check_ipo_supported(RESULT result OUTPUT output LANGUAGES C)
-if(result)
+if(IPO_SUPPORTED)
     set_property(
         TARGET librssringoccs
         PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE

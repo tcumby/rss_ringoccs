@@ -36,16 +36,10 @@ set(RSS_RINGOCCS_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}" CACHE PATH "" FORCE)
 
 project(rss_ringoccs)
 
-if(MSVC)
-    enable_language(CXX)
-else()
-    enable_language(C)
-endif()
-
 cmake_policy(SET CMP0069 NEW)
 include(CheckIPOSupported)
 # Optional IPO. Do not use IPO if it's not supported by compiler.
-check_ipo_supported(RESULT IPO_SUPPORTED OUTPUT IPO_CHECK_OUTPUT)
+check_ipo_supported(RESULT IPO_SUPPORTED OUTPUT IPO_CHECK_OUTPUT LANGUAGES C)
 if(IPO_SUPPORTED)
     message(
         STATUS
@@ -59,11 +53,7 @@ else()
 endif()
 
 add_subdirectory("librssringoccs")
-add_subdirectory("rss_ringoccs")
-
-if(BUILD_EXAMPLES)
-    add_subdirectory("examples")
-endif()
+#add_subdirectory("rss_ringoccs")
 
 if(BUILD_TESTS)
     add_subdirectory("tests")
