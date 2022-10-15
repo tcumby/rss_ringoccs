@@ -17,7 +17,7 @@
 #   along with rss_ringoccs.  If not, see <https://www.gnu.org/licenses/>.     #
 ################################################################################
 #   Author:     Ryan Maguire                                                   #
-#   Date:       Sepemtber 15, 2022                                             #
+#   Date:       September 15, 2022                                             #
 ################################################################################
 
 TARGET_LIB := librssringoccs.so
@@ -71,4 +71,3 @@ uninstall:
 	rm -f /usr/local/lib/$(TARGET_LIB)
 
 -include $(DEPS)
-
