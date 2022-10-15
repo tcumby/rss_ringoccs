@@ -1,5 +1,5 @@
 /******************************************************************************
- *                                 LICENSE                                    *
+ *                                  LICENSE                                   *
  ******************************************************************************
  *  This file is part of rss_ringoccs.                                        *
  *                                                                            *
@@ -24,7 +24,10 @@
  *  Date:       December 31, 2020                                             *
  ******************************************************************************/
 
+/*  free is found here, as is NULL.                                           */
 #include <stdlib.h>
+
+/*  rssringoccs_CSVData typedef here, and function prototype given.           */
 #include <rss_ringoccs/include/rss_ringoccs_csv_tools.h>
 
 /*  Function for freeing the memory in a CSV object.                          */
@@ -47,7 +50,7 @@ void rssringoccs_Destroy_CSV(rssringoccs_CSVData **csv)
     /*  Free all of the pointers inside the CSV object.                       */
     rssringoccs_Destroy_CSV_Members(csv_inst);
 
-    /*  If an error occured along the way, the error_message variable is      *
+    /*  If an error occurred along the way, the error_message variable is     *
      *  malloced and a string is stored. Check if we need to free this.       */
     if (csv_inst->error_message != NULL)
     {

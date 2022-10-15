@@ -29,64 +29,50 @@ static void write_val(FILE *fp, double x, double y)
 
 int main(void)
 {
-    rssringoccs_TauCSV *tau;
-    unsigned long n, start_n, end_n;
-    double start = 87400.0;
-    double end   = 87600.0;
+    rssringoccs_CalCSV *cal;
+    unsigned long int n;
     FILE *fp;
 
-    tau = rssringoccs_Get_Tau(
-        "../Test_Data/Rev007E_X43_Maxwell_TAU_1000M.TAB", tmpl_False
-    );
+    cal = rssringoccs_Get_Cal("../Test_Data/Rev007E_X43_Maxwell_CAL.TAB");
 
-    if (tau == NULL)
+    if (cal == NULL)
     {
         puts("Error Encountered: rss_ringoccs\n"
-             "\ttest_get_tau_csv\n\n"
-             "rssringoccs_Get_Tau returned NULL.\n");
+             "\ttest_get_cal_csv\n\n"
+             "rssringoccs_Get_Cal returned NULL.\n");
         return -1;
     }
-    else if (tau->error_occurred)
+
+    if (cal->error_occurred)
     {
-        if (tau->error_message == NULL)
+        if (cal->error_message == NULL)
         {
             puts("Error Encountered: rss_ringoccs\n"
-                "\ttest_get_tau_csv\n\n"
-                "tau->error_occurred set to true with no error message.\n");
-            rssringoccs_Destroy_TauCSV(&tau);
+                 "\ttest_get_cal_csv\n\n"
+                 "cal->error_occurred set to true with no error message.\n");
+            rssringoccs_Destroy_CalCSV(&cal);
             return -1;
         }
         else
         {
             printf("Error Encountered: rss_ringoccs\n"
-                   "\ttest_get_tau_csv\n\n"
-                   "tau->error_occurred set to true. Printing error:\n\n%s",
-                   tau->error_message);
-            rssringoccs_Destroy_TauCSV(&tau);
+                   "\ttest_get_cal_csv\n\n"
+                   "geo->error_occurred set to true. Printing error:\n\n%s",
+                   cal->error_message);
+            rssringoccs_Destroy_CalCSV(&cal);
             return -1;
         }
     }
 
-    fp = fopen("rev007_tau_binary", "w");
+    fp = fopen("rev007_plot_binary", "w");
 
-    n = 0;
-    while (tau->rho_km_vals[n] < start)
-        n++;
-
-    start_n = n;
-
-    while(tau->rho_km_vals[n] < end)
-        n++;
-
-    end_n = n;
-
-    for (n=start_n; n<end_n; ++n)
-        write_val(fp, tau->rho_km_vals[n], tau->power_vals[n]);
+    for (n = 0U; n < cal->n_elements; ++n)
+        write_val(fp, cal->t_oet_spm_vals[n], cal->f_sky_resid_fit_vals[n]);
 
     fclose(fp);
 
-    system("graph --font-size 0.03 -T ps -I d < rev007_tau_binary > plot.ps");
-    system("rm -f rev007_tau_binary");
-    rssringoccs_Destroy_TauCSV(&tau);
+    system("graph --font-size 0.03 -T ps -I d < rev007_plot_binary > plot.ps");
+    system("rm -f rev007_plot_binary");
+    rssringoccs_Destroy_CalCSV(&cal);
     return 0;
 }

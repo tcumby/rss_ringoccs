@@ -3,7 +3,7 @@
  ******************************************************************************
  *  This file is part of rss_ringoccs.                                        *
  *                                                                            *
- *  rss_ringoccs is free software: you can redistribute it and/or modify it   *
+ *  rss_ringoccs is free software: you can redistribute it and/or modify      *
  *  it under the terms of the GNU General Public License as published by      *
  *  the Free Software Foundation, either version 3 of the License, or         *
  *  (at your option) any later version.                                       *
@@ -15,18 +15,36 @@
  *                                                                            *
  *  You should have received a copy of the GNU General Public License         *
  *  along with rss_ringoccs.  If not, see <https://www.gnu.org/licenses/>.    *
- ******************************************************************************
- *  Author:     Ryan Maguire, Wellesley College                               *
- *  Date:       May 27, 2021                                                  *
  ******************************************************************************/
-
-/* #include <cspice/include/SpiceUsr.h>
-#include <rss_ringoccs/include/rss_ringoccs_occultation_geometry.h>
+#include "crss_ringoccs.h"
 
 void
-rssringoccs_Calc_B_Deg(double *et_vals, char *spacecraft, char *dsn,
-                       tmpl_ThreeVector nhat_p, char *kernels, char *ref)
+rssringoccs_Get_Py_Vars_From_Tau_Self(rssringoccs_TAUObj *tau,
+                                      PyDiffrecObj *self)
 {
-    return;
+    if (tau == NULL)
+        return;
+
+    if (tau->error_occurred)
+        return;
+
+    if (self == NULL)
+    {
+        tau->error_occurred = tmpl_True;
+        tau->error_message = tmpl_strdup(
+            "\n\rError Encountered: rss_ringoccs\n"
+            "\r\trssringoccs_C_Tau_to_Py_Tau\n\n"
+            "\rInput self is NULL. Aborting.n"
+        );
+        return;
+    }
+
+    tau->sigma    = self->sigma;
+    tau->bfac     = self->bfac;
+    tau->ecc      = self->ecc;
+    tau->peri     = self->peri;
+    tau->use_fwd  = self->use_fwd;
+    tau->use_norm = self->use_norm;
+    tau->verbose  = self->verbose;
 }
-*/
+

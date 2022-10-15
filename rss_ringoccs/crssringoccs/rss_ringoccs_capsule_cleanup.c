@@ -3,7 +3,7 @@
  ******************************************************************************
  *  This file is part of rss_ringoccs.                                        *
  *                                                                            *
- *  rss_ringoccs is free software: you can redistribute it and/or modify it   *
+ *  rss_ringoccs is free software: you can redistribute it and/or modify      *
  *  it under the terms of the GNU General Public License as published by      *
  *  the Free Software Foundation, either version 3 of the License, or         *
  *  (at your option) any later version.                                       *
@@ -15,18 +15,14 @@
  *                                                                            *
  *  You should have received a copy of the GNU General Public License         *
  *  along with rss_ringoccs.  If not, see <https://www.gnu.org/licenses/>.    *
- ******************************************************************************
- *  Author:     Ryan Maguire, Wellesley College                               *
- *  Date:       May 27, 2021                                                  *
  ******************************************************************************/
+#include "crss_ringoccs.h"
 
-/* #include <cspice/include/SpiceUsr.h>
-#include <rss_ringoccs/include/rss_ringoccs_occultation_geometry.h>
-
-void
-rssringoccs_Calc_B_Deg(double *et_vals, char *spacecraft, char *dsn,
-                       tmpl_ThreeVector nhat_p, char *kernels, char *ref)
+/*  This function frees the memory allocated to a pointer by malloc when the  *
+ *  corresponding variable is destroyed at the Python level. Without this you *
+ *  will have serious memory leaks, so do not remove!                         */
+void capsule_cleanup(PyObject *capsule)
 {
-    return;
+    void *memory = PyCapsule_GetPointer(capsule, NULL);
+    free(memory);
 }
-*/

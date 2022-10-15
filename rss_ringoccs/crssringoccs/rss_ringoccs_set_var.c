@@ -1,5 +1,5 @@
 /******************************************************************************
- *                                  LICENSE                                   *
+ *                                 LICENSE                                    *
  ******************************************************************************
  *  This file is part of rss_ringoccs.                                        *
  *                                                                            *
@@ -16,42 +16,53 @@
  *  You should have received a copy of the GNU General Public License         *
  *  along with rss_ringoccs.  If not, see <https://www.gnu.org/licenses/>.    *
  ******************************************************************************
+ *                        Diffraction Correction Class                        *
+ ******************************************************************************
  *  Purpose:                                                                  *
- *      Free all of the pointers in a CalCSV object.                          *
+ *      Defines the DiffractionCorrection class for rss_ringoccs. This uses   *
+ *      the C-Python API to build an extension module containing the class.   *
  ******************************************************************************
  *  Author:     Ryan Maguire, Wellesley College                               *
- *  Date:       December 31, 2020                                             *
+ *  Date:       June 22, 2019                                                 *
  ******************************************************************************/
+#include "crss_ringoccs.h"
 
-/*  free is found here, as is NULL.                                           */
-#include <stdlib.h>
+/*  Numpy header files.                                                       */
+#include <numpy/ndarraytypes.h>
+#include <numpy/ufuncobject.h>
 
-/*  rssringoccs_CalCSV typedef here, and function prototype given.            */
-#include <rss_ringoccs/include/rss_ringoccs_csv_tools.h>
-
-/*  Check if this macro name has been defined.                                */
-#ifdef DESTROY_CAL_VAR
-#undef DESTROY_CAL_VAR
-#endif
-
-/*  Macro for freeing and nullifying the members of the cal CSV structs.      */
-#define DESTROY_CAL_VAR(var) if (var != NULL){free(var); var = NULL;}
-
-/*  Free's all members of a rssringoccs_CalCSV pointer except the             *
- *  error_message. Members are set to NULL after freeing.                     */
-void rssringoccs_Destroy_CalCSV_Members(rssringoccs_CalCSV *cal)
+void set_var(PyObject **py_ptr, double **ptr, unsigned long int len)
 {
-    /*  If the pointer is NULL, there's nothing to do. Simply return.         */
-    if (cal == NULL)
-        return;
+    PyObject *arr, *tmp, *capsule;
+    long pylength = (long)len;
 
-    /*  Destroy every variable except the error_message.                      */
-    DESTROY_CAL_VAR(cal->t_oet_spm_vals)
-    DESTROY_CAL_VAR(cal->f_sky_pred_vals)
-    DESTROY_CAL_VAR(cal->f_sky_resid_fit_vals)
-    DESTROY_CAL_VAR(cal->p_free_vals)
+    if (PyArray_API == NULL)
+    {
+        if (_import_array() < 0)
+        {
+            PyErr_Print();
+            PyErr_SetString(PyExc_ImportError,
+                            "numpy.core.multiarray failed to import");
+            return;
+        }
+    }
+
+    if (*ptr != NULL)
+    {
+        arr = PyArray_SimpleNewFromData(1, &pylength, NPY_DOUBLE, *ptr);
+        capsule = PyCapsule_New((void *) (*ptr), NULL, capsule_cleanup);
+        PyArray_SetBaseObject((PyArrayObject *)arr, capsule);
+        tmp = *py_ptr;
+        Py_INCREF(arr);
+        *py_ptr = arr;
+        Py_XDECREF(tmp);
+    }
+    else
+    {
+        tmp = *py_ptr;
+        Py_INCREF(Py_None);
+        *py_ptr = Py_None;
+        Py_XDECREF(tmp);
+    }
 }
-/*  End of rssringoccs_Destroy_CalCSV_Members.                                */
 
-/*  Undef the macro function.                                                 */
-#undef DESTROY_CAL_VAR

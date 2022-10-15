@@ -1,4 +1,9 @@
-from distutils.core import setup, Extension
+# Python is swapping distutils with setuptools.
+try:
+    from setuptools import setup, Extension
+except ImportError:
+    from distutils.core import setup, Extension
+
 import os, platform
 
 # Numpy is needed for the get_include function which tells us where various
@@ -18,21 +23,30 @@ import numpy
 if (platform.system() == "Darwin"):
     os.environ["CFLAGS"] = "-mmacosx-version-min=%s" % platform.mac_ver()[0]
 
-setup(name='diffrec',
-      version='1.3',
-      description='Diffraction correction and modeling',
-      author='Ryan Maguire',
-      ext_modules=[
-          Extension('diffrec',
-                    ['rss_ringoccs/rss_ringoccs_diffraction_correction_class.c'],
-                    include_dirs=[numpy.get_include()],
-                    library_dirs=['/usr/local/lib'],
-                    libraries=['rssringoccs']),
-          Extension('csvtools',
-                    ['rss_ringoccs/rss_ringoccs_extract_csv_data_class.c'],
-                    include_dirs=[numpy.get_include()],
-                    library_dirs=['/usr/local/lib'],
-                    libraries=['rssringoccs']),
-        ]
-     )
+srclist = []
+
+for file in os.listdir("rss_ringoccs/crssringoccs"):
+
+    # Only add .c files.
+    if (file[-1] == "c"):
+        srclist.append("rss_ringoccs/crssringoccs/%s" % file)
+
+setup(
+    name = "rss_ringoccs",
+    version = "1.3",
+    description = "C Tools for rss_ringoccs",
+    author = "Ryan Maguire",
+    ext_modules=[
+        Extension(
+            "crssringoccs",
+            srclist,
+            include_dirs=[
+                numpy.get_include(),
+                "/usr/local/include"
+            ],
+            library_dirs=["/usr/local/lib"],
+            libraries=["tmpl", "rssringoccs"]
+        )
+    ]
+)
 
