@@ -1,0 +1,16 @@
+target_sources(
+    librssringoccs
+    PRIVATE
+        rss_ringoccs_fresnel_d2psi_dphi2.c
+        rss_ringoccs_fresnel_dpsi_dphi.c
+        rss_ringoccs_fresnel_dpsi_dphi_D.c
+        rss_ringoccs_fresnel_dpsi_dphi_elliptic.c
+        rss_ringoccs_fresnel_psi.c
+        rss_ringoccs_fresnel_psi_newton.c
+        rss_ringoccs_fresnel_psi_newton_D.c
+        rss_ringoccs_fresnel_psi_newton_D_old.c
+        rss_ringoccs_fresnel_psi_newton_dD_dphi.c
+        rss_ringoccs_fresnel_psi_newton_elliptic.c
+        rss_ringoccs_fresnel_psi_old.c
+        rss_ringoccs_fresnel_scale.c
+)

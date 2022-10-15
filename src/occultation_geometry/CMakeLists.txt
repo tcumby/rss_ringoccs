@@ -1,0 +1,1 @@
+target_sources(librssringoccs PRIVATE rssringoccs_calc_B_deg.c)
