@@ -88,6 +88,11 @@ if(NOT DEFINED SKBUILD)
         PUBLIC_HEADER
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}}
     )
+    set(CONAN_SOURCE_DIR ${CMAKE_SOURCE_DIR} CACHE INTERNAL "")
+    set(CONAN_DEPLOY_DIR ${CMAKE_INSTALL_LIBDIR})
+    configure_file("${CMAKE_SOURCE_DIR}/cmake/conan_deploy.cmake.in" "conan_deploy.cmake")
+    install(SCRIPT "${CMAKE_CURRENT_BINARY_DIR}/conan_deploy.cmake"
+    )
 else()
     if(MACOSX)
         set(LIBRSSRINGOCCS_LIB_PACKAGE_DIR ".dylibs"
@@ -110,4 +115,13 @@ else()
         DESTINATION ${LIBRSSRINGOCCS_LIB_PACKAGE_DIR}
     )
     install(FILES "${CMAKE_CURRENT_BINARY_DIR}/__config__.py" DESTINATION .)
+
+    install(CODE [[
+     execute_process(
+        COMMAND conan install -c tools.build:download_source=True --deploy=rss_ringoccs_deployer --output-folder ${LIBRSSRINGOCCS_LIB_PACKAGE_DIR} ${CMAKE_SOURCE_DIR}
+        COMMAND_ECHO STDOUT
+        COMMAND_ERROR_IS_FATAL ANY
+    )
+    ]]
+    )
 endif()
